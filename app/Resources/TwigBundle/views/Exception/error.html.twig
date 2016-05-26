@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block stylesheets %}
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.css') }}">
+
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
+
+    <!--Icon Fonts-->
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/fonts/font-awesome/font-awesome.min.css') }}">
+
+    <!-- Extras -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/extras/animate.css') }}">
+
+
+{% endblock %}
+{% block body %}
+    <body>
+    <header id="home">
+        <!-- Color over Image -->
+        <div class="color-overlay">
+
+            <!-- navbar log -->
+            <div class="navbar logo-nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-xs-4">
+                            <div class="navbar-header">
+                                <div class="logo">
+                                    <!-- <a href=""><img src="{{ asset('') }}" alt=""></a>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-8">
+                            <div class="pull-right">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heading And Texts -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 intro-section">
+                        <h1 class="intro">Ah crap!</h1>
+                        <p class="sub-heading">
+                            The servers are on fire! Grab a bucket! send help!
+                        </p>
+                            <a class="btn btn-common wow bounceIn" href="{{ path('homepage') }}">Main Page</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Heading And Texts End-->
+
+        </div>
+        <!-- Color over Image  End -->
+    </header>
+    <!-- HEADER END -->
+    </body>
+
+{% endblock %}
+{% block javascripts %}
+    <!-- Bootstrap JS -->
+    <!-- jQuery Load -->
+    <script src="{{ asset('assets/js/jquery-min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <!--WOW Scroll Spy-->
+    <script src="{{ asset('assets/js/wow.js') }}"></script>
+    <!-- Smooth Scroll -->
+    <script src="{{ asset('assets/js/smooth-on-scroll.js') }}"></script>
+    <script src="{{ asset('assets/js/smooth-scroll.js') }}"></script>
+    <!-- All JS plugin Triggers -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends '::default.html.twig' %}
+
+{% block body %}
+<!-- Start: CONTENT WRAPPER -->
+<section id="content_wrapper">
+    <!-- Start: TOPBAR -->
+    <header id="topbar">
+        <div class="topbar-left">
+            <ol class="breadcrumb">
+                <li class="crumb-active">
+                    <a href="{{ path('dashboard') }}">Dashboard</a>
+                </li>
+                <li class="crumb-icon">
+                    <a href="{{ path('dashboard') }}">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </a>
+                </li>
+            </ol>
+        </div>
+    </header>
+    <!-- End: TOPBAR -->
+
+    <!-- Begin: CONTENT -->
+    <section id="content" >
+        <div class="panel">
+            <div class="panel-heading">
+                <span class="panel-title">Panel title</span>
+            </div>
+            <div class="panel-body">
+        <h2 class="form-signin-heading">{{ user.fullname }}</h2>
+        <dl class="genus-details-list">
+            <dt>Information:</dt>
+            <dd>We can fetch notes from the database about the user. </dd>
+            <dt>Email: </dt>
+            <dd>{{ user.username }}</dd>
+            <dt>Is user active?</dt>
+            <dd>{{ user.isactive }}</dd>
+            <dt>User Role</dt>
+            <dd>{% for role in user.roles %}
+                    {{ role }}
+                {% endfor %}
+            </dd>
+            <dt>User Registration Date:</dt>
+            <dd>{{ user.createdat|date('Y-m-d') }}</dd>
+            <dt>Last Updated Date:</dt>
+            <dd>{{ user.modifiedat|date('Y-m-d') }}</dd>
+
+        </dl>
+    </div>
+        </div>
+        </div>
+    </section>
+    <!-- End: CONTENT-->
+</section>
+{% endblock %}
+

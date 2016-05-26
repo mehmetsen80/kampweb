@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}North American University{% endblock %}</title>
+    <meta name="author" content="North American University">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block stylesheets %}
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600'>
+        <link rel='stylesheet' type='text/css' href='{{ asset('assets/skin/base/fonts/admindesigns.less') }}'>
+        <!-- Font CSS -->
+        <link rel='stylesheet' type='text/css' href='{{ asset('assets/fonts/font-awesome/css/font-awesome.css') }}'>
+        <!-- Theme CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
+        <!-- Admin Forms CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
+    {% endblock %}
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="dashboard-page sb-l-o sb-r-c">
+{% set route = app.request.attributes.get('_route') %}
+<!-- Start: Main -->
+<div id="main">
+    <!-- Start: Header -->
+    {% block header %}
+    <header class="navbar navbar-fixed-top bg-dark">
+        <div class="navbar-branding">
+            <a class="navbar-brand" href="{{ path('dashboard') }}">
+                <b>Kamp</b>Web
+            </a>
+            <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
+        </div>
+        <ul class="nav navbar-nav navbar-left">
+
+            <li>
+                <a class="topbar-menu-toggle" href="#">
+                    <span class="ad ad-wand fs16"></span>
+                </a>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span class="ad ad-radio-tower fs18"></span>
+                </a>
+                <ul class="dropdown-menu media-list w350 animated animated-shorter fadeIn" role="menu">
+                    <li class="dropdown-header">
+                        <span class="dropdown-title"> Notifications</span>
+                        <span class="label label-warning">12</span>
+                    </li>
+                    <li class="media">
+                        <div class="media-body">
+                            <h5 class="media-heading">Article
+                                <small class="text-muted">- 08/16/22</small>
+                            </h5> Last Updated 36 days ago by
+                            <a class="text-system" href="#"> Max </a>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="media-body">
+                            <h5 class="media-heading mv5">Article
+                                <small> - 08/16/22</small>
+                            </h5>
+                            Last Updated 36 days ago by
+                            <a class="text-system" href="#"> Max </a>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="media-body">
+                            <h5 class="media-heading">Article
+                                <small class="text-muted">- 08/16/22</small>
+                            </h5> Last Updated 36 days ago by
+                            <a class="text-system" href="#"> Max </a>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="media-body">
+                            <h5 class="media-heading mv5">Article
+                                <small class="text-muted">- 08/16/22</small>
+                            </h5> Last Updated 36 days ago by
+                            <a class="text-system" href="#"> Max </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">  {{ app.user.fullname }}
+                    <span class="caret caret-tp hidden-xs"></span>
+                </a>
+                <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
+                    <li class="dropdown-footer">
+                        <a href="{{ path('logout') }}" class="">
+                            <span class="fa fa-power-off pr5"></span> Logout </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </header>
+    {% endblock %}
+    <!-- End: Header -->
+    <!-- Start: Sidebar Left -->
+    {% block sidebar %}
+    <aside id="sidebar_left" class="nano nano-primary affix">
+
+        <!-- Start: Sidebar Left Content -->
+        <div class="sidebar-left-content nano-content">
+
+            <!-- Start: Sidebar Left Menu -->
+            <ul class="nav sidebar-menu">
+                <li class="sidebar-label pt20">Menu</li>
+                <li>
+                    <a href="{{ path('dashboard') }}">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="sidebar-title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('users') }}">
+                        <span class="fa fa-users"></span>
+                        <span class="sidebar-title">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-calendar"></span>
+                        <span class="sidebar-title">Events</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-label pt20">Settings</li>
+                <li class="sidebar-proj">
+                    <a href="#projectOne">
+                        <span class="fa fa-dot-circle-o text-primary"></span>
+                        <span class="sidebar-title">My Profile</span>
+                    </a>
+                </li>
+                <li class="sidebar-proj">
+                    <a href="{{ path('update') }}">
+                        <span class="fa fa-dot-circle-o text-info"></span>
+                        <span class="sidebar-title">Edit Profile</span>
+                    </a>
+                </li>
+                <li class="sidebar-proj">
+                    <a href="#projectTwo">
+                        <span class="fa fa-dot-circle-o text-danger"></span>
+                        <span class="sidebar-title">Reset Password</span>
+                    </a>
+                </li>
+
+            </ul>
+            <!-- End: Sidebar Menu -->
+
+            <!-- Start: Sidebar Collapse Button -->
+            <div class="sidebar-toggle-mini">
+                <a href="#">
+                    <span class="fa fa-sign-out"></span>
+                </a>
+            </div>
+            <!-- End: Sidebar Collapse Button -->
+
+        </div>
+        <!-- End: Sidebar Left Content -->
+
+    </aside>
+    <!-- End: Sidebar Left -->
+        <!------------------------------------------------------------ End: SIDEBAR LEFT CONTENT -------------------------------------------------------------->
+    {% endblock %}
+    {% block topbar %}
+    <!-- Start: Content-Wrapper -->
+    <section id="content_wrapper">
+
+        <!-- Start: Topbar-Dropdown -->
+        <div id="topbar-dropmenu">
+            <div class="topbar-menu row">
+                <div class="col-xs-4 col-sm-2">
+                    <a href="#" class="metro-tile">
+                        <span class="glyphicon glyphicon-inbox"></span>
+                        <span class="metro-title">Messages</span>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <a href="#" class="metro-tile">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span class="metro-title">Users</span>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <a href="#" class="metro-tile">
+                        <span class="glyphicon glyphicon-headphones"></span>
+                        <span class="metro-title">Support</span>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <a href="#" class="metro-tile">
+                        <span class="fa fa-gears"></span>
+                        <span class="metro-title">Settings</span>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <a href="#" class="metro-tile">
+                        <span class="glyphicon glyphicon-facetime-video"></span>
+                        <span class="metro-title">Videos</span>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <a href="#" class="metro-tile">
+                        <span class="glyphicon glyphicon-picture"></span>
+                        <span class="metro-title">Pictures</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- End: Topbar-Dropdown -->
+        </section>
+    <!-- End: Content-Wrapper -->
+    {% endblock %}
+    {% block body %}{% endblock %}
+<!-- BEGIN: PAGE SCRIPTS -->
+{% block javascripts %}
+<!-- jQuery -->
+<script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+<!-- Theme Javascript -->
+<script src="{{ asset('assets/js/utility/utility.js') }}"></script>
+<script src="{{ asset('assets/js/demo/demo.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+            "use strict";
+
+            // Init Demo JS
+            Demo.init();
+
+
+            // Init Theme Core
+            Core.init();
+
+
+            // Init Widget Demo JS
+            // demoHighCharts.init();
+
+            // Because we are using Admin Panels we use the OnFinish
+            // callback to activate the demoWidgets. It's smoother if
+            // we let the panels be moved and organized before
+            // filling them with content from various plugins
+
+            // Init plugins used on this page
+            // HighCharts, JvectorMap, Admin Panels
+
+            // Init Admin Panels on widgets inside the ".admin-panels" container
+            $('.admin-panels').adminpanel({
+                grid: '.admin-grid',
+                draggable: true,
+                preserveGrid: true,
+                // mobile: true,
+                onStart: function() {
+                    // Do something before AdminPanels runs
+                },
+                onSave: function() {
+                    $(window).trigger('resize');
+                }
+            });
+        });
+    </script>
+<!-- END: PAGE SCRIPTS -->
+{% endblock %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+CreateDependent:
+    path: /create-dependent
+    defaults:
+      _controller: AppBundle:Person:dependentCreate
+
+logout:
+    path: /logout

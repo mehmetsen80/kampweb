@@ -1,0 +1,15 @@
+{% extends 'security.html.twig' %}
+
+{% block title %} Welcome to Kamp App {{ name }}  {% endblock %}
+
+{% block body %}
+<h1>Person</h1>
+
+<h2>{{ name }}</h2>
+
+<ul>
+        {% for note in notes %}
+            <li>{{ note }}</li>
+        {% endfor %}
+</ul>
+{% endblock %}
