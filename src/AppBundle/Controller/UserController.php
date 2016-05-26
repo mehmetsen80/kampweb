@@ -87,7 +87,7 @@ class UserController extends Controller
 //        ]);
 //    }
 
-        /**
+    /**
      * @Route("/update-info", name="update")
      */
     public function updateAction(Request $request){
