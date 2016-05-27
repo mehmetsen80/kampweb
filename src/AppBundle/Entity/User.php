@@ -70,7 +70,7 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @Assert\Date()
-     * @ORM\Column(name="birthday", nullable=false)
+     * @ORM\Column(name="birthday", nullable=true)
      */
     protected $birthday;
 
