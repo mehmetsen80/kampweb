@@ -360,7 +360,7 @@ class User implements AdvancedUserInterface, \Serializable
      *
      * @param \AppBundle\Entity\Dependent $dependent
      *
-     * @return Person
+     * @return User
      */
     public function addDependent(\AppBundle\Entity\Dependent $dependent)
     {
