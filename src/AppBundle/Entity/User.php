@@ -7,8 +7,10 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use \DateTime;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
@@ -59,6 +61,29 @@ class User implements AdvancedUserInterface, \Serializable
      * @Assert\NotBlank()
      */
     private $plainPassword;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=6, nullable=true)
+     */
+    protected $gender;
+
+    /**
+     * @Assert\Date()
+     * @ORM\Column(name="birthday", nullable=false)
+     */
+    protected $birthday;
+
+    /**
+     * @var integer
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $cellphone;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Dependent", mappedBy="user")
+     */
+    protected $dependents;
 
     /**
      * @ORM\Column(type="boolean")
@@ -272,6 +297,89 @@ class User implements AdvancedUserInterface, \Serializable
     {
         $this->fullname = $fullname;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param mixed $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * @param mixed $birthday
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCellphone()
+    {
+        return $this->cellphone;
+    }
+
+    /**
+     * @param int $cellphone
+     */
+    public function setCellphone($cellphone)
+    {
+        $this->cellphone = $cellphone;
+    }
+
+    /**
+     * @return ArrayCollection|Dependent[]
+     */
+    public function getDependents()
+    {
+        return $this->dependents;
+    }
+
+
+    /**
+     * Add dependent
+     *
+     * @param \AppBundle\Entity\Dependent $dependent
+     *
+     * @return Person
+     */
+    public function addDependent(\AppBundle\Entity\Dependent $dependent)
+    {
+        $this->dependents[] = $dependent;
+
+        return $this;
+    }
+
+    /**
+     * Remove dependent
+     *
+     * @param \AppBundle\Entity\Dependent $dependent
+     */
+    public function removeDependent(\AppBundle\Entity\Dependent $dependent)
+    {
+        $this->dependents->removeElement($dependent);
+    }
+
+
 
     /**
      * Set createdat

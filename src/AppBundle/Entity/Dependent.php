@@ -54,10 +54,10 @@ class Dependent
     private $email;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Person", inversedBy="dependents")
-     * @ORM\JoinColumn(name="person_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="dependents")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $person;
+    private $user;
 
 
     /**
@@ -153,21 +153,21 @@ class Dependent
         return $this->gender;
     }
 
-    public function setPerson(\AppBundle\Entity\Person $person = null)
+    public function setUser(\AppBundle\Entity\User $user = null)
     {
-        $this->person = $person;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get person
+     * Get User
      *
-     * @return \AppBundle\Entity\Person
+     * @return \AppBundle\Entity\User
      */
-    public function getPerson()
+    public function getUser()
     {
-        return $this->person;
+        return $this->user;
     }
 
     /**
@@ -246,7 +246,7 @@ class Dependent
     {
         return "id: ". $this->id ."  name: ". $this->name . "  gender: ". $this->gender .
         "  email: ". $this->email ."  birthday: ". $this->birthday ." 
-        createdat: ". $this->createdat->format('Y-m-d H:i:s') ."  modifiedat: ". $this->modifiedat->format('Y-m-d H:i:s') . " person: ". $this->person;
+        createdat: ". $this->createdat->format('Y-m-d H:i:s') ."  modifiedat: ". $this->modifiedat->format('Y-m-d H:i:s') . " user: ". $this->user;
     }
 
 
