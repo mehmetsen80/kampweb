@@ -99,6 +99,9 @@ class UserController extends Controller
             $newfullname = $updateform->get('newfullname')->getData();
             $newusername = $updateform->get('newusername')->getData();
             $newpassword = $updateform->get('newpassword')->getData();
+            $cellphone = $updateform->get('cellphone')->getData();
+            $birthdate = $updateform->get('birthdate')->getData();
+            $gender = $updateform->get('gender')->getData();
             if(!empty($newfullname)) {
                 $user->setFullname($newfullname);
             }
@@ -107,6 +110,15 @@ class UserController extends Controller
             }
             if(!empty($newpassword)) {
                 $user->setPassword(md5($newpassword));
+            }
+            if(!empty($cellphone)) {
+                $user->setCellphone($cellphone);
+            }
+            if(!empty($birthdate)) {
+                $user->setBirthDay($birthdate);
+            }
+            if(!empty($gender)) {
+                $user->setGender($gender);
             }
 
             $em->persist($user);

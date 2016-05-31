@@ -9,6 +9,9 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -26,6 +29,19 @@ class ChangeInfoType extends AbstractType
             ))
             ->add('newusername', EmailType::class, array(
                 'required'=>false,
+            ))
+            ->add('gender', ChoiceType::class, array(
+                'choices' => array(
+                    'Male' => 'Male',
+                    'Female' => 'Female'
+                ),
+                'required'    => false,
+                'empty_data'  => null,
+                'placeholder'=>'Select your gender...'
+            ))
+            ->add('cellphone', IntegerType::class, array('required' =>false))
+            ->add('birthdate', TextType::class, array(
+                'required' =>false
             ))
             ->add('newpassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
@@ -47,5 +63,3 @@ class ChangeInfoType extends AbstractType
 
 
 }
-
-

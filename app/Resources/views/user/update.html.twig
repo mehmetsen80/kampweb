@@ -89,6 +89,36 @@
                                 </div>
                                 <!-- end section -->
 
+                                <div class="section row">
+
+                                    <div class="col-md-6">
+                                        <label for="mobile_phone" class="field prepend-icon">
+                                            {{ form_widget(form1.cellphone, {'attr': {'class': 'gui-input phone-group', 'placeholder':'Mobile number', 'type':'tel', 'id':"mobile_phone", 'name':'mobile_phone' }}) }}
+                                            <label for="mobile_phone" class="field-icon">
+                                                <i class="fa fa-mobile-phone"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <!-- end section -->
+
+                                    <div class="col-md-6">
+                                        <label class="field select">
+                                            {{ form_widget(form1.gender) }}
+                                            <i class="arrow double"></i>
+                                        </label>
+                                    </div>
+                                    <!-- end section -->
+                                </div>
+                                <div class="section">
+                                    <label for="datepicker1" class="field prepend-icon">
+                                        {{ form_widget(form1.birthdate, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}
+
+                                        <label class="field-icon">
+                                            <i class="fa fa-calendar-o"></i>
+                                        </label>
+                                    </label>
+                                </div>
+
                                 <div class="section">
                                     <label for="password" class="field prepend-icon">
                                         {{ form_widget(form1.newpassword.first, {'attr': {'class': 'gui-input', 'placeholder':'Change your password..', 'type':'password', 'id':"password" }}) }}
@@ -108,7 +138,6 @@
                                     </label>
                                 </div>
                                 <!-- end section -->
-
                             </div>
                             <!-- end .form-body section -->
                             <div class="panel-footer text-right">
@@ -355,7 +384,19 @@
                 buttons.removeClass().addClass('button btn-primary');
             }, 800);
 
-
+            $("#datepicker1").datepicker({
+                prevText: '<i class="fa fa-chevron-left"></i>',
+                nextText: '<i class="fa fa-chevron-right"></i>',
+                showButtonPanel: false,
+                beforeShow: function(input, inst) {
+                    var newclass = 'admin-form';
+                    var themeClass = $(this).parents('.admin-form').attr('class');
+                    var smartpikr = inst.dpDiv.parent();
+                    if (!smartpikr.hasClass(themeClass)) {
+                        inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');
+                    }
+                }
+            });
 
         });
     </script>
