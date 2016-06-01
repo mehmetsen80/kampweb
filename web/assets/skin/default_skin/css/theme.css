@@ -17036,8 +17036,8 @@ table.tc-bold-2 tbody td:nth-child(2),
 table.tc-bold-3 tbody td:nth-child(3),
 table.tc-bold-last tbody td:last-child {
   font-weight: 600;
-  text-align: right;
-  font-size: 14px;
+  text-align: left;
+  font-size: 13px;
 }
 /* special styles */
 table.tc-med-1 tbody td:first-child,

@@ -14,22 +14,25 @@
 {% block body %}
 <body class="datatables-page" data-spy="scroll" data-target="#nav-spy" data-offset="300">
    <section id="content_wrapper">
-        <!-- Start: TOPBAR -->
-        <header id="topbar">
-            <div class="topbar-left">
-                <ol class="breadcrumb">
-                    <li class="crumb-active">
-                        <a href="{{ path('dashboard') }}">Dashboard</a>
-                    </li>
-                    <li class="crumb-icon">
-                        <a href="{{ path('dashboard') }}">
-                            <span class="glyphicon glyphicon-home"></span>
-                        </a>
-                    </li>
-                </ol>
-            </div>
-        </header>
-        <!-- End: TOPBAR -->
+       <!-- Start: TOPBAR -->
+       <header id="topbar">
+           <div class="topbar-left">
+               <ol class="breadcrumb">
+                   <li class="crumb-active">
+                       <a href="{{ path('dashboard') }}">Dashboard</a>
+                   </li>
+                   <li class="crumb-icon">
+                       <a href="{{ path('dashboard') }}">
+                           <span class="glyphicon glyphicon-home"></span>
+                       </a>
+                   </li>
+                   <li class="crumb-link">
+                       <a href="{{ path('users') }}">Users</a>
+                   </li>
+               </ol>
+           </div>
+       </header>
+       <!-- End: TOPBAR -->
 
         <!-- Begin: CONTENT -->
         <section id="content" >
@@ -52,9 +55,7 @@
                             <tbody>
                             {%  for user in users %}
                                 <tr>
-                                    <td> <a href="{{ path('showusers', {
-                                            'userid': user.id
-                                                }) }}">{{ user.fullname }}</a>
+                                    <td> <a href="{{ path('profile', {'userid': user.id}) }}">{{ user.fullname }}</a>
                                     </td>
                                     <td>{{ user.username }}</td>
                                     <td>{{ user.modifiedat|date('Y-m-d') }}</td>

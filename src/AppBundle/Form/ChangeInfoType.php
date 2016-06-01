@@ -8,6 +8,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -24,11 +25,14 @@ class ChangeInfoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('newfullname', TextType::class, array(
+            ->add('fullname', TextType::class, array(
                 'required'=>false,
+                'mapped' => false,
+
             ))
-            ->add('newusername', EmailType::class, array(
+            ->add('username', EmailType::class, array(
                 'required'=>false,
+                'mapped' => false,
             ))
             ->add('gender', ChoiceType::class, array(
                 'choices' => array(
@@ -40,7 +44,7 @@ class ChangeInfoType extends AbstractType
                 'placeholder'=>'Select your gender...'
             ))
             ->add('cellphone', IntegerType::class, array('required' =>false))
-            ->add('birthdate', TextType::class, array(
+            ->add('birthday', TextType::class, array(
                 'required' =>false
             ))
             ->add('newpassword', RepeatedType::class, array(

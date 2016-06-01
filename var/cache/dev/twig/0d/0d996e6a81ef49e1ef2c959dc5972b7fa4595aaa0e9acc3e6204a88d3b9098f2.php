@@ -1,6 +1,6 @@
 <?php
 
-/* :user:list.html.twig */
+/* user/list.html.twig */
 class __TwigTemplate_0c74798673afb42ccf725004d7aa5139ca890b8455f953f6d478e9b419eaff28 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,7 +8,7 @@ class __TwigTemplate_0c74798673afb42ccf725004d7aa5139ca890b8455f953f6d478e9b419e
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("::default.html.twig", ":user:list.html.twig", 1);
+        $this->parent = $this->loadTemplate("::default.html.twig", "user/list.html.twig", 1);
         $this->blocks = array(
             'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
@@ -23,20 +23,20 @@ class __TwigTemplate_0c74798673afb42ccf725004d7aa5139ca890b8455f953f6d478e9b419e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d871f818ef08afaf52d679254038827230576312aef07fec92fdc6d57df6e08d = $this->env->getExtension("native_profiler");
-        $__internal_d871f818ef08afaf52d679254038827230576312aef07fec92fdc6d57df6e08d->enter($__internal_d871f818ef08afaf52d679254038827230576312aef07fec92fdc6d57df6e08d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":user:list.html.twig"));
+        $__internal_09172e233bb871deadf169f277a25a649cbdf98d4a7b60dbf2e5efea0655bda7 = $this->env->getExtension("native_profiler");
+        $__internal_09172e233bb871deadf169f277a25a649cbdf98d4a7b60dbf2e5efea0655bda7->enter($__internal_09172e233bb871deadf169f277a25a649cbdf98d4a7b60dbf2e5efea0655bda7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/list.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_d871f818ef08afaf52d679254038827230576312aef07fec92fdc6d57df6e08d->leave($__internal_d871f818ef08afaf52d679254038827230576312aef07fec92fdc6d57df6e08d_prof);
+        $__internal_09172e233bb871deadf169f277a25a649cbdf98d4a7b60dbf2e5efea0655bda7->leave($__internal_09172e233bb871deadf169f277a25a649cbdf98d4a7b60dbf2e5efea0655bda7_prof);
 
     }
 
     // line 2
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_55147b09dfb24f87010f8d413f4ab97efb4dae370999f08ac738bfcdf1519bf6 = $this->env->getExtension("native_profiler");
-        $__internal_55147b09dfb24f87010f8d413f4ab97efb4dae370999f08ac738bfcdf1519bf6->enter($__internal_55147b09dfb24f87010f8d413f4ab97efb4dae370999f08ac738bfcdf1519bf6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_0b5913d4c529cc9e2e1219838ab1e6bfb8ec04615b1822a8fa89d7d5f1fff48f = $this->env->getExtension("native_profiler");
+        $__internal_0b5913d4c529cc9e2e1219838ab1e6bfb8ec04615b1822a8fa89d7d5f1fff48f->enter($__internal_0b5913d4c529cc9e2e1219838ab1e6bfb8ec04615b1822a8fa89d7d5f1fff48f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 3
         echo "    <!-- Font CSS (Via CDN) -->
@@ -63,41 +63,47 @@ class __TwigTemplate_0c74798673afb42ccf725004d7aa5139ca890b8455f953f6d478e9b419e
         echo "\">
 ";
         
-        $__internal_55147b09dfb24f87010f8d413f4ab97efb4dae370999f08ac738bfcdf1519bf6->leave($__internal_55147b09dfb24f87010f8d413f4ab97efb4dae370999f08ac738bfcdf1519bf6_prof);
+        $__internal_0b5913d4c529cc9e2e1219838ab1e6bfb8ec04615b1822a8fa89d7d5f1fff48f->leave($__internal_0b5913d4c529cc9e2e1219838ab1e6bfb8ec04615b1822a8fa89d7d5f1fff48f_prof);
 
     }
 
     // line 14
     public function block_body($context, array $blocks = array())
     {
-        $__internal_a7235e599a37d7e1885ebedb3c36d82dcd1615a5cb662804c0a51cce7626089b = $this->env->getExtension("native_profiler");
-        $__internal_a7235e599a37d7e1885ebedb3c36d82dcd1615a5cb662804c0a51cce7626089b->enter($__internal_a7235e599a37d7e1885ebedb3c36d82dcd1615a5cb662804c0a51cce7626089b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_8f9b2517efd23045fa2411f0247611b85b88e764c7a72c5357156636ac04f481 = $this->env->getExtension("native_profiler");
+        $__internal_8f9b2517efd23045fa2411f0247611b85b88e764c7a72c5357156636ac04f481->enter($__internal_8f9b2517efd23045fa2411f0247611b85b88e764c7a72c5357156636ac04f481_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 15
         echo "<body class=\"datatables-page\" data-spy=\"scroll\" data-target=\"#nav-spy\" data-offset=\"300\">
    <section id=\"content_wrapper\">
-        <!-- Start: TOPBAR -->
-        <header id=\"topbar\">
-            <div class=\"topbar-left\">
-                <ol class=\"breadcrumb\">
-                    <li class=\"crumb-active\">
-                        <a href=\"";
+       <!-- Start: TOPBAR -->
+       <header id=\"topbar\">
+           <div class=\"topbar-left\">
+               <ol class=\"breadcrumb\">
+                   <li class=\"crumb-active\">
+                       <a href=\"";
         // line 22
         echo $this->env->getExtension('routing')->getPath("dashboard");
         echo "\">Dashboard</a>
-                    </li>
-                    <li class=\"crumb-icon\">
-                        <a href=\"";
+                   </li>
+                   <li class=\"crumb-icon\">
+                       <a href=\"";
         // line 25
         echo $this->env->getExtension('routing')->getPath("dashboard");
         echo "\">
-                            <span class=\"glyphicon glyphicon-home\"></span>
-                        </a>
-                    </li>
-                </ol>
-            </div>
-        </header>
-        <!-- End: TOPBAR -->
+                           <span class=\"glyphicon glyphicon-home\"></span>
+                       </a>
+                   </li>
+                   <li class=\"crumb-link\">
+                       <a href=\"";
+        // line 30
+        echo $this->env->getExtension('routing')->getPath("users");
+        echo "\">Users</a>
+                   </li>
+               </ol>
+           </div>
+       </header>
+       <!-- End: TOPBAR -->
 
         <!-- Begin: CONTENT -->
         <section id=\"content\" >
@@ -119,31 +125,29 @@ class __TwigTemplate_0c74798673afb42ccf725004d7aa5139ca890b8455f953f6d478e9b419e
                             </thead>
                             <tbody>
                             ";
-        // line 53
+        // line 56
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["users"]) ? $context["users"] : $this->getContext($context, "users")));
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 54
+            // line 57
             echo "                                <tr>
                                     <td> <a href=\"";
-            // line 55
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("showusers", array("userid" => $this->getAttribute(            // line 56
-$context["user"], "id", array()))), "html", null, true);
-            // line 57
+            // line 58
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("profile", array("userid" => $this->getAttribute($context["user"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "fullname", array()), "html", null, true);
             echo "</a>
                                     </td>
                                     <td>";
-            // line 59
+            // line 60
             echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "username", array()), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 60
+            // line 61
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["user"], "modifiedat", array()), "Y-m-d"), "html", null, true);
             echo "</td>
                                     <td>";
-            // line 61
+            // line 62
             echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "isactive", array()), "html", null, true);
             echo "</td>
                                 </tr>
@@ -152,7 +156,7 @@ $context["user"], "id", array()))), "html", null, true);
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 64
+        // line 65
         echo "                            </tbody>
                         </table>
                     </div>
@@ -163,62 +167,62 @@ $context["user"], "id", array()))), "html", null, true);
 </body>
 ";
         
-        $__internal_a7235e599a37d7e1885ebedb3c36d82dcd1615a5cb662804c0a51cce7626089b->leave($__internal_a7235e599a37d7e1885ebedb3c36d82dcd1615a5cb662804c0a51cce7626089b_prof);
+        $__internal_8f9b2517efd23045fa2411f0247611b85b88e764c7a72c5357156636ac04f481->leave($__internal_8f9b2517efd23045fa2411f0247611b85b88e764c7a72c5357156636ac04f481_prof);
 
     }
 
-    // line 73
+    // line 74
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_32d89c39f2b95ddb06cbeba9f12fb44929850930a27aa44d3b3d13262b4b6fa9 = $this->env->getExtension("native_profiler");
-        $__internal_32d89c39f2b95ddb06cbeba9f12fb44929850930a27aa44d3b3d13262b4b6fa9->enter($__internal_32d89c39f2b95ddb06cbeba9f12fb44929850930a27aa44d3b3d13262b4b6fa9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_e582bc012fdbeffbaeb43256300b627f0d11e11ab6bc6f1f6628a32e2a4ed324 = $this->env->getExtension("native_profiler");
+        $__internal_e582bc012fdbeffbaeb43256300b627f0d11e11ab6bc6f1f6628a32e2a4ed324->enter($__internal_e582bc012fdbeffbaeb43256300b627f0d11e11ab6bc6f1f6628a32e2a4ed324_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 74
+        // line 75
         echo "    <!-- jQuery -->
     <script src=\"";
-        // line 75
+        // line 76
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery-1.11.1.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 76
+        // line 77
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery_ui/jquery-ui.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Datatables -->
     <script src=\"";
-        // line 79
+        // line 80
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/plugins/datatables/media/js/jquery.dataTables.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Datatables Tabletools addon -->
     <script src=\"";
-        // line 82
+        // line 83
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Datatables ColReorder addon -->
     <script src=\"";
-        // line 85
+        // line 86
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Datatables Bootstrap Modifications  -->
     <script src=\"";
-        // line 88
+        // line 89
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/plugins/datatables/media/js/dataTables.bootstrap.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Theme Javascript -->
     <script src=\"";
-        // line 91
+        // line 92
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/utility/utility.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 92
+        // line 93
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/demo/demo.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 93
+        // line 94
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
     <script type=\"text/javascript\">
@@ -267,13 +271,13 @@ $context["user"], "id", array()))), "html", null, true);
     <!-- END: PAGE SCRIPTS -->
 ";
         
-        $__internal_32d89c39f2b95ddb06cbeba9f12fb44929850930a27aa44d3b3d13262b4b6fa9->leave($__internal_32d89c39f2b95ddb06cbeba9f12fb44929850930a27aa44d3b3d13262b4b6fa9_prof);
+        $__internal_e582bc012fdbeffbaeb43256300b627f0d11e11ab6bc6f1f6628a32e2a4ed324->leave($__internal_e582bc012fdbeffbaeb43256300b627f0d11e11ab6bc6f1f6628a32e2a4ed324_prof);
 
     }
 
     public function getTemplateName()
     {
-        return ":user:list.html.twig";
+        return "user/list.html.twig";
     }
 
     public function isTraitable()
@@ -283,7 +287,7 @@ $context["user"], "id", array()))), "html", null, true);
 
     public function getDebugInfo()
     {
-        return array (  222 => 93,  218 => 92,  214 => 91,  208 => 88,  202 => 85,  196 => 82,  190 => 79,  184 => 76,  180 => 75,  177 => 74,  171 => 73,  156 => 64,  147 => 61,  143 => 60,  139 => 59,  133 => 57,  131 => 56,  130 => 55,  127 => 54,  123 => 53,  92 => 25,  86 => 22,  77 => 15,  71 => 14,  62 => 12,  57 => 10,  52 => 8,  47 => 6,  42 => 3,  36 => 2,  11 => 1,);
+        return array (  226 => 94,  222 => 93,  218 => 92,  212 => 89,  206 => 86,  200 => 83,  194 => 80,  188 => 77,  184 => 76,  181 => 75,  175 => 74,  160 => 65,  151 => 62,  147 => 61,  143 => 60,  136 => 58,  133 => 57,  129 => 56,  100 => 30,  92 => 25,  86 => 22,  77 => 15,  71 => 14,  62 => 12,  57 => 10,  52 => 8,  47 => 6,  42 => 3,  36 => 2,  11 => 1,);
     }
 }
 /* {% extends '::default.html.twig' %}*/
@@ -302,22 +306,25 @@ $context["user"], "id", array()))), "html", null, true);
 /* {% block body %}*/
 /* <body class="datatables-page" data-spy="scroll" data-target="#nav-spy" data-offset="300">*/
 /*    <section id="content_wrapper">*/
-/*         <!-- Start: TOPBAR -->*/
-/*         <header id="topbar">*/
-/*             <div class="topbar-left">*/
-/*                 <ol class="breadcrumb">*/
-/*                     <li class="crumb-active">*/
-/*                         <a href="{{ path('dashboard') }}">Dashboard</a>*/
-/*                     </li>*/
-/*                     <li class="crumb-icon">*/
-/*                         <a href="{{ path('dashboard') }}">*/
-/*                             <span class="glyphicon glyphicon-home"></span>*/
-/*                         </a>*/
-/*                     </li>*/
-/*                 </ol>*/
-/*             </div>*/
-/*         </header>*/
-/*         <!-- End: TOPBAR -->*/
+/*        <!-- Start: TOPBAR -->*/
+/*        <header id="topbar">*/
+/*            <div class="topbar-left">*/
+/*                <ol class="breadcrumb">*/
+/*                    <li class="crumb-active">*/
+/*                        <a href="{{ path('dashboard') }}">Dashboard</a>*/
+/*                    </li>*/
+/*                    <li class="crumb-icon">*/
+/*                        <a href="{{ path('dashboard') }}">*/
+/*                            <span class="glyphicon glyphicon-home"></span>*/
+/*                        </a>*/
+/*                    </li>*/
+/*                    <li class="crumb-link">*/
+/*                        <a href="{{ path('users') }}">Users</a>*/
+/*                    </li>*/
+/*                </ol>*/
+/*            </div>*/
+/*        </header>*/
+/*        <!-- End: TOPBAR -->*/
 /* */
 /*         <!-- Begin: CONTENT -->*/
 /*         <section id="content" >*/
@@ -340,9 +347,7 @@ $context["user"], "id", array()))), "html", null, true);
 /*                             <tbody>*/
 /*                             {%  for user in users %}*/
 /*                                 <tr>*/
-/*                                     <td> <a href="{{ path('showusers', {*/
-/*                                             'userid': user.id*/
-/*                                                 }) }}">{{ user.fullname }}</a>*/
+/*                                     <td> <a href="{{ path('profile', {'userid': user.id}) }}">{{ user.fullname }}</a>*/
 /*                                     </td>*/
 /*                                     <td>{{ user.username }}</td>*/
 /*                                     <td>{{ user.modifiedat|date('Y-m-d') }}</td>*/

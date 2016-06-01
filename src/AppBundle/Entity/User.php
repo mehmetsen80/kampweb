@@ -53,6 +53,9 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @SecurityAssert\UserPassword(
+     *     message = "Wrong value for your current password"
+     * )
      */
     private $password;
 
@@ -84,6 +87,7 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Dependent", mappedBy="user")
      */
     protected $dependents;
+
 
     /**
      * @ORM\Column(type="boolean")

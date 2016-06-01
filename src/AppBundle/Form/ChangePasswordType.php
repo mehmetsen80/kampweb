@@ -24,20 +24,20 @@ class ChangePasswordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('oldPassword', PasswordType::class);
-        $builder->add('plainPassword', RepeatedType::class, [
-            'type' => PasswordType::CLASS,
-            'first_options' => ['label' => 'password.reset.label.password'],
-            'second_options' => ['label' => 'password.reset.label.password_repeat'],
-            'invalid_message' => 'password.mismatch',
-            'required' => false,
-        ]);
+        $builder->add('newpassword', RepeatedType::class, array(
+        'type' => PasswordType::class,
+        'required'=>true,
+        'mapped'=>false,
+        'first_options'  => array('label' => 'Password', 'error_bubbling' => true),
+        'second_options' => array('label' => 'Repeat Password'),
+        'invalid_message' => 'The password fields must match.',
+    ));
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'validation_groups' => 'password_reset',
-            'data_class' => 'AppBundle\Entity\User',
+
         ]);
     }
 }

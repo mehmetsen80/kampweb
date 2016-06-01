@@ -17,13 +17,38 @@
         <div class="ui-pnotify stack_top_right" style="width: 290px; opacity: 1; display: block; overflow: visible; right: 8px; top: 70px;"><div class="alert ui-pnotify-container alert-warning ui-pnotify-shadow" style="min-height: 16px; overflow: hidden;"><div class="ui-pnotify-closer" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-remove" title="Close"></span></div><div class="ui-pnotify-sticker" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-play" title="Stick"></span></div><div class="ui-pnotify-icon"><span class="glyphicon glyphicon-ok-sign"></span></div><h4 class="ui-pnotify-title">{{ flash_message }}</h4><div class="ui-pnotify-text"></div><div style="margin-top: 5px; clear: both; text-align: right; display: none;"></div></div></div>
     {% endfor %}
 
-
     <!-- Start: Content-Wrapper -->
     <section id="content_wrapper">
+        <!-- Start: TOPBAR -->
+        <header id="topbar">
+            <div class="topbar-left">
+                <ol class="breadcrumb">
+                    <li class="crumb-active">
+                        <a href="{{ path('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="crumb-icon">
+                        <a href="{{ path('dashboard') }}">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                    </li>
+                    <li class="crumb-link">
+                        <a href="{{ path('update') }}">Edit Profile</a>
+                    </li>
+                </ol>
+            </div>
+        </header>
+        <!-- End: TOPBAR -->
+        {% for flash_message in app.session.flashBag.get('success') %}
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-check pr10"></i>
+                <strong>Well done!</strong> You successfully signed up.
+                <a href="#" class="alert-link">{{ flash_message }}</a>
+            </div>
+        {% endfor %}
 
         <!-- Begin: Content -->
         <section id="content" class="table-layout animated fadeIn">
-
             <!-- begin: .tray-center -->
             <div class="tray tray-center">
 
@@ -42,7 +67,7 @@
                             <div class="panel-body bg-light">
 
                                 <div class="section-divider mt20 mb40">
-                                    <span> Update Your Information </span>
+                                    <span> Update Your Information - You must fill out all your information </span>
                                 </div>
                                 <!-- .section-divider -->
                                 {% if not form1.newusername.vars.valid %}
@@ -68,7 +93,7 @@
                                 {% endif %}
                                 <div class="section">
                                     <label for="firstname" class="field prepend-icon">
-                                        {{ form_widget(form1.newfullname, {'attr': {'class': 'gui-input', 'placeholder':'Change your fullname...', 'type':'text', 'id':"firstname" }}) }}
+                                        {{ form_widget(form1.fullname, {'attr': {'class': 'gui-input', 'type':'text', 'id':"firstname" }}) }}
                                         <label for="firstname" class="field-icon">
                                             <i class="fa fa-user"></i>
                                         </label>
@@ -80,7 +105,7 @@
 
                                 <div class="section">
                                     <label for="useremail" class="field prepend-icon">
-                                        {{ form_widget(form1.newusername, {'attr': {'class': 'gui-input', 'placeholder':'Change your email address..', 'type':'email', 'id':"useremail" }}) }}
+                                        {{ form_widget(form1.username, {'attr': {'class': 'gui-input', 'type':'email', 'id':"useremail" }}) }}
                                         <label for="useremail" class="field-icon">
                                             <i class="fa fa-envelope"></i>
                                         </label>
@@ -93,7 +118,11 @@
 
                                     <div class="col-md-6">
                                         <label for="mobile_phone" class="field prepend-icon">
-                                            {{ form_widget(form1.cellphone, {'attr': {'class': 'gui-input phone-group', 'placeholder':'Mobile number', 'type':'tel', 'id':"mobile_phone", 'name':'mobile_phone' }}) }}
+                                            {% if app.user.cellphone is empty %}
+                                            {{ form_widget(form1.cellphone, {'attr': {'class': 'gui-input phone-group', 'placeholder':'Please enter your cellphone number', 'type':'tel', 'id':"mobile_phone", 'name':'mobile_phone' }}) }}
+                                            {% else %}
+                                            {{ form_widget(form1.cellphone, {'attr': {'class': 'gui-input phone-group', 'type':'tel', 'id':"mobile_phone", 'name':'mobile_phone' }}) }}
+                                            {% endif %}
                                             <label for="mobile_phone" class="field-icon">
                                                 <i class="fa fa-mobile-phone"></i>
                                             </label>
@@ -111,33 +140,16 @@
                                 </div>
                                 <div class="section">
                                     <label for="datepicker1" class="field prepend-icon">
-                                        {{ form_widget(form1.birthdate, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}
-
+                                        {% if app.user.birthday is empty %}
+                                        {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}
+                                        {% else %}
+                                        {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text'}})}}
+                                        {% endif %}
                                         <label class="field-icon">
                                             <i class="fa fa-calendar-o"></i>
                                         </label>
                                     </label>
                                 </div>
-
-                                <div class="section">
-                                    <label for="password" class="field prepend-icon">
-                                        {{ form_widget(form1.newpassword.first, {'attr': {'class': 'gui-input', 'placeholder':'Change your password..', 'type':'password', 'id':"password" }}) }}
-                                        <label for="password" class="field-icon">
-                                            <i class="fa fa-lock"></i>
-                                        </label>
-                                    </label>
-                                </div>
-                                <!-- end section -->
-
-                                <div class="section">
-                                    <label for="repeatPassword" class="field prepend-icon">
-                                        {{ form_widget(form1.newpassword.second, {'attr': {'class': 'gui-input', 'placeholder':'Repeat password', 'type':'password', 'id':"repeatPassword" }}) }}
-                                        <label for="repeatPassword" class="field-icon">
-                                            <i class="fa fa-unlock-alt"></i>
-                                        </label>
-                                    </label>
-                                </div>
-                                <!-- end section -->
                             </div>
                             <!-- end .form-body section -->
                             <div class="panel-footer text-right">
@@ -225,14 +237,18 @@
 
                 rules: {
                     firstname: {
-                        required: false
+                        required: false,
+                        minlength: 1
+
                     },
                     lastname: {
-                        required: false
+                        required: false,
+                        minlength: 1
                     },
                     useremail: {
                         required: false,
-                        email: true
+                        email: true,
+                        minlength: 1
                     },
                     mobile_phone: {
                         require_from_group: [1, ".phone-group"]

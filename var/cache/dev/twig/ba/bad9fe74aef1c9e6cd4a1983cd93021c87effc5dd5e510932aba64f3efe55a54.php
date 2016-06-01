@@ -22,8 +22,8 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_06e509667c8d56bf32ab5140773a6c637d0e679f78af583906546c17ca158960 = $this->env->getExtension("native_profiler");
-        $__internal_06e509667c8d56bf32ab5140773a6c637d0e679f78af583906546c17ca158960->enter($__internal_06e509667c8d56bf32ab5140773a6c637d0e679f78af583906546c17ca158960_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::default.html.twig"));
+        $__internal_1d8482f9a7a34ac4deb4dae7504413365fa144ed016ed6d28ab206362301b4dc = $this->env->getExtension("native_profiler");
+        $__internal_1d8482f9a7a34ac4deb4dae7504413365fa144ed016ed6d28ab206362301b4dc->enter($__internal_1d8482f9a7a34ac4deb4dae7504413365fa144ed016ed6d28ab206362301b4dc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::default.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -62,51 +62,51 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
     ";
         // line 34
         $this->displayBlock('header', $context, $blocks);
-        // line 112
+        // line 142
         echo "    <!-- End: Header -->
     <!-- Start: Sidebar Left -->
     ";
-        // line 114
+        // line 144
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 180
+        // line 226
         echo "    ";
         $this->displayBlock('topbar', $context, $blocks);
-        // line 229
+        // line 282
         echo "    ";
         $this->displayBlock('body', $context, $blocks);
-        // line 230
-        echo "<!-- BEGIN: PAGE SCRIPTS -->
-";
-        // line 231
+        // line 283
+        echo "    <!-- BEGIN: PAGE SCRIPTS -->
+    ";
+        // line 284
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 280
-        echo "    </div>
+        // line 333
+        echo "</div>
 </body>
 
 </html>
 ";
         
-        $__internal_06e509667c8d56bf32ab5140773a6c637d0e679f78af583906546c17ca158960->leave($__internal_06e509667c8d56bf32ab5140773a6c637d0e679f78af583906546c17ca158960_prof);
+        $__internal_1d8482f9a7a34ac4deb4dae7504413365fa144ed016ed6d28ab206362301b4dc->leave($__internal_1d8482f9a7a34ac4deb4dae7504413365fa144ed016ed6d28ab206362301b4dc_prof);
 
     }
 
     // line 6
     public function block_title($context, array $blocks = array())
     {
-        $__internal_b058e60c2a9dc9f03fd1494379c376efdd7ef7ae71c13321649d9c7e5300aded = $this->env->getExtension("native_profiler");
-        $__internal_b058e60c2a9dc9f03fd1494379c376efdd7ef7ae71c13321649d9c7e5300aded->enter($__internal_b058e60c2a9dc9f03fd1494379c376efdd7ef7ae71c13321649d9c7e5300aded_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_2de4b5ef4b9b129708c8190bf0976cf2068759a3c7efc71ba668bf17ff933b79 = $this->env->getExtension("native_profiler");
+        $__internal_2de4b5ef4b9b129708c8190bf0976cf2068759a3c7efc71ba668bf17ff933b79->enter($__internal_2de4b5ef4b9b129708c8190bf0976cf2068759a3c7efc71ba668bf17ff933b79_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "North American University";
         
-        $__internal_b058e60c2a9dc9f03fd1494379c376efdd7ef7ae71c13321649d9c7e5300aded->leave($__internal_b058e60c2a9dc9f03fd1494379c376efdd7ef7ae71c13321649d9c7e5300aded_prof);
+        $__internal_2de4b5ef4b9b129708c8190bf0976cf2068759a3c7efc71ba668bf17ff933b79->leave($__internal_2de4b5ef4b9b129708c8190bf0976cf2068759a3c7efc71ba668bf17ff933b79_prof);
 
     }
 
     // line 10
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_327113dc2381bf2293419fff98d85f52ae6e83518bb1b9aace6819053f8d64b0 = $this->env->getExtension("native_profiler");
-        $__internal_327113dc2381bf2293419fff98d85f52ae6e83518bb1b9aace6819053f8d64b0->enter($__internal_327113dc2381bf2293419fff98d85f52ae6e83518bb1b9aace6819053f8d64b0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_f959998d32d7c895e9438c8e5c7eed6320f69b557bc45e550c13e823c21473e1 = $this->env->getExtension("native_profiler");
+        $__internal_f959998d32d7c895e9438c8e5c7eed6320f69b557bc45e550c13e823c21473e1->enter($__internal_f959998d32d7c895e9438c8e5c7eed6320f69b557bc45e550c13e823c21473e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 11
         echo "        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600'>
@@ -131,337 +131,456 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
         echo "\">
     ";
         
-        $__internal_327113dc2381bf2293419fff98d85f52ae6e83518bb1b9aace6819053f8d64b0->leave($__internal_327113dc2381bf2293419fff98d85f52ae6e83518bb1b9aace6819053f8d64b0_prof);
+        $__internal_f959998d32d7c895e9438c8e5c7eed6320f69b557bc45e550c13e823c21473e1->leave($__internal_f959998d32d7c895e9438c8e5c7eed6320f69b557bc45e550c13e823c21473e1_prof);
 
     }
 
     // line 34
     public function block_header($context, array $blocks = array())
     {
-        $__internal_f9073f6f341eccde0ad5f0968c9f5f0559e8d07f6d1a803013ce8709a742ae99 = $this->env->getExtension("native_profiler");
-        $__internal_f9073f6f341eccde0ad5f0968c9f5f0559e8d07f6d1a803013ce8709a742ae99->enter($__internal_f9073f6f341eccde0ad5f0968c9f5f0559e8d07f6d1a803013ce8709a742ae99_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "header"));
+        $__internal_60987270d2500cc20af7f285c46d0e8ba2af1a676b32820a3d40207cd8d9be3e = $this->env->getExtension("native_profiler");
+        $__internal_60987270d2500cc20af7f285c46d0e8ba2af1a676b32820a3d40207cd8d9be3e->enter($__internal_60987270d2500cc20af7f285c46d0e8ba2af1a676b32820a3d40207cd8d9be3e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "header"));
 
         // line 35
-        echo "    <header class=\"navbar navbar-fixed-top bg-dark\">
-        <div class=\"navbar-branding\">
-            <a class=\"navbar-brand\" href=\"";
+        echo "        <header class=\"navbar navbar-fixed-top bg-dark\">
+            <div class=\"navbar-branding\">
+                ";
         // line 37
-        echo $this->env->getExtension('routing')->getPath("dashboard");
-        echo "\">
-                <b>Kamp</b>Web
-            </a>
-            <span id=\"toggle_sidemenu_l\" class=\"ad ad-lines\"></span>
-        </div>
-        <ul class=\"nav navbar-nav navbar-left\">
+        if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
+            // line 38
+            echo "                    <a class=\"navbar-brand\" href=\"";
+            echo $this->env->getExtension('routing')->getPath("update");
+            echo "\">
+                        <b>Kamp</b>Web
+                    </a>
+                ";
+        } else {
+            // line 42
+            echo "                    <a class=\"navbar-brand\" href=\"";
+            echo $this->env->getExtension('routing')->getPath("dashboard");
+            echo "\">
+                        <b>Kamp</b>Web
+                    </a>
+                ";
+        }
+        // line 46
+        echo "                <span id=\"toggle_sidemenu_l\" class=\"ad ad-lines\"></span>
+            </div>
+            <ul class=\"nav navbar-nav navbar-left\">
 
-            <li>
-                <a class=\"topbar-menu-toggle\" href=\"#\">
-                    <span class=\"ad ad-wand fs16\"></span>
-                </a>
-            </li>
-
-        </ul>
-        <ul class=\"nav navbar-nav navbar-right\">
-            <li class=\"dropdown\">
-                <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">
-                    <span class=\"ad ad-radio-tower fs18\"></span>
-                </a>
-                <ul class=\"dropdown-menu media-list w350 animated animated-shorter fadeIn\" role=\"menu\">
-                    <li class=\"dropdown-header\">
-                        <span class=\"dropdown-title\"> Notifications</span>
-                        <span class=\"label label-warning\">12</span>
-                    </li>
-                    <li class=\"media\">
-                        <div class=\"media-body\">
-                            <h5 class=\"media-heading\">Article
-                                <small class=\"text-muted\">- 08/16/22</small>
-                            </h5> Last Updated 36 days ago by
-                            <a class=\"text-system\" href=\"#\"> Max </a>
-                        </div>
-                    </li>
-                    <li class=\"media\">
-                        <div class=\"media-body\">
-                            <h5 class=\"media-heading mv5\">Article
-                                <small> - 08/16/22</small>
-                            </h5>
-                            Last Updated 36 days ago by
-                            <a class=\"text-system\" href=\"#\"> Max </a>
-                        </div>
-                    </li>
-                    <li class=\"media\">
-                        <div class=\"media-body\">
-                            <h5 class=\"media-heading\">Article
-                                <small class=\"text-muted\">- 08/16/22</small>
-                            </h5> Last Updated 36 days ago by
-                            <a class=\"text-system\" href=\"#\"> Max </a>
-                        </div>
-                    </li>
-                    <li class=\"media\">
-                        <div class=\"media-body\">
-                            <h5 class=\"media-heading mv5\">Article
-                                <small class=\"text-muted\">- 08/16/22</small>
-                            </h5> Last Updated 36 days ago by
-                            <a class=\"text-system\" href=\"#\"> Max </a>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-
-            <li class=\"dropdown\">
-                <a href=\"#\" class=\"dropdown-toggle fw600 p15\" data-toggle=\"dropdown\">  ";
-        // line 98
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "fullname", array()), "html", null, true);
-        echo "
-                    <span class=\"caret caret-tp hidden-xs\"></span>
-                </a>
-                <ul class=\"dropdown-menu list-group dropdown-persist w250\" role=\"menu\">
-                    <li class=\"dropdown-footer\">
-                        <a href=\"";
-        // line 103
-        echo $this->env->getExtension('routing')->getPath("logout");
-        echo "\" class=\"\">
-                            <span class=\"fa fa-power-off pr5\"></span> Logout </a>
-                    </li>
-                </ul>
-            </li>
-
-        </ul>
-    </header>
-    ";
-        
-        $__internal_f9073f6f341eccde0ad5f0968c9f5f0559e8d07f6d1a803013ce8709a742ae99->leave($__internal_f9073f6f341eccde0ad5f0968c9f5f0559e8d07f6d1a803013ce8709a742ae99_prof);
-
-    }
-
-    // line 114
-    public function block_sidebar($context, array $blocks = array())
-    {
-        $__internal_0517c3cc820122fa044ed42278bc5aabbe5352f6d48ed6bf1f30bff1f6d62aca = $this->env->getExtension("native_profiler");
-        $__internal_0517c3cc820122fa044ed42278bc5aabbe5352f6d48ed6bf1f30bff1f6d62aca->enter($__internal_0517c3cc820122fa044ed42278bc5aabbe5352f6d48ed6bf1f30bff1f6d62aca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
-
-        // line 115
-        echo "    <aside id=\"sidebar_left\" class=\"nano nano-primary affix\">
-
-        <!-- Start: Sidebar Left Content -->
-        <div class=\"sidebar-left-content nano-content\">
-
-            <!-- Start: Sidebar Left Menu -->
-            <ul class=\"nav sidebar-menu\">
-                <li class=\"sidebar-label pt20\">Menu</li>
                 <li>
-                    <a href=\"";
-        // line 124
-        echo $this->env->getExtension('routing')->getPath("dashboard");
-        echo "\">
-                        <span class=\"glyphicon glyphicon-home\"></span>
-                        <span class=\"sidebar-title\">Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href=\"";
-        // line 130
-        echo $this->env->getExtension('routing')->getPath("users");
-        echo "\">
-                        <span class=\"fa fa-users\"></span>
-                        <span class=\"sidebar-title\">Users</span>
-                    </a>
-                </li>
-                <li>
-                    <a href=\"#\">
-                        <span class=\"fa fa-calendar\"></span>
-                        <span class=\"sidebar-title\">Events</span>
-                    </a>
-                </li>
-
-                <li class=\"sidebar-label pt20\">Settings</li>
-                <li class=\"sidebar-proj\">
-                    <a href=\"#projectOne\">
-                        <span class=\"fa fa-dot-circle-o text-primary\"></span>
-                        <span class=\"sidebar-title\">My Profile</span>
-                    </a>
-                </li>
-                <li class=\"sidebar-proj\">
-                    <a href=\"";
-        // line 150
-        echo $this->env->getExtension('routing')->getPath("update");
-        echo "\">
-                        <span class=\"fa fa-dot-circle-o text-info\"></span>
-                        <span class=\"sidebar-title\">Edit Profile</span>
-                    </a>
-                </li>
-                <li class=\"sidebar-proj\">
-                    <a href=\"#projectTwo\">
-                        <span class=\"fa fa-dot-circle-o text-danger\"></span>
-                        <span class=\"sidebar-title\">Reset Password</span>
+                    <a class=\"topbar-menu-toggle\" href=\"#\">
+                        <span class=\"ad ad-wand fs16\"></span>
                     </a>
                 </li>
 
             </ul>
-            <!-- End: Sidebar Menu -->
+            <ul class=\"nav navbar-nav navbar-right\">
+                <li class=\"dropdown\">
+                    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">
+                        <span class=\"ad ad-radio-tower fs18\"></span>
+                    </a>
+                    <ul class=\"dropdown-menu media-list w350 animated animated-shorter fadeIn\" role=\"menu\">
+                        <li class=\"dropdown-header\">
+                            <span class=\"dropdown-title\"> Notifications</span>
+                            <span class=\"label label-warning\">12</span>
+                        </li>
+                        <li class=\"media\">
+                            <div class=\"media-body\">
+                                <h5 class=\"media-heading\">Article
+                                    <small class=\"text-muted\">- 08/16/22</small>
+                                </h5> Last Updated 36 days ago by
+                                <a class=\"text-system\" href=\"#\"> Max </a>
+                            </div>
+                        </li>
+                        <li class=\"media\">
+                            <div class=\"media-body\">
+                                <h5 class=\"media-heading mv5\">Article
+                                    <small> - 08/16/22</small>
+                                </h5>
+                                Last Updated 36 days ago by
+                                <a class=\"text-system\" href=\"#\"> Max </a>
+                            </div>
+                        </li>
+                        <li class=\"media\">
+                            <div class=\"media-body\">
+                                <h5 class=\"media-heading\">Article
+                                    <small class=\"text-muted\">- 08/16/22</small>
+                                </h5> Last Updated 36 days ago by
+                                <a class=\"text-system\" href=\"#\"> Max </a>
+                            </div>
+                        </li>
+                        <li class=\"media\">
+                            <div class=\"media-body\">
+                                <h5 class=\"media-heading mv5\">Article
+                                    <small class=\"text-muted\">- 08/16/22</small>
+                                </h5> Last Updated 36 days ago by
+                                <a class=\"text-system\" href=\"#\"> Max </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
 
-            <!-- Start: Sidebar Collapse Button -->
-            <div class=\"sidebar-toggle-mini\">
-                <a href=\"#\">
-                    <span class=\"fa fa-sign-out\"></span>
-                </a>
+                <li class=\"dropdown\">
+                    <a href=\"#\" class=\"dropdown-toggle fw600 p15\" data-toggle=\"dropdown\">  ";
+        // line 104
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "fullname", array()), "html", null, true);
+        echo "
+                        <span class=\"caret caret-tp hidden-xs\"></span>
+                    </a>
+                    <ul class=\"dropdown-menu list-group dropdown-persist w250\" role=\"menu\">
+                        <li class=\"list-group-item\">
+                            ";
+        // line 109
+        if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
+            // line 110
+            echo "                                <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("update");
+            echo "\" class=\"animated animated-short fadeInUp\">
+                                    <span class=\"fa fa-user\"></span> My Profile  </a>
+                                </a>
+                            ";
+        } else {
+            // line 114
+            echo "                                <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("profile", array("userid" => $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))), "html", null, true);
+            echo "\" class=\"animated animated-short fadeInUp\">
+                                    <span class=\"fa fa-user\"></span> My Profile  </a>
+                                </a>
+                            ";
+        }
+        // line 118
+        echo "                        </li>
+                        <li class=\"list-group-item\">
+                            <a href=\"";
+        // line 120
+        echo $this->env->getExtension('routing')->getPath("update");
+        echo "\" class=\"animated animated-short fadeInUp\">
+                                <span class=\"fa fa-gear\"></span> Edit Profile </a>
+                        </li>
+                        <li class=\"list-group-item\">
+                            ";
+        // line 124
+        if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
+            // line 125
+            echo "                                <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("update");
+            echo "\" class=\"animated animated-short fadeInUp\">
+                                    <span class=\"fa fa-shield\"></span> Change Password  </a>
+                            ";
+        } else {
+            // line 128
+            echo "                                <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("changepassword");
+            echo "\" class=\"animated animated-short fadeInUp\">
+                                    <span class=\"fa fa-shield\"></span> Change Password  </a>
+                            ";
+        }
+        // line 131
+        echo "                        </li>
+                        <li class=\"dropdown-footer\">
+                            <a href=\"";
+        // line 133
+        echo $this->env->getExtension('routing')->getPath("logout");
+        echo "\" class=\"\">
+                                <span class=\"fa fa-power-off pr5\"></span> Logout </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </header>
+    ";
+        
+        $__internal_60987270d2500cc20af7f285c46d0e8ba2af1a676b32820a3d40207cd8d9be3e->leave($__internal_60987270d2500cc20af7f285c46d0e8ba2af1a676b32820a3d40207cd8d9be3e_prof);
+
+    }
+
+    // line 144
+    public function block_sidebar($context, array $blocks = array())
+    {
+        $__internal_146254893cbe59f030392d3820bc0bdc10de86a2288e02c20bd676deda900f18 = $this->env->getExtension("native_profiler");
+        $__internal_146254893cbe59f030392d3820bc0bdc10de86a2288e02c20bd676deda900f18->enter($__internal_146254893cbe59f030392d3820bc0bdc10de86a2288e02c20bd676deda900f18_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
+
+        // line 145
+        echo "        <aside id=\"sidebar_left\" class=\"nano nano-primary affix\">
+
+            <!-- Start: Sidebar Left Content -->
+            <div class=\"sidebar-left-content nano-content\">
+
+                <!-- Start: Sidebar Left Menu -->
+                <ul class=\"nav sidebar-menu\">
+                    <li class=\"sidebar-label pt20\">Menu</li>
+                    <li>
+                        ";
+        // line 154
+        if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
+            // line 155
+            echo "                        <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("update");
+            echo "\">
+                            <span class=\"glyphicon glyphicon-home\"></span>
+                            <span class=\"sidebar-title\">Dashboard</span>
+                        </a>
+                        ";
+        } else {
+            // line 160
+            echo "                        <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("dashboard");
+            echo "\">
+                            <span class=\"glyphicon glyphicon-home\"></span>
+                            <span class=\"sidebar-title\">Dashboard</span>
+                        </a>
+                        ";
+        }
+        // line 165
+        echo "                    </li>
+                    <li>
+                        ";
+        // line 167
+        if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
+            // line 168
+            echo "                        <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("update");
+            echo "\">
+                                <span class=\"fa fa-users\"></span>
+                                <span class=\"sidebar-title\">Users</span>
+                        </a>
+                        ";
+        } else {
+            // line 173
+            echo "                        <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("users");
+            echo "\">
+                            <span class=\"fa fa-users\"></span>
+                            <span class=\"sidebar-title\">Users</span>
+                        </a>
+                        ";
+        }
+        // line 178
+        echo "                    </li>
+                    <li>
+                        ";
+        // line 180
+        if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
+            // line 181
+            echo "                        <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("update");
+            echo "\">
+                            <span class=\"fa fa-calendar\"></span>
+                            <span class=\"sidebar-title\">Events</span>
+                        </a>
+                        ";
+        } else {
+            // line 186
+            echo "                        <a class=\"accordion-toggle\" href=\"#\">
+                            <span class=\"fa fa-calendar\"></span>
+                            <span class=\"sidebar-title\">Events</span>
+                        </a>
+                        ";
+        }
+        // line 191
+        echo "                        <ul class=\"nav sub-nav\">
+                            <li>
+                                <a href=\"#\">
+                                    <span class=\"glyphicon glyphicon-book\"></span> Event List </a>
+                            </li>
+                            <li>
+                                <a href=\"";
+        // line 197
+        echo $this->env->getExtension('routing')->getPath("addevent");
+        echo "\">
+                                    <span class=\"glyphicon glyphicon-share-alt\"></span> Add an event </a>
+                            </li>
+                            <li>
+                                <a href=\"#\">
+                                    <span class=\"glyphicon glyphicon-picture\"></span> Media </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+                <!-- End: Sidebar Menu -->
+
+                <!-- Start: Sidebar Collapse Button -->
+                <div class=\"sidebar-toggle-mini\">
+                    <a href=\"#\">
+                        <span class=\"fa fa-sign-out\"></span>
+                    </a>
+                </div>
+                <!-- End: Sidebar Collapse Button -->
+
             </div>
-            <!-- End: Sidebar Collapse Button -->
+            <!-- End: Sidebar Left Content -->
 
-        </div>
-        <!-- End: Sidebar Left Content -->
-
-    </aside>
-    <!-- End: Sidebar Left -->
+        </aside>
+        <!-- End: Sidebar Left -->
         <!------------------------------------------------------------ End: SIDEBAR LEFT CONTENT -------------------------------------------------------------->
     ";
         
-        $__internal_0517c3cc820122fa044ed42278bc5aabbe5352f6d48ed6bf1f30bff1f6d62aca->leave($__internal_0517c3cc820122fa044ed42278bc5aabbe5352f6d48ed6bf1f30bff1f6d62aca_prof);
+        $__internal_146254893cbe59f030392d3820bc0bdc10de86a2288e02c20bd676deda900f18->leave($__internal_146254893cbe59f030392d3820bc0bdc10de86a2288e02c20bd676deda900f18_prof);
 
     }
 
-    // line 180
+    // line 226
     public function block_topbar($context, array $blocks = array())
     {
-        $__internal_839806c8a227112b8595121fe28b81e207739a7c00f283e4b56e179008c711f8 = $this->env->getExtension("native_profiler");
-        $__internal_839806c8a227112b8595121fe28b81e207739a7c00f283e4b56e179008c711f8->enter($__internal_839806c8a227112b8595121fe28b81e207739a7c00f283e4b56e179008c711f8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "topbar"));
+        $__internal_8b2701aaaf056cef6752ca9d1bd6a2927e89708e7ca940e6c117d4995fa835b1 = $this->env->getExtension("native_profiler");
+        $__internal_8b2701aaaf056cef6752ca9d1bd6a2927e89708e7ca940e6c117d4995fa835b1->enter($__internal_8b2701aaaf056cef6752ca9d1bd6a2927e89708e7ca940e6c117d4995fa835b1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "topbar"));
 
-        // line 181
-        echo "    <!-- Start: Content-Wrapper -->
-    <section id=\"content_wrapper\">
-
-        <!-- Start: Topbar-Dropdown -->
-        <div id=\"topbar-dropmenu\">
-            <div class=\"topbar-menu row\">
-                <div class=\"col-xs-4 col-sm-2\">
-                    <a href=\"#\" class=\"metro-tile\">
-                        <span class=\"glyphicon glyphicon-inbox\"></span>
-                        <span class=\"metro-title\">Messages</span>
-                    </a>
-                </div>
-                <div class=\"col-xs-4 col-sm-2\">
-                    <a href=\"#\" class=\"metro-tile\">
-                        <span class=\"glyphicon glyphicon-user\"></span>
-                        <span class=\"metro-title\">Users</span>
-                    </a>
-                </div>
-                <div class=\"col-xs-4 col-sm-2\">
-                    <a href=\"#\" class=\"metro-tile\">
-                        <span class=\"glyphicon glyphicon-headphones\"></span>
-                        <span class=\"metro-title\">Support</span>
-                    </a>
-                </div>
-                <div class=\"col-xs-4 col-sm-2\">
-                    <a href=\"#\" class=\"metro-tile\">
-                        <span class=\"fa fa-gears\"></span>
-                        <span class=\"metro-title\">Settings</span>
-                    </a>
-                </div>
-                <div class=\"col-xs-4 col-sm-2\">
-                    <a href=\"#\" class=\"metro-tile\">
-                        <span class=\"glyphicon glyphicon-facetime-video\"></span>
-                        <span class=\"metro-title\">Videos</span>
-                    </a>
-                </div>
-                <div class=\"col-xs-4 col-sm-2\">
-                    <a href=\"#\" class=\"metro-tile\">
-                        <span class=\"glyphicon glyphicon-picture\"></span>
-                        <span class=\"metro-title\">Pictures</span>
-                    </a>
+        // line 227
+        echo "        <!-- Start: Content-Wrapper -->
+        <section id=\"content_wrapper\">
+            ";
+        // line 229
+        if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
+            // line 230
+            echo "            <div class=\"alert alert-danger alert-dismissable\">
+                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
+                <i class=\"fa fa-exclamation-triangle pr10\"></i>
+                <strong>You profile is incomplete!</strong>
+                <a href=\"";
+            // line 234
+            echo $this->env->getExtension('routing')->getPath("update");
+            echo "\" class=\"alert-link\">Complete your profile here!</a>
+            </div>
+            ";
+        }
+        // line 237
+        echo "            <!-- Start: Topbar-Dropdown -->
+            <div id=\"topbar-dropmenu\">
+                <div class=\"topbar-menu row\">
+                    <div class=\"col-xs-4 col-sm-2\">
+                        <a href=\"#\" class=\"metro-tile\">
+                            <span class=\"glyphicon glyphicon-inbox\"></span>
+                            <span class=\"metro-title\">Messages</span>
+                        </a>
+                    </div>
+                    <div class=\"col-xs-4 col-sm-2\">
+                        <a href=\"#\" class=\"metro-tile\">
+                            <span class=\"glyphicon glyphicon-user\"></span>
+                            <span class=\"metro-title\">Users</span>
+                        </a>
+                    </div>
+                    <div class=\"col-xs-4 col-sm-2\">
+                        <a href=\"#\" class=\"metro-tile\">
+                            <span class=\"glyphicon glyphicon-headphones\"></span>
+                            <span class=\"metro-title\">Support</span>
+                        </a>
+                    </div>
+                    <div class=\"col-xs-4 col-sm-2\">
+                        <a href=\"#\" class=\"metro-tile\">
+                            <span class=\"fa fa-gears\"></span>
+                            <span class=\"metro-title\">Settings</span>
+                        </a>
+                    </div>
+                    <div class=\"col-xs-4 col-sm-2\">
+                        <a href=\"#\" class=\"metro-tile\">
+                            <span class=\"glyphicon glyphicon-facetime-video\"></span>
+                            <span class=\"metro-title\">Videos</span>
+                        </a>
+                    </div>
+                    <div class=\"col-xs-4 col-sm-2\">
+                        <a href=\"#\" class=\"metro-tile\">
+                            <span class=\"glyphicon glyphicon-picture\"></span>
+                            <span class=\"metro-title\">Pictures</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- End: Topbar-Dropdown -->
+            <!-- End: Topbar-Dropdown -->
         </section>
-    <!-- End: Content-Wrapper -->
+        <!-- End: Content-Wrapper -->
     ";
         
-        $__internal_839806c8a227112b8595121fe28b81e207739a7c00f283e4b56e179008c711f8->leave($__internal_839806c8a227112b8595121fe28b81e207739a7c00f283e4b56e179008c711f8_prof);
+        $__internal_8b2701aaaf056cef6752ca9d1bd6a2927e89708e7ca940e6c117d4995fa835b1->leave($__internal_8b2701aaaf056cef6752ca9d1bd6a2927e89708e7ca940e6c117d4995fa835b1_prof);
 
     }
 
-    // line 229
+    // line 282
     public function block_body($context, array $blocks = array())
     {
-        $__internal_0914059258db9d4ced6e2035a94f6369700cbe55e8815da91cf4a2b177801cff = $this->env->getExtension("native_profiler");
-        $__internal_0914059258db9d4ced6e2035a94f6369700cbe55e8815da91cf4a2b177801cff->enter($__internal_0914059258db9d4ced6e2035a94f6369700cbe55e8815da91cf4a2b177801cff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_9e4d70eb4e0801024c17afa4916251a83d13de77d18e5636804cd289842fe178 = $this->env->getExtension("native_profiler");
+        $__internal_9e4d70eb4e0801024c17afa4916251a83d13de77d18e5636804cd289842fe178->enter($__internal_9e4d70eb4e0801024c17afa4916251a83d13de77d18e5636804cd289842fe178_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         
-        $__internal_0914059258db9d4ced6e2035a94f6369700cbe55e8815da91cf4a2b177801cff->leave($__internal_0914059258db9d4ced6e2035a94f6369700cbe55e8815da91cf4a2b177801cff_prof);
+        $__internal_9e4d70eb4e0801024c17afa4916251a83d13de77d18e5636804cd289842fe178->leave($__internal_9e4d70eb4e0801024c17afa4916251a83d13de77d18e5636804cd289842fe178_prof);
 
     }
 
-    // line 231
+    // line 284
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_b290d07dc88385ff43e16076929af1e6f5f84f0334943022ece4c8ab74481776 = $this->env->getExtension("native_profiler");
-        $__internal_b290d07dc88385ff43e16076929af1e6f5f84f0334943022ece4c8ab74481776->enter($__internal_b290d07dc88385ff43e16076929af1e6f5f84f0334943022ece4c8ab74481776_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_be549c5129df70861f587c4ce09de594b5ffdf9b396d2ff983870e2686ec0b6a = $this->env->getExtension("native_profiler");
+        $__internal_be549c5129df70861f587c4ce09de594b5ffdf9b396d2ff983870e2686ec0b6a->enter($__internal_be549c5129df70861f587c4ce09de594b5ffdf9b396d2ff983870e2686ec0b6a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 232
-        echo "<!-- jQuery -->
-<script src=\"";
-        // line 233
+        // line 285
+        echo "        <!-- jQuery -->
+        <script src=\"";
+        // line 286
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery-1.11.1.min.js"), "html", null, true);
         echo "\"></script>
-<script src=\"";
-        // line 234
+        <script src=\"";
+        // line 287
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery_ui/jquery-ui.min.js"), "html", null, true);
         echo "\"></script>
-<!-- Theme Javascript -->
-<script src=\"";
-        // line 236
+        <!-- Theme Javascript -->
+        <script src=\"";
+        // line 289
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/utility/utility.js"), "html", null, true);
         echo "\"></script>
-<script src=\"";
-        // line 237
+        <script src=\"";
+        // line 290
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/demo/demo.js"), "html", null, true);
         echo "\"></script>
-<script src=\"";
-        // line 238
+        <script src=\"";
+        // line 291
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
-    <script type=\"text/javascript\">
-        jQuery(document).ready(function() {
+        <script type=\"text/javascript\">
+            jQuery(document).ready(function() {
 
-            \"use strict\";
+                \"use strict\";
 
-            // Init Demo JS
-            Demo.init();
-
-
-            // Init Theme Core
-            Core.init();
+                // Init Demo JS
+                Demo.init();
 
 
-            // Init Widget Demo JS
-            // demoHighCharts.init();
+                // Init Theme Core
+                Core.init();
 
-            // Because we are using Admin Panels we use the OnFinish
-            // callback to activate the demoWidgets. It's smoother if
-            // we let the panels be moved and organized before
-            // filling them with content from various plugins
 
-            // Init plugins used on this page
-            // HighCharts, JvectorMap, Admin Panels
+                // Init Widget Demo JS
+                // demoHighCharts.init();
 
-            // Init Admin Panels on widgets inside the \".admin-panels\" container
-            \$('.admin-panels').adminpanel({
-                grid: '.admin-grid',
-                draggable: true,
-                preserveGrid: true,
-                // mobile: true,
-                onStart: function() {
-                    // Do something before AdminPanels runs
-                },
-                onSave: function() {
-                    \$(window).trigger('resize');
-                }
+                // Because we are using Admin Panels we use the OnFinish
+                // callback to activate the demoWidgets. It's smoother if
+                // we let the panels be moved and organized before
+                // filling them with content from various plugins
+
+                // Init plugins used on this page
+                // HighCharts, JvectorMap, Admin Panels
+
+                // Init Admin Panels on widgets inside the \".admin-panels\" container
+                \$('.admin-panels').adminpanel({
+                    grid: '.admin-grid',
+                    draggable: true,
+                    preserveGrid: true,
+                    // mobile: true,
+                    onStart: function() {
+                        // Do something before AdminPanels runs
+                    },
+                    onSave: function() {
+                        \$(window).trigger('resize');
+                    }
+                });
             });
-        });
-    </script>
-<!-- END: PAGE SCRIPTS -->
-";
+        </script>
+        <!-- END: PAGE SCRIPTS -->
+    ";
         
-        $__internal_b290d07dc88385ff43e16076929af1e6f5f84f0334943022ece4c8ab74481776->leave($__internal_b290d07dc88385ff43e16076929af1e6f5f84f0334943022ece4c8ab74481776_prof);
+        $__internal_be549c5129df70861f587c4ce09de594b5ffdf9b396d2ff983870e2686ec0b6a->leave($__internal_be549c5129df70861f587c4ce09de594b5ffdf9b396d2ff983870e2686ec0b6a_prof);
 
     }
 
@@ -477,7 +596,7 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
 
     public function getDebugInfo()
     {
-        return array (  420 => 238,  416 => 237,  412 => 236,  407 => 234,  403 => 233,  400 => 232,  394 => 231,  383 => 229,  329 => 181,  323 => 180,  286 => 150,  263 => 130,  254 => 124,  243 => 115,  237 => 114,  221 => 103,  213 => 98,  149 => 37,  145 => 35,  139 => 34,  130 => 18,  125 => 16,  120 => 14,  115 => 12,  112 => 11,  106 => 10,  94 => 6,  83 => 280,  81 => 231,  78 => 230,  75 => 229,  72 => 180,  70 => 114,  66 => 112,  64 => 34,  59 => 31,  57 => 30,  45 => 20,  43 => 10,  36 => 6,  29 => 1,);
+        return array (  539 => 291,  535 => 290,  531 => 289,  526 => 287,  522 => 286,  519 => 285,  513 => 284,  502 => 282,  451 => 237,  445 => 234,  439 => 230,  437 => 229,  433 => 227,  427 => 226,  391 => 197,  383 => 191,  376 => 186,  367 => 181,  365 => 180,  361 => 178,  352 => 173,  343 => 168,  341 => 167,  337 => 165,  328 => 160,  319 => 155,  317 => 154,  306 => 145,  300 => 144,  284 => 133,  280 => 131,  273 => 128,  266 => 125,  264 => 124,  257 => 120,  253 => 118,  245 => 114,  237 => 110,  235 => 109,  227 => 104,  167 => 46,  159 => 42,  151 => 38,  149 => 37,  145 => 35,  139 => 34,  130 => 18,  125 => 16,  120 => 14,  115 => 12,  112 => 11,  106 => 10,  94 => 6,  83 => 333,  81 => 284,  78 => 283,  75 => 282,  72 => 226,  70 => 144,  66 => 142,  64 => 34,  59 => 31,  57 => 30,  45 => 20,  43 => 10,  36 => 6,  29 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -514,252 +633,305 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
 /* <div id="main">*/
 /*     <!-- Start: Header -->*/
 /*     {% block header %}*/
-/*     <header class="navbar navbar-fixed-top bg-dark">*/
-/*         <div class="navbar-branding">*/
-/*             <a class="navbar-brand" href="{{ path('dashboard') }}">*/
-/*                 <b>Kamp</b>Web*/
-/*             </a>*/
-/*             <span id="toggle_sidemenu_l" class="ad ad-lines"></span>*/
-/*         </div>*/
-/*         <ul class="nav navbar-nav navbar-left">*/
+/*         <header class="navbar navbar-fixed-top bg-dark">*/
+/*             <div class="navbar-branding">*/
+/*                 {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
+/*                     <a class="navbar-brand" href="{{ path('update') }}">*/
+/*                         <b>Kamp</b>Web*/
+/*                     </a>*/
+/*                 {% else %}*/
+/*                     <a class="navbar-brand" href="{{ path('dashboard') }}">*/
+/*                         <b>Kamp</b>Web*/
+/*                     </a>*/
+/*                 {% endif %}*/
+/*                 <span id="toggle_sidemenu_l" class="ad ad-lines"></span>*/
+/*             </div>*/
+/*             <ul class="nav navbar-nav navbar-left">*/
 /* */
-/*             <li>*/
-/*                 <a class="topbar-menu-toggle" href="#">*/
-/*                     <span class="ad ad-wand fs16"></span>*/
-/*                 </a>*/
-/*             </li>*/
-/* */
-/*         </ul>*/
-/*         <ul class="nav navbar-nav navbar-right">*/
-/*             <li class="dropdown">*/
-/*                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">*/
-/*                     <span class="ad ad-radio-tower fs18"></span>*/
-/*                 </a>*/
-/*                 <ul class="dropdown-menu media-list w350 animated animated-shorter fadeIn" role="menu">*/
-/*                     <li class="dropdown-header">*/
-/*                         <span class="dropdown-title"> Notifications</span>*/
-/*                         <span class="label label-warning">12</span>*/
-/*                     </li>*/
-/*                     <li class="media">*/
-/*                         <div class="media-body">*/
-/*                             <h5 class="media-heading">Article*/
-/*                                 <small class="text-muted">- 08/16/22</small>*/
-/*                             </h5> Last Updated 36 days ago by*/
-/*                             <a class="text-system" href="#"> Max </a>*/
-/*                         </div>*/
-/*                     </li>*/
-/*                     <li class="media">*/
-/*                         <div class="media-body">*/
-/*                             <h5 class="media-heading mv5">Article*/
-/*                                 <small> - 08/16/22</small>*/
-/*                             </h5>*/
-/*                             Last Updated 36 days ago by*/
-/*                             <a class="text-system" href="#"> Max </a>*/
-/*                         </div>*/
-/*                     </li>*/
-/*                     <li class="media">*/
-/*                         <div class="media-body">*/
-/*                             <h5 class="media-heading">Article*/
-/*                                 <small class="text-muted">- 08/16/22</small>*/
-/*                             </h5> Last Updated 36 days ago by*/
-/*                             <a class="text-system" href="#"> Max </a>*/
-/*                         </div>*/
-/*                     </li>*/
-/*                     <li class="media">*/
-/*                         <div class="media-body">*/
-/*                             <h5 class="media-heading mv5">Article*/
-/*                                 <small class="text-muted">- 08/16/22</small>*/
-/*                             </h5> Last Updated 36 days ago by*/
-/*                             <a class="text-system" href="#"> Max </a>*/
-/*                         </div>*/
-/*                     </li>*/
-/*                 </ul>*/
-/*             </li>*/
-/* */
-/*             <li class="dropdown">*/
-/*                 <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">  {{ app.user.fullname }}*/
-/*                     <span class="caret caret-tp hidden-xs"></span>*/
-/*                 </a>*/
-/*                 <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">*/
-/*                     <li class="dropdown-footer">*/
-/*                         <a href="{{ path('logout') }}" class="">*/
-/*                             <span class="fa fa-power-off pr5"></span> Logout </a>*/
-/*                     </li>*/
-/*                 </ul>*/
-/*             </li>*/
-/* */
-/*         </ul>*/
-/*     </header>*/
-/*     {% endblock %}*/
-/*     <!-- End: Header -->*/
-/*     <!-- Start: Sidebar Left -->*/
-/*     {% block sidebar %}*/
-/*     <aside id="sidebar_left" class="nano nano-primary affix">*/
-/* */
-/*         <!-- Start: Sidebar Left Content -->*/
-/*         <div class="sidebar-left-content nano-content">*/
-/* */
-/*             <!-- Start: Sidebar Left Menu -->*/
-/*             <ul class="nav sidebar-menu">*/
-/*                 <li class="sidebar-label pt20">Menu</li>*/
 /*                 <li>*/
-/*                     <a href="{{ path('dashboard') }}">*/
-/*                         <span class="glyphicon glyphicon-home"></span>*/
-/*                         <span class="sidebar-title">Dashboard</span>*/
-/*                     </a>*/
-/*                 </li>*/
-/*                 <li>*/
-/*                     <a href="{{ path('users') }}">*/
-/*                         <span class="fa fa-users"></span>*/
-/*                         <span class="sidebar-title">Users</span>*/
-/*                     </a>*/
-/*                 </li>*/
-/*                 <li>*/
-/*                     <a href="#">*/
-/*                         <span class="fa fa-calendar"></span>*/
-/*                         <span class="sidebar-title">Events</span>*/
-/*                     </a>*/
-/*                 </li>*/
-/* */
-/*                 <li class="sidebar-label pt20">Settings</li>*/
-/*                 <li class="sidebar-proj">*/
-/*                     <a href="#projectOne">*/
-/*                         <span class="fa fa-dot-circle-o text-primary"></span>*/
-/*                         <span class="sidebar-title">My Profile</span>*/
-/*                     </a>*/
-/*                 </li>*/
-/*                 <li class="sidebar-proj">*/
-/*                     <a href="{{ path('update') }}">*/
-/*                         <span class="fa fa-dot-circle-o text-info"></span>*/
-/*                         <span class="sidebar-title">Edit Profile</span>*/
-/*                     </a>*/
-/*                 </li>*/
-/*                 <li class="sidebar-proj">*/
-/*                     <a href="#projectTwo">*/
-/*                         <span class="fa fa-dot-circle-o text-danger"></span>*/
-/*                         <span class="sidebar-title">Reset Password</span>*/
+/*                     <a class="topbar-menu-toggle" href="#">*/
+/*                         <span class="ad ad-wand fs16"></span>*/
 /*                     </a>*/
 /*                 </li>*/
 /* */
 /*             </ul>*/
-/*             <!-- End: Sidebar Menu -->*/
+/*             <ul class="nav navbar-nav navbar-right">*/
+/*                 <li class="dropdown">*/
+/*                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">*/
+/*                         <span class="ad ad-radio-tower fs18"></span>*/
+/*                     </a>*/
+/*                     <ul class="dropdown-menu media-list w350 animated animated-shorter fadeIn" role="menu">*/
+/*                         <li class="dropdown-header">*/
+/*                             <span class="dropdown-title"> Notifications</span>*/
+/*                             <span class="label label-warning">12</span>*/
+/*                         </li>*/
+/*                         <li class="media">*/
+/*                             <div class="media-body">*/
+/*                                 <h5 class="media-heading">Article*/
+/*                                     <small class="text-muted">- 08/16/22</small>*/
+/*                                 </h5> Last Updated 36 days ago by*/
+/*                                 <a class="text-system" href="#"> Max </a>*/
+/*                             </div>*/
+/*                         </li>*/
+/*                         <li class="media">*/
+/*                             <div class="media-body">*/
+/*                                 <h5 class="media-heading mv5">Article*/
+/*                                     <small> - 08/16/22</small>*/
+/*                                 </h5>*/
+/*                                 Last Updated 36 days ago by*/
+/*                                 <a class="text-system" href="#"> Max </a>*/
+/*                             </div>*/
+/*                         </li>*/
+/*                         <li class="media">*/
+/*                             <div class="media-body">*/
+/*                                 <h5 class="media-heading">Article*/
+/*                                     <small class="text-muted">- 08/16/22</small>*/
+/*                                 </h5> Last Updated 36 days ago by*/
+/*                                 <a class="text-system" href="#"> Max </a>*/
+/*                             </div>*/
+/*                         </li>*/
+/*                         <li class="media">*/
+/*                             <div class="media-body">*/
+/*                                 <h5 class="media-heading mv5">Article*/
+/*                                     <small class="text-muted">- 08/16/22</small>*/
+/*                                 </h5> Last Updated 36 days ago by*/
+/*                                 <a class="text-system" href="#"> Max </a>*/
+/*                             </div>*/
+/*                         </li>*/
+/*                     </ul>*/
+/*                 </li>*/
 /* */
-/*             <!-- Start: Sidebar Collapse Button -->*/
-/*             <div class="sidebar-toggle-mini">*/
-/*                 <a href="#">*/
-/*                     <span class="fa fa-sign-out"></span>*/
-/*                 </a>*/
+/*                 <li class="dropdown">*/
+/*                     <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">  {{ app.user.fullname }}*/
+/*                         <span class="caret caret-tp hidden-xs"></span>*/
+/*                     </a>*/
+/*                     <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">*/
+/*                         <li class="list-group-item">*/
+/*                             {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
+/*                                 <a href="{{ path('update') }}" class="animated animated-short fadeInUp">*/
+/*                                     <span class="fa fa-user"></span> My Profile  </a>*/
+/*                                 </a>*/
+/*                             {% else %}*/
+/*                                 <a href="{{ path('profile', {'userid': app.user.id}) }}" class="animated animated-short fadeInUp">*/
+/*                                     <span class="fa fa-user"></span> My Profile  </a>*/
+/*                                 </a>*/
+/*                             {% endif %}*/
+/*                         </li>*/
+/*                         <li class="list-group-item">*/
+/*                             <a href="{{ path('update') }}" class="animated animated-short fadeInUp">*/
+/*                                 <span class="fa fa-gear"></span> Edit Profile </a>*/
+/*                         </li>*/
+/*                         <li class="list-group-item">*/
+/*                             {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
+/*                                 <a href="{{ path('update') }}" class="animated animated-short fadeInUp">*/
+/*                                     <span class="fa fa-shield"></span> Change Password  </a>*/
+/*                             {% else %}*/
+/*                                 <a href="{{ path('changepassword') }}" class="animated animated-short fadeInUp">*/
+/*                                     <span class="fa fa-shield"></span> Change Password  </a>*/
+/*                             {% endif %}*/
+/*                         </li>*/
+/*                         <li class="dropdown-footer">*/
+/*                             <a href="{{ path('logout') }}" class="">*/
+/*                                 <span class="fa fa-power-off pr5"></span> Logout </a>*/
+/*                         </li>*/
+/*                     </ul>*/
+/*                 </li>*/
+/* */
+/*             </ul>*/
+/*         </header>*/
+/*     {% endblock %}*/
+/*     <!-- End: Header -->*/
+/*     <!-- Start: Sidebar Left -->*/
+/*     {% block sidebar %}*/
+/*         <aside id="sidebar_left" class="nano nano-primary affix">*/
+/* */
+/*             <!-- Start: Sidebar Left Content -->*/
+/*             <div class="sidebar-left-content nano-content">*/
+/* */
+/*                 <!-- Start: Sidebar Left Menu -->*/
+/*                 <ul class="nav sidebar-menu">*/
+/*                     <li class="sidebar-label pt20">Menu</li>*/
+/*                     <li>*/
+/*                         {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
+/*                         <a href="{{ path('update') }}">*/
+/*                             <span class="glyphicon glyphicon-home"></span>*/
+/*                             <span class="sidebar-title">Dashboard</span>*/
+/*                         </a>*/
+/*                         {% else %}*/
+/*                         <a href="{{ path('dashboard') }}">*/
+/*                             <span class="glyphicon glyphicon-home"></span>*/
+/*                             <span class="sidebar-title">Dashboard</span>*/
+/*                         </a>*/
+/*                         {% endif %}*/
+/*                     </li>*/
+/*                     <li>*/
+/*                         {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
+/*                         <a href="{{ path('update') }}">*/
+/*                                 <span class="fa fa-users"></span>*/
+/*                                 <span class="sidebar-title">Users</span>*/
+/*                         </a>*/
+/*                         {% else %}*/
+/*                         <a href="{{ path('users') }}">*/
+/*                             <span class="fa fa-users"></span>*/
+/*                             <span class="sidebar-title">Users</span>*/
+/*                         </a>*/
+/*                         {% endif %}*/
+/*                     </li>*/
+/*                     <li>*/
+/*                         {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
+/*                         <a href="{{ path('update') }}">*/
+/*                             <span class="fa fa-calendar"></span>*/
+/*                             <span class="sidebar-title">Events</span>*/
+/*                         </a>*/
+/*                         {% else %}*/
+/*                         <a class="accordion-toggle" href="#">*/
+/*                             <span class="fa fa-calendar"></span>*/
+/*                             <span class="sidebar-title">Events</span>*/
+/*                         </a>*/
+/*                         {% endif %}*/
+/*                         <ul class="nav sub-nav">*/
+/*                             <li>*/
+/*                                 <a href="#">*/
+/*                                     <span class="glyphicon glyphicon-book"></span> Event List </a>*/
+/*                             </li>*/
+/*                             <li>*/
+/*                                 <a href="{{ path('addevent') }}">*/
+/*                                     <span class="glyphicon glyphicon-share-alt"></span> Add an event </a>*/
+/*                             </li>*/
+/*                             <li>*/
+/*                                 <a href="#">*/
+/*                                     <span class="glyphicon glyphicon-picture"></span> Media </a>*/
+/*                             </li>*/
+/*                         </ul>*/
+/*                     </li>*/
+/* */
+/* */
+/*                 </ul>*/
+/*                 <!-- End: Sidebar Menu -->*/
+/* */
+/*                 <!-- Start: Sidebar Collapse Button -->*/
+/*                 <div class="sidebar-toggle-mini">*/
+/*                     <a href="#">*/
+/*                         <span class="fa fa-sign-out"></span>*/
+/*                     </a>*/
+/*                 </div>*/
+/*                 <!-- End: Sidebar Collapse Button -->*/
+/* */
 /*             </div>*/
-/*             <!-- End: Sidebar Collapse Button -->*/
+/*             <!-- End: Sidebar Left Content -->*/
 /* */
-/*         </div>*/
-/*         <!-- End: Sidebar Left Content -->*/
-/* */
-/*     </aside>*/
-/*     <!-- End: Sidebar Left -->*/
+/*         </aside>*/
+/*         <!-- End: Sidebar Left -->*/
 /*         <!------------------------------------------------------------ End: SIDEBAR LEFT CONTENT -------------------------------------------------------------->*/
 /*     {% endblock %}*/
 /*     {% block topbar %}*/
-/*     <!-- Start: Content-Wrapper -->*/
-/*     <section id="content_wrapper">*/
-/* */
-/*         <!-- Start: Topbar-Dropdown -->*/
-/*         <div id="topbar-dropmenu">*/
-/*             <div class="topbar-menu row">*/
-/*                 <div class="col-xs-4 col-sm-2">*/
-/*                     <a href="#" class="metro-tile">*/
-/*                         <span class="glyphicon glyphicon-inbox"></span>*/
-/*                         <span class="metro-title">Messages</span>*/
-/*                     </a>*/
-/*                 </div>*/
-/*                 <div class="col-xs-4 col-sm-2">*/
-/*                     <a href="#" class="metro-tile">*/
-/*                         <span class="glyphicon glyphicon-user"></span>*/
-/*                         <span class="metro-title">Users</span>*/
-/*                     </a>*/
-/*                 </div>*/
-/*                 <div class="col-xs-4 col-sm-2">*/
-/*                     <a href="#" class="metro-tile">*/
-/*                         <span class="glyphicon glyphicon-headphones"></span>*/
-/*                         <span class="metro-title">Support</span>*/
-/*                     </a>*/
-/*                 </div>*/
-/*                 <div class="col-xs-4 col-sm-2">*/
-/*                     <a href="#" class="metro-tile">*/
-/*                         <span class="fa fa-gears"></span>*/
-/*                         <span class="metro-title">Settings</span>*/
-/*                     </a>*/
-/*                 </div>*/
-/*                 <div class="col-xs-4 col-sm-2">*/
-/*                     <a href="#" class="metro-tile">*/
-/*                         <span class="glyphicon glyphicon-facetime-video"></span>*/
-/*                         <span class="metro-title">Videos</span>*/
-/*                     </a>*/
-/*                 </div>*/
-/*                 <div class="col-xs-4 col-sm-2">*/
-/*                     <a href="#" class="metro-tile">*/
-/*                         <span class="glyphicon glyphicon-picture"></span>*/
-/*                         <span class="metro-title">Pictures</span>*/
-/*                     </a>*/
+/*         <!-- Start: Content-Wrapper -->*/
+/*         <section id="content_wrapper">*/
+/*             {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
+/*             <div class="alert alert-danger alert-dismissable">*/
+/*                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*/
+/*                 <i class="fa fa-exclamation-triangle pr10"></i>*/
+/*                 <strong>You profile is incomplete!</strong>*/
+/*                 <a href="{{ path('update') }}" class="alert-link">Complete your profile here!</a>*/
+/*             </div>*/
+/*             {% endif %}*/
+/*             <!-- Start: Topbar-Dropdown -->*/
+/*             <div id="topbar-dropmenu">*/
+/*                 <div class="topbar-menu row">*/
+/*                     <div class="col-xs-4 col-sm-2">*/
+/*                         <a href="#" class="metro-tile">*/
+/*                             <span class="glyphicon glyphicon-inbox"></span>*/
+/*                             <span class="metro-title">Messages</span>*/
+/*                         </a>*/
+/*                     </div>*/
+/*                     <div class="col-xs-4 col-sm-2">*/
+/*                         <a href="#" class="metro-tile">*/
+/*                             <span class="glyphicon glyphicon-user"></span>*/
+/*                             <span class="metro-title">Users</span>*/
+/*                         </a>*/
+/*                     </div>*/
+/*                     <div class="col-xs-4 col-sm-2">*/
+/*                         <a href="#" class="metro-tile">*/
+/*                             <span class="glyphicon glyphicon-headphones"></span>*/
+/*                             <span class="metro-title">Support</span>*/
+/*                         </a>*/
+/*                     </div>*/
+/*                     <div class="col-xs-4 col-sm-2">*/
+/*                         <a href="#" class="metro-tile">*/
+/*                             <span class="fa fa-gears"></span>*/
+/*                             <span class="metro-title">Settings</span>*/
+/*                         </a>*/
+/*                     </div>*/
+/*                     <div class="col-xs-4 col-sm-2">*/
+/*                         <a href="#" class="metro-tile">*/
+/*                             <span class="glyphicon glyphicon-facetime-video"></span>*/
+/*                             <span class="metro-title">Videos</span>*/
+/*                         </a>*/
+/*                     </div>*/
+/*                     <div class="col-xs-4 col-sm-2">*/
+/*                         <a href="#" class="metro-tile">*/
+/*                             <span class="glyphicon glyphicon-picture"></span>*/
+/*                             <span class="metro-title">Pictures</span>*/
+/*                         </a>*/
+/*                     </div>*/
 /*                 </div>*/
 /*             </div>*/
-/*         </div>*/
-/*         <!-- End: Topbar-Dropdown -->*/
+/*             <!-- End: Topbar-Dropdown -->*/
 /*         </section>*/
-/*     <!-- End: Content-Wrapper -->*/
+/*         <!-- End: Content-Wrapper -->*/
 /*     {% endblock %}*/
 /*     {% block body %}{% endblock %}*/
-/* <!-- BEGIN: PAGE SCRIPTS -->*/
-/* {% block javascripts %}*/
-/* <!-- jQuery -->*/
-/* <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>*/
-/* <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>*/
-/* <!-- Theme Javascript -->*/
-/* <script src="{{ asset('assets/js/utility/utility.js') }}"></script>*/
-/* <script src="{{ asset('assets/js/demo/demo.js') }}"></script>*/
-/* <script src="{{ asset('assets/js/main.js') }}"></script>*/
-/*     <script type="text/javascript">*/
-/*         jQuery(document).ready(function() {*/
+/*     <!-- BEGIN: PAGE SCRIPTS -->*/
+/*     {% block javascripts %}*/
+/*         <!-- jQuery -->*/
+/*         <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>*/
+/*         <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>*/
+/*         <!-- Theme Javascript -->*/
+/*         <script src="{{ asset('assets/js/utility/utility.js') }}"></script>*/
+/*         <script src="{{ asset('assets/js/demo/demo.js') }}"></script>*/
+/*         <script src="{{ asset('assets/js/main.js') }}"></script>*/
+/*         <script type="text/javascript">*/
+/*             jQuery(document).ready(function() {*/
 /* */
-/*             "use strict";*/
+/*                 "use strict";*/
 /* */
-/*             // Init Demo JS*/
-/*             Demo.init();*/
-/* */
-/* */
-/*             // Init Theme Core*/
-/*             Core.init();*/
+/*                 // Init Demo JS*/
+/*                 Demo.init();*/
 /* */
 /* */
-/*             // Init Widget Demo JS*/
-/*             // demoHighCharts.init();*/
+/*                 // Init Theme Core*/
+/*                 Core.init();*/
 /* */
-/*             // Because we are using Admin Panels we use the OnFinish*/
-/*             // callback to activate the demoWidgets. It's smoother if*/
-/*             // we let the panels be moved and organized before*/
-/*             // filling them with content from various plugins*/
 /* */
-/*             // Init plugins used on this page*/
-/*             // HighCharts, JvectorMap, Admin Panels*/
+/*                 // Init Widget Demo JS*/
+/*                 // demoHighCharts.init();*/
 /* */
-/*             // Init Admin Panels on widgets inside the ".admin-panels" container*/
-/*             $('.admin-panels').adminpanel({*/
-/*                 grid: '.admin-grid',*/
-/*                 draggable: true,*/
-/*                 preserveGrid: true,*/
-/*                 // mobile: true,*/
-/*                 onStart: function() {*/
-/*                     // Do something before AdminPanels runs*/
-/*                 },*/
-/*                 onSave: function() {*/
-/*                     $(window).trigger('resize');*/
-/*                 }*/
+/*                 // Because we are using Admin Panels we use the OnFinish*/
+/*                 // callback to activate the demoWidgets. It's smoother if*/
+/*                 // we let the panels be moved and organized before*/
+/*                 // filling them with content from various plugins*/
+/* */
+/*                 // Init plugins used on this page*/
+/*                 // HighCharts, JvectorMap, Admin Panels*/
+/* */
+/*                 // Init Admin Panels on widgets inside the ".admin-panels" container*/
+/*                 $('.admin-panels').adminpanel({*/
+/*                     grid: '.admin-grid',*/
+/*                     draggable: true,*/
+/*                     preserveGrid: true,*/
+/*                     // mobile: true,*/
+/*                     onStart: function() {*/
+/*                         // Do something before AdminPanels runs*/
+/*                     },*/
+/*                     onSave: function() {*/
+/*                         $(window).trigger('resize');*/
+/*                     }*/
+/*                 });*/
 /*             });*/
-/*         });*/
-/*     </script>*/
-/* <!-- END: PAGE SCRIPTS -->*/
-/* {% endblock %}*/
-/*     </div>*/
+/*         </script>*/
+/*         <!-- END: PAGE SCRIPTS -->*/
+/*     {% endblock %}*/
+/* </div>*/
 /* </body>*/
 /* */
 /* </html>*/

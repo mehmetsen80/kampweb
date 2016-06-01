@@ -95,7 +95,7 @@ class SecurityController extends Controller
 
                 $this->addFlash(
                     'success',
-                    'Congrats! You have successfully signed up!'
+                    'Please complete your profile now.'
                 );
 
                 $message = \Swift_Message::newInstance()
@@ -106,7 +106,7 @@ class SecurityController extends Controller
                         ':emails:registration.html.twig'),'text/html');
                 $this->get('mailer')->send($message);
 
-                return $this->redirectToRoute('homepage');
+                return $this->redirectToRoute('update');
             } 
         }
         catch (\Exception $e){

@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\ChangeInfoType;
+use AppBundle\Form\ChangePasswordType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,33 +18,29 @@ use Symfony\Component\HttpFoundation\Request;
 class UserController extends Controller
 {
 
-//    /**
-//     * @Route("/saveuser")
-//     */
-//    public function load(){
-//        $user = new User();
-//        $user->setUsername('admin1@gmail.com');
-//        $user->setFullname('Admin User');
-//        $user->setPassword(md5('password'));
-//        $user->setRoles(array('ROLE_SUPER_ADMIN'));
-//        $em = $this->getDoctrine()->getManager();
-//        $em->persist($user);
-//        $em->flush();
-//        return new Response('<html><body>Admin User Created!</body></html>');
-//    }
-
     /**
      * @Route("/users/{userid}", name="showusers")
      *
      */
     public function showUsersAction($userid){
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('AppBundle:User')->findOneBy(['id'=>$userid]);
+        $user = $em->getRepository('AppBundle:User')->findOneBy(['id'=>$userid]);
 
 
         return $this->render('/user/show.html.twig',[
-            'user'=>$users,
+            'user'=>$user,
+
         ]);
+    }
+    /**
+     * @param $userid
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/user/{userid}", name="profile")
+     */
+    public function profileAction($userid){
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->find(['id'=>$userid]);
+        return $this->render(':user:profile.html.twig',['user'=>$user]);
     }
 
     /**
@@ -57,43 +54,15 @@ class UserController extends Controller
         ]);
     }
 
-//    /**
-//     * @Route("/update-info", name="update")
-//     */
-//    public function updateAction($userid){
-//
-//        $em = $this->getDoctrine()->getManager();
-//        $user = $em->getRepository('AppBundle:User')->find($userid);
-//        $form = $this->createForm(new ChangeInfoType(), $user);
-//        $request = $this->get('request');
-//        $form->handleRequest($request);
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $newfullname = $user->getNewfullname();
-//            $newusername = $user->getNewusername();
-//            $user->setFullname($newfullname);
-//            $user->setUsername($newusername);
-//            $em->flush();
-//            return $this->redirect($this->generateUrl('users'));
-//        }
-//
-//        if(!$user){
-//            throw $this->createNotFoundException(
-//                'No user found for id '.$userid
-//            );
-//        }
-//        return $this->render('user/
-//update.html.twig',[
-//            'user' => $user,
-//        ]);
-//    }
 
     /**
      * @Route("/update-info", name="update")
      */
-    public function updateAction(Request $request){
+    public function updateAction(Request $request)
+    {
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $updateform = $this->createForm(ChangeInfoType::class);
+        $updateform = $this->createForm(ChangeInfoType::class, $user);
         $updateform->handleRequest($request);
         if ($updateform->isSubmitted() && $updateform->isValid()) {
             $newfullname = $updateform->get('newfullname')->getData();
@@ -102,22 +71,22 @@ class UserController extends Controller
             $cellphone = $updateform->get('cellphone')->getData();
             $birthdate = $updateform->get('birthdate')->getData();
             $gender = $updateform->get('gender')->getData();
-            if(!empty($newfullname)) {
+            if (!empty($newfullname)) {
                 $user->setFullname($newfullname);
             }
-            if(!empty($newusername)) {
+            if (!empty($newusername)) {
                 $user->setUsername($newusername);
             }
-            if(!empty($newpassword)) {
+            if (!empty($newpassword)) {
                 $user->setPassword(md5($newpassword));
             }
-            if(!empty($cellphone)) {
+            if (!empty($cellphone)) {
                 $user->setCellphone($cellphone);
             }
-            if(!empty($birthdate)) {
+            if (!empty($birthdate)) {
                 $user->setBirthDay($birthdate);
             }
-            if(!empty($gender)) {
+            if (!empty($gender)) {
                 $user->setGender($gender);
             }
 
@@ -128,15 +97,53 @@ class UserController extends Controller
                 'You have successfully updated your profile!'
             );
             return $this->redirect($this->generateUrl('update'));
-        }elseif($updateform->isSubmitted() && !$updateform->isValid()){
-            $this->addFlash(
-                'updateerror',
-                'Oops! There was an error with your update!'
-            );
+        }
+        elseif($updateform->isSubmitted() && !$updateform->isValid()){
+                $this->addFlash(
+                    'updateerror',
+                    'Oops! There was an error with your update!'
+                );
+            }
+            return $this->render('user/update.html.twig', array('form1' => $updateform->createView()));
         }
 
-        return $this->render('user/update.html.twig',array('form1' => $updateform->createView()));
+    /**
+     * @Route("/change-password", name="changepassword")
+     */
+    public function changePasswordAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+        $updateform = $this->createForm(ChangePasswordType::class);
+        $updateform->handleRequest($request);
+        $newpassword = $updateform->get('newpassword')->getData();
+        $oldpassword = $user->getPassword();
+        $oldrepeat = md5($updateform->get('oldPassword')->getData());
+        if ($updateform->isSubmitted() && $updateform->isValid()) {
+            if(!empty($newpassword) and $oldpassword == $oldrepeat) {
+                $user->setPassword(md5($newpassword));
+            }
+
+            $em->persist($user);
+            $em->flush();
+            $this->addFlash(
+                'updatesuccess',
+                'You have successfully updated your password!'
+            );
+        if($oldpassword != $oldrepeat){
+                $this->addFlash(
+                    'updateerror',
+                    'Oops! There was an error with your update! Please double check your current password. '
+                );
+            }
+            return $this->redirect($this->generateUrl('changepassword'));
+        }
+
+        return $this->render(':Security:changepassword.html.twig',array('passwordform' => $updateform->createView()));
     }
+
+
+
+
 
 
 

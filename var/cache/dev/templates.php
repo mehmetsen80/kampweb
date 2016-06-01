@@ -113,6 +113,7 @@
   ':default:index.html.twig' => '/private/var/www/kampweb/app/Resources/views/default/index.html.twig',
   '::default.html.twig' => '/private/var/www/kampweb/app/Resources/views/default.html.twig',
   ':emails:registration.html.twig' => '/private/var/www/kampweb/app/Resources/views/emails/registration.html.twig',
+  ':events:edit.html.twig' => '/private/var/www/kampweb/app/Resources/views/events/edit.html.twig',
   '::landing.html.twig' => '/private/var/www/kampweb/app/Resources/views/landing.html.twig',
   ':parallax:index.html.twig' => '/private/var/www/kampweb/app/Resources/views/parallax/index.html.twig',
   ':person:show.html.twig' => '/private/var/www/kampweb/app/Resources/views/person/show.html.twig',
@@ -122,6 +123,7 @@
   '::securityview.html.twig' => '/private/var/www/kampweb/app/Resources/views/securityview.html.twig',
   ':user:dashboard.html.twig' => '/private/var/www/kampweb/app/Resources/views/user/dashboard.html.twig',
   ':user:list.html.twig' => '/private/var/www/kampweb/app/Resources/views/user/list.html.twig',
+  ':user:profile.html.twig' => '/private/var/www/kampweb/app/Resources/views/user/profile.html.twig',
   ':user:show.html.twig' => '/private/var/www/kampweb/app/Resources/views/user/show.html.twig',
   ':user:update.html.twig' => '/private/var/www/kampweb/app/Resources/views/user/update.html.twig',
 );

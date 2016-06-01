@@ -1,0 +1,399 @@
+{% extends '::default.html.twig' %}
+{% block styles %}
+<!-- Ladda Loading Btns CSS -->
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/ladda/ladda.min.css') }}">
+{% endblock %}
+{% block body %}
+
+<body class="form-editors-page" data-spy="scroll" data-target="#nav-spy" data-offset="300">
+    <section id="content_wrapper">
+    <!-- Start: TOPBAR -->
+    <header id="topbar">
+        <div class="topbar-left">
+            <ol class="breadcrumb">
+                <li class="crumb-active">
+                    <a href="{{ path('dashboard') }}">Dashboard</a>
+                </li>
+                <li class="crumb-icon">
+                    <a href="{{ path('dashboard') }}">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </a>
+                </li>
+                <li class="crumb-link">
+                    <a href="{{ path('users') }}">Users</a>
+                </li>
+            </ol>
+        </div>
+    </header>
+    <!-- End: TOPBAR -->
+        <!-- Begin: Content -->
+        <section id="content" class="table-layout animated fadeIn">
+
+            <!-- begin: .tray-center -->
+            <div class="tray tray-center">
+                <!-- CKEditor -->
+                <h2 class="micro-header">Add a new event</h2>
+          <textarea name="ckeditor1" id="ckeditor1" name="ckeditor1" rows="12">
+            Your content goes here...
+          </textarea>
+
+                    <button type="button" class="btn ladda-button btn-info progress-button" data-style="contract">
+                        <span class="ladda-label">Submit</span>
+                        <span class="ladda-spinner"></span><span class="ladda-spinner"></span><div class="ladda-progress" style="width: 100px;"></div>
+                    </button>
+                    <button type="button" class="btn ladda-button btn-danger progress-button" data-style="contract">
+                        <span class="ladda-label">Cancel</span>
+                        <span class="ladda-spinner"></span><span class="ladda-spinner"></span><div class="ladda-progress" style="width: 100px;"></div>
+                    </button>
+
+            </div>
+    </section>
+ </section>
+</body>
+    <style>
+        /* Demo Page Styles */
+        .hero-content .btn {
+            border-radius: 0 !important;
+            padding: 12px 0 !important;
+        }
+        .col-adjust-8 {
+            padding: 0 30px;
+        }
+        .col-adjust-8 > .row > div {
+            width: 11.1%;
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+        .col-adjust-8 > .row > div > .btn {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .col-adjust-8 > .row > div > .btn-group > .btn {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        /* Responsive Demo Page Styles */
+        @media (max-width: 700px) {
+            .col-adjust-8 code {
+                display: none;
+            }
+            .col-adjust-8 > .row > div {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .hero-content {
+                border-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            .hero-content .col-adjust-8 h3,
+            .hero-content .col-adjust-8 > .row:first-child > div {
+                margin-bottom: 0px !important;
+            }
+            .col-adjust-8.demo-btn-groups > .row > div,
+            .col-adjust-8.demo-btn-dropdowns > .row > div,
+            .col-adjust-8.demo-btn-ladda > .row > div {
+                width: 33%;
+                margin-bottom: 10px;
+            }
+            .col-adjust-8.demo-btn-ladda > .row > div > .btn {
+                min-width: 100px;
+            }
+        }
+
+        /* Zocal Demo Page Styles*/
+        button.zocial {
+            margin: 6px;
+        }
+
+        /* Ladd Demo Page Styles*/
+        .ladda-button[data-loading] {
+            overflow: visible;
+        }
+        .ladda-button[data-style=contract][data-loading] {
+            width: 35px;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    <!-- BEGIN: PAGE SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+
+    <!-- Theme Javascript -->
+    <script src="{{ asset('assets/js/utility/utility.js') }}"></script>
+    <script src="{{ asset('assets/js/demo/demo.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <!-- Ckeditor JS -->
+    <script src="{{ asset('assets/vendor/plugins/ckeditor/ckeditor.js') }}"></script>
+
+    <!-- Summernote Plugin -->
+    <script src="{{ asset('assets/vendor/plugins/summernote/summernote.min.js') }}"></script>
+
+    <!-- Ladda Loading Button JS -->
+    <script src="{{ asset('assets/vendor/plugins/ladda/ladda.min.js') }}"></script>
+
+    <!-- Page Javascript -->
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+            "use strict";
+
+            // Init Theme Core
+            Core.init();
+
+            // Init Demo JS
+            Demo.init();
+
+
+            // Init Summernote Plugin
+            $('.summernote').summernote({
+                height: 255, //set editable area's height
+                focus: false, //set focus editable area after Initialize summernote
+                oninit: function() {},
+                onChange: function(contents, $editable) {},
+            });
+
+            // Init Inline Summernote Plugin
+            $('.summernote-edit').summernote({
+                airMode: true,
+                focus: false //set focus editable area after Initialize summernote
+            });
+
+            // Turn off automatic editor initilization.
+            // Used to prevent conflictions with multiple text
+            // editors being displayed on the same page.
+            CKEDITOR.disableAutoInline = true;
+
+            // Init Ckeditor
+            CKEDITOR.replace('ckeditor1', {
+                height: 210,
+                on: {
+                    instanceReady: function(evt) {
+                        $('.cke').addClass('admin-skin cke-hide-bottom');
+                    }
+                },
+            });
+
+            // Init Inline Ckeditors
+            CKEDITOR.inline('ckeditor-inline1');
+            CKEDITOR.inline('ckeditor-inline2');
+
+            // Init MarkDown Editor
+            $("#markdown-editor").markdown({
+                savable: false,
+                onChange: function(e) {
+                    var content = e.parseContent(),
+                            content_length = (content.match(/\n/g) || []).length + content.length
+                    if (content == '') {
+                        $('#md-footer').hide()
+                    } else {
+                        $('#md-footer').show().html(content)
+                    }
+                }
+            });
+
+            // Init X-editable Plugin
+            function XEdit() {
+                //enable / disable xedit
+                $('#enable').click(function() {
+                    $(this).toggleClass('active');
+                    $('#user .editable').editable('toggleDisabled');
+                });
+
+                //editables
+                $('#username').editable({
+                    type: 'text',
+                    pk: 1,
+                    name: 'username',
+                    title: 'Enter username'
+                });
+
+                $('#firstname').editable({
+                    validate: function(value) {
+                        if ($.trim(value) == '') return 'This field is required';
+                    }
+                });
+
+                $('#sex').editable({
+                    prepend: "not selected",
+                    source: [{
+                        value: 1,
+                        text: 'Male'
+                    }, {
+                        value: 2,
+                        text: 'Female'
+                    }],
+                    display: function(value, sourceData) {
+                        var colors = {
+                                    "": "gray",
+                                    1: "green",
+                                    2: "blue"
+                                },
+                                elem = $.grep(sourceData, function(o) {
+                                    return o.value == value;
+                                });
+
+                        if (elem.length) {
+                            $(this).text(elem[0].text).css("color", colors[value]);
+                        } else {
+                            $(this).empty();
+                        }
+                    }
+                });
+
+                $('#status').editable();
+
+                $('#group').editable({
+                    showbuttons: false
+                });
+
+                $('#vacation').editable({
+                    datepicker: {
+                        todayBtn: 'linked'
+                    }
+                });
+
+                $('#dob').editable();
+
+                $('#event').editable({
+                    placement: 'right',
+                    combodate: {
+                        firstItem: 'name'
+                    }
+                });
+
+                $('#meeting_start').editable({
+                    format: 'yyyy-mm-dd hh:ii',
+                    viewformat: 'dd/mm/yyyy hh:ii',
+                    validate: function(v) {
+                        if (v && v.getDate() == 10) return 'Day cant be 10!';
+                    },
+                    datetimepicker: {
+                        todayBtn: 'linked',
+                        weekStart: 1
+                    }
+                });
+
+                $('#comments').editable({
+                    showbuttons: 'bottom'
+                });
+
+                $('#note').editable();
+                $('#pencil').click(function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $('#note').editable('toggle');
+                });
+
+                $('#state').editable({
+                    source: ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+                });
+
+                $('#state2').editable({
+                    value: 'California',
+                    typeahead: {
+                        name: 'state',
+                        local: ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+                    }
+                });
+
+                $('#fruits').editable({
+                    pk: 1,
+                    limit: 3,
+                    source: [{
+                        value: 1,
+                        text: 'banana'
+                    }, {
+                        value: 2,
+                        text: 'peach'
+                    }, {
+                        value: 3,
+                        text: 'apple'
+                    }, {
+                        value: 4,
+                        text: 'watermelon'
+                    }, {
+                        value: 5,
+                        text: 'orange'
+                    }]
+                });
+
+                $('#address').editable({
+                    url: '/post',
+                    value: {
+                        city: "Moscow",
+                        street: "Lenina",
+                        building: "12"
+                    },
+                    validate: function(value) {
+                        if (value.city == '') return 'city is required!';
+                    },
+                    display: function(value) {
+                        if (!value) {
+                            $(this).empty();
+                            return;
+                        }
+                        var html = '<b>' + $('<div>').text(value.city).html() + '</b>, ' + $('<div>').text(value.street).html() + ' st., bld. ' + $('<div>').text(value.building).html();
+                        $(this).html(html);
+                    }
+                });
+
+                $('#user .editable').on('hidden', function(e, reason) {
+                    if (reason === 'save' || reason === 'nochange') {
+                        var $next = $(this).closest('tr').next().find('.editable');
+                        if ($('#autoopen').is(':checked')) {
+                            setTimeout(function() {
+                                $next.editable('show');
+                            }, 300);
+                        } else {
+                            $next.focus();
+                        }
+                    }
+                });
+
+            };
+            XEdit();
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+            "use strict";
+
+            // Init Theme Core
+            Core.init();
+
+            // Init Demo JS
+            Demo.init();
+
+            // Init Ladda Plugin on buttons
+            Ladda.bind('.ladda-button', {
+                timeout: 2000
+            });
+
+            // Bind progress buttons and simulate loading progress. Note: Button still requires ".ladda-button" class.
+            Ladda.bind('.progress-button', {
+                callback: function(instance) {
+                    var progress = 0;
+                    var interval = setInterval(function() {
+                        progress = Math.min(progress + Math.random() * 0.1, 1);
+                        instance.setProgress(progress);
+
+                        if (progress === 1) {
+                            instance.stop();
+                            clearInterval(interval);
+                        }
+                    }, 200);
+                }
+            });
+
+        });
+    </script>
+    <!-- END: PAGE SCRIPTS -->
+{% endblock %}
