@@ -8,17 +8,16 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\User;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class ChangeInfoType extends AbstractType
 {
@@ -26,41 +25,36 @@ class ChangeInfoType extends AbstractType
     {
         $builder
             ->add('fullname', TextType::class, array(
-                'required'=>false,
-                'mapped' => false,
-
+                'required'=>true,
             ))
             ->add('username', EmailType::class, array(
-                'required'=>false,
-                'mapped' => false,
+                'required'=>true,
+
             ))
             ->add('gender', ChoiceType::class, array(
                 'choices' => array(
                     'Male' => 'Male',
                     'Female' => 'Female'
                 ),
-                'required'    => false,
+
                 'empty_data'  => null,
-                'placeholder'=>'Select your gender...'
+                'placeholder'=>'Select your gender...',
+                'required'=>true,
             ))
-            ->add('cellphone', IntegerType::class, array('required' =>false))
-            ->add('birthday', TextType::class, array(
-                'required' =>false
-            ))
-            ->add('newpassword', RepeatedType::class, array(
-                'type' => PasswordType::class,
-                'required'=>false,
-                'mapped'=>false,
-                'first_options'  => array('label' => 'Password', 'error_bubbling' => true),
-                'second_options' => array('label' => 'Repeat Password'),
-                'invalid_message' => 'The password fields must match.',
-    ));
+            ->add('cellphone', TextType::class, array())
+            ->add('birthday', BirthdayType::class, array(
+                'widget'=>'single_text',
+                'format'=>'MM/dd/yyyy',
+                'required'=>true,
+
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-
+            'data_class' => 'AppBundle\Entity\User',
+            'validation_groups' => array('edit'),
         ));
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-/* DoctrineBundle:Collector:explain.html.twig */
+/* @Doctrine/Collector/explain.html.twig */
 class __TwigTemplate_b0f3946c27345d171c7d6bd8c3902e6552caa639d4575b3cb74693d1c448c2b5 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -15,8 +15,8 @@ class __TwigTemplate_b0f3946c27345d171c7d6bd8c3902e6552caa639d4575b3cb74693d1c44
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_45ae2d26ee461c34ef5836074b72554a1124b7c365323df7394630a1a7c4c7c2 = $this->env->getExtension("native_profiler");
-        $__internal_45ae2d26ee461c34ef5836074b72554a1124b7c365323df7394630a1a7c4c7c2->enter($__internal_45ae2d26ee461c34ef5836074b72554a1124b7c365323df7394630a1a7c4c7c2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DoctrineBundle:Collector:explain.html.twig"));
+        $__internal_823cfb99f38e01fda9fc178b94ef721701a28c126ae5c2de82794cd6d4a7b8e9 = $this->env->getExtension("native_profiler");
+        $__internal_823cfb99f38e01fda9fc178b94ef721701a28c126ae5c2de82794cd6d4a7b8e9->enter($__internal_823cfb99f38e01fda9fc178b94ef721701a28c126ae5c2de82794cd6d4a7b8e9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Doctrine/Collector/explain.html.twig"));
 
         // line 1
         if ((twig_length_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : $this->getContext($context, "data")), 0, array(), "array")) > 1)) {
@@ -98,13 +98,13 @@ class __TwigTemplate_b0f3946c27345d171c7d6bd8c3902e6552caa639d4575b3cb74693d1c44
 ";
         }
         
-        $__internal_45ae2d26ee461c34ef5836074b72554a1124b7c365323df7394630a1a7c4c7c2->leave($__internal_45ae2d26ee461c34ef5836074b72554a1124b7c365323df7394630a1a7c4c7c2_prof);
+        $__internal_823cfb99f38e01fda9fc178b94ef721701a28c126ae5c2de82794cd6d4a7b8e9->leave($__internal_823cfb99f38e01fda9fc178b94ef721701a28c126ae5c2de82794cd6d4a7b8e9_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "DoctrineBundle:Collector:explain.html.twig";
+        return "@Doctrine/Collector/explain.html.twig";
     }
 
     public function isTraitable()

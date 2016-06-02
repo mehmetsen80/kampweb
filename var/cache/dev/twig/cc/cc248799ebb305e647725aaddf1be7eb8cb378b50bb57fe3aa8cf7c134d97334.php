@@ -23,20 +23,20 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b30f577ff3f7f3ac43ce36029c3701603b23a0899adf5e93f240591da64521d1 = $this->env->getExtension("native_profiler");
-        $__internal_b30f577ff3f7f3ac43ce36029c3701603b23a0899adf5e93f240591da64521d1->enter($__internal_b30f577ff3f7f3ac43ce36029c3701603b23a0899adf5e93f240591da64521d1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":Security:changepassword.html.twig"));
+        $__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e = $this->env->getExtension("native_profiler");
+        $__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e->enter($__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":Security:changepassword.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b30f577ff3f7f3ac43ce36029c3701603b23a0899adf5e93f240591da64521d1->leave($__internal_b30f577ff3f7f3ac43ce36029c3701603b23a0899adf5e93f240591da64521d1_prof);
+        $__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e->leave($__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e_prof);
 
     }
 
     // line 2
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_13ee50241029e86ec04582a1b49b3b4b9599d3be0a365bfe07cda9e3394c2f63 = $this->env->getExtension("native_profiler");
-        $__internal_13ee50241029e86ec04582a1b49b3b4b9599d3be0a365bfe07cda9e3394c2f63->enter($__internal_13ee50241029e86ec04582a1b49b3b4b9599d3be0a365bfe07cda9e3394c2f63_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37 = $this->env->getExtension("native_profiler");
+        $__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37->enter($__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 3
         echo "    <!-- Font CSS (Via CDN) -->
@@ -58,45 +58,17 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
         echo "\">
 ";
         
-        $__internal_13ee50241029e86ec04582a1b49b3b4b9599d3be0a365bfe07cda9e3394c2f63->leave($__internal_13ee50241029e86ec04582a1b49b3b4b9599d3be0a365bfe07cda9e3394c2f63_prof);
+        $__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37->leave($__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37_prof);
 
     }
 
     // line 12
     public function block_body($context, array $blocks = array())
     {
-        $__internal_2b911fdcacbc82ed2b712d09511c45152b2a868bf13eca822582aff683169ec3 = $this->env->getExtension("native_profiler");
-        $__internal_2b911fdcacbc82ed2b712d09511c45152b2a868bf13eca822582aff683169ec3->enter($__internal_2b911fdcacbc82ed2b712d09511c45152b2a868bf13eca822582aff683169ec3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f = $this->env->getExtension("native_profiler");
+        $__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f->enter($__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 13
-        echo "    ";
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "updatesuccess"), "method"));
-        foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
-            // line 14
-            echo "        <div class=\"ui-pnotify stack_top_right\" style=\"width: 290px; opacity: 1; display: block; overflow: visible; right: 8px; top: 70px;\"><div class=\"alert ui-pnotify-container alert-success ui-pnotify-shadow\" style=\"min-height: 16px; overflow: hidden;\"><div class=\"ui-pnotify-closer\" style=\"cursor: pointer; visibility: hidden;\"><span class=\"glyphicon glyphicon-remove\" title=\"Close\"></span></div><div class=\"ui-pnotify-sticker\" style=\"cursor: pointer; visibility: hidden;\"><span class=\"glyphicon glyphicon-play\" title=\"Stick\"></span></div><div class=\"ui-pnotify-icon\"><span class=\"glyphicon glyphicon-ok-sign\"></span></div><h4 class=\"ui-pnotify-title\">";
-            echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
-            echo "</h4><div class=\"ui-pnotify-text\"></div><div style=\"margin-top: 5px; clear: both; text-align: right; display: none;\"></div></div></div>
-    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 16
-        echo "    ";
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "updateerror"), "method"));
-        foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
-            // line 17
-            echo "        <div class=\"ui-pnotify stack_top_right\" style=\"width: 290px; opacity: 1; display: block; overflow: visible; right: 8px; top: 70px;\"><div class=\"alert ui-pnotify-container alert-warning ui-pnotify-shadow\" style=\"min-height: 16px; overflow: hidden;\"><div class=\"ui-pnotify-closer\" style=\"cursor: pointer; visibility: hidden;\"><span class=\"glyphicon glyphicon-remove\" title=\"Close\"></span></div><div class=\"ui-pnotify-sticker\" style=\"cursor: pointer; visibility: hidden;\"><span class=\"glyphicon glyphicon-play\" title=\"Stick\"></span></div><div class=\"ui-pnotify-icon\"><span class=\"glyphicon glyphicon-ok-sign\"></span></div><h4 class=\"ui-pnotify-title\">";
-            echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
-            echo "</h4><div class=\"ui-pnotify-text\"></div><div style=\"margin-top: 5px; clear: both; text-align: right; display: none;\"></div></div></div>
-    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 19
         echo "
     <!-- Start: Content-Wrapper -->
     <section id=\"content_wrapper\">
@@ -106,13 +78,13 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
                 <ol class=\"breadcrumb\">
                     <li class=\"crumb-active\">
                         <a href=\"";
-        // line 27
+        // line 21
         echo $this->env->getExtension('routing')->getPath("dashboard");
         echo "\">Dashboard</a>
                     </li>
                     <li class=\"crumb-icon\">
                         <a href=\"";
-        // line 30
+        // line 24
         echo $this->env->getExtension('routing')->getPath("dashboard");
         echo "\">
                             <span class=\"glyphicon glyphicon-home\"></span>
@@ -120,14 +92,54 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
                     </li>
                     <li class=\"crumb-link\">
                         <a href=\"";
-        // line 35
+        // line 29
         echo $this->env->getExtension('routing')->getPath("changepassword");
         echo "\">Change Password</a>
                     </li>
                 </ol>
             </div>
         </header>
-        <!-- End: TOPBAR -->
+        ";
+        // line 34
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "updatesuccess"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
+            // line 35
+            echo "            <div class=\"alert alert-primary alert-dismissable\">
+                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
+                <i class=\"fa fa-trophy pr10\"></i>
+                ";
+            // line 38
+            echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
+            echo "
+            </div>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 41
+        echo "        ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "updateerror"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
+            // line 42
+            echo "            <div class=\"alert alert-danger alert-dismissable\">
+                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
+                <i class=\"fa fa-remove pr10\"></i>
+                <strong>";
+            // line 45
+            echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
+            echo "</strong>
+
+            </div>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 49
+        echo "        <!-- End: TOPBAR -->
         <!-- Begin: Content -->
         <section id=\"content\" class=\"table-layout animated fadeIn\">
             <!-- begin: .tray-center -->
@@ -144,7 +156,7 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
                     <div class=\"panel heading-border\">
 
                         <form method=\"post\" action=\"";
-        // line 56
+        // line 65
         echo $this->env->getExtension('routing')->getPath("changepassword");
         echo "\" id=\"admin-form\">
 
@@ -154,39 +166,39 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
                                     <span> Update Your Password </span>
                                 </div>
                                 ";
-        // line 63
+        // line 72
         if ( !$this->getAttribute($this->getAttribute($this->getAttribute((isset($context["passwordform"]) ? $context["passwordform"] : $this->getContext($context, "passwordform")), "oldPassword", array()), "vars", array()), "valid", array())) {
-            // line 64
+            // line 73
             echo "                                    <div class=\"alert alert-danger alert-dismissable\">
                                         <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
                                         <i class=\"fa fa-remove pr10\"></i>
                                         <strong> ";
-            // line 67
+            // line 76
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["passwordform"]) ? $context["passwordform"] : $this->getContext($context, "passwordform")), "oldPassword", array()), 'errors');
             echo "</strong>
                                     </div>
                                 ";
         }
-        // line 70
+        // line 79
         echo "                                ";
         if ( !$this->getAttribute($this->getAttribute($this->getAttribute((isset($context["passwordform"]) ? $context["passwordform"] : $this->getContext($context, "passwordform")), "newpassword", array()), "vars", array()), "valid", array())) {
-            // line 71
+            // line 80
             echo "                                    <div class=\"alert alert-danger alert-dismissable\">
                                         <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
                                         <i class=\"fa fa-remove pr10\"></i>
                                         <strong> ";
-            // line 74
+            // line 83
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["passwordform"]) ? $context["passwordform"] : $this->getContext($context, "passwordform")), "newpassword", array()), 'errors');
             echo "</strong>
                                     </div>
                                 ";
         }
-        // line 77
+        // line 86
         echo "
                                 <div class=\"section\">
                                     <label for=\"password\" class=\"field prepend-icon\">
                                         ";
-        // line 80
+        // line 89
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["passwordform"]) ? $context["passwordform"] : $this->getContext($context, "passwordform")), "oldPassword", array()), 'widget', array("attr" => array("class" => "gui-input", "placeholder" => "Current password", "type" => "password", "id" => "password")));
         echo "
                                         <label for=\"password\" class=\"field-icon\">
@@ -198,7 +210,7 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
                                 <div class=\"section\">
                                     <label for=\"password\" class=\"field prepend-icon\">
                                         ";
-        // line 89
+        // line 98
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["passwordform"]) ? $context["passwordform"] : $this->getContext($context, "passwordform")), "newpassword", array()), "first", array()), 'widget', array("attr" => array("class" => "gui-input", "placeholder" => "New password", "type" => "password", "id" => "password")));
         echo "
                                         <label for=\"password\" class=\"field-icon\">
@@ -211,7 +223,7 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
                                 <div class=\"section\">
                                     <label for=\"repeatPassword\" class=\"field prepend-icon\">
                                         ";
-        // line 99
+        // line 108
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["passwordform"]) ? $context["passwordform"] : $this->getContext($context, "passwordform")), "newpassword", array()), "second", array()), 'widget', array("attr" => array("class" => "gui-input", "placeholder" => "Repeat new password", "type" => "password", "id" => "repeatPassword")));
         echo "
                                         <label for=\"repeatPassword\" class=\"field-icon\">
@@ -228,7 +240,7 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
                             </div>
                             <!-- end .form-footer section -->
                             ";
-        // line 113
+        // line 122
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["passwordform"]) ? $context["passwordform"] : $this->getContext($context, "passwordform")), "_token", array()), 'row');
         echo "
                         </form>
@@ -264,53 +276,53 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
 
 ";
         
-        $__internal_2b911fdcacbc82ed2b712d09511c45152b2a868bf13eca822582aff683169ec3->leave($__internal_2b911fdcacbc82ed2b712d09511c45152b2a868bf13eca822582aff683169ec3_prof);
+        $__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f->leave($__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f_prof);
 
     }
 
-    // line 146
+    // line 155
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_5ac186fb0b7d561d92f06eabc70f0aa847c973b260e02825a917a0cfdd63a0f8 = $this->env->getExtension("native_profiler");
-        $__internal_5ac186fb0b7d561d92f06eabc70f0aa847c973b260e02825a917a0cfdd63a0f8->enter($__internal_5ac186fb0b7d561d92f06eabc70f0aa847c973b260e02825a917a0cfdd63a0f8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e = $this->env->getExtension("native_profiler");
+        $__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e->enter($__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 147
+        // line 156
         echo "    <!-- jQuery -->
     <script src=\"";
-        // line 148
+        // line 157
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery-1.11.1.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 149
+        // line 158
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery_ui/jquery-ui.min.js"), "html", null, true);
         echo "\"></script>
     <!-- Theme Javascript -->
     <script src=\"";
-        // line 151
+        // line 160
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/utility/utility.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 152
+        // line 161
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/demo/demo.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 153
+        // line 162
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
     <!-- jQuery Validate Plugin-->
     <script src=\"";
-        // line 155
+        // line 164
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/admin-tools/admin-forms/js/jquery.validate.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- jQuery Validate Addon -->
     <script src=\"";
-        // line 158
+        // line 167
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/admin-tools/admin-forms/js/additional-methods.min.js"), "html", null, true);
         echo "\"></script>
     <!-- PNotify -->
     <script src=\"";
-        // line 160
+        // line 169
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/plugins/pnotify/pnotify.js"), "html", null, true);
         echo "\"></script>
 
@@ -523,7 +535,7 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
     <!-- END: PAGE SCRIPTS -->
 ";
         
-        $__internal_5ac186fb0b7d561d92f06eabc70f0aa847c973b260e02825a917a0cfdd63a0f8->leave($__internal_5ac186fb0b7d561d92f06eabc70f0aa847c973b260e02825a917a0cfdd63a0f8_prof);
+        $__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e->leave($__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e_prof);
 
     }
 
@@ -539,7 +551,7 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
 
     public function getDebugInfo()
     {
-        return array (  314 => 160,  309 => 158,  303 => 155,  298 => 153,  294 => 152,  290 => 151,  285 => 149,  281 => 148,  278 => 147,  272 => 146,  232 => 113,  215 => 99,  202 => 89,  190 => 80,  185 => 77,  179 => 74,  174 => 71,  171 => 70,  165 => 67,  160 => 64,  158 => 63,  148 => 56,  124 => 35,  116 => 30,  110 => 27,  100 => 19,  91 => 17,  86 => 16,  77 => 14,  72 => 13,  66 => 12,  57 => 10,  51 => 7,  46 => 5,  42 => 3,  36 => 2,  11 => 1,);
+        return array (  326 => 169,  321 => 167,  315 => 164,  310 => 162,  306 => 161,  302 => 160,  297 => 158,  293 => 157,  290 => 156,  284 => 155,  244 => 122,  227 => 108,  214 => 98,  202 => 89,  197 => 86,  191 => 83,  186 => 80,  183 => 79,  177 => 76,  172 => 73,  170 => 72,  160 => 65,  142 => 49,  132 => 45,  127 => 42,  122 => 41,  113 => 38,  108 => 35,  104 => 34,  96 => 29,  88 => 24,  82 => 21,  72 => 13,  66 => 12,  57 => 10,  51 => 7,  46 => 5,  42 => 3,  36 => 2,  11 => 1,);
     }
 }
 /* {% extends '::default.html.twig' %}*/
@@ -554,12 +566,6 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
 /*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">*/
 /* {% endblock %}*/
 /* {% block body %}*/
-/*     {% for flash_message in app.session.flashBag.get('updatesuccess') %}*/
-/*         <div class="ui-pnotify stack_top_right" style="width: 290px; opacity: 1; display: block; overflow: visible; right: 8px; top: 70px;"><div class="alert ui-pnotify-container alert-success ui-pnotify-shadow" style="min-height: 16px; overflow: hidden;"><div class="ui-pnotify-closer" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-remove" title="Close"></span></div><div class="ui-pnotify-sticker" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-play" title="Stick"></span></div><div class="ui-pnotify-icon"><span class="glyphicon glyphicon-ok-sign"></span></div><h4 class="ui-pnotify-title">{{ flash_message }}</h4><div class="ui-pnotify-text"></div><div style="margin-top: 5px; clear: both; text-align: right; display: none;"></div></div></div>*/
-/*     {% endfor %}*/
-/*     {% for flash_message in app.session.flashBag.get('updateerror') %}*/
-/*         <div class="ui-pnotify stack_top_right" style="width: 290px; opacity: 1; display: block; overflow: visible; right: 8px; top: 70px;"><div class="alert ui-pnotify-container alert-warning ui-pnotify-shadow" style="min-height: 16px; overflow: hidden;"><div class="ui-pnotify-closer" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-remove" title="Close"></span></div><div class="ui-pnotify-sticker" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-play" title="Stick"></span></div><div class="ui-pnotify-icon"><span class="glyphicon glyphicon-ok-sign"></span></div><h4 class="ui-pnotify-title">{{ flash_message }}</h4><div class="ui-pnotify-text"></div><div style="margin-top: 5px; clear: both; text-align: right; display: none;"></div></div></div>*/
-/*     {% endfor %}*/
 /* */
 /*     <!-- Start: Content-Wrapper -->*/
 /*     <section id="content_wrapper">*/
@@ -581,6 +587,21 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
 /*                 </ol>*/
 /*             </div>*/
 /*         </header>*/
+/*         {% for flash_message in app.session.flashBag.get('updatesuccess') %}*/
+/*             <div class="alert alert-primary alert-dismissable">*/
+/*                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*/
+/*                 <i class="fa fa-trophy pr10"></i>*/
+/*                 {{ flash_message }}*/
+/*             </div>*/
+/*         {% endfor %}*/
+/*         {% for flash_message in app.session.flashBag.get('updateerror') %}*/
+/*             <div class="alert alert-danger alert-dismissable">*/
+/*                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*/
+/*                 <i class="fa fa-remove pr10"></i>*/
+/*                 <strong>{{ flash_message }}</strong>*/
+/* */
+/*             </div>*/
+/*         {% endfor %}*/
 /*         <!-- End: TOPBAR -->*/
 /*         <!-- Begin: Content -->*/
 /*         <section id="content" class="table-layout animated fadeIn">*/

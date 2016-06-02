@@ -65,31 +65,41 @@ class UserController extends Controller
         $updateform = $this->createForm(ChangeInfoType::class, $user);
         $updateform->handleRequest($request);
         if ($updateform->isSubmitted() && $updateform->isValid()) {
-            $newfullname = $updateform->get('newfullname')->getData();
-            $newusername = $updateform->get('newusername')->getData();
-            $newpassword = $updateform->get('newpassword')->getData();
+            $newfullname = $updateform->get('fullname')->getData();
+            $newusername = $updateform->get('username')->getData();
             $cellphone = $updateform->get('cellphone')->getData();
-            $birthdate = $updateform->get('birthdate')->getData();
+            $birthdate = $updateform->get('birthday')->getData();
             $gender = $updateform->get('gender')->getData();
             if (!empty($newfullname)) {
                 $user->setFullname($newfullname);
             }
+            else{
+                $user->setFullname($user->getFullname());
+            }
             if (!empty($newusername)) {
                 $user->setUsername($newusername);
             }
-            if (!empty($newpassword)) {
-                $user->setPassword(md5($newpassword));
+            else{
+                $user->setUsername($user->getUsername());
             }
             if (!empty($cellphone)) {
                 $user->setCellphone($cellphone);
             }
+            else{
+                $user->setCellphone($user->getCellphone());
+            }
             if (!empty($birthdate)) {
                 $user->setBirthDay($birthdate);
+            }
+            else{
+                $user->setBirthDay($user->getBirthday());
             }
             if (!empty($gender)) {
                 $user->setGender($gender);
             }
-
+            else {
+                $user->setGender($user->getGender());
+            }
             $em->persist($user);
             $em->flush();
             $this->addFlash(
@@ -113,22 +123,22 @@ class UserController extends Controller
     public function changePasswordAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $updateform = $this->createForm(ChangePasswordType::class);
-        $updateform->handleRequest($request);
-        $newpassword = $updateform->get('newpassword')->getData();
+        $passwordform = $this->createForm(ChangePasswordType::class);
+        $passwordform->handleRequest($request);
+        $newpassword = $passwordform->get('newpassword')->getData();
         $oldpassword = $user->getPassword();
-        $oldrepeat = md5($updateform->get('oldPassword')->getData());
-        if ($updateform->isSubmitted() && $updateform->isValid()) {
+        $oldrepeat = md5($passwordform->get('oldPassword')->getData());
+        if ($passwordform->isSubmitted() && $passwordform->isValid()) {
             if(!empty($newpassword) and $oldpassword == $oldrepeat) {
                 $user->setPassword(md5($newpassword));
+                $this->addFlash(
+                    'updatesuccess',
+                    'You have successfully updated your password!'
+                );
             }
 
             $em->persist($user);
             $em->flush();
-            $this->addFlash(
-                'updatesuccess',
-                'You have successfully updated your password!'
-            );
         if($oldpassword != $oldrepeat){
                 $this->addFlash(
                     'updateerror',
@@ -138,7 +148,7 @@ class UserController extends Controller
             return $this->redirect($this->generateUrl('changepassword'));
         }
 
-        return $this->render(':Security:changepassword.html.twig',array('passwordform' => $updateform->createView()));
+        return $this->render(':Security:changepassword.html.twig',array('passwordform' => $passwordform->createView()));
     }
 
 

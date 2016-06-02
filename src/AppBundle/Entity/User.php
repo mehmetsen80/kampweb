@@ -53,9 +53,6 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=64)
-     * @SecurityAssert\UserPassword(
-     *     message = "Wrong value for your current password"
-     * )
      */
     private $password;
 
@@ -73,13 +70,13 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @Assert\Date()
-     * @ORM\Column(name="birthday", nullable=true)
+     * @ORM\Column(name="birthday", type="datetime", nullable=true)
      */
     protected $birthday;
 
     /**
      * @var integer
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $cellphone;
 
@@ -241,7 +238,9 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+
+            $this->password = $password;
+
 
         return $this;
     }
@@ -275,6 +274,7 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function getPlainPassword()
     {
+
         return $this->plainPassword;
     }
 
@@ -283,6 +283,7 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function setPlainPassword($plainPassword)
     {
+
         $this->plainPassword = $plainPassword;
     }
 

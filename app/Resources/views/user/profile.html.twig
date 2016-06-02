@@ -37,132 +37,25 @@
                         <small> - Profile</small>
                     </h2>
                     <p class="lead">North American University - Computer Science</p>
-                    <div class="media-links">
-                        <ul class="list-inline list-unstyled">
-                            <li>
-                                <a href="#" title="facebook link">
-                                    <span class="fa fa-facebook-square fs35 text-primary"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="twitter link">
-                                    <span class="fa fa-twitter-square fs35 text-info"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="google plus link">
-                                    <span class="fa fa-google-plus-square fs35 text-danger"></span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" title="linkedin link">
-                                    <span class="fa fa-linkedin-square fs35 text-info"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="github link">
-                                    <span class="fa fa-github-square fs35 text-dark"></span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-4">
-                <div class="panel">
-                    <div class="panel-heading">
-                  <span class="panel-icon">
-                    <i class="fa fa-star"></i>
-                  </span>
-                        <span class="panel-title"> Contact Information</span>
-                    </div>
-                    <div class="panel-body pn">
-                        <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
-                            <thead>
-                            <tr class="hidden">
-                                <th class="mw30">#</th>
-                                <th>First Name</th>
-                                <th>Revenue</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <span class="fa fa-phone text-warning"></span>
-                                </td>
-                                <td>Cellphone</td>
-                                <td>{{ user.cellphone }}</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="fa fa-reply text-primary"></span>
-                                </td>
-                                <td>Email</td>
-                                <td>{{ user.username }}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <div class="panel-heading">
-                  <span class="panel-icon">
-                    <i class="fa fa-pencil"></i>
-                  </span>
-                        <span class="panel-title">Events</span>
-                    </div>
-                    <div class="panel-body pb5">
-
-                        <h6>Experience</h6>
-
-                        <h4>Facebook Internship</h4>
-                        <p class="text-muted"> University of Missouri, Columbia
-                            <br> Student Health Center, June 2010 - 2012
-                        </p>
-
-                        <hr class="short br-lighter">
-
-                        <h6>Education</h6>
-
-                        <h4>Bachelor of Science, PhD</h4>
-                        <p class="text-muted"> University of Missouri, Columbia
-                            <br> Student Health Center, June 2010 through Aug 2011
-                        </p>
-
-                        <hr class="short br-lighter">
-
-                        <h6>Accomplishments</h6>
-
-                        <h4>Successful Business</h4>
-                        <p class="text-muted pb10"> University of Missouri, Columbia
-                            <br> Student Health Center, June 2010 through Aug 2011
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
+            <div class="col-md-12">
 
                 <div class="tab-block">
                     <ul class="nav nav-tabs">
                         <li class="active">
-                            <a href="#tab1" data-toggle="tab">About</a>
+                            <a href="#tab1" data-toggle="tab">Events</a>
                         </li>
                         <li>
-                            <a href="#tab2" data-toggle="tab">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="#tab3" data-toggle="tab">Dependents</a>
+                            <a href="#tab2" data-toggle="tab">About</a>
                         </li>
                     </ul>
                     <div class="tab-content p30" style="height: 730px;">
-                        <div id="tab1" class="tab-pane active">
+                        <div id="tab1" class="tab-pane active"></div>
+                        <div id="tab2" class="tab-pane">
                             <div class="panel">
                                 <div class="panel-body pn">
                                     <div class="bs-component">
@@ -199,7 +92,7 @@
                                                     <span class="fa fa-calendar text-info"></span>
                                                 </td>
                                                 <td>Birthday</td>
-                                                <td>{{ user.birthday }}</td>
+                                                <td>{{ user.birthday|date("m/d/Y") }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -235,9 +128,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="tab2" class="tab-pane"></div>
-                        <div id="tab3" class="tab-pane"></div>
-                        <div id="tab4" class="tab-pane"></div>
                     </div>
                 </div>
             </div>

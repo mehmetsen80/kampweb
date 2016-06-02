@@ -23,7 +23,9 @@ class ChangePasswordType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('oldPassword', PasswordType::class);
+        $builder->add('oldPassword', PasswordType::class, array(
+            'mapped'=>false,
+        ));
         $builder->add('newpassword', RepeatedType::class, array(
         'type' => PasswordType::class,
         'required'=>true,
@@ -37,6 +39,7 @@ class ChangePasswordType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\ChangeInfo',
 
         ]);
     }
