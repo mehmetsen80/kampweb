@@ -21,20 +21,20 @@ class __TwigTemplate_9e7764b3e05d04ec73e2c97d9bbf5dbcd1b2e30833073903ce32ae40d9d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_58648448fef661753767e93668140f3b662f57921c4965899eae8d4b56384881 = $this->env->getExtension("native_profiler");
-        $__internal_58648448fef661753767e93668140f3b662f57921c4965899eae8d4b56384881->enter($__internal_58648448fef661753767e93668140f3b662f57921c4965899eae8d4b56384881_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":Security:login.html.twig"));
+        $__internal_9b50c3457423409ce0f289c75e9da3d4441af4273c0b4595dc4ebd977716791d = $this->env->getExtension("native_profiler");
+        $__internal_9b50c3457423409ce0f289c75e9da3d4441af4273c0b4595dc4ebd977716791d->enter($__internal_9b50c3457423409ce0f289c75e9da3d4441af4273c0b4595dc4ebd977716791d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":Security:login.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_58648448fef661753767e93668140f3b662f57921c4965899eae8d4b56384881->leave($__internal_58648448fef661753767e93668140f3b662f57921c4965899eae8d4b56384881_prof);
+        $__internal_9b50c3457423409ce0f289c75e9da3d4441af4273c0b4595dc4ebd977716791d->leave($__internal_9b50c3457423409ce0f289c75e9da3d4441af4273c0b4595dc4ebd977716791d_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_bc9ab56c1d3b32282cb375566f33a3874ed4af9b87270d1d577222a91362c6af = $this->env->getExtension("native_profiler");
-        $__internal_bc9ab56c1d3b32282cb375566f33a3874ed4af9b87270d1d577222a91362c6af->enter($__internal_bc9ab56c1d3b32282cb375566f33a3874ed4af9b87270d1d577222a91362c6af_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_59fd880fdcd7c02b84ff372d549e56353f1a5c2bba11a4ec432435c85f811f27 = $this->env->getExtension("native_profiler");
+        $__internal_59fd880fdcd7c02b84ff372d549e56353f1a5c2bba11a4ec432435c85f811f27->enter($__internal_59fd880fdcd7c02b84ff372d549e56353f1a5c2bba11a4ec432435c85f811f27_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "<body class=\"external-page sb-l-c sb-r-c\">
@@ -142,7 +142,7 @@ class __TwigTemplate_9e7764b3e05d04ec73e2c97d9bbf5dbcd1b2e30833073903ce32ae40d9d
         // line 82
         echo twig_escape_filter($this->env, $this->env->getExtension('form')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\">
-                            <button type=\"submit\" class=\"button btn-primary mr10 pull-right\">Sign In</button>
+                            <button type=\"submit\" class=\"button btn-primary mr10 pull-right \">Sign In</button>
                             <label class=\"switch ib switch-primary pull-left input-align mt10\">
                                 <input type=\"checkbox\" id=\"remember\" name=\"_remember_me\" checked />
                                 <label for=\"remember\" data-on=\"YES\" data-off=\"NO\"></label>
@@ -162,7 +162,7 @@ class __TwigTemplate_9e7764b3e05d04ec73e2c97d9bbf5dbcd1b2e30833073903ce32ae40d9d
 </body>
 ";
         
-        $__internal_bc9ab56c1d3b32282cb375566f33a3874ed4af9b87270d1d577222a91362c6af->leave($__internal_bc9ab56c1d3b32282cb375566f33a3874ed4af9b87270d1d577222a91362c6af_prof);
+        $__internal_59fd880fdcd7c02b84ff372d549e56353f1a5c2bba11a4ec432435c85f811f27->leave($__internal_59fd880fdcd7c02b84ff372d549e56353f1a5c2bba11a4ec432435c85f811f27_prof);
 
     }
 
@@ -263,7 +263,7 @@ class __TwigTemplate_9e7764b3e05d04ec73e2c97d9bbf5dbcd1b2e30833073903ce32ae40d9d
 /*                         <div class="panel-footer clearfix p10 ph15">*/
 /*                             <input type="hidden" name="_csrf_token"*/
 /*                                    value="{{ csrf_token('authenticate') }}">*/
-/*                             <button type="submit" class="button btn-primary mr10 pull-right">Sign In</button>*/
+/*                             <button type="submit" class="button btn-primary mr10 pull-right ">Sign In</button>*/
 /*                             <label class="switch ib switch-primary pull-left input-align mt10">*/
 /*                                 <input type="checkbox" id="remember" name="_remember_me" checked />*/
 /*                                 <label for="remember" data-on="YES" data-off="NO"></label>*/

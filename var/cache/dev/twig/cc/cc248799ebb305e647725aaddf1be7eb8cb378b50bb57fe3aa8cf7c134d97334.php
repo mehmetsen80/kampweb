@@ -23,20 +23,20 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e = $this->env->getExtension("native_profiler");
-        $__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e->enter($__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":Security:changepassword.html.twig"));
+        $__internal_e1c22d353b71a6d41e08ffb18e436c6ce20b83d1a7d3915a7f86dde6b56f6cea = $this->env->getExtension("native_profiler");
+        $__internal_e1c22d353b71a6d41e08ffb18e436c6ce20b83d1a7d3915a7f86dde6b56f6cea->enter($__internal_e1c22d353b71a6d41e08ffb18e436c6ce20b83d1a7d3915a7f86dde6b56f6cea_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":Security:changepassword.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e->leave($__internal_b16d9bc2569ac775ca65452494b4b57004b5fc77b0753b16a83e4d370022229e_prof);
+        $__internal_e1c22d353b71a6d41e08ffb18e436c6ce20b83d1a7d3915a7f86dde6b56f6cea->leave($__internal_e1c22d353b71a6d41e08ffb18e436c6ce20b83d1a7d3915a7f86dde6b56f6cea_prof);
 
     }
 
     // line 2
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37 = $this->env->getExtension("native_profiler");
-        $__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37->enter($__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_77b4b9b1473ec66a18b04ca8408bf52b9e48e78cbb9597f1bf9ffc8397d2d653 = $this->env->getExtension("native_profiler");
+        $__internal_77b4b9b1473ec66a18b04ca8408bf52b9e48e78cbb9597f1bf9ffc8397d2d653->enter($__internal_77b4b9b1473ec66a18b04ca8408bf52b9e48e78cbb9597f1bf9ffc8397d2d653_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 3
         echo "    <!-- Font CSS (Via CDN) -->
@@ -58,15 +58,15 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
         echo "\">
 ";
         
-        $__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37->leave($__internal_02dec31d967962d7c8c5daf20ed05625e09bf1d12a5a8f76c509728d56dd9b37_prof);
+        $__internal_77b4b9b1473ec66a18b04ca8408bf52b9e48e78cbb9597f1bf9ffc8397d2d653->leave($__internal_77b4b9b1473ec66a18b04ca8408bf52b9e48e78cbb9597f1bf9ffc8397d2d653_prof);
 
     }
 
     // line 12
     public function block_body($context, array $blocks = array())
     {
-        $__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f = $this->env->getExtension("native_profiler");
-        $__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f->enter($__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_3ab9280f48ab332e63a427ba04b951228449636f37923bf27122f6855967d6ca = $this->env->getExtension("native_profiler");
+        $__internal_3ab9280f48ab332e63a427ba04b951228449636f37923bf27122f6855967d6ca->enter($__internal_3ab9280f48ab332e63a427ba04b951228449636f37923bf27122f6855967d6ca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 13
         echo "
@@ -236,11 +236,10 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
                             <!-- end .form-body section -->
                             <div class=\"panel-footer text-right\">
                                 <button type=\"submit\" class=\"button btn-primary\"> Update </button>
-                                <button type=\"reset\" class=\"button\"> Cancel </button>
                             </div>
                             <!-- end .form-footer section -->
                             ";
-        // line 122
+        // line 121
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["passwordform"]) ? $context["passwordform"] : $this->getContext($context, "passwordform")), "_token", array()), 'row');
         echo "
                         </form>
@@ -276,53 +275,53 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
 
 ";
         
-        $__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f->leave($__internal_42767e3ffc1776e269b5d010fba796a85ebba036c838a25fd59ae1187c893f5f_prof);
+        $__internal_3ab9280f48ab332e63a427ba04b951228449636f37923bf27122f6855967d6ca->leave($__internal_3ab9280f48ab332e63a427ba04b951228449636f37923bf27122f6855967d6ca_prof);
 
     }
 
-    // line 155
+    // line 154
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e = $this->env->getExtension("native_profiler");
-        $__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e->enter($__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_a1c417c6f8a6233f014f5befb3c43cb7b65b95f539dfe1eeb0a3dbfd69651d31 = $this->env->getExtension("native_profiler");
+        $__internal_a1c417c6f8a6233f014f5befb3c43cb7b65b95f539dfe1eeb0a3dbfd69651d31->enter($__internal_a1c417c6f8a6233f014f5befb3c43cb7b65b95f539dfe1eeb0a3dbfd69651d31_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 156
+        // line 155
         echo "    <!-- jQuery -->
     <script src=\"";
-        // line 157
+        // line 156
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery-1.11.1.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 158
+        // line 157
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery_ui/jquery-ui.min.js"), "html", null, true);
         echo "\"></script>
     <!-- Theme Javascript -->
     <script src=\"";
-        // line 160
+        // line 159
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/utility/utility.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 161
+        // line 160
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/demo/demo.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 162
+        // line 161
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
     <!-- jQuery Validate Plugin-->
     <script src=\"";
-        // line 164
+        // line 163
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/admin-tools/admin-forms/js/jquery.validate.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- jQuery Validate Addon -->
     <script src=\"";
-        // line 167
+        // line 166
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/admin-tools/admin-forms/js/additional-methods.min.js"), "html", null, true);
         echo "\"></script>
     <!-- PNotify -->
     <script src=\"";
-        // line 169
+        // line 168
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/plugins/pnotify/pnotify.js"), "html", null, true);
         echo "\"></script>
 
@@ -535,7 +534,7 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
     <!-- END: PAGE SCRIPTS -->
 ";
         
-        $__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e->leave($__internal_23a3b42b50a6f3a6309687083dc60181926687b5585cc84c2c2120ed7d15cc1e_prof);
+        $__internal_a1c417c6f8a6233f014f5befb3c43cb7b65b95f539dfe1eeb0a3dbfd69651d31->leave($__internal_a1c417c6f8a6233f014f5befb3c43cb7b65b95f539dfe1eeb0a3dbfd69651d31_prof);
 
     }
 
@@ -551,7 +550,7 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
 
     public function getDebugInfo()
     {
-        return array (  326 => 169,  321 => 167,  315 => 164,  310 => 162,  306 => 161,  302 => 160,  297 => 158,  293 => 157,  290 => 156,  284 => 155,  244 => 122,  227 => 108,  214 => 98,  202 => 89,  197 => 86,  191 => 83,  186 => 80,  183 => 79,  177 => 76,  172 => 73,  170 => 72,  160 => 65,  142 => 49,  132 => 45,  127 => 42,  122 => 41,  113 => 38,  108 => 35,  104 => 34,  96 => 29,  88 => 24,  82 => 21,  72 => 13,  66 => 12,  57 => 10,  51 => 7,  46 => 5,  42 => 3,  36 => 2,  11 => 1,);
+        return array (  325 => 168,  320 => 166,  314 => 163,  309 => 161,  305 => 160,  301 => 159,  296 => 157,  292 => 156,  289 => 155,  283 => 154,  243 => 121,  227 => 108,  214 => 98,  202 => 89,  197 => 86,  191 => 83,  186 => 80,  183 => 79,  177 => 76,  172 => 73,  170 => 72,  160 => 65,  142 => 49,  132 => 45,  127 => 42,  122 => 41,  113 => 38,  108 => 35,  104 => 34,  96 => 29,  88 => 24,  82 => 21,  72 => 13,  66 => 12,  57 => 10,  51 => 7,  46 => 5,  42 => 3,  36 => 2,  11 => 1,);
     }
 }
 /* {% extends '::default.html.twig' %}*/
@@ -672,7 +671,6 @@ class __TwigTemplate_1a83e76016b0a133aeede3e051fa797e67f7fb189f896f3d90733f2f9d8
 /*                             <!-- end .form-body section -->*/
 /*                             <div class="panel-footer text-right">*/
 /*                                 <button type="submit" class="button btn-primary"> Update </button>*/
-/*                                 <button type="reset" class="button"> Cancel </button>*/
 /*                             </div>*/
 /*                             <!-- end .form-footer section -->*/
 /*                             {{ form_row(passwordform._token) }}*/

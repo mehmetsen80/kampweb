@@ -1227,6 +1227,11 @@ while (ob_get_level() > $level) {
 ob_end_clean();
 }
 throw $e;
+} catch (Throwable $e) {
+while (ob_get_level() > $level) {
+ob_end_clean();
+}
+throw $e;
 }
 return ob_get_clean();
 }
@@ -1359,7 +1364,7 @@ return false;
 if ($ignoreStrictCheck || !$this->env->isStrictVariables()) {
 return;
 }
-throw new Twig_Error_Runtime(sprintf('Method "%s" for object "%s" does not exist', $item, get_class($object)), -1, $this->getTemplateName());
+throw new Twig_Error_Runtime(sprintf('Neither the property "%1$s" nor one of the methods "%1$s()", "get%1$s()"/"is%1$s()" or "__call()" exist and have public access in class "%2$s"', $item, get_class($object)), -1, $this->getTemplateName());
 }
 if ($isDefinedTest) {
 return true;
@@ -2000,50 +2005,6 @@ namespace Doctrine\Common
 use Doctrine\Common\Lexer\AbstractLexer;
 abstract class Lexer extends AbstractLexer
 {
-}
-}
-namespace Doctrine\Common\Persistence
-{
-interface Proxy
-{
-const MARKER ='__CG__';
-const MARKER_LENGTH = 6;
-public function __load();
-public function __isInitialized();
-}
-}
-namespace Doctrine\Common\Util
-{
-use Doctrine\Common\Persistence\Proxy;
-class ClassUtils
-{
-public static function getRealClass($class)
-{
-if (false === $pos = strrpos($class,'\\'.Proxy::MARKER.'\\')) {
-return $class;
-}
-return substr($class, $pos + Proxy::MARKER_LENGTH + 2);
-}
-public static function getClass($object)
-{
-return self::getRealClass(get_class($object));
-}
-public static function getParentClass($className)
-{
-return get_parent_class( self::getRealClass( $className ) );
-}
-public static function newReflectionClass($class)
-{
-return new \ReflectionClass( self::getRealClass( $class ) );
-}
-public static function newReflectionObject($object)
-{
-return self::newReflectionClass( self::getClass( $object ) );
-}
-public static function generateProxyClassName($className, $proxyNamespace)
-{
-return rtrim($proxyNamespace,'\\') .'\\'.Proxy::MARKER.'\\'. ltrim($className,'\\');
-}
 }
 }
 namespace Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter

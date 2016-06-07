@@ -64,10 +64,10 @@ class Dependent extends \AppBundle\Entity\Dependent implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'name', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'gender', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'birthday', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'email', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'person', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'createdat', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'modifiedat'];
+            return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'name', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'gender', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'birthday', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'email', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'user', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'createdat', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'modifiedat'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'name', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'gender', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'birthday', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'email', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'person', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'createdat', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'modifiedat'];
+        return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'name', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'gender', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'birthday', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'email', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'user', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'createdat', '' . "\0" . 'AppBundle\\Entity\\Dependent' . "\0" . 'modifiedat'];
     }
 
     /**
@@ -246,23 +246,23 @@ class Dependent extends \AppBundle\Entity\Dependent implements \Doctrine\ORM\Pro
     /**
      * {@inheritDoc}
      */
-    public function setPerson(\AppBundle\Entity\Person $person = NULL)
+    public function setUser(\AppBundle\Entity\User $user = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPerson', [$person]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
-        return parent::setPerson($person);
+        return parent::setUser($user);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getPerson()
+    public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPerson', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
-        return parent::getPerson();
+        return parent::getUser();
     }
 
     /**

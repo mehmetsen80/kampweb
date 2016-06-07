@@ -1,6 +1,6 @@
 <?php
 
-/* :user:show.html.twig */
+/* /user/show.html.twig */
 class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3b8768 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,7 +8,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("::default.html.twig", ":user:show.html.twig", 1);
+        $this->parent = $this->loadTemplate("::default.html.twig", "/user/show.html.twig", 1);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
         );
@@ -21,115 +21,206 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d9d1e45be052a03f39e684ceecd6d88717446fd9dbe508fd34bcd24876b7d458 = $this->env->getExtension("native_profiler");
-        $__internal_d9d1e45be052a03f39e684ceecd6d88717446fd9dbe508fd34bcd24876b7d458->enter($__internal_d9d1e45be052a03f39e684ceecd6d88717446fd9dbe508fd34bcd24876b7d458_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":user:show.html.twig"));
+        $__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2 = $this->env->getExtension("native_profiler");
+        $__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2->enter($__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "/user/show.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_d9d1e45be052a03f39e684ceecd6d88717446fd9dbe508fd34bcd24876b7d458->leave($__internal_d9d1e45be052a03f39e684ceecd6d88717446fd9dbe508fd34bcd24876b7d458_prof);
+        $__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2->leave($__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_53f5be41354e2f066cfddfb1d9d3a40162de0a6697d8f0300fa9df2988318125 = $this->env->getExtension("native_profiler");
-        $__internal_53f5be41354e2f066cfddfb1d9d3a40162de0a6697d8f0300fa9df2988318125->enter($__internal_53f5be41354e2f066cfddfb1d9d3a40162de0a6697d8f0300fa9df2988318125_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f = $this->env->getExtension("native_profiler");
+        $__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f->enter($__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "<!-- Start: CONTENT WRAPPER -->
-<section id=\"content_wrapper\">
-    <!-- Start: TOPBAR -->
-    <header id=\"topbar\">
-        <div class=\"topbar-left\">
-            <ol class=\"breadcrumb\">
-                <li class=\"crumb-active\">
-                    <a href=\"";
-        // line 11
-        echo $this->env->getExtension('routing')->getPath("dashboard");
-        echo "\">Dashboard</a>
-                </li>
-                <li class=\"crumb-icon\">
-                    <a href=\"";
-        // line 14
-        echo $this->env->getExtension('routing')->getPath("dashboard");
-        echo "\">
-                        <span class=\"glyphicon glyphicon-home\"></span>
-                    </a>
-                </li>
-            </ol>
-        </div>
-    </header>
-    <!-- End: TOPBAR -->
+        echo "    <body class=\"profile-page\">
+    <!-- Start: Content-Wrapper -->
+    <section id=\"content_wrapper\">
 
-    <!-- Begin: CONTENT -->
-    <section id=\"content\" >
-        <div class=\"panel\">
-            <div class=\"panel-heading\">
-                <span class=\"panel-title\">Panel title</span>
+        <!-- Start: Topbar -->
+        <header id=\"topbar\">
+            <div class=\"topbar-left\">
+                <ol class=\"breadcrumb\">
+                    <li class=\"crumb-active\">
+                        <a href=\"dashboard.html\">Dashboard</a>
+                    </li>
+                    <li class=\"crumb-icon\">
+                        <a href=\"dashboard.html\">
+                            <span class=\"glyphicon glyphicon-home\"></span>
+                        </a>
+                    </li>
+                    <li class=\"crumb-link\">
+                        <a href=\"dashboard.html\">Home</a>
+                    </li>
+                    <li class=\"crumb-trail\">Dashboard</li>
+                </ol>
             </div>
-            <div class=\"panel-body\">
-        <h2 class=\"form-signin-heading\">";
-        // line 30
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "fullname", array()), "html", null, true);
-        echo "</h2>
-        <dl class=\"genus-details-list\">
-            <dt>Information:</dt>
-            <dd>We can fetch notes from the database about the user. </dd>
-            <dt>Email: </dt>
-            <dd>";
-        // line 35
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "username", array()), "html", null, true);
-        echo "</dd>
-            <dt>Is user active?</dt>
-            <dd>";
-        // line 37
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "isactive", array()), "html", null, true);
-        echo "</dd>
-            <dt>User Role</dt>
-            <dd>";
-        // line 39
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "roles", array()));
-        foreach ($context['_seq'] as $context["_key"] => $context["role"]) {
-            // line 40
-            echo "                    ";
-            echo twig_escape_filter($this->env, $context["role"], "html", null, true);
-            echo "
-                ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['role'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 42
-        echo "            </dd>
-            <dt>User Registration Date:</dt>
-            <dd>";
-        // line 44
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "createdat", array()), "Y-m-d"), "html", null, true);
-        echo "</dd>
-            <dt>Last Updated Date:</dt>
-            <dd>";
-        // line 46
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "modifiedat", array()), "Y-m-d"), "html", null, true);
-        echo "</dd>
+        </header>
+        <!-- End: Topbar -->
 
-        </dl>
-    </div>
-        </div>
-        </div>
+        <!-- Begin: Content -->
+        <section id=\"content\" class=\"animated fadeIn\">
+
+            <!-- Begin .page-heading -->
+            <div class=\"page-heading\">
+                <div class=\"media clearfix\">
+                    <div class=\"media-body va-m\">
+                        <h2 class=\"media-heading\">";
+        // line 36
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "fullname", array()), "html", null, true);
+        echo "
+                            <small> - Profile</small>
+                        </h2>
+                        <p class=\"lead\">North American University - Computer Science</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class=\"row\">
+                <div class=\"col-md-12\">
+
+                    <div class=\"tab-block\">
+                        <ul class=\"nav nav-tabs\">
+                            <li class=\"active\">
+                                <a href=\"#tab1\" data-toggle=\"tab\">Events</a>
+                            </li>
+                            <li>
+                                <a href=\"#tab2\" data-toggle=\"tab\">About</a>
+                            </li>
+                        </ul>
+                        <div class=\"tab-content p30\">
+                            <div id=\"tab1\" class=\"tab-pane active\"></div>
+                            <div id=\"tab2\" class=\"tab-pane\">
+                                <div class=\"panel\">
+                                    <div class=\"panel-body pn\">
+
+                                            <table class=\"table mbn tc-icon-1 tc-med-2 tc-bold-last\">
+                                                <thead>
+                                                <tr class=\"hidden\">
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Gender</th>
+                                                    <th>Birthday</th>
+                                                    <th>Celphone</th>
+                                                    <th>Active</th>
+                                                    <th>Registered</th>
+                                                    <th>Modified</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class=\"fa fa-user text-warning\"></span>
+                                                    </td>
+                                                    <td>Name</td>
+                                                    <td>";
+        // line 81
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "fullname", array()), "html", null, true);
+        echo "</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class=\"fa fa-reply text-primary\"></span>
+                                                    </td>
+                                                    <td>Email</td>
+                                                    <td><a href=\"mailto:";
+        // line 88
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "username", array()), "html", null, true);
+        echo "\" target=\"_top\"> ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "username", array()), "html", null, true);
+        echo "</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class=\"fa fa-calendar text-info\"></span>
+                                                    </td>
+                                                    <td>Birthday</td>
+                                                    <td>";
+        // line 95
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "birthday", array()), "m/d/Y"), "html", null, true);
+        echo "</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class=\"fa fa-phone text-success\"></span>
+                                                    </td>
+                                                    <td>Cellphone</td>
+                                                    <td><a class=\"phone\" href=\"tel:";
+        // line 102
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cellphone", array()), "html", null, true);
+        echo "\">";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cellphone", array()), "html", null, true);
+        echo "</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class=\"fa fa-question text-danger\"></span>
+                                                    </td>
+                                                    <td>Is Active?</td>
+                                                    <td>
+                                                        ";
+        // line 110
+        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "isactive", array()) == 1)) {
+            // line 111
+            echo "                                                            Yes
+                                                        ";
+        } else {
+            // line 113
+            echo "                                                            No
+                                                        ";
+        }
+        // line 115
+        echo "                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class=\"fa fa-database text-primary-lighter\"></span>
+                                                    </td>
+                                                    <td>Register Date</td>
+                                                    <td>";
+        // line 122
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "createdat", array()), "Y-m-d"), "html", null, true);
+        echo "</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class=\"fa fa-edit text-info-lighter\"></span>
+                                                    </td>
+                                                    <td>Last Modifed Date</td>
+                                                    <td>";
+        // line 129
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "modifiedat", array()), "Y-m-d"), "html", null, true);
+        echo "</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- End: Content -->
+
     </section>
-    <!-- End: CONTENT-->
-</section>
+    </body>
 ";
         
-        $__internal_53f5be41354e2f066cfddfb1d9d3a40162de0a6697d8f0300fa9df2988318125->leave($__internal_53f5be41354e2f066cfddfb1d9d3a40162de0a6697d8f0300fa9df2988318125_prof);
+        $__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f->leave($__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f_prof);
 
     }
 
     public function getTemplateName()
     {
-        return ":user:show.html.twig";
+        return "/user/show.html.twig";
     }
 
     public function isTraitable()
@@ -139,63 +230,153 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
 
     public function getDebugInfo()
     {
-        return array (  114 => 46,  109 => 44,  105 => 42,  96 => 40,  92 => 39,  87 => 37,  82 => 35,  74 => 30,  55 => 14,  49 => 11,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  196 => 129,  186 => 122,  177 => 115,  173 => 113,  169 => 111,  167 => 110,  154 => 102,  144 => 95,  132 => 88,  122 => 81,  74 => 36,  40 => 4,  34 => 3,  11 => 1,);
     }
 }
 /* {% extends '::default.html.twig' %}*/
 /* */
 /* {% block body %}*/
-/* <!-- Start: CONTENT WRAPPER -->*/
-/* <section id="content_wrapper">*/
-/*     <!-- Start: TOPBAR -->*/
-/*     <header id="topbar">*/
-/*         <div class="topbar-left">*/
-/*             <ol class="breadcrumb">*/
-/*                 <li class="crumb-active">*/
-/*                     <a href="{{ path('dashboard') }}">Dashboard</a>*/
-/*                 </li>*/
-/*                 <li class="crumb-icon">*/
-/*                     <a href="{{ path('dashboard') }}">*/
-/*                         <span class="glyphicon glyphicon-home"></span>*/
-/*                     </a>*/
-/*                 </li>*/
-/*             </ol>*/
-/*         </div>*/
-/*     </header>*/
-/*     <!-- End: TOPBAR -->*/
+/*     <body class="profile-page">*/
+/*     <!-- Start: Content-Wrapper -->*/
+/*     <section id="content_wrapper">*/
 /* */
-/*     <!-- Begin: CONTENT -->*/
-/*     <section id="content" >*/
-/*         <div class="panel">*/
-/*             <div class="panel-heading">*/
-/*                 <span class="panel-title">Panel title</span>*/
+/*         <!-- Start: Topbar -->*/
+/*         <header id="topbar">*/
+/*             <div class="topbar-left">*/
+/*                 <ol class="breadcrumb">*/
+/*                     <li class="crumb-active">*/
+/*                         <a href="dashboard.html">Dashboard</a>*/
+/*                     </li>*/
+/*                     <li class="crumb-icon">*/
+/*                         <a href="dashboard.html">*/
+/*                             <span class="glyphicon glyphicon-home"></span>*/
+/*                         </a>*/
+/*                     </li>*/
+/*                     <li class="crumb-link">*/
+/*                         <a href="dashboard.html">Home</a>*/
+/*                     </li>*/
+/*                     <li class="crumb-trail">Dashboard</li>*/
+/*                 </ol>*/
 /*             </div>*/
-/*             <div class="panel-body">*/
-/*         <h2 class="form-signin-heading">{{ user.fullname }}</h2>*/
-/*         <dl class="genus-details-list">*/
-/*             <dt>Information:</dt>*/
-/*             <dd>We can fetch notes from the database about the user. </dd>*/
-/*             <dt>Email: </dt>*/
-/*             <dd>{{ user.username }}</dd>*/
-/*             <dt>Is user active?</dt>*/
-/*             <dd>{{ user.isactive }}</dd>*/
-/*             <dt>User Role</dt>*/
-/*             <dd>{% for role in user.roles %}*/
-/*                     {{ role }}*/
-/*                 {% endfor %}*/
-/*             </dd>*/
-/*             <dt>User Registration Date:</dt>*/
-/*             <dd>{{ user.createdat|date('Y-m-d') }}</dd>*/
-/*             <dt>Last Updated Date:</dt>*/
-/*             <dd>{{ user.modifiedat|date('Y-m-d') }}</dd>*/
+/*         </header>*/
+/*         <!-- End: Topbar -->*/
 /* */
-/*         </dl>*/
-/*     </div>*/
-/*         </div>*/
-/*         </div>*/
+/*         <!-- Begin: Content -->*/
+/*         <section id="content" class="animated fadeIn">*/
+/* */
+/*             <!-- Begin .page-heading -->*/
+/*             <div class="page-heading">*/
+/*                 <div class="media clearfix">*/
+/*                     <div class="media-body va-m">*/
+/*                         <h2 class="media-heading">{{ user.fullname }}*/
+/*                             <small> - Profile</small>*/
+/*                         </h2>*/
+/*                         <p class="lead">North American University - Computer Science</p>*/
+/*                     </div>*/
+/*                 </div>*/
+/*             </div>*/
+/* */
+/*             <div class="row">*/
+/*                 <div class="col-md-12">*/
+/* */
+/*                     <div class="tab-block">*/
+/*                         <ul class="nav nav-tabs">*/
+/*                             <li class="active">*/
+/*                                 <a href="#tab1" data-toggle="tab">Events</a>*/
+/*                             </li>*/
+/*                             <li>*/
+/*                                 <a href="#tab2" data-toggle="tab">About</a>*/
+/*                             </li>*/
+/*                         </ul>*/
+/*                         <div class="tab-content p30">*/
+/*                             <div id="tab1" class="tab-pane active"></div>*/
+/*                             <div id="tab2" class="tab-pane">*/
+/*                                 <div class="panel">*/
+/*                                     <div class="panel-body pn">*/
+/* */
+/*                                             <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">*/
+/*                                                 <thead>*/
+/*                                                 <tr class="hidden">*/
+/*                                                     <th>Name</th>*/
+/*                                                     <th>Email</th>*/
+/*                                                     <th>Gender</th>*/
+/*                                                     <th>Birthday</th>*/
+/*                                                     <th>Celphone</th>*/
+/*                                                     <th>Active</th>*/
+/*                                                     <th>Registered</th>*/
+/*                                                     <th>Modified</th>*/
+/*                                                 </tr>*/
+/*                                                 </thead>*/
+/*                                                 <tbody>*/
+/*                                                 <tr>*/
+/*                                                     <td>*/
+/*                                                         <span class="fa fa-user text-warning"></span>*/
+/*                                                     </td>*/
+/*                                                     <td>Name</td>*/
+/*                                                     <td>{{ user.fullname }}</td>*/
+/*                                                 </tr>*/
+/*                                                 <tr>*/
+/*                                                     <td>*/
+/*                                                         <span class="fa fa-reply text-primary"></span>*/
+/*                                                     </td>*/
+/*                                                     <td>Email</td>*/
+/*                                                     <td><a href="mailto:{{ user.username }}" target="_top"> {{ user.username }}</a></td>*/
+/*                                                 </tr>*/
+/*                                                 <tr>*/
+/*                                                     <td>*/
+/*                                                         <span class="fa fa-calendar text-info"></span>*/
+/*                                                     </td>*/
+/*                                                     <td>Birthday</td>*/
+/*                                                     <td>{{ user.birthday|date("m/d/Y") }}</td>*/
+/*                                                 </tr>*/
+/*                                                 <tr>*/
+/*                                                     <td>*/
+/*                                                         <span class="fa fa-phone text-success"></span>*/
+/*                                                     </td>*/
+/*                                                     <td>Cellphone</td>*/
+/*                                                     <td><a class="phone" href="tel:{{ user.cellphone }}">{{ user.cellphone }}</a></td>*/
+/*                                                 </tr>*/
+/*                                                 <tr>*/
+/*                                                     <td>*/
+/*                                                         <span class="fa fa-question text-danger"></span>*/
+/*                                                     </td>*/
+/*                                                     <td>Is Active?</td>*/
+/*                                                     <td>*/
+/*                                                         {% if user.isactive == 1 %}*/
+/*                                                             Yes*/
+/*                                                         {% else %}*/
+/*                                                             No*/
+/*                                                         {% endif %}*/
+/*                                                     </td>*/
+/*                                                 </tr>*/
+/*                                                 <tr>*/
+/*                                                     <td>*/
+/*                                                         <span class="fa fa-database text-primary-lighter"></span>*/
+/*                                                     </td>*/
+/*                                                     <td>Register Date</td>*/
+/*                                                     <td>{{ user.createdat|date('Y-m-d') }}</td>*/
+/*                                                 </tr>*/
+/*                                                 <tr>*/
+/*                                                     <td>*/
+/*                                                         <span class="fa fa-edit text-info-lighter"></span>*/
+/*                                                     </td>*/
+/*                                                     <td>Last Modifed Date</td>*/
+/*                                                     <td>{{ user.modifiedat|date('Y-m-d') }}</td>*/
+/*                                                 </tr>*/
+/*                                                 </tbody>*/
+/*                                             </table>*/
+/* */
+/*                                     </div>*/
+/*                                 </div>*/
+/*                             </div>*/
+/*                         </div>*/
+/*                     </div>*/
+/*                 </div>*/
+/*             </div>*/
+/* */
+/*         </section>*/
+/*         <!-- End: Content -->*/
+/* */
 /*     </section>*/
-/*     <!-- End: CONTENT-->*/
-/* </section>*/
+/*     </body>*/
 /* {% endblock %}*/
-/* */
-/* */

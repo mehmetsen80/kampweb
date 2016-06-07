@@ -164,14 +164,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'AppBundle\\Controller\\PersonController::listPersons',  '_route' => 'app_person_listpersons',);
         }
 
+        // csvdownload
+        if ($pathinfo === '/users/download/allusers.csv') {
+            return array (  '_controller' => 'AppBundle\\Controller\\ReportController::downloadAsCSVAction',  '_route' => 'csvdownload',);
+        }
+
         // login
         if ($pathinfo === '/login') {
             return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login',);
         }
 
-        // register
-        if ($pathinfo === '/register') {
-            return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::registerAction',  '_route' => 'register',);
+        if (0 === strpos($pathinfo, '/re')) {
+            // register
+            if ($pathinfo === '/register') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::registerAction',  '_route' => 'register',);
+            }
+
+            // passwordreset
+            if ($pathinfo === '/reset-password') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::resetPasswordAction',  '_route' => 'passwordreset',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/u')) {
@@ -198,6 +211,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'AppBundle\\Controller\\UserController::updateAction',  '_route' => 'update',);
             }
 
+        }
+
+        // adduser
+        if ($pathinfo === '/add-user') {
+            return array (  '_controller' => 'AppBundle\\Controller\\UserController::addUserAction',  '_route' => 'adduser',);
         }
 
         if (0 === strpos($pathinfo, '/c')) {

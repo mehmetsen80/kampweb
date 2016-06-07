@@ -29,6 +29,14 @@
                 </ol>
             </div>
         </header>
+        {% for flash_message in app.session.flashBag.get('welcome') %}
+            <div class="alert alert-info alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-exclamation-triangle pr10"></i>
+                <strong>{{ flash_message }}</strong>
+                <a href="{{ path('update') }}" class="alert-link">It is great to see you again ^_^</a>
+            </div>
+        {% endfor %}
         <!-- End: TOPBAR -->
 
         <!-- Begin: CONTENT -->
@@ -38,28 +46,6 @@
                     <span class="panel-title">Panel title</span>
                 </div>
                 <div class="panel-body">
-                    {% for flash_message in app.session.flashBag.get('welcome') %}
-                        <div class="ui-pnotify stack_bar_top" style="width: 290px; opacity: 1; display: block; overflow: visible; right: 8px; top: 70px;">
-                            <div class="alert ui-pnotify-container alert-success ui-pnotify-shadow" style="min-height: 16px; overflow: hidden;">
-                                <div class="ui-pnotify-closer" style="cursor: pointer; visibility: hidden;">
-                                    <span class="glyphicon glyphicon-remove" title="Close"></span>
-                                </div>
-                                <div class="ui-pnotify-sticker" style="cursor: pointer; visibility: hidden;">
-                                    <span class="glyphicon glyphicon-play" title="Stick"></span>
-                                </div>
-                                <div class="ui-pnotify-icon">
-                                    <span class="glyphicon glyphicon-ok-sign">
-
-                                    </span>
-                                </div>
-                                <h4 class="ui-pnotify-title">{{ flash_message }}</h4>
-                                <div class="ui-pnotify-text">It is great to see you again! ^_^</div>
-                                <div style="margin-top: 5px; clear: both; text-align: right; display: none;">
-
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
                 </div>
             </div>
         </section>

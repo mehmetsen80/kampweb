@@ -53,24 +53,14 @@
                             <a href="#tab2" data-toggle="tab">About</a>
                         </li>
                     </ul>
-                    <div class="tab-content p30" style="height: 730px;">
+                    <div class="tab-content p30">
                         <div id="tab1" class="tab-pane active"></div>
                         <div id="tab2" class="tab-pane">
                             <div class="panel">
                                 <div class="panel-body pn">
-                                    <div class="bs-component">
+
                                         <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
                                             <thead>
-                                            <tr class="hidden">
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Gender</th>
-                                                <th>Birthday</th>
-                                                <th>Celphone</th>
-                                                <th>Active</th>
-                                                <th>Registered</th>
-                                                <th>Modified</th>
-                                            </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
@@ -85,7 +75,7 @@
                                                     <span class="fa fa-reply text-primary"></span>
                                                 </td>
                                                 <td>Email</td>
-                                                <td>{{ user.username }}</td>
+                                                <td><a href="mailto:{{ user.username }}" target="_top"> {{ user.username }}</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -99,14 +89,20 @@
                                                     <span class="fa fa-phone text-success"></span>
                                                 </td>
                                                 <td>Cellphone</td>
-                                                <td>{{ user.cellphone }}</td>
+                                                <td><a class="phone" href="tel:{{ user.cellphone }}"> {{ user.cellphone }}</a></td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <span class="fa fa-question text-danger"></span>
                                                 </td>
                                                 <td>Is Active?</td>
-                                                <td>{{ user.isactive }}</td>
+                                                <td>
+                                                    {% if user.isactive == 1 %}
+                                                        Yes
+                                                    {% else %}
+                                                        No
+                                                    {% endif %}
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -124,7 +120,6 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -138,4 +133,5 @@
 
 </section>
 </body>
+
 {% endblock %}

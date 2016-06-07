@@ -1,0 +1,465 @@
+{% extends '::default.html.twig' %}
+{% block stylesheets %}
+    <!-- Font CSS (Via CDN) -->
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+    <link rel='stylesheet' type='text/css' href='{{ asset('assets/fonts/font-awesome/css/font-awesome.css') }}'>
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
+
+    <!-- Admin Forms CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
+
+    <!-- Required Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/tagmanager/tagmanager.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/daterange/daterangepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/datepicker/css/bootstrap-datetimepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/colorpicker/css/bootstrap-colorpicker.min.css') }}">
+
+    <!-- Select2 Plugin CSS  -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/select2/css/core.css') }}">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
+{% endblock %}
+{% block body %}
+
+    <!-- Start: Content-Wrapper -->
+    <section id="content_wrapper">
+        <!-- Start: TOPBAR -->
+        <header id="topbar">
+            <div class="topbar-left">
+                <ol class="breadcrumb">
+                    <li class="crumb-active">
+                        <a href="{{ path('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="crumb-icon">
+                        <a href="{{ path('dashboard') }}">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                    </li>
+                    <li class="crumb-link">
+                        <a href="{{ path('update') }}">Edit Profile</a>
+                    </li>
+                </ol>
+            </div>
+        </header>
+        <!-- End: TOPBAR -->
+        {% for flash_message in app.session.flashBag.get('addeduser') %}
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-check pr10"></i>
+                <strong>Well done!</strong> {{ flash_message }}
+            </div>
+        {% endfor %}
+        {% for flash_message in app.session.flashBag.get('addusererror') %}
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-remove pr10"></i>
+                <strong>{{ flash_message }}</strong>
+
+            </div>
+        {% endfor %}
+        <!-- Begin: Content -->
+        <section id="content" class="table-layout animated fadeIn">
+            <!-- begin: .tray-center -->
+            <div class="tray tray-center">
+
+                <!-- Begin: Content Header -->
+                <div class="content-header">
+                    <h2> Fill in the fields, then press Add User button.</h2>
+                </div>
+
+                <!-- Validation Example -->
+                <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
+
+                    <div class="panel heading-border">
+
+                        <form method="post" action="{{ path('adduser') }}" id="admin-form">
+
+                            <div class="panel-body bg-light">
+
+                                <div class="section-divider mt20 mb40">
+                                    <span> Add new user - You must fill out all of the fields. </span>
+                                </div>
+                                {% if not addform.username.vars.valid %}
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <i class="fa fa-remove pr10"></i>
+
+                                        <strong>{{ form_errors(addform.username) }}</strong>
+                                    </div>
+                                {% endif %}
+                                {% if not addform.fullname.vars.valid %}
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <i class="fa fa-remove pr10"></i>
+
+                                        <strong>{{ form_errors(addform.fullname) }}</strong>
+                                    </div>
+                                {% endif %}
+                                {% if not addform.gender.vars.valid %}
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <i class="fa fa-remove pr10"></i>
+
+                                        <strong>{{ form_errors(addform.gender) }}</strong>
+                                    </div>
+                                {% endif %}
+                                {% if not addform.cellphone.vars.valid %}
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <i class="fa fa-remove pr10"></i>
+
+                                        <strong>{{ form_errors(addform.cellphone) }}</strong>
+                                    </div>
+                                {% endif %}
+                                {% if not addform.birthday.vars.valid %}
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <i class="fa fa-remove pr10"></i>
+
+                                        <strong>{{ form_errors(addform.birthday) }}</strong>
+                                    </div>
+                                {% endif %}
+                                {% if not addform.plainPassword.vars.valid %}
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <i class="fa fa-remove pr10"></i>
+                                        <strong> {{ form_errors(addform.plainPassword) }}</strong>
+                                    </div>
+                                {% endif %}
+                                <!-- .section-divider -->
+                                {#{% if not form1.newusername.vars.valid %}#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
+
+                                {#<strong>{{ form_errors(form1.newusername) }}</strong>#}
+                                {#</div>#}
+                                {#{% endif %}#}
+                                {#{% if not form1.newfullname.vars.valid %}#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
+                                {#<strong> {{ form_errors(form1.newfullname) }}</strong>#}
+                                {#</div>#}
+                                {#{% endif %}{% if not form1.newpassword.vars.valid %}#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
+                                {#<strong> {{ form_errors(form1.newpassword) }}</strong>#}
+                                {#</div>#}
+                                {#{% endif %}#}
+                                <div class="section">
+                                    <label for="firstname" class="field prepend-icon">
+                                        {{ form_widget(addform.fullname, {'attr': {'class': 'gui-input', 'type':'text', 'id':"firstname",'placeholder':"Full Name" }}) }}
+                                        <label for="firstname" class="field-icon">
+                                            <i class="fa fa-user"></i>
+                                        </label>
+                                    </label>
+                                </div>
+
+
+                                <!-- end .section row section -->
+
+                                <div class="section">
+                                    <label for="useremail" class="field prepend-icon">
+                                        {{ form_widget(addform.username, {'attr': {'class': 'gui-input', 'type':'email', 'id':"useremail",'placeholder':"Email Address" }}) }}
+                                        <label for="useremail" class="field-icon">
+                                            <i class="fa fa-envelope"></i>
+                                        </label>
+                                    </label>
+                                </div>
+                                <!-- end section -->
+
+                                <div class="section row">
+                                    <div class="col-md-6">
+                                        <label for="maskedPhone" class="field prepend-icon">
+
+                                            {% if app.user.cellphone is empty %}
+                                                {{ form_widget(addform.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off",  'type':'text', 'placeholder':"Cellphone" }}) }}
+                                            {% else %}
+                                                {{ form_widget(addform.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off", 'type':'text','placeholder':"Cellphone" }}) }}
+                                            {% endif %}
+                                            <label for="mobile_phone" class="field-icon">
+                                                <i class="fa fa-mobile-phone"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <!-- end section -->
+
+                                    <div class="col-md-6">
+                                        <label class="field select">
+                                            {{ form_widget(addform.gender) }}
+                                            <i class="arrow double"></i>
+                                        </label>
+                                    </div>
+                                    <!-- end section -->
+                                </div>
+                                <div class="section">
+                                    <label for="datepicker1" class="field prepend-icon">
+                                        {% if app.user.birthday is empty %}
+                                            {{ form_widget(addform.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}
+                                        {% else %}
+                                            {{ form_widget(addform.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}
+                                        {% endif %}
+                                        <label class="field-icon">
+                                            <i class="fa fa-calendar-o"></i>
+                                        </label>
+                                    </label>
+                                </div>
+                                <div class="section row">
+                                    <div class="col-md-6">
+                                        <label for="password" class="field prepend-icon">
+                                            {{ form_widget(addform.plainPassword.first, {'attr': {'class': 'gui-input', 'placeholder':'Create a password', 'type':'password', 'id':'password'}}) }}
+                                            <label for="password" class="field-icon">
+                                                <i class="fa fa-unlock-alt"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <!-- end section -->
+
+                                    <div class="col-md-6">
+                                        <label for="confirmPassword" class="field prepend-icon">
+                                            {{ form_widget(addform.plainPassword.second, {'attr': {'class': 'gui-input', 'placeholder':'Retype your password', 'id':'confirmPassword', 'type':'password'}}) }}
+                                            <label for="confirmPassword" class="field-icon">
+                                                <i class="fa fa-lock"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end .form-body section -->
+                            <div class="panel-footer text-right">
+                                <button type="submit" class="button btn-primary" > Add User </button>
+                            </div>
+                            <!-- end .form-footer section -->
+                            {{ form_row(addform._token) }}
+                        </form>
+
+                    </div>
+
+                </div>
+                <!-- end: .admin-form -->
+
+            </div>
+            <!-- end: .tray-center -->
+
+        </section>
+        <!-- End: Content -->
+
+    </section>
+
+
+    <style>
+        /* demo page styles */
+        body { min-height: 2300px; }
+
+        .content-header b,
+        .admin-form .panel.heading-border:before,
+        .admin-form .panel .heading-border:before {
+            transition: all 0.7s ease;
+        }
+        /* responsive demo styles */
+        @media (max-width: 800px) {
+            .admin-form .panel-body { padding: 18px 12px; }
+        }
+    </style>
+
+{% endblock %}
+{% block javascripts %}
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+    <!-- Theme Javascript -->
+    <script src="{{ asset('assets/js/utility/utility.js') }}"></script>
+    <script src="{{ asset('assets/js/demo/demo.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <!-- jQuery Validate Plugin-->
+    <script src="{{ asset('assets/admin-tools/admin-forms/js/jquery.validate.min.js') }}"></script>
+
+    <!-- jQuery Validate Addon -->
+    <script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            "use strict";
+
+            // Init Demo JS
+            Demo.init();
+
+
+            // Init Theme Core
+            Core.init();
+            /* @custom validation method (smartCaptcha)
+             ------------------------------------------------------------------ */
+
+            $.validator.methods.smartCaptcha = function(value, element, param) {
+                return value == param;
+            };
+
+            $("#admin-form").validate({
+
+                /* @validation states + elements
+                 ------------------------------------------- */
+
+                errorClass: "state-error",
+                validClass: "state-success",
+                errorElement: "em",
+
+                /* @validation rules
+                 ------------------------------------------ */
+
+                rules: {
+                    firstname: {
+                        required: false,
+                        minlength: 1
+
+                    },
+                    lastname: {
+                        required: false,
+                        minlength: 1
+                    },
+                    useremail: {
+                        required: false,
+                        email: true,
+                        minlength: 1
+                    },
+                    mobile_phone: {
+                        require_from_group: [1, ".phone-group"]
+                    },
+                    password: {
+                        required: false,
+                        minlength: 6,
+                        maxlength: 16
+                    },
+                    repeatPassword: {
+                        required: false,
+                        minlength: 6,
+                        maxlength: 16,
+                        equalTo: '#password'
+                    },
+
+                },
+
+                /* @validation highlighting + error placement
+                 ---------------------------------------------------- */
+
+                highlight: function(element, errorClass, validClass) {
+                    $(element).closest('.field').addClass(errorClass).removeClass(validClass);
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).closest('.field').removeClass(errorClass).addClass(validClass);
+                },
+                errorPlacement: function(error, element) {
+                    if (element.is(":radio") || element.is(":checkbox")) {
+                        element.closest('.option-group').after(error);
+                    } else {
+                        error.insertAfter(element.parent());
+                    }
+                }
+
+            });
+
+
+            // Cache several DOM elements
+            var pageHeader = $('.content-header').find('b');
+            var adminForm = $('.admin-form');
+            var options = adminForm.find('.option');
+            var switches = adminForm.find('.switch');
+            var buttons = adminForm.find('.button');
+            var Panel = adminForm.find('.panel');
+
+
+            setTimeout(function() {
+                adminForm.addClass('theme-primary');
+                Panel.addClass('panel-primary');
+                pageHeader.addClass('text-primary');
+
+                $(options).each(function(i, e) {
+                    if ($(e).hasClass('block')) {
+                        $(e).removeClass().addClass('block mt15 option option-primary');
+                    } else {
+                        $(e).removeClass().addClass('option option-primary');
+                    }
+                });
+
+                // var sliders = $('.ui-timepicker-div', adminForm).find('.ui-slider');
+                $('body').find('.ui-slider').each(function(i, e) {
+                    $(e).addClass('slider-primary');
+                });
+
+                $(switches).each(function(i, ele) {
+                    if ($(ele).hasClass('switch-round')) {
+                        if ($(ele).hasClass('block')) {
+                            $(ele).removeClass().addClass('block mt15 switch switch-round switch-primary');
+                        } else {
+                            $(ele).removeClass().addClass('switch switch-round switch-primary');
+                        }
+                    } else {
+                        if ($(ele).hasClass('block')) {
+                            $(ele).removeClass().addClass('block mt15 switch switch-primary');
+                        } else {
+                            $(ele).removeClass().addClass('switch switch-primary');
+                        }
+                    }
+                });
+                buttons.removeClass().addClass('button btn-primary');
+            }, 800);
+
+            $("#datepicker1").datepicker({
+                prevText: '<i class="fa fa-chevron-left"></i>',
+                nextText: '<i class="fa fa-chevron-right"></i>',
+                showButtonPanel: false,
+                beforeShow: function(input, inst) {
+                    var newclass = 'admin-form';
+                    var themeClass = $(this).parents('.admin-form').attr('class');
+                    var smartpikr = inst.dpDiv.parent();
+                    if (!smartpikr.hasClass(themeClass)) {
+                        inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');
+                    }
+                }
+            });
+
+        });
+    </script>
+    <!-- MaskedInput Plugin -->
+    <script src="{{ asset('assets/vendor/plugins/jquerymask/jquery.maskedinput.min.js') }}"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            // jQuery Time Spinner settings
+            $.widget("ui.timespinner", $.ui.spinner, {
+                options: {
+                    // seconds
+                    step: 60 * 1000,
+                    // hours
+                    page: 60
+                },
+                _parse: function(value) {
+                    if (typeof value === "string") {
+                        // already a timestamp
+                        if (Number(value) == value) {
+                            return Number(value);
+                        }
+                        return +Globalize.parseDate(value);
+                    }
+                    return value;
+                },
+
+                _format: function(value) {
+                    return Globalize.format(new Date(value), "t");
+                }
+            });
+
+            // Init jQuery Time Spinner
+            $("#spinner4").timespinner();
+
+            $('.phone').mask('+(99) (999) 999-9999');
+
+
+        });
+    </script>
+
+    <!-- END: PAGE SCRIPTS -->
+{% endblock %}

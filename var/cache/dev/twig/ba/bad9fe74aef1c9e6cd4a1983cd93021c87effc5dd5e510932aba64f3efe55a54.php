@@ -22,8 +22,8 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_296da7313e96bb5fa9061732e2fe13d189112861f3313a8a184b5f0faba3480e = $this->env->getExtension("native_profiler");
-        $__internal_296da7313e96bb5fa9061732e2fe13d189112861f3313a8a184b5f0faba3480e->enter($__internal_296da7313e96bb5fa9061732e2fe13d189112861f3313a8a184b5f0faba3480e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::default.html.twig"));
+        $__internal_b2f32b9baf8845ca5dc003143ca4e28b9c344869f82ff111081464ea74611c4f = $this->env->getExtension("native_profiler");
+        $__internal_b2f32b9baf8845ca5dc003143ca4e28b9c344869f82ff111081464ea74611c4f->enter($__internal_b2f32b9baf8845ca5dc003143ca4e28b9c344869f82ff111081464ea74611c4f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::default.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -51,62 +51,61 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
     <![endif]-->
 </head>
 
-<body class=\"dashboard-page sb-l-o sb-r-c\">
 ";
-        // line 30
+        // line 29
         $context["route"] = $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method");
-        // line 31
+        // line 30
         echo "<!-- Start: Main -->
 <div id=\"main\">
     <!-- Start: Header -->
     ";
-        // line 34
+        // line 33
         $this->displayBlock('header', $context, $blocks);
-        // line 97
+        // line 96
         echo "    <!-- End: Header -->
     <!-- Start: Sidebar Left -->
     ";
-        // line 99
+        // line 98
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 181
+        // line 180
         echo "    ";
         $this->displayBlock('topbar', $context, $blocks);
-        // line 237
+        // line 236
         echo "    ";
         $this->displayBlock('body', $context, $blocks);
-        // line 238
+        // line 237
         echo "    <!-- BEGIN: PAGE SCRIPTS -->
     ";
-        // line 239
+        // line 238
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 288
+        // line 293
         echo "</div>
-</body>
+
 
 </html>
 ";
         
-        $__internal_296da7313e96bb5fa9061732e2fe13d189112861f3313a8a184b5f0faba3480e->leave($__internal_296da7313e96bb5fa9061732e2fe13d189112861f3313a8a184b5f0faba3480e_prof);
+        $__internal_b2f32b9baf8845ca5dc003143ca4e28b9c344869f82ff111081464ea74611c4f->leave($__internal_b2f32b9baf8845ca5dc003143ca4e28b9c344869f82ff111081464ea74611c4f_prof);
 
     }
 
     // line 6
     public function block_title($context, array $blocks = array())
     {
-        $__internal_df123de51c707e16fa82a6d89aefad31dafee51f80ddfceb2ae0dd0ffd1597f8 = $this->env->getExtension("native_profiler");
-        $__internal_df123de51c707e16fa82a6d89aefad31dafee51f80ddfceb2ae0dd0ffd1597f8->enter($__internal_df123de51c707e16fa82a6d89aefad31dafee51f80ddfceb2ae0dd0ffd1597f8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_978471ff388cd26961be56a5d14e66cfce27007bd5ab3c6d035772586e77320a = $this->env->getExtension("native_profiler");
+        $__internal_978471ff388cd26961be56a5d14e66cfce27007bd5ab3c6d035772586e77320a->enter($__internal_978471ff388cd26961be56a5d14e66cfce27007bd5ab3c6d035772586e77320a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "North American University";
         
-        $__internal_df123de51c707e16fa82a6d89aefad31dafee51f80ddfceb2ae0dd0ffd1597f8->leave($__internal_df123de51c707e16fa82a6d89aefad31dafee51f80ddfceb2ae0dd0ffd1597f8_prof);
+        $__internal_978471ff388cd26961be56a5d14e66cfce27007bd5ab3c6d035772586e77320a->leave($__internal_978471ff388cd26961be56a5d14e66cfce27007bd5ab3c6d035772586e77320a_prof);
 
     }
 
     // line 10
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_96a5c02e137018d0427d8c91866229ef8bec1e1f82d9d11a226683550c23d701 = $this->env->getExtension("native_profiler");
-        $__internal_96a5c02e137018d0427d8c91866229ef8bec1e1f82d9d11a226683550c23d701->enter($__internal_96a5c02e137018d0427d8c91866229ef8bec1e1f82d9d11a226683550c23d701_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_4ecbd3cd89e396432abdab0d5209357c885b05b89ad80486c77fc67898267672 = $this->env->getExtension("native_profiler");
+        $__internal_4ecbd3cd89e396432abdab0d5209357c885b05b89ad80486c77fc67898267672->enter($__internal_4ecbd3cd89e396432abdab0d5209357c885b05b89ad80486c77fc67898267672_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 11
         echo "        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600'>
@@ -131,23 +130,23 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
         echo "\">
     ";
         
-        $__internal_96a5c02e137018d0427d8c91866229ef8bec1e1f82d9d11a226683550c23d701->leave($__internal_96a5c02e137018d0427d8c91866229ef8bec1e1f82d9d11a226683550c23d701_prof);
+        $__internal_4ecbd3cd89e396432abdab0d5209357c885b05b89ad80486c77fc67898267672->leave($__internal_4ecbd3cd89e396432abdab0d5209357c885b05b89ad80486c77fc67898267672_prof);
 
     }
 
-    // line 34
+    // line 33
     public function block_header($context, array $blocks = array())
     {
-        $__internal_991aa9687f7096e1ef7748c434a68a6fb22a069440b09ece23ad0bc6d882f621 = $this->env->getExtension("native_profiler");
-        $__internal_991aa9687f7096e1ef7748c434a68a6fb22a069440b09ece23ad0bc6d882f621->enter($__internal_991aa9687f7096e1ef7748c434a68a6fb22a069440b09ece23ad0bc6d882f621_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "header"));
+        $__internal_c751dae6096a31936fa14fcfb1c00e037dda7104976e86683a35d4bb4caf7257 = $this->env->getExtension("native_profiler");
+        $__internal_c751dae6096a31936fa14fcfb1c00e037dda7104976e86683a35d4bb4caf7257->enter($__internal_c751dae6096a31936fa14fcfb1c00e037dda7104976e86683a35d4bb4caf7257_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "header"));
 
-        // line 35
+        // line 34
         echo "        <header class=\"navbar navbar-fixed-top bg-dark\">
             <div class=\"navbar-branding\">
                 ";
-        // line 37
+        // line 36
         if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
-            // line 38
+            // line 37
             echo "                    <a class=\"navbar-brand\" href=\"";
             echo $this->env->getExtension('routing')->getPath("update");
             echo "\">
@@ -155,7 +154,7 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                     </a>
                 ";
         } else {
-            // line 42
+            // line 41
             echo "                    <a class=\"navbar-brand\" href=\"";
             echo $this->env->getExtension('routing')->getPath("dashboard");
             echo "\">
@@ -163,7 +162,7 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                     </a>
                 ";
         }
-        // line 46
+        // line 45
         echo "                <span id=\"toggle_sidemenu_l\" class=\"ad ad-lines\"></span>
             </div>
             <ul class=\"nav navbar-nav navbar-left\">
@@ -178,7 +177,7 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
             <ul class=\"nav navbar-nav navbar-right\">
                 <li class=\"dropdown\">
                     <a href=\"#\" class=\"dropdown-toggle fw600 p15\" data-toggle=\"dropdown\">  ";
-        // line 59
+        // line 58
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "fullname", array()), "html", null, true);
         echo "
                         <span class=\"caret caret-tp hidden-xs\"></span>
@@ -186,9 +185,9 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                     <ul class=\"dropdown-menu list-group dropdown-persist w250\" role=\"menu\">
                         <li class=\"list-group-item\">
                             ";
-        // line 64
+        // line 63
         if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
-            // line 65
+            // line 64
             echo "                                <a href=\"";
             echo $this->env->getExtension('routing')->getPath("update");
             echo "\" class=\"animated animated-short fadeInUp\">
@@ -196,7 +195,7 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                                 </a>
                             ";
         } else {
-            // line 69
+            // line 68
             echo "                                <a href=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("profile", array("userid" => $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "id", array()))), "html", null, true);
             echo "\" class=\"animated animated-short fadeInUp\">
@@ -204,38 +203,38 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                                 </a>
                             ";
         }
-        // line 73
+        // line 72
         echo "                        </li>
                         <li class=\"list-group-item\">
                             <a href=\"";
-        // line 75
+        // line 74
         echo $this->env->getExtension('routing')->getPath("update");
         echo "\" class=\"animated animated-short fadeInUp\">
                                 <span class=\"fa fa-gear\"></span> Edit Profile </a>
                         </li>
                         <li class=\"list-group-item\">
                             ";
-        // line 79
+        // line 78
         if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
-            // line 80
+            // line 79
             echo "                                <a href=\"";
             echo $this->env->getExtension('routing')->getPath("update");
             echo "\" class=\"animated animated-short fadeInUp\">
                                     <span class=\"fa fa-shield\"></span> Change Password  </a>
                             ";
         } else {
-            // line 83
+            // line 82
             echo "                                <a href=\"";
             echo $this->env->getExtension('routing')->getPath("changepassword");
             echo "\" class=\"animated animated-short fadeInUp\">
                                     <span class=\"fa fa-shield\"></span> Change Password  </a>
                             ";
         }
-        // line 86
+        // line 85
         echo "                        </li>
                         <li class=\"dropdown-footer\">
                             <a href=\"";
-        // line 88
+        // line 87
         echo $this->env->getExtension('routing')->getPath("logout");
         echo "\" class=\"\">
                                 <span class=\"fa fa-power-off pr5\"></span> Logout </a>
@@ -247,17 +246,17 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
         </header>
     ";
         
-        $__internal_991aa9687f7096e1ef7748c434a68a6fb22a069440b09ece23ad0bc6d882f621->leave($__internal_991aa9687f7096e1ef7748c434a68a6fb22a069440b09ece23ad0bc6d882f621_prof);
+        $__internal_c751dae6096a31936fa14fcfb1c00e037dda7104976e86683a35d4bb4caf7257->leave($__internal_c751dae6096a31936fa14fcfb1c00e037dda7104976e86683a35d4bb4caf7257_prof);
 
     }
 
-    // line 99
+    // line 98
     public function block_sidebar($context, array $blocks = array())
     {
-        $__internal_49334c370deb51830ab533cdffe2c22d4b7e83720e8492a470fcd86f443abd7c = $this->env->getExtension("native_profiler");
-        $__internal_49334c370deb51830ab533cdffe2c22d4b7e83720e8492a470fcd86f443abd7c->enter($__internal_49334c370deb51830ab533cdffe2c22d4b7e83720e8492a470fcd86f443abd7c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
+        $__internal_80f957350a3a9788259cd79186670698a80dbe69062ffda7f699f48dfa6f641b = $this->env->getExtension("native_profiler");
+        $__internal_80f957350a3a9788259cd79186670698a80dbe69062ffda7f699f48dfa6f641b->enter($__internal_80f957350a3a9788259cd79186670698a80dbe69062ffda7f699f48dfa6f641b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
 
-        // line 100
+        // line 99
         echo "        <aside id=\"sidebar_left\" class=\"nano nano-primary affix\">
 
             <!-- Start: Sidebar Left Content -->
@@ -268,9 +267,9 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                     <li class=\"sidebar-label pt20\">Menu</li>
                     <li>
                         ";
-        // line 109
+        // line 108
         if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
-            // line 110
+            // line 109
             echo "                        <a href=\"";
             echo $this->env->getExtension('routing')->getPath("update");
             echo "\">
@@ -279,7 +278,7 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                         </a>
                         ";
         } else {
-            // line 115
+            // line 114
             echo "                        <a href=\"";
             echo $this->env->getExtension('routing')->getPath("dashboard");
             echo "\">
@@ -288,53 +287,65 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                         </a>
                         ";
         }
-        // line 120
+        // line 119
         echo "                    </li>
                     <li>
                         ";
-        // line 122
-        if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
-            // line 123
-            echo "                        <a href=\"";
-            echo $this->env->getExtension('routing')->getPath("update");
-            echo "\">
+        // line 121
+        if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
+            // line 122
+            echo "                            ";
+            if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
+                // line 123
+                echo "                            <a href=\"";
+                echo $this->env->getExtension('routing')->getPath("update");
+                echo "\">
+                                    <span class=\"fa fa-users\"></span>
+                                    <span class=\"sidebar-title\">Users</span>
+                            </a>
+                            ";
+            } else {
+                // line 128
+                echo "                            <a href=\"";
+                echo $this->env->getExtension('routing')->getPath("users");
+                echo "\">
                                 <span class=\"fa fa-users\"></span>
                                 <span class=\"sidebar-title\">Users</span>
-                        </a>
-                        ";
-        } else {
-            // line 128
-            echo "                        <a href=\"";
-            echo $this->env->getExtension('routing')->getPath("users");
-            echo "\">
-                            <span class=\"fa fa-users\"></span>
-                            <span class=\"sidebar-title\">Users</span>
-                        </a>
-                        ";
+                            </a>
+                            ";
+            }
+            // line 133
+            echo "                        ";
         }
-        // line 133
+        // line 134
         echo "                    </li>
                     <li>
                         ";
-        // line 135
-        if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
-            // line 136
-            echo "                        <a href=\"";
-            echo $this->env->getExtension('routing')->getPath("update");
-            echo "\">
-                            <span class=\"fa fa-calendar\"></span>
-                            <span class=\"sidebar-title\">Events</span>
-                        </a>
-                        ";
-        } else {
-            // line 141
-            echo "                        <a class=\"accordion-toggle\" href=\"#\">
-                            <span class=\"fa fa-calendar\"></span>
-                            <span class=\"sidebar-title\">Events</span>
-                        </a>
-                        ";
+        // line 136
+        if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
+            // line 137
+            echo "                            ";
+            if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
+                // line 138
+                echo "                            <a href=\"";
+                echo $this->env->getExtension('routing')->getPath("update");
+                echo "\">
+                                <span class=\"fa fa-calendar\"></span>
+                                <span class=\"sidebar-title\">Events</span>
+                            </a>
+                            ";
+            } else {
+                // line 143
+                echo "                            <a class=\"accordion-toggle\" href=\"#\">
+                                <span class=\"fa fa-calendar\"></span>
+                                <span class=\"sidebar-title\">Events</span>
+                            </a>
+                            ";
+            }
+            // line 148
+            echo "                        ";
         }
-        // line 146
+        // line 149
         echo "                        <ul class=\"nav sub-nav\">
                             <li>
                                 <a href=\"#\">
@@ -342,14 +353,10 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                             </li>
                             <li>
                                 <a href=\"";
-        // line 152
+        // line 155
         echo $this->env->getExtension('routing')->getPath("addevent");
         echo "\">
                                     <span class=\"glyphicon glyphicon-share-alt\"></span> Add an event </a>
-                            </li>
-                            <li>
-                                <a href=\"#\">
-                                    <span class=\"glyphicon glyphicon-picture\"></span> Media </a>
                             </li>
                         </ul>
                     </li>
@@ -374,35 +381,35 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
         <!------------------------------------------------------------ End: SIDEBAR LEFT CONTENT -------------------------------------------------------------->
     ";
         
-        $__internal_49334c370deb51830ab533cdffe2c22d4b7e83720e8492a470fcd86f443abd7c->leave($__internal_49334c370deb51830ab533cdffe2c22d4b7e83720e8492a470fcd86f443abd7c_prof);
+        $__internal_80f957350a3a9788259cd79186670698a80dbe69062ffda7f699f48dfa6f641b->leave($__internal_80f957350a3a9788259cd79186670698a80dbe69062ffda7f699f48dfa6f641b_prof);
 
     }
 
-    // line 181
+    // line 180
     public function block_topbar($context, array $blocks = array())
     {
-        $__internal_8cd4e205403cfadc22fa318c874281e6ed294c565fee382f4a980c2c2b5213ce = $this->env->getExtension("native_profiler");
-        $__internal_8cd4e205403cfadc22fa318c874281e6ed294c565fee382f4a980c2c2b5213ce->enter($__internal_8cd4e205403cfadc22fa318c874281e6ed294c565fee382f4a980c2c2b5213ce_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "topbar"));
+        $__internal_d564db4a85a04d91a7d90e9249a37cf04192ce7be8ddac7ec5101c4b511e7806 = $this->env->getExtension("native_profiler");
+        $__internal_d564db4a85a04d91a7d90e9249a37cf04192ce7be8ddac7ec5101c4b511e7806->enter($__internal_d564db4a85a04d91a7d90e9249a37cf04192ce7be8ddac7ec5101c4b511e7806_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "topbar"));
 
-        // line 182
+        // line 181
         echo "        <!-- Start: Content-Wrapper -->
         <section id=\"content_wrapper\">
             ";
-        // line 184
+        // line 183
         if (((twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array())) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) || twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "gender", array())))) {
-            // line 185
+            // line 184
             echo "            <div class=\"alert alert-danger alert-dismissable\">
                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
                 <i class=\"fa fa-exclamation-triangle pr10\"></i>
                 <strong>You profile is incomplete!</strong>
                 <a href=\"";
-            // line 189
+            // line 188
             echo $this->env->getExtension('routing')->getPath("update");
             echo "\" class=\"alert-link\">Complete your profile here!</a>
             </div>
             ";
         }
-        // line 192
+        // line 191
         echo "            <!-- Start: Topbar-Dropdown -->
             <div id=\"topbar-dropmenu\">
                 <div class=\"topbar-menu row\">
@@ -449,48 +456,48 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
         <!-- End: Content-Wrapper -->
     ";
         
-        $__internal_8cd4e205403cfadc22fa318c874281e6ed294c565fee382f4a980c2c2b5213ce->leave($__internal_8cd4e205403cfadc22fa318c874281e6ed294c565fee382f4a980c2c2b5213ce_prof);
+        $__internal_d564db4a85a04d91a7d90e9249a37cf04192ce7be8ddac7ec5101c4b511e7806->leave($__internal_d564db4a85a04d91a7d90e9249a37cf04192ce7be8ddac7ec5101c4b511e7806_prof);
 
     }
 
-    // line 237
+    // line 236
     public function block_body($context, array $blocks = array())
     {
-        $__internal_ee66eb4e61e65edd08f1e5e347192ad4141ada71d8d62e91ff5c6542e91ba3f0 = $this->env->getExtension("native_profiler");
-        $__internal_ee66eb4e61e65edd08f1e5e347192ad4141ada71d8d62e91ff5c6542e91ba3f0->enter($__internal_ee66eb4e61e65edd08f1e5e347192ad4141ada71d8d62e91ff5c6542e91ba3f0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_c29bea31a20f6ba4c045856742cc887b33c32d0584f831f614e3d5cb559e2fbf = $this->env->getExtension("native_profiler");
+        $__internal_c29bea31a20f6ba4c045856742cc887b33c32d0584f831f614e3d5cb559e2fbf->enter($__internal_c29bea31a20f6ba4c045856742cc887b33c32d0584f831f614e3d5cb559e2fbf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         
-        $__internal_ee66eb4e61e65edd08f1e5e347192ad4141ada71d8d62e91ff5c6542e91ba3f0->leave($__internal_ee66eb4e61e65edd08f1e5e347192ad4141ada71d8d62e91ff5c6542e91ba3f0_prof);
+        $__internal_c29bea31a20f6ba4c045856742cc887b33c32d0584f831f614e3d5cb559e2fbf->leave($__internal_c29bea31a20f6ba4c045856742cc887b33c32d0584f831f614e3d5cb559e2fbf_prof);
 
     }
 
-    // line 239
+    // line 238
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_d5e915672cad79a3de0257f7b976c26ac4d8f68ceb7aaaf7db40c95d065ab37d = $this->env->getExtension("native_profiler");
-        $__internal_d5e915672cad79a3de0257f7b976c26ac4d8f68ceb7aaaf7db40c95d065ab37d->enter($__internal_d5e915672cad79a3de0257f7b976c26ac4d8f68ceb7aaaf7db40c95d065ab37d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_589ccf6626af79c32598ac5e6d081bb0a959ac44dfaa60459bd2eabb0d0cbf52 = $this->env->getExtension("native_profiler");
+        $__internal_589ccf6626af79c32598ac5e6d081bb0a959ac44dfaa60459bd2eabb0d0cbf52->enter($__internal_589ccf6626af79c32598ac5e6d081bb0a959ac44dfaa60459bd2eabb0d0cbf52_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 240
+        // line 239
         echo "        <!-- jQuery -->
         <script src=\"";
-        // line 241
+        // line 240
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery-1.11.1.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 242
+        // line 241
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery_ui/jquery-ui.min.js"), "html", null, true);
         echo "\"></script>
         <!-- Theme Javascript -->
         <script src=\"";
-        // line 244
+        // line 243
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/utility/utility.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 245
+        // line 244
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/demo/demo.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 246
+        // line 245
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
         <script type=\"text/javascript\">
@@ -532,10 +539,16 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
                 });
             });
         </script>
+        <script>
+            \$(\".phone\").text(function(i, text) {
+                text = text.replace(/(\\d{2})(\\d{3})(\\d{3})(\\d{4})/, \"\$1-\$2-\$3-\$4\");
+                return text;
+            });
+        </script>
         <!-- END: PAGE SCRIPTS -->
     ";
         
-        $__internal_d5e915672cad79a3de0257f7b976c26ac4d8f68ceb7aaaf7db40c95d065ab37d->leave($__internal_d5e915672cad79a3de0257f7b976c26ac4d8f68ceb7aaaf7db40c95d065ab37d_prof);
+        $__internal_589ccf6626af79c32598ac5e6d081bb0a959ac44dfaa60459bd2eabb0d0cbf52->leave($__internal_589ccf6626af79c32598ac5e6d081bb0a959ac44dfaa60459bd2eabb0d0cbf52_prof);
 
     }
 
@@ -551,7 +564,7 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
 
     public function getDebugInfo()
     {
-        return array (  494 => 246,  490 => 245,  486 => 244,  481 => 242,  477 => 241,  474 => 240,  468 => 239,  457 => 237,  406 => 192,  400 => 189,  394 => 185,  392 => 184,  388 => 182,  382 => 181,  346 => 152,  338 => 146,  331 => 141,  322 => 136,  320 => 135,  316 => 133,  307 => 128,  298 => 123,  296 => 122,  292 => 120,  283 => 115,  274 => 110,  272 => 109,  261 => 100,  255 => 99,  239 => 88,  235 => 86,  228 => 83,  221 => 80,  219 => 79,  212 => 75,  208 => 73,  200 => 69,  192 => 65,  190 => 64,  182 => 59,  167 => 46,  159 => 42,  151 => 38,  149 => 37,  145 => 35,  139 => 34,  130 => 18,  125 => 16,  120 => 14,  115 => 12,  112 => 11,  106 => 10,  94 => 6,  83 => 288,  81 => 239,  78 => 238,  75 => 237,  72 => 181,  70 => 99,  66 => 97,  64 => 34,  59 => 31,  57 => 30,  45 => 20,  43 => 10,  36 => 6,  29 => 1,);
+        return array (  501 => 245,  497 => 244,  493 => 243,  488 => 241,  484 => 240,  481 => 239,  475 => 238,  464 => 236,  413 => 191,  407 => 188,  401 => 184,  399 => 183,  395 => 181,  389 => 180,  357 => 155,  349 => 149,  346 => 148,  339 => 143,  330 => 138,  327 => 137,  325 => 136,  321 => 134,  318 => 133,  309 => 128,  300 => 123,  297 => 122,  295 => 121,  291 => 119,  282 => 114,  273 => 109,  271 => 108,  260 => 99,  254 => 98,  238 => 87,  234 => 85,  227 => 82,  220 => 79,  218 => 78,  211 => 74,  207 => 72,  199 => 68,  191 => 64,  189 => 63,  181 => 58,  166 => 45,  158 => 41,  150 => 37,  148 => 36,  144 => 34,  138 => 33,  129 => 18,  124 => 16,  119 => 14,  114 => 12,  111 => 11,  105 => 10,  93 => 6,  82 => 293,  80 => 238,  77 => 237,  74 => 236,  71 => 180,  69 => 98,  65 => 96,  63 => 33,  58 => 30,  56 => 29,  45 => 20,  43 => 10,  36 => 6,  29 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -582,7 +595,6 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
 /*     <![endif]-->*/
 /* </head>*/
 /* */
-/* <body class="dashboard-page sb-l-o sb-r-c">*/
 /* {% set route = app.request.attributes.get('_route') %}*/
 /* <!-- Start: Main -->*/
 /* <div id="main">*/
@@ -675,29 +687,33 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
 /*                         {% endif %}*/
 /*                     </li>*/
 /*                     <li>*/
-/*                         {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
-/*                         <a href="{{ path('update') }}">*/
+/*                         {% if is_granted('ROLE_ADMIN') %}*/
+/*                             {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
+/*                             <a href="{{ path('update') }}">*/
+/*                                     <span class="fa fa-users"></span>*/
+/*                                     <span class="sidebar-title">Users</span>*/
+/*                             </a>*/
+/*                             {% else %}*/
+/*                             <a href="{{ path('users') }}">*/
 /*                                 <span class="fa fa-users"></span>*/
 /*                                 <span class="sidebar-title">Users</span>*/
-/*                         </a>*/
-/*                         {% else %}*/
-/*                         <a href="{{ path('users') }}">*/
-/*                             <span class="fa fa-users"></span>*/
-/*                             <span class="sidebar-title">Users</span>*/
-/*                         </a>*/
+/*                             </a>*/
+/*                             {% endif %}*/
 /*                         {% endif %}*/
 /*                     </li>*/
 /*                     <li>*/
-/*                         {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
-/*                         <a href="{{ path('update') }}">*/
-/*                             <span class="fa fa-calendar"></span>*/
-/*                             <span class="sidebar-title">Events</span>*/
-/*                         </a>*/
-/*                         {% else %}*/
-/*                         <a class="accordion-toggle" href="#">*/
-/*                             <span class="fa fa-calendar"></span>*/
-/*                             <span class="sidebar-title">Events</span>*/
-/*                         </a>*/
+/*                         {% if is_granted('ROLE_ADMIN') %}*/
+/*                             {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}*/
+/*                             <a href="{{ path('update') }}">*/
+/*                                 <span class="fa fa-calendar"></span>*/
+/*                                 <span class="sidebar-title">Events</span>*/
+/*                             </a>*/
+/*                             {% else %}*/
+/*                             <a class="accordion-toggle" href="#">*/
+/*                                 <span class="fa fa-calendar"></span>*/
+/*                                 <span class="sidebar-title">Events</span>*/
+/*                             </a>*/
+/*                             {% endif %}*/
 /*                         {% endif %}*/
 /*                         <ul class="nav sub-nav">*/
 /*                             <li>*/
@@ -707,10 +723,6 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
 /*                             <li>*/
 /*                                 <a href="{{ path('addevent') }}">*/
 /*                                     <span class="glyphicon glyphicon-share-alt"></span> Add an event </a>*/
-/*                             </li>*/
-/*                             <li>*/
-/*                                 <a href="#">*/
-/*                                     <span class="glyphicon glyphicon-picture"></span> Media </a>*/
 /*                             </li>*/
 /*                         </ul>*/
 /*                     </li>*/
@@ -839,10 +851,16 @@ class __TwigTemplate_16f3c7f32b2f32c354dd629fa054a972c505d2ec157f2e87dbde0987169
 /*                 });*/
 /*             });*/
 /*         </script>*/
+/*         <script>*/
+/*             $(".phone").text(function(i, text) {*/
+/*                 text = text.replace(/(\d{2})(\d{3})(\d{3})(\d{4})/, "$1-$2-$3-$4");*/
+/*                 return text;*/
+/*             });*/
+/*         </script>*/
 /*         <!-- END: PAGE SCRIPTS -->*/
 /*     {% endblock %}*/
 /* </div>*/
-/* </body>*/
+/* */
 /* */
 /* </html>*/
 /* */

@@ -26,7 +26,6 @@
     <![endif]-->
 </head>
 
-<body class="dashboard-page sb-l-o sb-r-c">
 {% set route = app.request.attributes.get('_route') %}
 <!-- Start: Main -->
 <div id="main">
@@ -119,29 +118,33 @@
                         {% endif %}
                     </li>
                     <li>
-                        {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
-                        <a href="{{ path('update') }}">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
+                            <a href="{{ path('update') }}">
+                                    <span class="fa fa-users"></span>
+                                    <span class="sidebar-title">Users</span>
+                            </a>
+                            {% else %}
+                            <a href="{{ path('users') }}">
                                 <span class="fa fa-users"></span>
                                 <span class="sidebar-title">Users</span>
-                        </a>
-                        {% else %}
-                        <a href="{{ path('users') }}">
-                            <span class="fa fa-users"></span>
-                            <span class="sidebar-title">Users</span>
-                        </a>
+                            </a>
+                            {% endif %}
                         {% endif %}
                     </li>
                     <li>
-                        {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
-                        <a href="{{ path('update') }}">
-                            <span class="fa fa-calendar"></span>
-                            <span class="sidebar-title">Events</span>
-                        </a>
-                        {% else %}
-                        <a class="accordion-toggle" href="#">
-                            <span class="fa fa-calendar"></span>
-                            <span class="sidebar-title">Events</span>
-                        </a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
+                            <a href="{{ path('update') }}">
+                                <span class="fa fa-calendar"></span>
+                                <span class="sidebar-title">Events</span>
+                            </a>
+                            {% else %}
+                            <a class="accordion-toggle" href="#">
+                                <span class="fa fa-calendar"></span>
+                                <span class="sidebar-title">Events</span>
+                            </a>
+                            {% endif %}
                         {% endif %}
                         <ul class="nav sub-nav">
                             <li>
@@ -151,10 +154,6 @@
                             <li>
                                 <a href="{{ path('addevent') }}">
                                     <span class="glyphicon glyphicon-share-alt"></span> Add an event </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-picture"></span> Media </a>
                             </li>
                         </ul>
                     </li>
@@ -283,9 +282,15 @@
                 });
             });
         </script>
+        <script>
+            $(".phone").text(function(i, text) {
+                text = text.replace(/(\d{2})(\d{3})(\d{3})(\d{4})/, "$1-$2-$3-$4");
+                return text;
+            });
+        </script>
         <!-- END: PAGE SCRIPTS -->
     {% endblock %}
 </div>
-</body>
+
 
 </html>

@@ -1,0 +1,59 @@
+{% extends '::default.html.twig' %}
+{% block stylesheets %}
+
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
+    <!--Icon Fonts-->
+    <link rel="stylesheet" media="screen" href="{{ asset('assets/fonts/font-awesome/css/font-awesome.css') }}">
+
+    <!-- Font CSS (Via CDN) -->
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+
+{% endblock %}
+{% block body %}
+    <body class="error-page sb-l-o sb-r-c">
+    <!-- Start: Content-Wrapper -->
+    <section id="content_wrapper">
+        <section id="content" class="pn animated fadeIn">
+
+            <div class="center-block mt50 mw800">
+                <h1 class="error-title"> 403! </h1>
+                <h2 class="error-subtitle">Permission Denied.</h2>
+                <h4 class="text-muted">You don't have permission to access this page. Please <a href="{{ path('homepage') }}">return to the homepage</a>.</h4>
+                <div class="pull-left">
+                    <img src="{{ asset('assets/img/logos/logo_grey.png') }}" class="img-responsive mt20 w225" alt="logo">
+                </div>
+            </div>
+        </section>
+        <!-- End: Content -->
+
+    </section>
+    </body>
+
+{% endblock %}
+{% block javascripts %}
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+
+    <!-- Theme Javascript -->
+    <script src="{{ asset('assets/js/utility/utility.js') }}"></script>
+    <script src="{{ asset('assets/js/demo/demo.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+            "use strict";
+
+            // Init Theme Core
+            Core.init();
+
+            // Init Demo JS
+            Demo.init();
+
+        });
+    </script>
+    <!-- END: PAGE SCRIPTS -->
+
+
+{% endblock %}

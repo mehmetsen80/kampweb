@@ -138,9 +138,9 @@
                                         <label for="maskedPhone" class="field prepend-icon">
 
                                             {% if app.user.cellphone is empty %}
-                                            {{ form_widget(form1.cellphone, {'id':'maskedPhone', 'attr': {'class': 'gui-input form-control phone', 'maxlength':"14", 'autocomplete':"off",  'type':'text', 'name':'mobile_phone' }}) }}
+                                            {{ form_widget(form1.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off",  'type':'text' }}) }}
                                             {% else %}
-                                            {{ form_widget(form1.cellphone, {'id':'maskedPhone', 'attr': {'class': 'gui-input form-control phone', 'maxlength':"14", 'autocomplete':"off", 'type':'text',  }}) }}
+                                            {{ form_widget(form1.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off", 'type':'text' }}) }}
                                             {% endif %}
                                             <label for="mobile_phone" class="field-icon">
                                                 <i class="fa fa-mobile-phone"></i>
@@ -396,10 +396,11 @@
             // Init jQuery Time Spinner
             $("#spinner4").timespinner();
 
-            $('.phone').mask('(999) 999-9999');
+            $('.phone').mask('+(99) (999) 999-9999');
 
 
         });
     </script>
+
     <!-- END: PAGE SCRIPTS -->
 {% endblock %}

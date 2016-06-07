@@ -64,10 +64,10 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'username', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'fullname', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'plainPassword', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'isactive', 'createdat', 'modifiedat', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'newfullname', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'newusername', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'newpassword'];
+            return ['__isInitialized__', 'id', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'username', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'fullname', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'plainPassword', 'gender', 'birthday', 'cellphone', 'dependents', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'isactive', 'createdat', 'modifiedat'];
         }
 
-        return ['__isInitialized__', 'id', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'username', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'fullname', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'plainPassword', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'isactive', 'createdat', 'modifiedat', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'newfullname', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'newusername', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'newpassword'];
+        return ['__isInitialized__', 'id', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'username', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'fullname', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'plainPassword', 'gender', 'birthday', 'cellphone', 'dependents', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'isactive', 'createdat', 'modifiedat'];
     }
 
     /**
@@ -422,6 +422,105 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
+    public function getGender()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGender', []);
+
+        return parent::getGender();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setGender($gender)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGender', [$gender]);
+
+        return parent::setGender($gender);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getBirthday()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBirthday', []);
+
+        return parent::getBirthday();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setBirthday($birthday)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBirthday', [$birthday]);
+
+        return parent::setBirthday($birthday);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCellphone()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCellphone', []);
+
+        return parent::getCellphone();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCellphone($cellphone)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCellphone', [$cellphone]);
+
+        return parent::setCellphone($cellphone);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDependents()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDependents', []);
+
+        return parent::getDependents();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addDependent(\AppBundle\Entity\Dependent $dependent)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addDependent', [$dependent]);
+
+        return parent::addDependent($dependent);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeDependent(\AppBundle\Entity\Dependent $dependent)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeDependent', [$dependent]);
+
+        return parent::removeDependent($dependent);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setCreatedat($createdat)
     {
 
@@ -461,72 +560,6 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getModifiedat', []);
 
         return parent::getModifiedat();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getNewfullname()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNewfullname', []);
-
-        return parent::getNewfullname();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setNewfullname($newfullname)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNewfullname', [$newfullname]);
-
-        return parent::setNewfullname($newfullname);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getNewusername()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNewusername', []);
-
-        return parent::getNewusername();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setNewusername($newusername)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNewusername', [$newusername]);
-
-        return parent::setNewusername($newusername);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getNewpassword()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNewpassword', []);
-
-        return parent::getNewpassword();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setNewpassword($newpassword)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNewpassword', [$newpassword]);
-
-        return parent::setNewpassword($newpassword);
     }
 
 }

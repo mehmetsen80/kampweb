@@ -1,56 +1,147 @@
 {% extends '::default.html.twig' %}
 
 {% block body %}
-<!-- Start: CONTENT WRAPPER -->
-<section id="content_wrapper">
-    <!-- Start: TOPBAR -->
-    <header id="topbar">
-        <div class="topbar-left">
-            <ol class="breadcrumb">
-                <li class="crumb-active">
-                    <a href="{{ path('dashboard') }}">Dashboard</a>
-                </li>
-                <li class="crumb-icon">
-                    <a href="{{ path('dashboard') }}">
-                        <span class="glyphicon glyphicon-home"></span>
-                    </a>
-                </li>
-            </ol>
-        </div>
-    </header>
-    <!-- End: TOPBAR -->
+    <body class="profile-page">
+    <!-- Start: Content-Wrapper -->
+    <section id="content_wrapper">
 
-    <!-- Begin: CONTENT -->
-    <section id="content" >
-        <div class="panel">
-            <div class="panel-heading">
-                <span class="panel-title">Panel title</span>
+        <!-- Start: Topbar -->
+        <header id="topbar">
+            <div class="topbar-left">
+                <ol class="breadcrumb">
+                    <li class="crumb-active">
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="crumb-icon">
+                        <a href="dashboard.html">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                    </li>
+                    <li class="crumb-link">
+                        <a href="dashboard.html">Home</a>
+                    </li>
+                    <li class="crumb-trail">Dashboard</li>
+                </ol>
             </div>
-            <div class="panel-body">
-        <h2 class="form-signin-heading">{{ user.fullname }}</h2>
-        <dl class="genus-details-list">
-            <dt>Information:</dt>
-            <dd>We can fetch notes from the database about the user. </dd>
-            <dt>Email: </dt>
-            <dd>{{ user.username }}</dd>
-            <dt>Is user active?</dt>
-            <dd>{{ user.isactive }}</dd>
-            <dt>User Role</dt>
-            <dd>{% for role in user.roles %}
-                    {{ role }}
-                {% endfor %}
-            </dd>
-            <dt>User Registration Date:</dt>
-            <dd>{{ user.createdat|date('Y-m-d') }}</dd>
-            <dt>Last Updated Date:</dt>
-            <dd>{{ user.modifiedat|date('Y-m-d') }}</dd>
+        </header>
+        <!-- End: Topbar -->
 
-        </dl>
-    </div>
-        </div>
-        </div>
+        <!-- Begin: Content -->
+        <section id="content" class="animated fadeIn">
+
+            <!-- Begin .page-heading -->
+            <div class="page-heading">
+                <div class="media clearfix">
+                    <div class="media-body va-m">
+                        <h2 class="media-heading">{{ user.fullname }}
+                            <small> - Profile</small>
+                        </h2>
+                        <p class="lead">North American University - Computer Science</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="tab-block">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab1" data-toggle="tab">Events</a>
+                            </li>
+                            <li>
+                                <a href="#tab2" data-toggle="tab">About</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content p30">
+                            <div id="tab1" class="tab-pane active"></div>
+                            <div id="tab2" class="tab-pane">
+                                <div class="panel">
+                                    <div class="panel-body pn">
+
+                                            <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
+                                                <thead>
+                                                <tr class="hidden">
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Gender</th>
+                                                    <th>Birthday</th>
+                                                    <th>Celphone</th>
+                                                    <th>Active</th>
+                                                    <th>Registered</th>
+                                                    <th>Modified</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="fa fa-user text-warning"></span>
+                                                    </td>
+                                                    <td>Name</td>
+                                                    <td>{{ user.fullname }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="fa fa-reply text-primary"></span>
+                                                    </td>
+                                                    <td>Email</td>
+                                                    <td><a href="mailto:{{ user.username }}" target="_top"> {{ user.username }}</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="fa fa-calendar text-info"></span>
+                                                    </td>
+                                                    <td>Birthday</td>
+                                                    <td>{{ user.birthday|date("m/d/Y") }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="fa fa-phone text-success"></span>
+                                                    </td>
+                                                    <td>Cellphone</td>
+                                                    <td><a class="phone" href="tel:{{ user.cellphone }}">{{ user.cellphone }}</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="fa fa-question text-danger"></span>
+                                                    </td>
+                                                    <td>Is Active?</td>
+                                                    <td>
+                                                        {% if user.isactive == 1 %}
+                                                            Yes
+                                                        {% else %}
+                                                            No
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="fa fa-database text-primary-lighter"></span>
+                                                    </td>
+                                                    <td>Register Date</td>
+                                                    <td>{{ user.createdat|date('Y-m-d') }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="fa fa-edit text-info-lighter"></span>
+                                                    </td>
+                                                    <td>Last Modifed Date</td>
+                                                    <td>{{ user.modifiedat|date('Y-m-d') }}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- End: Content -->
+
     </section>
-    <!-- End: CONTENT-->
-</section>
+    </body>
 {% endblock %}
-

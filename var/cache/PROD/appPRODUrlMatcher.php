@@ -5,12 +5,12 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\RequestContext;
 
 /**
- * appPRODUrlMatcher.
+ * appProdUrlMatcher.
  *
  * This class has been auto-generated
  * by the Symfony Routing Component.
  */
-class appPRODUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\RedirectableUrlMatcher
+class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\RedirectableUrlMatcher
 {
     /**
      * Constructor.
@@ -46,19 +46,27 @@ class appPRODUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::showDashboardAction',  '_route' => 'dashboard',);
         }
 
-        if (0 === strpos($pathinfo, '/api/lucky/number')) {
-            // app_lucky_apinumber
-            if (rtrim($pathinfo, '/') === '/api/lucky/number') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'app_lucky_apinumber');
-                }
-
-                return array (  '_controller' => 'AppBundle\\Controller\\LuckyController::apiNumberAction',  '_route' => 'app_lucky_apinumber',);
+        if (0 === strpos($pathinfo, '/a')) {
+            // addevent
+            if ($pathinfo === '/add-event') {
+                return array (  '_controller' => 'AppBundle\\Controller\\EventsController::eventAction',  '_route' => 'addevent',);
             }
 
-            // app_lucky_apinumberactionjson
-            if ($pathinfo === '/api/lucky/number/json') {
-                return array (  '_controller' => 'AppBundle\\Controller\\LuckyController::apiNumberActionJson',  '_route' => 'app_lucky_apinumberactionjson',);
+            if (0 === strpos($pathinfo, '/api/lucky/number')) {
+                // app_lucky_apinumber
+                if (rtrim($pathinfo, '/') === '/api/lucky/number') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'app_lucky_apinumber');
+                    }
+
+                    return array (  '_controller' => 'AppBundle\\Controller\\LuckyController::apiNumberAction',  '_route' => 'app_lucky_apinumber',);
+                }
+
+                // app_lucky_apinumberactionjson
+                if ($pathinfo === '/api/lucky/number/json') {
+                    return array (  '_controller' => 'AppBundle\\Controller\\LuckyController::apiNumberActionJson',  '_route' => 'app_lucky_apinumberactionjson',);
+                }
+
             }
 
         }
@@ -83,21 +91,39 @@ class appPRODUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'AppBundle\\Controller\\PersonController::listPersons',  '_route' => 'app_person_listpersons',);
         }
 
+        // csvdownload
+        if ($pathinfo === '/users/download/allusers.csv') {
+            return array (  '_controller' => 'AppBundle\\Controller\\ReportController::downloadAsCSVAction',  '_route' => 'csvdownload',);
+        }
+
         // login
         if ($pathinfo === '/login') {
             return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login',);
         }
 
-        // register
-        if ($pathinfo === '/register') {
-            return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::registerAction',  '_route' => 'register',);
+        if (0 === strpos($pathinfo, '/re')) {
+            // register
+            if ($pathinfo === '/register') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::registerAction',  '_route' => 'register',);
+            }
+
+            // passwordreset
+            if ($pathinfo === '/reset-password') {
+                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::resetPasswordAction',  '_route' => 'passwordreset',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/u')) {
-            if (0 === strpos($pathinfo, '/users')) {
+            if (0 === strpos($pathinfo, '/user')) {
                 // showusers
-                if (preg_match('#^/users/(?P<userid>[^/]++)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/users') && preg_match('#^/users/(?P<userid>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'showusers')), array (  '_controller' => 'AppBundle\\Controller\\UserController::showUsersAction',));
+                }
+
+                // profile
+                if (preg_match('#^/user/(?P<userid>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'profile')), array (  '_controller' => 'AppBundle\\Controller\\UserController::profileAction',));
                 }
 
                 // users
@@ -114,9 +140,22 @@ class appPRODUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         }
 
-        // CreateDependent
-        if ($pathinfo === '/create-dependent') {
-            return array (  '_controller' => 'AppBundle\\Controller\\PersonController::dependentCreateAction',  '_route' => 'CreateDependent',);
+        // adduser
+        if ($pathinfo === '/add-user') {
+            return array (  '_controller' => 'AppBundle\\Controller\\UserController::addUserAction',  '_route' => 'adduser',);
+        }
+
+        if (0 === strpos($pathinfo, '/c')) {
+            // changepassword
+            if ($pathinfo === '/change-password') {
+                return array (  '_controller' => 'AppBundle\\Controller\\UserController::changePasswordAction',  '_route' => 'changepassword',);
+            }
+
+            // CreateDependent
+            if ($pathinfo === '/create-dependent') {
+                return array (  '_controller' => 'AppBundle\\Controller\\PersonController::dependentCreateAction',  '_route' => 'CreateDependent',);
+            }
+
         }
 
         // logout

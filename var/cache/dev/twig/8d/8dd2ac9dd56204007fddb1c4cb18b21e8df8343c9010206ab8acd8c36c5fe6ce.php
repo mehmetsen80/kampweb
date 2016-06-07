@@ -23,20 +23,20 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b04682d57b04d2991a944680ecc3dd567a2e14e63a0d5231a2a5f46dbbd1f134 = $this->env->getExtension("native_profiler");
-        $__internal_b04682d57b04d2991a944680ecc3dd567a2e14e63a0d5231a2a5f46dbbd1f134->enter($__internal_b04682d57b04d2991a944680ecc3dd567a2e14e63a0d5231a2a5f46dbbd1f134_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/update.html.twig"));
+        $__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36 = $this->env->getExtension("native_profiler");
+        $__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36->enter($__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/update.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b04682d57b04d2991a944680ecc3dd567a2e14e63a0d5231a2a5f46dbbd1f134->leave($__internal_b04682d57b04d2991a944680ecc3dd567a2e14e63a0d5231a2a5f46dbbd1f134_prof);
+        $__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36->leave($__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36_prof);
 
     }
 
     // line 2
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_31e26b8baede06612b2b43fe4cdf983d5a0ccefe81590ae804fdeb66ec31f6b0 = $this->env->getExtension("native_profiler");
-        $__internal_31e26b8baede06612b2b43fe4cdf983d5a0ccefe81590ae804fdeb66ec31f6b0->enter($__internal_31e26b8baede06612b2b43fe4cdf983d5a0ccefe81590ae804fdeb66ec31f6b0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704 = $this->env->getExtension("native_profiler");
+        $__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704->enter($__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 3
         echo "    <!-- Font CSS (Via CDN) -->
@@ -88,15 +88,15 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
         echo "\">
 ";
         
-        $__internal_31e26b8baede06612b2b43fe4cdf983d5a0ccefe81590ae804fdeb66ec31f6b0->leave($__internal_31e26b8baede06612b2b43fe4cdf983d5a0ccefe81590ae804fdeb66ec31f6b0_prof);
+        $__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704->leave($__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704_prof);
 
     }
 
     // line 24
     public function block_body($context, array $blocks = array())
     {
-        $__internal_85f76151b7655a73750039415d9245eec002b80bb7abe839c8316ade59e36b75 = $this->env->getExtension("native_profiler");
-        $__internal_85f76151b7655a73750039415d9245eec002b80bb7abe839c8316ade59e36b75->enter($__internal_85f76151b7655a73750039415d9245eec002b80bb7abe839c8316ade59e36b75_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5 = $this->env->getExtension("native_profiler");
+        $__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5->enter($__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 25
         echo "
@@ -294,13 +294,13 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
         if (twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) {
             // line 141
             echo "                                            ";
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "cellphone", array()), 'widget', array("id" => "maskedPhone", "attr" => array("class" => "gui-input form-control phone", "maxlength" => "14", "autocomplete" => "off", "type" => "text", "name" => "mobile_phone")));
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "cellphone", array()), 'widget', array("id" => "", "attr" => array("class" => "gui-input form-control phone", "autocomplete" => "off", "type" => "text")));
             echo "
                                             ";
         } else {
             // line 143
             echo "                                            ";
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "cellphone", array()), 'widget', array("id" => "maskedPhone", "attr" => array("class" => "gui-input form-control phone", "maxlength" => "14", "autocomplete" => "off", "type" => "text")));
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "cellphone", array()), 'widget', array("id" => "", "attr" => array("class" => "gui-input form-control phone", "autocomplete" => "off", "type" => "text")));
             echo "
                                             ";
         }
@@ -389,15 +389,15 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 
 ";
         
-        $__internal_85f76151b7655a73750039415d9245eec002b80bb7abe839c8316ade59e36b75->leave($__internal_85f76151b7655a73750039415d9245eec002b80bb7abe839c8316ade59e36b75_prof);
+        $__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5->leave($__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5_prof);
 
     }
 
     // line 211
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_173c11a31c9bcfc590029f3d1ee4453a727a25cb7beabfbeb2fccf82addbd2a9 = $this->env->getExtension("native_profiler");
-        $__internal_173c11a31c9bcfc590029f3d1ee4453a727a25cb7beabfbeb2fccf82addbd2a9->enter($__internal_173c11a31c9bcfc590029f3d1ee4453a727a25cb7beabfbeb2fccf82addbd2a9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0 = $this->env->getExtension("native_profiler");
+        $__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0->enter($__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 212
         echo "    <!-- jQuery -->
@@ -611,15 +611,16 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
             // Init jQuery Time Spinner
             \$(\"#spinner4\").timespinner();
 
-            \$('.phone').mask('(999) 999-9999');
+            \$('.phone').mask('+(99) (999) 999-9999');
 
 
         });
     </script>
+
     <!-- END: PAGE SCRIPTS -->
 ";
         
-        $__internal_173c11a31c9bcfc590029f3d1ee4453a727a25cb7beabfbeb2fccf82addbd2a9->leave($__internal_173c11a31c9bcfc590029f3d1ee4453a727a25cb7beabfbeb2fccf82addbd2a9_prof);
+        $__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0->leave($__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0_prof);
 
     }
 
@@ -778,9 +779,9 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /*                                         <label for="maskedPhone" class="field prepend-icon">*/
 /* */
 /*                                             {% if app.user.cellphone is empty %}*/
-/*                                             {{ form_widget(form1.cellphone, {'id':'maskedPhone', 'attr': {'class': 'gui-input form-control phone', 'maxlength':"14", 'autocomplete':"off",  'type':'text', 'name':'mobile_phone' }}) }}*/
+/*                                             {{ form_widget(form1.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off",  'type':'text' }}) }}*/
 /*                                             {% else %}*/
-/*                                             {{ form_widget(form1.cellphone, {'id':'maskedPhone', 'attr': {'class': 'gui-input form-control phone', 'maxlength':"14", 'autocomplete':"off", 'type':'text',  }}) }}*/
+/*                                             {{ form_widget(form1.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off", 'type':'text' }}) }}*/
 /*                                             {% endif %}*/
 /*                                             <label for="mobile_phone" class="field-icon">*/
 /*                                                 <i class="fa fa-mobile-phone"></i>*/
@@ -1036,10 +1037,11 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /*             // Init jQuery Time Spinner*/
 /*             $("#spinner4").timespinner();*/
 /* */
-/*             $('.phone').mask('(999) 999-9999');*/
+/*             $('.phone').mask('+(99) (999) 999-9999');*/
 /* */
 /* */
 /*         });*/
 /*     </script>*/
+/* */
 /*     <!-- END: PAGE SCRIPTS -->*/
 /* {% endblock %}*/

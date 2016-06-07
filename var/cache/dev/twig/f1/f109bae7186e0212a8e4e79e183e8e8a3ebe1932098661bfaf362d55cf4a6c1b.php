@@ -22,20 +22,20 @@ class __TwigTemplate_58d1079e7e63ab46ae14e7b46a178b810cee44704d4c11861110712382c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d84094d91219478d86bb3c434c86f98e9399b09a6880faa6b90a2e9a2338945b = $this->env->getExtension("native_profiler");
-        $__internal_d84094d91219478d86bb3c434c86f98e9399b09a6880faa6b90a2e9a2338945b->enter($__internal_d84094d91219478d86bb3c434c86f98e9399b09a6880faa6b90a2e9a2338945b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":user:dashboard.html.twig"));
+        $__internal_7c44471854c57f4a032921b28c83f7886f083fd50beb43c5836d5b5243c428f9 = $this->env->getExtension("native_profiler");
+        $__internal_7c44471854c57f4a032921b28c83f7886f083fd50beb43c5836d5b5243c428f9->enter($__internal_7c44471854c57f4a032921b28c83f7886f083fd50beb43c5836d5b5243c428f9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":user:dashboard.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_d84094d91219478d86bb3c434c86f98e9399b09a6880faa6b90a2e9a2338945b->leave($__internal_d84094d91219478d86bb3c434c86f98e9399b09a6880faa6b90a2e9a2338945b_prof);
+        $__internal_7c44471854c57f4a032921b28c83f7886f083fd50beb43c5836d5b5243c428f9->leave($__internal_7c44471854c57f4a032921b28c83f7886f083fd50beb43c5836d5b5243c428f9_prof);
 
     }
 
     // line 2
     public function block_styles($context, array $blocks = array())
     {
-        $__internal_8bec55bc3e03789b0e10a62790522b2388b265036a58489d48d558fce8fadf1e = $this->env->getExtension("native_profiler");
-        $__internal_8bec55bc3e03789b0e10a62790522b2388b265036a58489d48d558fce8fadf1e->enter($__internal_8bec55bc3e03789b0e10a62790522b2388b265036a58489d48d558fce8fadf1e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "styles"));
+        $__internal_973f4350f1e2e65d04f576705600c0f6c66ae1b38db647603aa6c13b25390037 = $this->env->getExtension("native_profiler");
+        $__internal_973f4350f1e2e65d04f576705600c0f6c66ae1b38db647603aa6c13b25390037->enter($__internal_973f4350f1e2e65d04f576705600c0f6c66ae1b38db647603aa6c13b25390037_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "styles"));
 
         // line 3
         echo "    <!-- PNotify -->
@@ -45,15 +45,15 @@ class __TwigTemplate_58d1079e7e63ab46ae14e7b46a178b810cee44704d4c11861110712382c
         echo "\"></script>
 ";
         
-        $__internal_8bec55bc3e03789b0e10a62790522b2388b265036a58489d48d558fce8fadf1e->leave($__internal_8bec55bc3e03789b0e10a62790522b2388b265036a58489d48d558fce8fadf1e_prof);
+        $__internal_973f4350f1e2e65d04f576705600c0f6c66ae1b38db647603aa6c13b25390037->leave($__internal_973f4350f1e2e65d04f576705600c0f6c66ae1b38db647603aa6c13b25390037_prof);
 
     }
 
     // line 6
     public function block_body($context, array $blocks = array())
     {
-        $__internal_d2e5afd17b940a5c99c952273a0820083f741045256720b0ea54b10868379c8b = $this->env->getExtension("native_profiler");
-        $__internal_d2e5afd17b940a5c99c952273a0820083f741045256720b0ea54b10868379c8b->enter($__internal_d2e5afd17b940a5c99c952273a0820083f741045256720b0ea54b10868379c8b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_9e1e489a4234c3208e7dfcf13ad3182145ae374f4e124249179114be19616f05 = $this->env->getExtension("native_profiler");
+        $__internal_9e1e489a4234c3208e7dfcf13ad3182145ae374f4e124249179114be19616f05->enter($__internal_9e1e489a4234c3208e7dfcf13ad3182145ae374f4e124249179114be19616f05_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
         echo "    <!-- Start: CONTENT WRAPPER -->
@@ -95,7 +95,31 @@ class __TwigTemplate_58d1079e7e63ab46ae14e7b46a178b810cee44704d4c11861110712382c
                 </ol>
             </div>
         </header>
-        <!-- End: TOPBAR -->
+        ";
+        // line 32
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "welcome"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
+            // line 33
+            echo "            <div class=\"alert alert-info alert-dismissable\">
+                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
+                <i class=\"fa fa-exclamation-triangle pr10\"></i>
+                <strong>";
+            // line 36
+            echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
+            echo "</strong>
+                <a href=\"";
+            // line 37
+            echo $this->env->getExtension('routing')->getPath("update");
+            echo "\" class=\"alert-link\">It is great to see you again ^_^</a>
+            </div>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 40
+        echo "        <!-- End: TOPBAR -->
 
         <!-- Begin: CONTENT -->
         <section id=\"content\" >
@@ -104,49 +128,14 @@ class __TwigTemplate_58d1079e7e63ab46ae14e7b46a178b810cee44704d4c11861110712382c
                     <span class=\"panel-title\">Panel title</span>
                 </div>
                 <div class=\"panel-body\">
-                    ";
-        // line 41
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "welcome"), "method"));
-        foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
-            // line 42
-            echo "                        <div class=\"ui-pnotify stack_bar_top\" style=\"width: 290px; opacity: 1; display: block; overflow: visible; right: 8px; top: 70px;\">
-                            <div class=\"alert ui-pnotify-container alert-success ui-pnotify-shadow\" style=\"min-height: 16px; overflow: hidden;\">
-                                <div class=\"ui-pnotify-closer\" style=\"cursor: pointer; visibility: hidden;\">
-                                    <span class=\"glyphicon glyphicon-remove\" title=\"Close\"></span>
-                                </div>
-                                <div class=\"ui-pnotify-sticker\" style=\"cursor: pointer; visibility: hidden;\">
-                                    <span class=\"glyphicon glyphicon-play\" title=\"Stick\"></span>
-                                </div>
-                                <div class=\"ui-pnotify-icon\">
-                                    <span class=\"glyphicon glyphicon-ok-sign\">
-
-                                    </span>
-                                </div>
-                                <h4 class=\"ui-pnotify-title\">";
-            // line 55
-            echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
-            echo "</h4>
-                                <div class=\"ui-pnotify-text\">It is great to see you again! ^_^</div>
-                                <div style=\"margin-top: 5px; clear: both; text-align: right; display: none;\">
-
-                                </div>
-                            </div>
-                        </div>
-                    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 63
-        echo "                </div>
+                </div>
             </div>
         </section>
         <!-- End: CONTENT-->
     </section>
 ";
         
-        $__internal_d2e5afd17b940a5c99c952273a0820083f741045256720b0ea54b10868379c8b->leave($__internal_d2e5afd17b940a5c99c952273a0820083f741045256720b0ea54b10868379c8b_prof);
+        $__internal_9e1e489a4234c3208e7dfcf13ad3182145ae374f4e124249179114be19616f05->leave($__internal_9e1e489a4234c3208e7dfcf13ad3182145ae374f4e124249179114be19616f05_prof);
 
     }
 
@@ -162,7 +151,7 @@ class __TwigTemplate_58d1079e7e63ab46ae14e7b46a178b810cee44704d4c11861110712382c
 
     public function getDebugInfo()
     {
-        return array (  142 => 63,  128 => 55,  113 => 42,  109 => 41,  90 => 25,  84 => 22,  77 => 17,  75 => 16,  73 => 15,  71 => 14,  69 => 13,  67 => 12,  65 => 11,  63 => 10,  59 => 7,  53 => 6,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
+        return array (  122 => 40,  113 => 37,  109 => 36,  104 => 33,  100 => 32,  90 => 25,  84 => 22,  77 => 17,  75 => 16,  73 => 15,  71 => 14,  69 => 13,  67 => 12,  65 => 11,  63 => 10,  59 => 7,  53 => 6,  44 => 4,  41 => 3,  35 => 2,  11 => 1,);
     }
 }
 /* {% extends '::default.html.twig' %}*/
@@ -196,6 +185,14 @@ class __TwigTemplate_58d1079e7e63ab46ae14e7b46a178b810cee44704d4c11861110712382c
 /*                 </ol>*/
 /*             </div>*/
 /*         </header>*/
+/*         {% for flash_message in app.session.flashBag.get('welcome') %}*/
+/*             <div class="alert alert-info alert-dismissable">*/
+/*                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*/
+/*                 <i class="fa fa-exclamation-triangle pr10"></i>*/
+/*                 <strong>{{ flash_message }}</strong>*/
+/*                 <a href="{{ path('update') }}" class="alert-link">It is great to see you again ^_^</a>*/
+/*             </div>*/
+/*         {% endfor %}*/
 /*         <!-- End: TOPBAR -->*/
 /* */
 /*         <!-- Begin: CONTENT -->*/
@@ -205,28 +202,6 @@ class __TwigTemplate_58d1079e7e63ab46ae14e7b46a178b810cee44704d4c11861110712382c
 /*                     <span class="panel-title">Panel title</span>*/
 /*                 </div>*/
 /*                 <div class="panel-body">*/
-/*                     {% for flash_message in app.session.flashBag.get('welcome') %}*/
-/*                         <div class="ui-pnotify stack_bar_top" style="width: 290px; opacity: 1; display: block; overflow: visible; right: 8px; top: 70px;">*/
-/*                             <div class="alert ui-pnotify-container alert-success ui-pnotify-shadow" style="min-height: 16px; overflow: hidden;">*/
-/*                                 <div class="ui-pnotify-closer" style="cursor: pointer; visibility: hidden;">*/
-/*                                     <span class="glyphicon glyphicon-remove" title="Close"></span>*/
-/*                                 </div>*/
-/*                                 <div class="ui-pnotify-sticker" style="cursor: pointer; visibility: hidden;">*/
-/*                                     <span class="glyphicon glyphicon-play" title="Stick"></span>*/
-/*                                 </div>*/
-/*                                 <div class="ui-pnotify-icon">*/
-/*                                     <span class="glyphicon glyphicon-ok-sign">*/
-/* */
-/*                                     </span>*/
-/*                                 </div>*/
-/*                                 <h4 class="ui-pnotify-title">{{ flash_message }}</h4>*/
-/*                                 <div class="ui-pnotify-text">It is great to see you again! ^_^</div>*/
-/*                                 <div style="margin-top: 5px; clear: both; text-align: right; display: none;">*/
-/* */
-/*                                 </div>*/
-/*                             </div>*/
-/*                         </div>*/
-/*                     {% endfor %}*/
 /*                 </div>*/
 /*             </div>*/
 /*         </section>*/

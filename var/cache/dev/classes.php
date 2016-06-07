@@ -2939,7 +2939,7 @@ namespace
 {
 class Twig_Environment
 {
-const VERSION ='1.24.0';
+const VERSION ='1.24.1';
 protected $charset;
 protected $loader;
 protected $debug;
@@ -3135,6 +3135,9 @@ $this->setLoader($loader);
 try {
 $template = $this->loadTemplate($name);
 } catch (Exception $e) {
+$this->setLoader($current);
+throw $e;
+} catch (Throwable $e) {
 $this->setLoader($current);
 throw $e;
 }
@@ -4786,6 +4789,11 @@ while (ob_get_level() > $level) {
 ob_end_clean();
 }
 throw $e;
+} catch (Throwable $e) {
+while (ob_get_level() > $level) {
+ob_end_clean();
+}
+throw $e;
 }
 return ob_get_clean();
 }
@@ -4918,7 +4926,7 @@ return false;
 if ($ignoreStrictCheck || !$this->env->isStrictVariables()) {
 return;
 }
-throw new Twig_Error_Runtime(sprintf('Method "%s" for object "%s" does not exist', $item, get_class($object)), -1, $this->getTemplateName());
+throw new Twig_Error_Runtime(sprintf('Neither the property "%1$s" nor one of the methods "%1$s()", "get%1$s()"/"is%1$s()" or "__call()" exist and have public access in class "%2$s"', $item, get_class($object)), -1, $this->getTemplateName());
 }
 if ($isDefinedTest) {
 return true;

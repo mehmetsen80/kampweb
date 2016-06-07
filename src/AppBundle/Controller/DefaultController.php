@@ -15,6 +15,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+
         if($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             return $this->redirect($this->generateUrl('dashboard'));
         }
@@ -34,6 +35,7 @@ class DefaultController extends Controller
      * @Route("/testswiftmailer", name="testemail")
      */
     public function testswiftmailer(){
+
         $message = \Swift_Message::newInstance()
             ->setSubject('Sample Subject')
             ->setFrom('mergenc@na.edu')

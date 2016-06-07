@@ -7,8 +7,8 @@ class __TwigTemplate_97cc2da4b4b7aedf0e3763663c8351b003ccf0a494973b0474edb916a37
     {
         parent::__construct($env);
 
-        $this->parent = false;
-
+        // line 1
+        $this->parent = $this->loadTemplate("::default.html.twig", "TwigBundle:Exception:error.html.twig", 1);
         $this->blocks = array(
             'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
@@ -16,176 +16,139 @@ class __TwigTemplate_97cc2da4b4b7aedf0e3763663c8351b003ccf0a494973b0474edb916a37
         );
     }
 
+    protected function doGetParent(array $context)
+    {
+        return "::default.html.twig";
+    }
+
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_65e2c6d2ed76bf8c1432305081b8f184dbfa658e5f55811b78f449cd00e4ba27 = $this->env->getExtension("native_profiler");
-        $__internal_65e2c6d2ed76bf8c1432305081b8f184dbfa658e5f55811b78f449cd00e4ba27->enter($__internal_65e2c6d2ed76bf8c1432305081b8f184dbfa658e5f55811b78f449cd00e4ba27_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:error.html.twig"));
+        $__internal_b271aa915cc7202bd4b0ad1427fded15c2510166d96f4bbff58d8cebedb016cd = $this->env->getExtension("native_profiler");
+        $__internal_b271aa915cc7202bd4b0ad1427fded15c2510166d96f4bbff58d8cebedb016cd->enter($__internal_b271aa915cc7202bd4b0ad1427fded15c2510166d96f4bbff58d8cebedb016cd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:error.html.twig"));
 
-        // line 1
-        echo "<!DOCTYPE html>
-<html lang=\"en\">
-";
-        // line 3
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 23
-        $this->displayBlock('body', $context, $blocks);
-        // line 70
-        $this->displayBlock('javascripts', $context, $blocks);
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_65e2c6d2ed76bf8c1432305081b8f184dbfa658e5f55811b78f449cd00e4ba27->leave($__internal_65e2c6d2ed76bf8c1432305081b8f184dbfa658e5f55811b78f449cd00e4ba27_prof);
+        $__internal_b271aa915cc7202bd4b0ad1427fded15c2510166d96f4bbff58d8cebedb016cd->leave($__internal_b271aa915cc7202bd4b0ad1427fded15c2510166d96f4bbff58d8cebedb016cd_prof);
 
     }
 
-    // line 3
+    // line 2
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_289bd66f452caf76f721f5653f6edaa96a4b3ea399886e93ead20de0ad823809 = $this->env->getExtension("native_profiler");
-        $__internal_289bd66f452caf76f721f5653f6edaa96a4b3ea399886e93ead20de0ad823809->enter($__internal_289bd66f452caf76f721f5653f6edaa96a4b3ea399886e93ead20de0ad823809_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_44402064d040d8389a9fccdb4cdf497e22013e5fdb4f45b3f4593ce65575d50c = $this->env->getExtension("native_profiler");
+        $__internal_44402064d040d8389a9fccdb4cdf497e22013e5fdb4f45b3f4593ce65575d50c->enter($__internal_44402064d040d8389a9fccdb4cdf497e22013e5fdb4f45b3f4593ce65575d50c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 4
-        echo "
+        // line 3
+        echo "    <!-- Font CSS (Via CDN) -->
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
 
-    <!-- Bootstrap -->
+    <!-- Theme CSS -->
     <link rel=\"stylesheet\" type=\"text/css\" href=\"";
         // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/bootstrap/dist/css/bootstrap.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/skin/default_skin/css/theme.css"), "html", null, true);
         echo "\">
-
-    <!-- Main Style -->
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"";
-        // line 10
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/css/style.css"), "html", null, true);
-        echo "\">
-
-    <!-- Responsive Style -->
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"";
-        // line 13
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/css/responsive.css"), "html", null, true);
-        echo "\">
-
-    <!--Icon Fonts-->
-    <link rel=\"stylesheet\" media=\"screen\" href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/fonts/font-awesome/font-awesome.min.css"), "html", null, true);
-        echo "\">
-
-    <!-- Extras -->
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"";
-        // line 19
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/extras/animate.css"), "html", null, true);
-        echo "\">
-
-
 ";
         
-        $__internal_289bd66f452caf76f721f5653f6edaa96a4b3ea399886e93ead20de0ad823809->leave($__internal_289bd66f452caf76f721f5653f6edaa96a4b3ea399886e93ead20de0ad823809_prof);
+        $__internal_44402064d040d8389a9fccdb4cdf497e22013e5fdb4f45b3f4593ce65575d50c->leave($__internal_44402064d040d8389a9fccdb4cdf497e22013e5fdb4f45b3f4593ce65575d50c_prof);
 
     }
 
-    // line 23
+    // line 9
     public function block_body($context, array $blocks = array())
     {
-        $__internal_6ec5ab9f2a263375b1608241604aaffdf5d356ca73c1199ac76d078245155923 = $this->env->getExtension("native_profiler");
-        $__internal_6ec5ab9f2a263375b1608241604aaffdf5d356ca73c1199ac76d078245155923->enter($__internal_6ec5ab9f2a263375b1608241604aaffdf5d356ca73c1199ac76d078245155923_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_b0fa732ba910611b9afadbb0f3c842e4388423383af64f26da91398c7ab03afe = $this->env->getExtension("native_profiler");
+        $__internal_b0fa732ba910611b9afadbb0f3c842e4388423383af64f26da91398c7ab03afe->enter($__internal_b0fa732ba910611b9afadbb0f3c842e4388423383af64f26da91398c7ab03afe_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 24
-        echo "    <body>
-    <header id=\"home\">
-        <!-- Color over Image -->
-        <div class=\"color-overlay\">
+        // line 10
+        echo "    <body class=\"error-page sb-l-o sb-r-c\">
 
-            <!-- navbar log -->
-            <div class=\"navbar logo-nav\">
-                <div class=\"container\">
-                    <div class=\"row\">
-                        <div class=\"col-sm-6 col-md-6 col-xs-4\">
-                            <div class=\"navbar-header\">
-                                <div class=\"logo\">
-                                    <!-- <a href=\"\"><img src=\"";
-        // line 36
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl(""), "html", null, true);
-        echo "\" alt=\"\"></a>-->
-                                </div>
-                            </div>
+    <!-- Start: Main -->
+    <div id=\"main\">
+
+        <!-- Start: Content-Wrapper -->
+        <section id=\"content_wrapper\">
+            <!-- Begin: Content -->
+            <section id=\"content\" class=\"pn animated fadeIn\">
+
+                <div class=\"center-block mt50 mw800 animated fadeIn\">
+                    <h1 class=\"error-title\"> 500! </h1>
+                    <h2 class=\"error-subtitle\">Internal Server Error.</h2>
+                </div>
+
+                <div class=\"mid-section animated fadeIn\">
+                    <div class=\"mid-content clearfix\">
+                        <input type=\"text\" class=\"form-control\" placeholder=\"Ask me a question!\" value=\"Ask me a question!\">
+                        <div class=\"pull-left\">
+                            <img src=\"assets/img/logos/logo_grey.png\" class=\"img-responsive mt20 w225\" alt=\"logo\">
                         </div>
-                        <div class=\"col-sm-6 col-md-6 col-xs-8\">
-                            <div class=\"pull-right\">
 
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Heading And Texts -->
-            <div class=\"container\">
-                <div class=\"row\">
-                    <div class=\"col-md-10 col-md-offset-1 intro-section\">
-                        <h1 class=\"intro\">Ah crap!</h1>
-                        <p class=\"sub-heading\">
-                            The servers are on fire! Grab a bucket! send help!
-                        </p>
-                            <a class=\"btn btn-common wow bounceIn\" href=\"";
-        // line 57
-        echo $this->env->getExtension('routing')->getPath("homepage");
-        echo "\">Main Page</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Heading And Texts End-->
+            </section>
+            <!-- End: Content -->
 
-        </div>
-        <!-- Color over Image  End -->
-    </header>
-    <!-- HEADER END -->
-    </body>
+        </section>
+
+    </div>
+    <!-- End: Main -->
+    ";
+        // line 42
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 65
+        echo "    </body>
 
 ";
         
-        $__internal_6ec5ab9f2a263375b1608241604aaffdf5d356ca73c1199ac76d078245155923->leave($__internal_6ec5ab9f2a263375b1608241604aaffdf5d356ca73c1199ac76d078245155923_prof);
+        $__internal_b0fa732ba910611b9afadbb0f3c842e4388423383af64f26da91398c7ab03afe->leave($__internal_b0fa732ba910611b9afadbb0f3c842e4388423383af64f26da91398c7ab03afe_prof);
 
     }
 
-    // line 70
+    // line 42
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_2b1f9488df2f0d7c07819ad848b44d8a0150af4031e64504c88ab2d7dad2e2d8 = $this->env->getExtension("native_profiler");
-        $__internal_2b1f9488df2f0d7c07819ad848b44d8a0150af4031e64504c88ab2d7dad2e2d8->enter($__internal_2b1f9488df2f0d7c07819ad848b44d8a0150af4031e64504c88ab2d7dad2e2d8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_587d1fb0ae73ebcb1648b568850f74f4ef585be97a26c935497bb1ca3842b509 = $this->env->getExtension("native_profiler");
+        $__internal_587d1fb0ae73ebcb1648b568850f74f4ef585be97a26c935497bb1ca3842b509->enter($__internal_587d1fb0ae73ebcb1648b568850f74f4ef585be97a26c935497bb1ca3842b509_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 71
-        echo "    <!-- Bootstrap JS -->
-    <!-- jQuery Load -->
-    <script src=\"";
-        // line 73
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/jquery-min.js"), "html", null, true);
+        // line 43
+        echo "        <script src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery-1.11.1.min.js"), "html", null, true);
         echo "\"></script>
-    <!-- Bootstrap -->
-    <script src=\"";
-        // line 75
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/bootstrap.min.js"), "html", null, true);
+        <script src=\"";
+        // line 44
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery_ui/jquery-ui.min.js"), "html", null, true);
         echo "\"></script>
-    <!--WOW Scroll Spy-->
-    <script src=\"";
-        // line 77
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/wow.js"), "html", null, true);
+
+        <!-- Theme Javascript -->
+        <script src=\"";
+        // line 47
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/utility/utility.js"), "html", null, true);
         echo "\"></script>
-    <!-- Smooth Scroll -->
-    <script src=\"";
-        // line 79
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/smooth-on-scroll.js"), "html", null, true);
+        <script src=\"";
+        // line 48
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/demo/demo.js"), "html", null, true);
         echo "\"></script>
-    <script src=\"";
-        // line 80
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/smooth-scroll.js"), "html", null, true);
-        echo "\"></script>
-    <!-- All JS plugin Triggers -->
-    <script src=\"";
-        // line 82
+        <script src=\"";
+        // line 49
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
-";
+        <script type=\"text/javascript\">
+            jQuery(document).ready(function() {
+
+                \"use strict\";
+
+                // Init Theme Core
+                Core.init();
+
+                // Init Demo JS
+                Demo.init();
+
+            });
+        </script>
+        <!-- END: PAGE SCRIPTS -->
+    ";
         
-        $__internal_2b1f9488df2f0d7c07819ad848b44d8a0150af4031e64504c88ab2d7dad2e2d8->leave($__internal_2b1f9488df2f0d7c07819ad848b44d8a0150af4031e64504c88ab2d7dad2e2d8_prof);
+        $__internal_587d1fb0ae73ebcb1648b568850f74f4ef585be97a26c935497bb1ca3842b509->leave($__internal_587d1fb0ae73ebcb1648b568850f74f4ef585be97a26c935497bb1ca3842b509_prof);
 
     }
 
@@ -194,91 +157,84 @@ class __TwigTemplate_97cc2da4b4b7aedf0e3763663c8351b003ccf0a494973b0474edb916a37
         return "TwigBundle:Exception:error.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  184 => 82,  179 => 80,  175 => 79,  170 => 77,  165 => 75,  160 => 73,  156 => 71,  150 => 70,  130 => 57,  106 => 36,  92 => 24,  86 => 23,  75 => 19,  69 => 16,  63 => 13,  57 => 10,  51 => 7,  46 => 4,  40 => 3,  33 => 70,  31 => 23,  29 => 3,  25 => 1,);
+        return array (  133 => 49,  129 => 48,  125 => 47,  119 => 44,  114 => 43,  108 => 42,  99 => 65,  97 => 42,  63 => 10,  57 => 9,  48 => 7,  42 => 3,  36 => 2,  11 => 1,);
     }
 }
-/* <!DOCTYPE html>*/
-/* <html lang="en">*/
+/* {% extends '::default.html.twig' %}*/
 /* {% block stylesheets %}*/
+/*     <!-- Font CSS (Via CDN) -->*/
+/*     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>*/
 /* */
-/* */
-/*     <!-- Bootstrap -->*/
-/*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.css') }}">*/
-/* */
-/*     <!-- Main Style -->*/
-/*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">*/
-/* */
-/*     <!-- Responsive Style -->*/
-/*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">*/
-/* */
-/*     <!--Icon Fonts-->*/
-/*     <link rel="stylesheet" media="screen" href="{{ asset('assets/fonts/font-awesome/font-awesome.min.css') }}">*/
-/* */
-/*     <!-- Extras -->*/
-/*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/extras/animate.css') }}">*/
-/* */
-/* */
+/*     <!-- Theme CSS -->*/
+/*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">*/
 /* {% endblock %}*/
 /* {% block body %}*/
-/*     <body>*/
-/*     <header id="home">*/
-/*         <!-- Color over Image -->*/
-/*         <div class="color-overlay">*/
+/*     <body class="error-page sb-l-o sb-r-c">*/
 /* */
-/*             <!-- navbar log -->*/
-/*             <div class="navbar logo-nav">*/
-/*                 <div class="container">*/
-/*                     <div class="row">*/
-/*                         <div class="col-sm-6 col-md-6 col-xs-4">*/
-/*                             <div class="navbar-header">*/
-/*                                 <div class="logo">*/
-/*                                     <!-- <a href=""><img src="{{ asset('') }}" alt=""></a>-->*/
-/*                                 </div>*/
-/*                             </div>*/
-/*                         </div>*/
-/*                         <div class="col-sm-6 col-md-6 col-xs-8">*/
-/*                             <div class="pull-right">*/
+/*     <!-- Start: Main -->*/
+/*     <div id="main">*/
 /* */
-/*                             </div>*/
+/*         <!-- Start: Content-Wrapper -->*/
+/*         <section id="content_wrapper">*/
+/*             <!-- Begin: Content -->*/
+/*             <section id="content" class="pn animated fadeIn">*/
+/* */
+/*                 <div class="center-block mt50 mw800 animated fadeIn">*/
+/*                     <h1 class="error-title"> 500! </h1>*/
+/*                     <h2 class="error-subtitle">Internal Server Error.</h2>*/
+/*                 </div>*/
+/* */
+/*                 <div class="mid-section animated fadeIn">*/
+/*                     <div class="mid-content clearfix">*/
+/*                         <input type="text" class="form-control" placeholder="Ask me a question!" value="Ask me a question!">*/
+/*                         <div class="pull-left">*/
+/*                             <img src="assets/img/logos/logo_grey.png" class="img-responsive mt20 w225" alt="logo">*/
 /*                         </div>*/
+/* */
 /*                     </div>*/
 /*                 </div>*/
-/*             </div>*/
 /* */
-/*             <!-- Heading And Texts -->*/
-/*             <div class="container">*/
-/*                 <div class="row">*/
-/*                     <div class="col-md-10 col-md-offset-1 intro-section">*/
-/*                         <h1 class="intro">Ah crap!</h1>*/
-/*                         <p class="sub-heading">*/
-/*                             The servers are on fire! Grab a bucket! send help!*/
-/*                         </p>*/
-/*                             <a class="btn btn-common wow bounceIn" href="{{ path('homepage') }}">Main Page</a>*/
-/*                     </div>*/
-/*                 </div>*/
-/*             </div>*/
-/*             <!-- Heading And Texts End-->*/
+/*             </section>*/
+/*             <!-- End: Content -->*/
 /* */
-/*         </div>*/
-/*         <!-- Color over Image  End -->*/
-/*     </header>*/
-/*     <!-- HEADER END -->*/
+/*         </section>*/
+/* */
+/*     </div>*/
+/*     <!-- End: Main -->*/
+/*     {% block javascripts %}*/
+/*         <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>*/
+/*         <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>*/
+/* */
+/*         <!-- Theme Javascript -->*/
+/*         <script src="{{ asset('assets/js/utility/utility.js') }}"></script>*/
+/*         <script src="{{ asset('assets/js/demo/demo.js') }}"></script>*/
+/*         <script src="{{ asset('assets/js/main.js') }}"></script>*/
+/*         <script type="text/javascript">*/
+/*             jQuery(document).ready(function() {*/
+/* */
+/*                 "use strict";*/
+/* */
+/*                 // Init Theme Core*/
+/*                 Core.init();*/
+/* */
+/*                 // Init Demo JS*/
+/*                 Demo.init();*/
+/* */
+/*             });*/
+/*         </script>*/
+/*         <!-- END: PAGE SCRIPTS -->*/
+/*     {% endblock %}*/
 /*     </body>*/
 /* */
 /* {% endblock %}*/
-/* {% block javascripts %}*/
-/*     <!-- Bootstrap JS -->*/
-/*     <!-- jQuery Load -->*/
-/*     <script src="{{ asset('assets/js/jquery-min.js') }}"></script>*/
-/*     <!-- Bootstrap -->*/
-/*     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>*/
-/*     <!--WOW Scroll Spy-->*/
-/*     <script src="{{ asset('assets/js/wow.js') }}"></script>*/
-/*     <!-- Smooth Scroll -->*/
-/*     <script src="{{ asset('assets/js/smooth-on-scroll.js') }}"></script>*/
-/*     <script src="{{ asset('assets/js/smooth-scroll.js') }}"></script>*/
-/*     <!-- All JS plugin Triggers -->*/
-/*     <script src="{{ asset('assets/js/main.js') }}"></script>*/
-/* {% endblock %}*/
+/* */
+/* */
+/* */
+/* */

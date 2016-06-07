@@ -123,23 +123,15 @@ class SecurityController extends Controller
         );
     }
 
-    public function changePasswdAction(Request $request)
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("/reset-password", name="passwordreset")
+     */
+    public function resetPasswordAction(Request $request)
     {
-        $changePasswordModel = new User();
-        $form = $this->createForm(ChangePasswordType::class, $changePasswordModel);
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $password = $user->getPassword();
-            $user->setPassword($password);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-            return $this->redirect($this->generateUrl('homepage'));
-        }
-
-        return $this->render(':security:changepassword.html.twig', array('form' => $form->createView()));
+        return $this->render(':Security:resetpassword.html.twig');
     }
     
 

@@ -10,9 +10,12 @@ namespace AppBundle\Controller;
 
 use AppBundle\Form\ChangeInfoType;
 use AppBundle\Form\ChangePasswordType;
+use AppBundle\Form\NewUserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\User;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 
 class UserController extends Controller
@@ -24,9 +27,7 @@ class UserController extends Controller
      */
     public function showUsersAction($userid){
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('AppBundle:User')->findOneBy(['id'=>$userid]);
-
-
+        $user = $em->getRepository('AppBundle:User')->find(['id'=>$userid]);
         return $this->render('/user/show.html.twig',[
             'user'=>$user,
 
@@ -38,8 +39,8 @@ class UserController extends Controller
      * @Route("/user/{userid}", name="profile")
      */
     public function profileAction($userid){
-        $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('AppBundle:User')->find(['id'=>$userid]);
+        $user = $this->getUser();
+        $userid = $user->getId();
         return $this->render(':user:profile.html.twig',['user'=>$user]);
     }
 
@@ -60,6 +61,8 @@ class UserController extends Controller
      */
     public function updateAction(Request $request)
     {
+//        throw new \Exception('Something went wrong!');
+//        throw new AccessDeniedHttpException;
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $updateform = $this->createForm(ChangeInfoType::class, $user);
@@ -83,6 +86,7 @@ class UserController extends Controller
                 $user->setUsername($user->getUsername());
             }
             if (!empty($cellphone)) {
+                $cellphone =  preg_replace("/[^0-9A-Za-z]/", "", $cellphone);
                 $user->setCellphone($cellphone);
             }
             else{
@@ -114,7 +118,37 @@ class UserController extends Controller
                     'Oops! There was an error with your update!'
                 );
             }
-            return $this->render('user/update.html.twig', array('form1' => $updateform->createView()));
+            return $this->render('user/update.html.twig', array('addform' => $updateform->createView()));
+        }
+
+    /**
+     * @Route("/add-user", name="adduser")
+     */
+    public function addUserAction(Request $request){
+        $user = new User();
+        $addform = $this->createForm(NewUserType::class,$user);
+        $addform->handleRequest($request);
+        if ($addform->isSubmitted() && $addform->isValid()) {
+            $user->setRoles(array('ROLE_USER'));
+            $password = $this->get('security.password_encoder')
+                ->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->addFlash(
+                'addeduser',
+                'You successfully added a user to the database'
+            );
+        }
+        elseif($addform->isSubmitted() && !$addform->isValid()){
+                $this->addFlash(
+                    'addusererror',
+                    'Oops! There was an error!'
+                );
+            return $this->redirect($this->generateUrl('adduser'));
+            }
+        return $this->render(':user:adduser.html.twig', array('addform'=>$addform->createView()));
         }
 
     /**
