@@ -48,3 +48,5 @@ e34bbd,127.0.0.1,GET,http://kampweb/app_dev.php/reset-password/,1465832300,,200
 ffd421,127.0.0.1,GET,http://kampweb/app_dev.php/password-reset/,1465832905,,404
 0b6d37,127.0.0.1,GET,http://kampweb/app_dev.php/password-reset/asdasdasd,1465832908,,200
 60ab05,127.0.0.1,GET,http://kampweb/app_dev.php/password-reset/asdasdasd,1465832925,,200
+86685b,127.0.0.1,GET,http://kampweb/app_dev.php/,1465854812,,302
+629dd3,127.0.0.1,GET,http://kampweb/app_dev.php/dashboard,1465854812,,200
