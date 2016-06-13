@@ -1,7 +1,6 @@
 {% extends '::default.html.twig' %}
 {% block styles %}
-    <!-- PNotify -->
-    <script src="{{ asset('assets/vendor/plugins/pnotify/pnotify.js') }}"></script>
+    <link rel='stylesheet' type='text/css' href={{ asset('assets/fonts/stateface/stateface.css') }}>
 {% endblock %}
 {% block body %}
     <!-- Start: CONTENT WRAPPER -->
@@ -46,9 +45,73 @@
                     <span class="panel-title">Panel title</span>
                 </div>
                 <div class="panel-body">
+
                 </div>
             </div>
         </section>
         <!-- End: CONTENT-->
     </section>
+    <style>
+        /*chart demo styles*/
+        .c3 {}
+        /* tick color */
+        .c3 .tick {
+            fill: #AAA;
+        }
+        /* axis color */
+        .c3 line,
+        .c3 path {
+            stroke: #BBB;
+        }
+        /*axis label color*/
+        .c3 .c3-axis-x-label,
+        .c3 .c3-axis-y-label {
+            fill: #AAA;
+        }
+        /*legend label text color*/
+        .c3-legend-item {
+            fill: #888;
+            font-size: 14px;
+        }
+    </style>
+
+{% endblock %}
+{% block javascripts %}
+    <!-- BEGIN: PAGE SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+
+    <!-- Page Plugins -->
+    <script src="{{ asset('assets/js/demo/charts/d3.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/c3charts/c3.min.js') }}"></script>
+
+    <!-- Theme Javascript -->
+    <script src="{{ asset('assets/js/utility/utility.js') }}"></script>
+    <script src="{{ asset('assets/js/demo/demo.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <!-- Page Javascript -->
+    <script src="{{ asset('assets/js/demo/charts/d3.js') }}"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+
+            "use strict";
+
+            // Init Theme Core
+            Core.init();
+
+            // Init Demo JS
+            Demo.init();
+
+            // This page contains more Initilization Javascript than normal.
+            // As a result it has its own js page. See charts.js for more info
+            D3Charts.init();
+
+
+        });
+    </script>
+    <!-- END: PAGE SCRIPTS -->
 {% endblock %}

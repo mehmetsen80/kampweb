@@ -12,8 +12,10 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Intl\DateFormatter\DateFormat\Hour1200Transformer;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
@@ -40,6 +42,13 @@ class ChangeInfoType extends AbstractType
                 'required'=>true,
             ))
             ->add('cellphone', TextType::class, array(
+                'required'=>true,
+            ))
+            ->add('ccode', TextType::class, array(
+                'required'=>true,
+                'label_attr'=>array(
+                    'class'=>'ccode'
+                )
             ))
             ->add('birthday', BirthdayType::class, array(
                 'widget'=>'single_text',

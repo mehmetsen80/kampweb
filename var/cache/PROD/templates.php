@@ -90,7 +90,7 @@
   ':Security:changepassword.html.twig' => '/private/var/www/kampweb/app/Resources/views/Security/changepassword.html.twig',
   ':Security:login.html.twig' => '/private/var/www/kampweb/app/Resources/views/Security/login.html.twig',
   ':Security:register.html.twig' => '/private/var/www/kampweb/app/Resources/views/Security/register.html.twig',
-  ':Security:resetpassword.html.twig' => '/private/var/www/kampweb/app/Resources/views/Security/resetpassword.html.twig',
+  ':Security:resetpasswordrequest.html.twig' => '/private/var/www/kampweb/app/Resources/views/Security/resetpasswordrequest.html.twig',
   '::securityview.html.twig' => '/private/var/www/kampweb/app/Resources/views/securityview.html.twig',
   ':user:adduser.html.twig' => '/private/var/www/kampweb/app/Resources/views/user/adduser.html.twig',
   ':user:dashboard.html.twig' => '/private/var/www/kampweb/app/Resources/views/user/dashboard.html.twig',

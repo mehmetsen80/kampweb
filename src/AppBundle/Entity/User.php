@@ -101,6 +101,10 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\Column(name="modifiedat", type="datetime", nullable=true)
      */
     protected  $modifiedat;
+    /**
+     * @ORM\Column(name="ccode", type="string", nullable=true)
+     */
+    protected $ccode;
 
 
     public function __construct()
@@ -358,6 +362,24 @@ class User implements AdvancedUserInterface, \Serializable
     {
         return $this->dependents;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCcode()
+    {
+        return $this->ccode;
+    }
+
+    /**
+     * @param mixed $ccode
+     */
+    public function setCcode($ccode)
+    {
+        $this->ccode = $ccode;
+    }
+
+
 
 
     /**

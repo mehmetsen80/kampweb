@@ -91,6 +91,14 @@
                 </li>
 
             </ul>
+            {% for flash_message in app.session.flashBag.get('passwordchange') %}
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <i class="fa fa-exclamation-triangle pr10"></i>
+                    <strong>Your password is too weak!</strong>
+                    <a href="{{ path('changepassword') }}" class="alert-link">{{ flash_message }}</a>
+                </div>
+            {% endfor %}
         </header>
     {% endblock %}
     <!-- End: Header -->
@@ -284,7 +292,7 @@
         </script>
         <script>
             $(".phone").text(function(i, text) {
-                text = text.replace(/(\d{2})(\d{3})(\d{3})(\d{4})/, "$1-$2-$3-$4");
+                text = text.replace(/(\d{1})(\d{1})(\d{3})(\d{4})/, "$1$2-($3)-$4");
                 return text;
             });
         </script>

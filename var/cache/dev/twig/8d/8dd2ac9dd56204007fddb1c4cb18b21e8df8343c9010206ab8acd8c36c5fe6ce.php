@@ -23,20 +23,20 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36 = $this->env->getExtension("native_profiler");
-        $__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36->enter($__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/update.html.twig"));
+        $__internal_adc271ae5aeeace3464cb13a89445aa18fd82e08fd88fce530d56f641ee1e906 = $this->env->getExtension("native_profiler");
+        $__internal_adc271ae5aeeace3464cb13a89445aa18fd82e08fd88fce530d56f641ee1e906->enter($__internal_adc271ae5aeeace3464cb13a89445aa18fd82e08fd88fce530d56f641ee1e906_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "user/update.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36->leave($__internal_e819bd8c851ce4e29dd012ba9bd9393b5da4f32205e71f70230c139c2995bc36_prof);
+        $__internal_adc271ae5aeeace3464cb13a89445aa18fd82e08fd88fce530d56f641ee1e906->leave($__internal_adc271ae5aeeace3464cb13a89445aa18fd82e08fd88fce530d56f641ee1e906_prof);
 
     }
 
     // line 2
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704 = $this->env->getExtension("native_profiler");
-        $__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704->enter($__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_bd37c63e99c36fe8204692875ec4a743e50de317d341d1186f826ea3de0df532 = $this->env->getExtension("native_profiler");
+        $__internal_bd37c63e99c36fe8204692875ec4a743e50de317d341d1186f826ea3de0df532->enter($__internal_bd37c63e99c36fe8204692875ec4a743e50de317d341d1186f826ea3de0df532_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 3
         echo "    <!-- Font CSS (Via CDN) -->
@@ -50,7 +50,10 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
         // line 7
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/skin/default_skin/css/theme.css"), "html", null, true);
         echo "\">
-
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/css/intlTelInput.css"), "html", null, true);
+        echo "\">
     <!-- Admin Forms CSS -->
     <link rel=\"stylesheet\" type=\"text/css\" href=\"";
         // line 10
@@ -81,24 +84,19 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/plugins/select2/css/core.css"), "html", null, true);
         echo "\">
 
-    <!-- Theme CSS -->
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"";
-        // line 22
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/skin/default_skin/css/theme.css"), "html", null, true);
-        echo "\">
 ";
         
-        $__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704->leave($__internal_00f267773a36e719a1c9b7f0123c6cdc4da109958f739054401cd0c385e96704_prof);
+        $__internal_bd37c63e99c36fe8204692875ec4a743e50de317d341d1186f826ea3de0df532->leave($__internal_bd37c63e99c36fe8204692875ec4a743e50de317d341d1186f826ea3de0df532_prof);
 
     }
 
-    // line 24
+    // line 22
     public function block_body($context, array $blocks = array())
     {
-        $__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5 = $this->env->getExtension("native_profiler");
-        $__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5->enter($__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_64eabf04600425e5c209d985c06d759b156e7996ff7cba01cfc80be80312b123 = $this->env->getExtension("native_profiler");
+        $__internal_64eabf04600425e5c209d985c06d759b156e7996ff7cba01cfc80be80312b123->enter($__internal_64eabf04600425e5c209d985c06d759b156e7996ff7cba01cfc80be80312b123_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 25
+        // line 23
         echo "
     <!-- Start: Content-Wrapper -->
     <section id=\"content_wrapper\">
@@ -108,13 +106,13 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
                 <ol class=\"breadcrumb\">
                     <li class=\"crumb-active\">
                         <a href=\"";
-        // line 33
+        // line 31
         echo $this->env->getExtension('routing')->getPath("dashboard");
         echo "\">Dashboard</a>
                     </li>
                     <li class=\"crumb-icon\">
                         <a href=\"";
-        // line 36
+        // line 34
         echo $this->env->getExtension('routing')->getPath("dashboard");
         echo "\">
                             <span class=\"glyphicon glyphicon-home\"></span>
@@ -122,7 +120,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
                     </li>
                     <li class=\"crumb-link\">
                         <a href=\"";
-        // line 41
+        // line 39
         echo $this->env->getExtension('routing')->getPath("update");
         echo "\">Edit Profile</a>
                     </li>
@@ -131,17 +129,17 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
         </header>
         <!-- End: TOPBAR -->
         ";
-        // line 47
+        // line 45
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "success"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
-            // line 48
+            // line 46
             echo "            <div class=\"alert alert-success alert-dismissable\">
                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
                 <i class=\"fa fa-check pr10\"></i>
                 <strong>Well done!</strong> You successfully signed up.
                 <a href=\"#\" class=\"alert-link\">";
-            // line 52
+            // line 50
             echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
             echo "</a>
             </div>
@@ -150,17 +148,17 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 55
+        // line 53
         echo "        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "updatesuccess"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
-            // line 56
+            // line 54
             echo "            <div class=\"alert alert-primary alert-dismissable\">
                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
                 <i class=\"fa fa-trophy pr10\"></i>
                 ";
-            // line 59
+            // line 57
             echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
             echo "
             </div>
@@ -169,17 +167,17 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 62
+        // line 60
         echo "        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "updateerror"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
-            // line 63
+            // line 61
             echo "            <div class=\"alert alert-danger alert-dismissable\">
                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>
                 <i class=\"fa fa-remove pr10\"></i>
                 <strong>";
-            // line 66
+            // line 64
             echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
             echo "</strong>
 
@@ -189,7 +187,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 70
+        // line 68
         echo "        <!-- Begin: Content -->
         <section id=\"content\" class=\"table-layout animated fadeIn\">
             <!-- begin: .tray-center -->
@@ -206,7 +204,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
                     <div class=\"panel heading-border\">
 
                         <form method=\"post\" action=\"";
-        // line 85
+        // line 83
         echo $this->env->getExtension('routing')->getPath("update");
         echo "\" id=\"admin-form\">
 
@@ -217,50 +215,50 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
                                 </div>
                                 <!-- .section-divider -->
                                 ";
+        // line 92
+        echo "                                ";
+        // line 93
+        echo "                                ";
         // line 94
-        echo "                                    ";
+        echo "                                ";
         // line 95
-        echo "                                        ";
-        // line 96
-        echo "                                        ";
-        // line 97
         echo "
-                                        ";
+                                ";
+        // line 97
+        echo "                                ";
+        // line 98
+        echo "                                ";
         // line 99
-        echo "                                    ";
+        echo "                                ";
         // line 100
         echo "                                ";
         // line 101
         echo "                                ";
         // line 102
-        echo "                                    ";
+        echo "                                ";
         // line 103
-        echo "                                        ";
+        echo "                                ";
         // line 104
-        echo "                                        ";
+        echo "                                ";
         // line 105
-        echo "                                        ";
+        echo "                                ";
         // line 106
-        echo "                                    ";
+        echo "                                ";
         // line 107
         echo "                                ";
         // line 108
-        echo "                                    ";
-        // line 109
-        echo "                                        ";
-        // line 110
-        echo "                                        ";
-        // line 111
-        echo "                                        ";
-        // line 112
-        echo "                                    ";
-        // line 113
         echo "                                ";
-        // line 114
+        // line 109
+        echo "                                ";
+        // line 110
+        echo "                                ";
+        // line 111
+        echo "                                ";
+        // line 112
         echo "                                <div class=\"section\">
                                     <label for=\"firstname\" class=\"field prepend-icon\">
                                         ";
-        // line 116
+        // line 114
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "fullname", array()), 'widget', array("attr" => array("class" => "gui-input", "type" => "text", "id" => "firstname")));
         echo "
                                         <label for=\"firstname\" class=\"field-icon\">
@@ -275,7 +273,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
                                 <div class=\"section\">
                                     <label for=\"useremail\" class=\"field prepend-icon\">
                                         ";
-        // line 128
+        // line 126
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "username", array()), 'widget', array("attr" => array("class" => "gui-input", "type" => "email", "id" => "useremail")));
         echo "
                                         <label for=\"useremail\" class=\"field-icon\">
@@ -287,26 +285,30 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 
                                 <div class=\"section row\">
                                     <div class=\"col-md-6\">
+                                        ";
+        // line 136
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "ccode", array()), 'widget', array("id" => "phone"));
+        echo "
                                         <label for=\"maskedPhone\" class=\"field prepend-icon\">
 
                                             ";
-        // line 140
+        // line 139
         if (twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "cellphone", array()))) {
-            // line 141
-            echo "                                            ";
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "cellphone", array()), 'widget', array("id" => "", "attr" => array("class" => "gui-input form-control phone", "autocomplete" => "off", "type" => "text")));
+            // line 140
+            echo "                                                ";
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "cellphone", array()), 'widget', array("id" => "phonetype", "attr" => array("class" => "phonetype gui-input form-control phone ", "autocomplete" => "off", "type" => "tel", "placeholder" => "Cellphone")));
             echo "
                                             ";
         } else {
-            // line 143
-            echo "                                            ";
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "cellphone", array()), 'widget', array("id" => "", "attr" => array("class" => "gui-input form-control phone", "autocomplete" => "off", "type" => "text")));
+            // line 142
+            echo "                                                ";
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "cellphone", array()), 'widget', array("id" => "phonetype", "attr" => array("class" => "phonetype gui-input form-control phone ", "autocomplete" => "off", "type" => "tel", "placeholder" => "Cellphone")));
             echo "
                                             ";
         }
-        // line 145
+        // line 144
         echo "                                            <label for=\"mobile_phone\" class=\"field-icon\">
-                                                <i class=\"fa fa-mobile-phone\"></i>
+
                                             </label>
                                         </label>
                                     </div>
@@ -315,7 +317,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
                                     <div class=\"col-md-6\">
                                         <label class=\"field select\">
                                             ";
-        // line 154
+        // line 153
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "gender", array()), 'widget');
         echo "
                                             <i class=\"arrow double\"></i>
@@ -326,21 +328,21 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
                                 <div class=\"section\">
                                     <label for=\"datepicker1\" class=\"field prepend-icon\">
                                         ";
-        // line 162
+        // line 161
         if (twig_test_empty($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "birthday", array()))) {
-            // line 163
-            echo "                                        ";
+            // line 162
+            echo "                                            ";
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "birthday", array()), 'widget', array("id" => "datepicker1", "attr" => array("class" => "gui-input", "type" => "text", "placeholder" => "Your birthdate in M-D-Y format")));
             echo "
                                         ";
         } else {
-            // line 165
-            echo "                                        ";
+            // line 164
+            echo "                                            ";
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "birthday", array()), 'widget', array("id" => "datepicker1", "attr" => array("class" => "gui-input", "type" => "text")));
             echo "
                                         ";
         }
-        // line 167
+        // line 166
         echo "                                        <label class=\"field-icon\">
                                             <i class=\"fa fa-calendar-o\"></i>
                                         </label>
@@ -353,7 +355,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
                             </div>
                             <!-- end .form-footer section -->
                             ";
-        // line 178
+        // line 177
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form1"]) ? $context["form1"] : $this->getContext($context, "form1")), "_token", array()), 'row');
         echo "
                         </form>
@@ -372,7 +374,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
     </section>
 
 
-<style>
+    <style>
         /* demo page styles */
         body { min-height: 2300px; }
 
@@ -389,51 +391,54 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 
 ";
         
-        $__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5->leave($__internal_0a0755e7562331c3c47b7a30355b2c47e3a71ea0eb454ed829644d9e0192acc5_prof);
+        $__internal_64eabf04600425e5c209d985c06d759b156e7996ff7cba01cfc80be80312b123->leave($__internal_64eabf04600425e5c209d985c06d759b156e7996ff7cba01cfc80be80312b123_prof);
 
     }
 
-    // line 211
+    // line 210
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0 = $this->env->getExtension("native_profiler");
-        $__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0->enter($__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_63fe42df0a4abb7a7b9d0f21ab7dff86f128c029fa3640abdfb9c5615aa42cb0 = $this->env->getExtension("native_profiler");
+        $__internal_63fe42df0a4abb7a7b9d0f21ab7dff86f128c029fa3640abdfb9c5615aa42cb0->enter($__internal_63fe42df0a4abb7a7b9d0f21ab7dff86f128c029fa3640abdfb9c5615aa42cb0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 212
+        // line 211
         echo "    <!-- jQuery -->
     <script src=\"";
-        // line 213
+        // line 212
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery-1.11.1.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 214
+        // line 213
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/jquery/jquery_ui/jquery-ui.min.js"), "html", null, true);
         echo "\"></script>
     <!-- Theme Javascript -->
     <script src=\"";
-        // line 216
+        // line 215
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/utility/utility.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 217
+        // line 216
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/demo/demo.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 218
+        // line 217
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
     <!-- jQuery Validate Plugin-->
     <script src=\"";
-        // line 220
+        // line 219
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/admin-tools/admin-forms/js/jquery.validate.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- jQuery Validate Addon -->
     <script src=\"";
-        // line 223
+        // line 222
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/admin-tools/admin-forms/js/additional-methods.min.js"), "html", null, true);
         echo "\"></script>
-
+    <script src=\"";
+        // line 223
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/js/intlTelInput.js"), "html", null, true);
+        echo "\"></script>
     <script type=\"text/javascript\">
         jQuery(document).ready(function() {
             \"use strict\";
@@ -578,7 +583,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
     </script>
     <!-- MaskedInput Plugin -->
     <script src=\"";
-        // line 368
+        // line 367
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("assets/vendor/plugins/jquerymask/jquery.maskedinput.min.js"), "html", null, true);
         echo "\"></script>
 
@@ -608,10 +613,10 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
                 }
             });
 
-            // Init jQuery Time Spinner
             \$(\"#spinner4\").timespinner();
+            \$(\"#phone\").intlTelInput();
 
-            \$('.phone').mask('+(99) (999) 999-9999');
+            \$('.phone').mask('(999) 999-9999');
 
 
         });
@@ -620,7 +625,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
     <!-- END: PAGE SCRIPTS -->
 ";
         
-        $__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0->leave($__internal_bf70a670a4a81162f7771e3c5ab29a521180205c410f25d6e68427f712730df0_prof);
+        $__internal_63fe42df0a4abb7a7b9d0f21ab7dff86f128c029fa3640abdfb9c5615aa42cb0->leave($__internal_63fe42df0a4abb7a7b9d0f21ab7dff86f128c029fa3640abdfb9c5615aa42cb0_prof);
 
     }
 
@@ -636,7 +641,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 
     public function getDebugInfo()
     {
-        return array (  582 => 368,  434 => 223,  428 => 220,  423 => 218,  419 => 217,  415 => 216,  410 => 214,  406 => 213,  403 => 212,  397 => 211,  357 => 178,  344 => 167,  338 => 165,  332 => 163,  330 => 162,  319 => 154,  308 => 145,  302 => 143,  296 => 141,  294 => 140,  279 => 128,  264 => 116,  260 => 114,  258 => 113,  256 => 112,  254 => 111,  252 => 110,  250 => 109,  248 => 108,  246 => 107,  244 => 106,  242 => 105,  240 => 104,  238 => 103,  236 => 102,  234 => 101,  232 => 100,  230 => 99,  227 => 97,  225 => 96,  223 => 95,  221 => 94,  210 => 85,  193 => 70,  183 => 66,  178 => 63,  173 => 62,  164 => 59,  159 => 56,  154 => 55,  145 => 52,  139 => 48,  135 => 47,  126 => 41,  118 => 36,  112 => 33,  102 => 25,  96 => 24,  87 => 22,  81 => 19,  75 => 16,  71 => 15,  67 => 14,  63 => 13,  57 => 10,  51 => 7,  46 => 5,  42 => 3,  36 => 2,  11 => 1,);
+        return array (  587 => 367,  440 => 223,  436 => 222,  430 => 219,  425 => 217,  421 => 216,  417 => 215,  412 => 213,  408 => 212,  405 => 211,  399 => 210,  359 => 177,  346 => 166,  340 => 164,  334 => 162,  332 => 161,  321 => 153,  310 => 144,  304 => 142,  298 => 140,  296 => 139,  290 => 136,  277 => 126,  262 => 114,  258 => 112,  256 => 111,  254 => 110,  252 => 109,  250 => 108,  248 => 107,  246 => 106,  244 => 105,  242 => 104,  240 => 103,  238 => 102,  236 => 101,  234 => 100,  232 => 99,  230 => 98,  228 => 97,  225 => 95,  223 => 94,  221 => 93,  219 => 92,  208 => 83,  191 => 68,  181 => 64,  176 => 61,  171 => 60,  162 => 57,  157 => 54,  152 => 53,  143 => 50,  137 => 46,  133 => 45,  124 => 39,  116 => 34,  110 => 31,  100 => 23,  94 => 22,  84 => 19,  78 => 16,  74 => 15,  70 => 14,  66 => 13,  60 => 10,  55 => 8,  51 => 7,  46 => 5,  42 => 3,  36 => 2,  11 => 1,);
     }
 }
 /* {% extends '::default.html.twig' %}*/
@@ -646,7 +651,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /*     <link rel='stylesheet' type='text/css' href='{{ asset('assets/fonts/font-awesome/css/font-awesome.css') }}'>*/
 /*     <!-- Theme CSS -->*/
 /*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">*/
-/* */
+/*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/intlTelInput.css') }}">*/
 /*     <!-- Admin Forms CSS -->*/
 /*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">*/
 /* */
@@ -659,8 +664,6 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /*     <!-- Select2 Plugin CSS  -->*/
 /*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/select2/css/core.css') }}">*/
 /* */
-/*     <!-- Theme CSS -->*/
-/*     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">*/
 /* {% endblock %}*/
 /* {% block body %}*/
 /* */
@@ -732,25 +735,25 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /*                                 </div>*/
 /*                                 <!-- .section-divider -->*/
 /*                                 {#{% if not form1.newusername.vars.valid %}#}*/
-/*                                     {#<div class="alert alert-danger alert-dismissable">#}*/
-/*                                         {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}*/
-/*                                         {#<i class="fa fa-remove pr10"></i>#}*/
+/*                                 {#<div class="alert alert-danger alert-dismissable">#}*/
+/*                                 {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}*/
+/*                                 {#<i class="fa fa-remove pr10"></i>#}*/
 /* */
-/*                                         {#<strong>{{ form_errors(form1.newusername) }}</strong>#}*/
-/*                                     {#</div>#}*/
+/*                                 {#<strong>{{ form_errors(form1.newusername) }}</strong>#}*/
+/*                                 {#</div>#}*/
 /*                                 {#{% endif %}#}*/
 /*                                 {#{% if not form1.newfullname.vars.valid %}#}*/
-/*                                     {#<div class="alert alert-danger alert-dismissable">#}*/
-/*                                         {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}*/
-/*                                         {#<i class="fa fa-remove pr10"></i>#}*/
-/*                                         {#<strong> {{ form_errors(form1.newfullname) }}</strong>#}*/
-/*                                     {#</div>#}*/
+/*                                 {#<div class="alert alert-danger alert-dismissable">#}*/
+/*                                 {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}*/
+/*                                 {#<i class="fa fa-remove pr10"></i>#}*/
+/*                                 {#<strong> {{ form_errors(form1.newfullname) }}</strong>#}*/
+/*                                 {#</div>#}*/
 /*                                 {#{% endif %}{% if not form1.newpassword.vars.valid %}#}*/
-/*                                     {#<div class="alert alert-danger alert-dismissable">#}*/
-/*                                         {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}*/
-/*                                         {#<i class="fa fa-remove pr10"></i>#}*/
-/*                                         {#<strong> {{ form_errors(form1.newpassword) }}</strong>#}*/
-/*                                     {#</div>#}*/
+/*                                 {#<div class="alert alert-danger alert-dismissable">#}*/
+/*                                 {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}*/
+/*                                 {#<i class="fa fa-remove pr10"></i>#}*/
+/*                                 {#<strong> {{ form_errors(form1.newpassword) }}</strong>#}*/
+/*                                 {#</div>#}*/
 /*                                 {#{% endif %}#}*/
 /*                                 <div class="section">*/
 /*                                     <label for="firstname" class="field prepend-icon">*/
@@ -776,15 +779,16 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /* */
 /*                                 <div class="section row">*/
 /*                                     <div class="col-md-6">*/
+/*                                         {{ form_widget(form1.ccode,{'id':'phone'}) }}*/
 /*                                         <label for="maskedPhone" class="field prepend-icon">*/
 /* */
 /*                                             {% if app.user.cellphone is empty %}*/
-/*                                             {{ form_widget(form1.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off",  'type':'text' }}) }}*/
+/*                                                 {{ form_widget(form1.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",  'type':'tel', 'placeholder':"Cellphone" }}) }}*/
 /*                                             {% else %}*/
-/*                                             {{ form_widget(form1.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off", 'type':'text' }}) }}*/
+/*                                                 {{ form_widget(form1.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'type':'tel','placeholder':"Cellphone" }}) }}*/
 /*                                             {% endif %}*/
 /*                                             <label for="mobile_phone" class="field-icon">*/
-/*                                                 <i class="fa fa-mobile-phone"></i>*/
+/* */
 /*                                             </label>*/
 /*                                         </label>*/
 /*                                     </div>*/
@@ -801,9 +805,9 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /*                                 <div class="section">*/
 /*                                     <label for="datepicker1" class="field prepend-icon">*/
 /*                                         {% if app.user.birthday is empty %}*/
-/*                                         {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}*/
+/*                                             {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}*/
 /*                                         {% else %}*/
-/*                                         {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text'}})}}*/
+/*                                             {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text'}})}}*/
 /*                                         {% endif %}*/
 /*                                         <label class="field-icon">*/
 /*                                             <i class="fa fa-calendar-o"></i>*/
@@ -833,7 +837,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /*     </section>*/
 /* */
 /* */
-/* <style>*/
+/*     <style>*/
 /*         /* demo page styles *//* */
 /*         body { min-height: 2300px; }*/
 /* */
@@ -862,7 +866,7 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /* */
 /*     <!-- jQuery Validate Addon -->*/
 /*     <script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>*/
-/* */
+/*     <script src="{{ asset('assets/js/intlTelInput.js') }}"></script>*/
 /*     <script type="text/javascript">*/
 /*         jQuery(document).ready(function() {*/
 /*             "use strict";*/
@@ -1034,10 +1038,10 @@ class __TwigTemplate_772f798eccc18dc6b7df7f761bfbf5274595da2ff241d81e4965c9d2c6d
 /*                 }*/
 /*             });*/
 /* */
-/*             // Init jQuery Time Spinner*/
 /*             $("#spinner4").timespinner();*/
+/*             $("#phone").intlTelInput();*/
 /* */
-/*             $('.phone').mask('+(99) (999) 999-9999');*/
+/*             $('.phone').mask('(999) 999-9999');*/
 /* */
 /* */
 /*         });*/

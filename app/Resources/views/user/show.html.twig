@@ -34,9 +34,7 @@
                 <div class="media clearfix">
                     <div class="media-body va-m">
                         <h2 class="media-heading">{{ user.fullname }}
-                            <small> - Profile</small>
                         </h2>
-                        <p class="lead">North American University - Computer Science</p>
                     </div>
                 </div>
             </div>
@@ -99,7 +97,7 @@
                                                         <span class="fa fa-phone text-success"></span>
                                                     </td>
                                                     <td>Cellphone</td>
-                                                    <td><a class="phone" href="tel:{{ user.cellphone }}">{{ user.cellphone }}</a></td>
+                                                    <td><a class="phone" href="tel:{{ user.ccode }}{{ user.cellphone }}">{{ user.ccode }}{{ user.cellphone }}</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>

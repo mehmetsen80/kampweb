@@ -15,8 +15,8 @@ class __TwigTemplate_6beeefdcdad3b244565f34cd0824fb4f078878539fd9c75c6cac7946179
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_eb63f4101a42ab953d854f8e8c8582cdd657055db7620fb84f6bf52c2bdca895 = $this->env->getExtension("native_profiler");
-        $__internal_eb63f4101a42ab953d854f8e8c8582cdd657055db7620fb84f6bf52c2bdca895->enter($__internal_eb63f4101a42ab953d854f8e8c8582cdd657055db7620fb84f6bf52c2bdca895_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":emails:registration.html.twig"));
+        $__internal_c3b65afa3d05cbe85da7675fc4b1305d4c161a2db3e408ab6f1867d96cf186ff = $this->env->getExtension("native_profiler");
+        $__internal_c3b65afa3d05cbe85da7675fc4b1305d4c161a2db3e408ab6f1867d96cf186ff->enter($__internal_c3b65afa3d05cbe85da7675fc4b1305d4c161a2db3e408ab6f1867d96cf186ff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":emails:registration.html.twig"));
 
         // line 2
         echo "<h3>You did it! You registered!</h3>
@@ -36,7 +36,7 @@ Thanks!
         echo "\">
 ";
         
-        $__internal_eb63f4101a42ab953d854f8e8c8582cdd657055db7620fb84f6bf52c2bdca895->leave($__internal_eb63f4101a42ab953d854f8e8c8582cdd657055db7620fb84f6bf52c2bdca895_prof);
+        $__internal_c3b65afa3d05cbe85da7675fc4b1305d4c161a2db3e408ab6f1867d96cf186ff->leave($__internal_c3b65afa3d05cbe85da7675fc4b1305d4c161a2db3e408ab6f1867d96cf186ff_prof);
 
     }
 

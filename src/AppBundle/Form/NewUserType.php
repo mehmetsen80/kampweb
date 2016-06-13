@@ -43,6 +43,12 @@ class NewUserType extends AbstractType
             ->add('cellphone', TextType::class, array(
                 'required'=>true,
             ))
+            ->add('ccode', TextType::class, array(
+                'required'=>true,
+                'label_attr'=>array(
+                    'class'=>'ccode'
+                )
+            ))
             ->add('birthday', BirthdayType::class, array(
                 'widget'=>'single_text',
                 'format'=>'MM/dd/yyyy',
@@ -54,6 +60,7 @@ class NewUserType extends AbstractType
             'first_options'  => array('label' => 'Password', 'error_bubbling' => true),
             'second_options' => array('label' => 'Repeat Password'),
             'invalid_message' => 'The password fields must match.',
+                'disabled'=>true
 
         )
     );

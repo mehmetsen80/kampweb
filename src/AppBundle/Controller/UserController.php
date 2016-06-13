@@ -15,7 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\User;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 
 class UserController extends Controller
@@ -40,7 +39,10 @@ class UserController extends Controller
      */
     public function profileAction($userid){
         $user = $this->getUser();
-        $userid = $user->getId();
+        $currentpassword = $user->getPassword();
+        if($currentpassword == md5(1234)){
+            return $this->redirect($this->generateUrl('changepassword'));
+        }
         return $this->render(':user:profile.html.twig',['user'=>$user]);
     }
 
@@ -68,6 +70,7 @@ class UserController extends Controller
         $updateform = $this->createForm(ChangeInfoType::class, $user);
         $updateform->handleRequest($request);
         if ($updateform->isSubmitted() && $updateform->isValid()) {
+            $ccode = $updateform->get('ccode')->getData();
             $newfullname = $updateform->get('fullname')->getData();
             $newusername = $updateform->get('username')->getData();
             $cellphone = $updateform->get('cellphone')->getData();
@@ -92,6 +95,11 @@ class UserController extends Controller
             else{
                 $user->setCellphone($user->getCellphone());
             }
+            if(!empty($ccode)){
+                $ccode = preg_replace("/[^0-9A-Za-z]/", "", $ccode);
+                $user->setCcode($ccode);
+            }
+
             if (!empty($birthdate)) {
                 $user->setBirthDay($birthdate);
             }
@@ -118,7 +126,12 @@ class UserController extends Controller
                     'Oops! There was an error with your update!'
                 );
             }
-            return $this->render('user/update.html.twig', array('addform' => $updateform->createView()));
+        $currentpassword = $user->getPassword();
+        if($currentpassword == md5(1234)){
+            return $this->redirect($this->generateUrl('changepassword'));
+        }
+
+            return $this->render('user/update.html.twig', array('form1' => $updateform->createView()));
         }
 
     /**
@@ -133,6 +146,14 @@ class UserController extends Controller
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
+            $cellphone = $addform->get('cellphone')->getData();
+            $ccode = $addform->get('ccode')->getData();
+            $cellphone =  preg_replace("/[^0-9A-Za-z]/", "", $cellphone);
+            $ccode =  preg_replace("/[^0-9A-Za-z]/", "", $ccode);
+            $user->setCcode($ccode);
+            $user->setCellphone($cellphone);
+            $user->setPlainPassword(1234);
+            $user->setPassword(md5(1234));
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -182,6 +203,13 @@ class UserController extends Controller
             return $this->redirect($this->generateUrl('changepassword'));
         }
 
+        $currentpassword = $user->getPassword();
+        if($currentpassword == md5(1234)){
+            $this->addFlash(
+                'passwordchange',
+                'Please change it now to keep your information protected.'
+            );
+        }
         return $this->render(':Security:changepassword.html.twig',array('passwordform' => $passwordform->createView()));
     }
 

@@ -10,17 +10,16 @@
         <div class="topbar-left">
             <ol class="breadcrumb">
                 <li class="crumb-active">
-                    <a href="dashboard.html">Dashboard</a>
+                    <a href="{{ path('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="crumb-icon">
-                    <a href="dashboard.html">
+                    <a href="{{ path('dashboard') }}">
                         <span class="glyphicon glyphicon-home"></span>
                     </a>
                 </li>
                 <li class="crumb-link">
-                    <a href="dashboard.html">Home</a>
+                    <a href="{{ path('profile', {'userid': app.user.id}) }}">My Profile</a>
                 </li>
-                <li class="crumb-trail">Dashboard</li>
             </ol>
         </div>
     </header>
@@ -36,7 +35,6 @@
                     <h2 class="media-heading">{{ user.fullname }}
                         <small> - Profile</small>
                     </h2>
-                    <p class="lead">North American University - Computer Science</p>
                 </div>
             </div>
         </div>
@@ -89,7 +87,7 @@
                                                     <span class="fa fa-phone text-success"></span>
                                                 </td>
                                                 <td>Cellphone</td>
-                                                <td><a class="phone" href="tel:{{ user.cellphone }}"> {{ user.cellphone }}</a></td>
+                                                <td><a class="phone" href="tel:{{ user.ccode }}{{ user.cellphone }}">{{ user.ccode }}{{ user.cellphone }}</a></td>
                                             </tr>
                                             <tr>
                                                 <td>

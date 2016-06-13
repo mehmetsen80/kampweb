@@ -5,7 +5,7 @@
     <link rel='stylesheet' type='text/css' href='{{ asset('assets/fonts/font-awesome/css/font-awesome.css') }}'>
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/intlTelInput.css') }}">
     <!-- Admin Forms CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 
@@ -18,8 +18,6 @@
     <!-- Select2 Plugin CSS  -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/select2/css/core.css') }}">
 
-    <!-- Theme CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
 {% endblock %}
 {% block body %}
 
@@ -91,25 +89,25 @@
                                 </div>
                                 <!-- .section-divider -->
                                 {#{% if not form1.newusername.vars.valid %}#}
-                                    {#<div class="alert alert-danger alert-dismissable">#}
-                                        {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
-                                        {#<i class="fa fa-remove pr10"></i>#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
 
-                                        {#<strong>{{ form_errors(form1.newusername) }}</strong>#}
-                                    {#</div>#}
+                                {#<strong>{{ form_errors(form1.newusername) }}</strong>#}
+                                {#</div>#}
                                 {#{% endif %}#}
                                 {#{% if not form1.newfullname.vars.valid %}#}
-                                    {#<div class="alert alert-danger alert-dismissable">#}
-                                        {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
-                                        {#<i class="fa fa-remove pr10"></i>#}
-                                        {#<strong> {{ form_errors(form1.newfullname) }}</strong>#}
-                                    {#</div>#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
+                                {#<strong> {{ form_errors(form1.newfullname) }}</strong>#}
+                                {#</div>#}
                                 {#{% endif %}{% if not form1.newpassword.vars.valid %}#}
-                                    {#<div class="alert alert-danger alert-dismissable">#}
-                                        {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
-                                        {#<i class="fa fa-remove pr10"></i>#}
-                                        {#<strong> {{ form_errors(form1.newpassword) }}</strong>#}
-                                    {#</div>#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
+                                {#<strong> {{ form_errors(form1.newpassword) }}</strong>#}
+                                {#</div>#}
                                 {#{% endif %}#}
                                 <div class="section">
                                     <label for="firstname" class="field prepend-icon">
@@ -135,15 +133,16 @@
 
                                 <div class="section row">
                                     <div class="col-md-6">
+                                        {{ form_widget(form1.ccode,{'id':'phone'}) }}
                                         <label for="maskedPhone" class="field prepend-icon">
 
                                             {% if app.user.cellphone is empty %}
-                                            {{ form_widget(form1.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off",  'type':'text' }}) }}
+                                                {{ form_widget(form1.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",  'type':'tel', 'placeholder':"Cellphone" }}) }}
                                             {% else %}
-                                            {{ form_widget(form1.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off", 'type':'text' }}) }}
+                                                {{ form_widget(form1.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'type':'tel','placeholder':"Cellphone" }}) }}
                                             {% endif %}
                                             <label for="mobile_phone" class="field-icon">
-                                                <i class="fa fa-mobile-phone"></i>
+
                                             </label>
                                         </label>
                                     </div>
@@ -160,9 +159,9 @@
                                 <div class="section">
                                     <label for="datepicker1" class="field prepend-icon">
                                         {% if app.user.birthday is empty %}
-                                        {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}
+                                            {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}
                                         {% else %}
-                                        {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text'}})}}
+                                            {{ form_widget(form1.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text'}})}}
                                         {% endif %}
                                         <label class="field-icon">
                                             <i class="fa fa-calendar-o"></i>
@@ -192,7 +191,7 @@
     </section>
 
 
-<style>
+    <style>
         /* demo page styles */
         body { min-height: 2300px; }
 
@@ -221,7 +220,7 @@
 
     <!-- jQuery Validate Addon -->
     <script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
-
+    <script src="{{ asset('assets/js/intlTelInput.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             "use strict";
@@ -393,10 +392,10 @@
                 }
             });
 
-            // Init jQuery Time Spinner
             $("#spinner4").timespinner();
+            $("#phone").intlTelInput();
 
-            $('.phone').mask('+(99) (999) 999-9999');
+            $('.phone').mask('(999) 999-9999');
 
 
         });

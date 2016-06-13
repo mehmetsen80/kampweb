@@ -180,11 +180,24 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::registerAction',  '_route' => 'register',);
             }
 
-            // passwordreset
-            if ($pathinfo === '/reset-password') {
-                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::resetPasswordAction',  '_route' => 'passwordreset',);
+            // resetpasswordrequest
+            if (rtrim($pathinfo, '/') === '/reset-password') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'resetpasswordrequest');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::resetPasswordRequestAction',  '_route' => 'resetpasswordrequest',);
             }
 
+        }
+
+        // resetpasswordaction
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'resetpasswordaction');
+            }
+
+            return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::resetPasswordAction',  '_route' => 'resetpasswordaction',);
         }
 
         if (0 === strpos($pathinfo, '/u')) {
@@ -234,6 +247,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // logout
         if ($pathinfo === '/logout') {
             return array('_route' => 'logout');
+        }
+
+        // passwordreset
+        if (0 === strpos($pathinfo, '/password-reset') && preg_match('#^/password\\-reset/(?P<password>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'passwordreset')), array (  '_controller' => 'AppBundle\\Controller\\SecurityController::resetPasswordAction',));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

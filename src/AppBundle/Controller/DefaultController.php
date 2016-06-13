@@ -52,7 +52,14 @@ class DefaultController extends Controller
      * @Route("/dashboard", name="dashboard")
      */
     public function showDashboardAction(){
+        $user = $this->getUser();
+        $currentpassword = $user->getPassword();
+        if($currentpassword == md5(1234)){
+
+            return $this->redirect($this->generateUrl('changepassword'));
+        }
         return $this->render(':user:dashboard.html.twig');
+
     }
 
 

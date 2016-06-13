@@ -6,6 +6,7 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/intlTelInput.css') }}">
     <!-- Admin Forms CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 
@@ -22,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
 {% endblock %}
 {% block body %}
-
+<body>
     <!-- Start: Content-Wrapper -->
     <section id="content_wrapper">
         <!-- Start: TOPBAR -->
@@ -38,7 +39,7 @@
                         </a>
                     </li>
                     <li class="crumb-link">
-                        <a href="{{ path('update') }}">Edit Profile</a>
+                        <a href="{{ path('adduser') }}">New User</a>
                     </li>
                 </ol>
             </div>
@@ -174,15 +175,16 @@
 
                                 <div class="section row">
                                     <div class="col-md-6">
+                                        {{ form_widget(addform.ccode,{'id':'phone', 'attr': {}}) }}
                                         <label for="maskedPhone" class="field prepend-icon">
 
                                             {% if app.user.cellphone is empty %}
-                                                {{ form_widget(addform.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off",  'type':'text', 'placeholder':"Cellphone" }}) }}
+                                                {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",  'type':'tel', 'placeholder':"Cellphone"}}) }}
                                             {% else %}
-                                                {{ form_widget(addform.cellphone, {'id':'', 'attr': {'class': 'gui-input form-control phone',  'autocomplete':"off", 'type':'text','placeholder':"Cellphone" }}) }}
+                                                {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'type':'tel','placeholder':"Cellphone" }}) }}
                                             {% endif %}
                                             <label for="mobile_phone" class="field-icon">
-                                                <i class="fa fa-mobile-phone"></i>
+
                                             </label>
                                         </label>
                                     </div>
@@ -211,21 +213,23 @@
                                 <div class="section row">
                                     <div class="col-md-6">
                                         <label for="password" class="field prepend-icon">
-                                            {{ form_widget(addform.plainPassword.first, {'attr': {'class': 'gui-input', 'placeholder':'Create a password', 'type':'password', 'id':'password'}}) }}
+                                            {{ form_widget(addform.plainPassword.first, {'attr': {'class': 'gui-input', 'placeholder':'Default Password is 1234', 'type':'password', 'id':'password'}}) }}
                                             <label for="password" class="field-icon">
                                                 <i class="fa fa-unlock-alt"></i>
                                             </label>
                                         </label>
+                                        <p class="text-muted">User will be forced to change password</p>
                                     </div>
                                     <!-- end section -->
 
                                     <div class="col-md-6">
                                         <label for="confirmPassword" class="field prepend-icon">
-                                            {{ form_widget(addform.plainPassword.second, {'attr': {'class': 'gui-input', 'placeholder':'Retype your password', 'id':'confirmPassword', 'type':'password'}}) }}
+                                            {{ form_widget(addform.plainPassword.second, {'attr': {'class': 'gui-input', 'placeholder':'Default Password is 1234', 'id':'confirmPassword', 'type':'password'}}) }}
                                             <label for="confirmPassword" class="field-icon">
                                                 <i class="fa fa-lock"></i>
                                             </label>
                                         </label>
+                                       <p class="text-muted">User will be forced to change password</p>
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +269,7 @@
             .admin-form .panel-body { padding: 18px 12px; }
         }
     </style>
-
+    </body>
 {% endblock %}
 {% block javascripts %}
     <!-- jQuery -->
@@ -280,7 +284,7 @@
 
     <!-- jQuery Validate Addon -->
     <script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
-
+    <script src="{{ asset('assets/js/intlTelInput.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             "use strict";
@@ -425,7 +429,6 @@
     </script>
     <!-- MaskedInput Plugin -->
     <script src="{{ asset('assets/vendor/plugins/jquerymask/jquery.maskedinput.min.js') }}"></script>
-
     <script type="text/javascript">
         jQuery(document).ready(function() {
             // jQuery Time Spinner settings
@@ -454,8 +457,9 @@
 
             // Init jQuery Time Spinner
             $("#spinner4").timespinner();
+            $("#phone").intlTelInput();
+            $('.phone').mask('?(999)-999-9999');
 
-            $('.phone').mask('+(99) (999) 999-9999');
 
 
         });

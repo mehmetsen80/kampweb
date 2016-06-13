@@ -1,6 +1,6 @@
 <?php
 
-/* /user/show.html.twig */
+/* :user:show.html.twig */
 class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3b8768 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,7 +8,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("::default.html.twig", "/user/show.html.twig", 1);
+        $this->parent = $this->loadTemplate("::default.html.twig", ":user:show.html.twig", 1);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
         );
@@ -21,20 +21,20 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2 = $this->env->getExtension("native_profiler");
-        $__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2->enter($__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "/user/show.html.twig"));
+        $__internal_2b8ff8e258ab577b8f8722e3a17dfaf7e2e84df0cec1076bdcddadd2c483655e = $this->env->getExtension("native_profiler");
+        $__internal_2b8ff8e258ab577b8f8722e3a17dfaf7e2e84df0cec1076bdcddadd2c483655e->enter($__internal_2b8ff8e258ab577b8f8722e3a17dfaf7e2e84df0cec1076bdcddadd2c483655e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":user:show.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2->leave($__internal_e0a154ebf998b314fcd5ed62c1ab50349f19ee438ba3ccb54bb8a9dfbb9ee4a2_prof);
+        $__internal_2b8ff8e258ab577b8f8722e3a17dfaf7e2e84df0cec1076bdcddadd2c483655e->leave($__internal_2b8ff8e258ab577b8f8722e3a17dfaf7e2e84df0cec1076bdcddadd2c483655e_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f = $this->env->getExtension("native_profiler");
-        $__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f->enter($__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_0137e2326953b76073b5e31d6792d75382f33c0833b502a759408501a4a9f0ed = $this->env->getExtension("native_profiler");
+        $__internal_0137e2326953b76073b5e31d6792d75382f33c0833b502a759408501a4a9f0ed->enter($__internal_0137e2326953b76073b5e31d6792d75382f33c0833b502a759408501a4a9f0ed_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "    <body class=\"profile-page\">
@@ -73,9 +73,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
         // line 36
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "fullname", array()), "html", null, true);
         echo "
-                            <small> - Profile</small>
                         </h2>
-                        <p class=\"lead\">North American University - Computer Science</p>
                     </div>
                 </div>
             </div>
@@ -118,7 +116,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
                                                     </td>
                                                     <td>Name</td>
                                                     <td>";
-        // line 81
+        // line 79
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "fullname", array()), "html", null, true);
         echo "</td>
                                                 </tr>
@@ -128,7 +126,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
                                                     </td>
                                                     <td>Email</td>
                                                     <td><a href=\"mailto:";
-        // line 88
+        // line 86
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "username", array()), "html", null, true);
         echo "\" target=\"_top\"> ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "username", array()), "html", null, true);
@@ -140,7 +138,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
                                                     </td>
                                                     <td>Birthday</td>
                                                     <td>";
-        // line 95
+        // line 93
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "birthday", array()), "m/d/Y"), "html", null, true);
         echo "</td>
                                                 </tr>
@@ -150,9 +148,11 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
                                                     </td>
                                                     <td>Cellphone</td>
                                                     <td><a class=\"phone\" href=\"tel:";
-        // line 102
+        // line 100
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "ccode", array()), "html", null, true);
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cellphone", array()), "html", null, true);
         echo "\">";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "ccode", array()), "html", null, true);
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cellphone", array()), "html", null, true);
         echo "</a></td>
                                                 </tr>
@@ -163,17 +163,17 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
                                                     <td>Is Active?</td>
                                                     <td>
                                                         ";
-        // line 110
+        // line 108
         if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "isactive", array()) == 1)) {
-            // line 111
+            // line 109
             echo "                                                            Yes
                                                         ";
         } else {
-            // line 113
+            // line 111
             echo "                                                            No
                                                         ";
         }
-        // line 115
+        // line 113
         echo "                                                    </td>
                                                 </tr>
                                                 <tr>
@@ -182,7 +182,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
                                                     </td>
                                                     <td>Register Date</td>
                                                     <td>";
-        // line 122
+        // line 120
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "createdat", array()), "Y-m-d"), "html", null, true);
         echo "</td>
                                                 </tr>
@@ -192,7 +192,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
                                                     </td>
                                                     <td>Last Modifed Date</td>
                                                     <td>";
-        // line 129
+        // line 127
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "modifiedat", array()), "Y-m-d"), "html", null, true);
         echo "</td>
                                                 </tr>
@@ -214,13 +214,13 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
     </body>
 ";
         
-        $__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f->leave($__internal_7afe6aa36a4acf83671d02949b68d8bcd1f4df19afc9a15084a5c18e8a6c6a4f_prof);
+        $__internal_0137e2326953b76073b5e31d6792d75382f33c0833b502a759408501a4a9f0ed->leave($__internal_0137e2326953b76073b5e31d6792d75382f33c0833b502a759408501a4a9f0ed_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "/user/show.html.twig";
+        return ":user:show.html.twig";
     }
 
     public function isTraitable()
@@ -230,7 +230,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
 
     public function getDebugInfo()
     {
-        return array (  196 => 129,  186 => 122,  177 => 115,  173 => 113,  169 => 111,  167 => 110,  154 => 102,  144 => 95,  132 => 88,  122 => 81,  74 => 36,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  196 => 127,  186 => 120,  177 => 113,  173 => 111,  169 => 109,  167 => 108,  152 => 100,  142 => 93,  130 => 86,  120 => 79,  74 => 36,  40 => 4,  34 => 3,  11 => 1,);
     }
 }
 /* {% extends '::default.html.twig' %}*/
@@ -269,9 +269,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
 /*                 <div class="media clearfix">*/
 /*                     <div class="media-body va-m">*/
 /*                         <h2 class="media-heading">{{ user.fullname }}*/
-/*                             <small> - Profile</small>*/
 /*                         </h2>*/
-/*                         <p class="lead">North American University - Computer Science</p>*/
 /*                     </div>*/
 /*                 </div>*/
 /*             </div>*/
@@ -334,7 +332,7 @@ class __TwigTemplate_dbb9f1fd941df028bf6f4eacad6f5eb617cbf942a099c3deedcfdd68ea3
 /*                                                         <span class="fa fa-phone text-success"></span>*/
 /*                                                     </td>*/
 /*                                                     <td>Cellphone</td>*/
-/*                                                     <td><a class="phone" href="tel:{{ user.cellphone }}">{{ user.cellphone }}</a></td>*/
+/*                                                     <td><a class="phone" href="tel:{{ user.ccode }}{{ user.cellphone }}">{{ user.ccode }}{{ user.cellphone }}</a></td>*/
 /*                                                 </tr>*/
 /*                                                 <tr>*/
 /*                                                     <td>*/

@@ -11,6 +11,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Form\ChangePassword;
 use AppBundle\Form\ChangePasswordType;
+use AppBundle\Form\ResetPasswordCheckType;
+use AppBundle\Form\ResetPasswordType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -126,12 +128,54 @@ class SecurityController extends Controller
     /**
      * @param Request $request
      * @return Response
-     * @Route("/reset-password", name="passwordreset")
+     * @Route("/reset-password/", name="resetpasswordrequest")
      */
-    public function resetPasswordAction(Request $request)
+    public function resetPasswordRequestAction(Request $request)
     {
+        $resetform = $this->createForm(ResetPasswordCheckType::class);
+        $resetform->handleRequest($request);
+        if ($resetform->isSubmitted() && $resetform->isValid()) {
+            $username = $resetform->get('username')->getData();
+            $checkusername = $this->getDoctrine()->getRepository('AppBundle:User')->loadUserByUsername($username);
 
-        return $this->render(':Security:resetpassword.html.twig');
+            if($checkusername){
+                $this->addFlash(
+                    'usernamefound',
+                    'Your password reset link is on its way. Check your mailbox!'
+                );
+                $salt = "498#2D83B631%3800EBD!801600D*7E3CC13";
+                $password = md5($salt.$checkusername);
+                $pwurl = $this->generateUrl('passwordreset', array('password'=>$password));
+            }else{
+                $this->addFlash(
+                    'usernamenotfound',
+                    'Oops! We could not find your email address in the system. Are you sure that you are using the right email address?'
+                );
+            }
+
+        }
+
+        return $this->render(':Security:resetpasswordrequest.html.twig', array('resetform'=>$resetform->createView()));
+    }
+    /**
+     * @Route(name="resetpasswordaction")
+     */
+    public function resetPasswordAction(Request $request){
+        $resetform = $this->createForm(ResetPasswordType::class);
+        $resetform->handleRequest($request);
+        if ($resetform->isSubmitted() && $resetform->isValid()) {
+
+//            return $this->redirect($this->generateUrl('login'));
+
+        }
+        elseif($resetform->isSubmitted() && !$resetform->isValid()){
+            $this->addFlash(
+                'addusererror',
+                'Oops! There was an error!'
+            );
+        }
+        return $this->render(':Security:resetpassword.html.twig', array('resetform'=>$resetform->createView()));
+
     }
     
 

@@ -9,3 +9,8 @@ CreateDependent:
 
 logout:
     path: /logout
+
+passwordreset:
+    path: /password-reset/{password}
+    defaults:
+      _controller: AppBundle:Security:resetPassword
