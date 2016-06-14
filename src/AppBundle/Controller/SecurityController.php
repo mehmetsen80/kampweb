@@ -144,18 +144,18 @@ class SecurityController extends Controller
                     'Your password reset link is on its way. Check your mailbox!'
                 );
                 $salt = "498#2D83B631%3800EBD!801600D*7E3CC13";
-                $password = md5($salt.$checkusername);
+                $password = md5($salt.$username);
                 $pwurl = $this->generateUrl('passwordreset', array('password'=>$password));
             }else{
                 $this->addFlash(
                     'usernamenotfound',
-                    'Oops! We could not find your email address in the system. Are you sure that you are using the right email address?'
+                    'Oops! Make sure you are using the right email address.'
                 );
             }
 
         }
 
-        return $this->render(':Security:resetpasswordrequest.html.twig', array('resetform'=>$resetform->createView()));
+        return $this->render(':security:resetpasswordrequest.html.twig', array('resetform'=>$resetform->createView()));
     }
     /**
      * @Route(name="resetpasswordaction")
@@ -174,7 +174,7 @@ class SecurityController extends Controller
                 'Oops! There was an error!'
             );
         }
-        return $this->render(':Security:resetpassword.html.twig', array('resetform'=>$resetform->createView()));
+        return $this->render(':security:resetpassword.html.twig', array('resetform'=>$resetform->createView()));
 
     }
     

@@ -181,7 +181,8 @@
                                             {% if app.user.cellphone is empty %}
                                                 {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",  'type':'tel', 'placeholder':"Cellphone"}}) }}
                                             {% else %}
-                                                {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'type':'tel','placeholder':"Cellphone" }}) }}
+                                                {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'type':'tel','placeholder':"Cellphone", 'style':"margin-top:-1.62em; padding-left: 80px;" }}) }}
+
                                             {% endif %}
                                             <label for="mobile_phone" class="field-icon">
 

@@ -210,7 +210,7 @@ class UserController extends Controller
                 'Please change it now to keep your information protected.'
             );
         }
-        return $this->render(':Security:changepassword.html.twig',array('passwordform' => $passwordform->createView()));
+        return $this->render(':security:changepassword.html.twig',array('passwordform' => $passwordform->createView()));
     }
 
 
