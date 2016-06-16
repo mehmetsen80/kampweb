@@ -3,6 +3,7 @@
     <link rel='stylesheet' type='text/css' href={{ asset('assets/fonts/stateface/stateface.css') }}>
 {% endblock %}
 {% block body %}
+<body>
     <!-- Start: CONTENT WRAPPER -->
     <section id="content_wrapper">
         {#{% for flash_message in app.session.flashBag.get('welcome') %}#}
@@ -74,7 +75,7 @@
             font-size: 14px;
         }
     </style>
-
+</body>
 {% endblock %}
 {% block javascripts %}
     <!-- BEGIN: PAGE SCRIPTS -->

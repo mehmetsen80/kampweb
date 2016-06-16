@@ -8,9 +8,7 @@
 
 namespace AppBundle\Controller;
 
-
-use AppBundle\Form\ChangePassword;
-use AppBundle\Form\ChangePasswordType;
+use AppBundle\Entity\PasswordReset;
 use AppBundle\Form\ResetPasswordCheckType;
 use AppBundle\Form\ResetPasswordType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -19,6 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Form\UserType;
 use AppBundle\Entity\User;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class SecurityController extends Controller
@@ -83,7 +82,6 @@ class SecurityController extends Controller
                     ->encodePassword($user, $user->getPlainPassword());
                 $user->setPassword($password);
 
-
                 // save the User!
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
@@ -125,27 +123,51 @@ class SecurityController extends Controller
         );
     }
 
+
+
     /**
      * @param Request $request
      * @return Response
-     * @Route("/reset-password/", name="resetpasswordrequest")
+     * @Route("/request-password", name="resetpasswordrequest")
      */
     public function resetPasswordRequestAction(Request $request)
     {
-        $resetform = $this->createForm(ResetPasswordCheckType::class);
+        if(!is_null($this->getUser())){
+            return $this->redirect('/');
+        }
+        $passwordReset = new PasswordReset();
+        $resetform = $this->createForm(ResetPasswordCheckType::class, $passwordReset);
         $resetform->handleRequest($request);
         if ($resetform->isSubmitted() && $resetform->isValid()) {
             $username = $resetform->get('username')->getData();
             $checkusername = $this->getDoctrine()->getRepository('AppBundle:User')->loadUserByUsername($username);
-
+            //Gets the email that is typed in the text-field
+            $email = $resetform->get('username')->getData();
             if($checkusername){
                 $this->addFlash(
                     'usernamefound',
-                    'Your password reset link is on its way. Check your mailbox!'
+                    'Your password reset key is on its way. Check your mailbox!'
                 );
-                $salt = "498#2D83B631%3800EBD!801600D*7E3CC13";
-                $password = md5($salt.$username);
-                $pwurl = $this->generateUrl('passwordreset', array('password'=>$password));
+                $resetCode = bin2hex(openssl_random_pseudo_bytes(24));
+                $hashedResetCode = hash('sha512', $resetCode, false);
+                $time = new \DateTime();
+                $repositoryPasswordReset = $this->getDoctrine()->getRepository('AppBundle:PasswordReset');
+                $repositoryPasswordReset->deletePasswordResetsByUser($checkusername);
+
+                $passwordReset->setUser($checkusername);
+                $passwordReset->setResetTime($time);
+                $passwordReset->setHashedResetCode($hashedResetCode);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($passwordReset);
+                $em->flush();
+
+                $emailMessage = \Swift_Message::newInstance()
+                    ->setSubject('Your password request')
+                    ->setFrom('info@kampapp.com')
+                    ->setTo($email)
+                    ->setBody($this->renderView(':emails:new_password_email.html.twig', array('reseturl' => $this->generateUrl('resetpasswordaction', array('code' => $resetCode), UrlGeneratorInterface::ABSOLUTE_URL))));
+                $this->get('mailer')->send($emailMessage);
+
             }else{
                 $this->addFlash(
                     'usernamenotfound',
@@ -158,23 +180,63 @@ class SecurityController extends Controller
         return $this->render(':security:resetpasswordrequest.html.twig', array('resetform'=>$resetform->createView()));
     }
     /**
-     * @Route(name="resetpasswordaction")
+     * @Route("/reset-password/{code}", name="resetpasswordaction")
      */
-    public function resetPasswordAction(Request $request){
+    public function resetPasswordAction($code,Request $request){
+        if(!is_null($this->getUser())){
+            return $this->redirect('/');
+        }
+
+        $repositoryPasswordReset = $this->getDoctrine()->getRepository('AppBundle:PasswordReset');
+        $currentTime = new \DateTime();
+        $resetCode = $code;
+        $hashedResetCode = hash('sha512', $resetCode, false);
+
+        //Retrieves the PasswordReset object with the hashed reset code
+        $passwordReset = $repositoryPasswordReset->findPasswordResetByHashedResetCode($hashedResetCode);
+
+        if (is_null($passwordReset)) {
+            //If the resetcode that is provided does not exist in the database, the user is redirected to home
+            return $this->redirect('/');
+        }
+
+        //Finds the user based on the provided reset code.
+        $user = $passwordReset->getUser();
+
         $resetform = $this->createForm(ResetPasswordType::class);
         $resetform->handleRequest($request);
-        if ($resetform->isSubmitted() && $resetform->isValid()) {
 
-//            return $this->redirect($this->generateUrl('login'));
+        //Finds the time difference from when the resetcode was collected, and now.
+        $timeDifference = date_diff($passwordReset->getResetTime(), $currentTime);
+
+        if($timeDifference->i < 15){
+
+            if ($resetform->isSubmitted() && $resetform->isValid()) {
+
+                $repositoryPasswordReset->deletePasswordResetByHashedResetCode($hashedResetCode);
+                $plainPassword = $resetform->get('plainPassword')->getData();
+                $hashedPassword = md5($plainPassword);
+                $user->setPassword($hashedPassword);
+
+                //Update the database
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+
+                //Render the login page
+                return $this->redirectToRoute('login');
+            }
 
         }
-        elseif($resetform->isSubmitted() && !$resetform->isValid()){
-            $this->addFlash(
-                'addusererror',
-                'Oops! There was an error!'
-            );
+        else{
+            //Delete the resetcode
+            $repositoryPasswordReset->deletePasswordResetByHashedResetCode($hashedResetCode);
+            //creates a message that states the problem
+            $feedback = 'Your password reset code is expired. Please make a new request.';
+            //Render the reset_password twig with the message, so the user can get a new reset code.
+            return $this->renderView(':security:resetpasswordrequest.html.twig', array('message'=>$feedback));
         }
-        return $this->render(':security:resetpassword.html.twig', array('resetform'=>$resetform->createView()));
+        return $this->render(':security:resetpassword.html.twig', array('resetCode'=>$resetCode, 'resetform'=>$resetform->createView()));
 
     }
     

@@ -38,29 +38,29 @@ class User implements AdvancedUserInterface, \Serializable
      * @Assert\NotBlank(message="Please enter a valid username")
      * @Assert\Email()
      */
-    private $username;
+    protected $username;
 
     /**
      * @ORM\Column(type="string", length=255, unique=false)
      * @Assert\NotBlank()
      */
-    private $fullname;
+    protected $fullname;
     /**
      * @var array
      * @ORM\Column(name="roles", type="json_array")
      */
-    private $roles;
+    protected $roles;
 
     /**
      * @ORM\Column(type="string", length=64)
      */
-    private $password;
+    protected $password;
 
     /**
      * @Assert\Length(max=4096)
      * @Assert\NotBlank()
      */
-    private $plainPassword;
+    protected $plainPassword;
 
     /**
      * @var string
@@ -89,7 +89,7 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isactive;
+    protected $isactive;
 
     /**
      * @var \DateTime
@@ -105,8 +105,7 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\Column(name="ccode", type="string", nullable=true)
      */
     protected $ccode;
-
-
+    
     public function __construct()
     {
         $this->isactive = true;
@@ -128,6 +127,45 @@ class User implements AdvancedUserInterface, \Serializable
         {
             $this->setCreatedat(new \DateTime(date('Y-m-d H:i:s')));
         }
+    }
+
+    /*********************************** Getters ****************************************/
+
+    /**
+     * @return mixed
+     */
+    public function getFullname()
+    {
+        return $this->fullname;
+    }
+
+    /**
+     * Get isactive
+     *
+     * @return boolean
+     */
+    public function getIsactive()
+    {
+        return $this->isactive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+
+        return $this->plainPassword;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getUsername()
@@ -155,10 +193,227 @@ class User implements AdvancedUserInterface, \Serializable
         return $this->roles;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * Get createdat
+     *
+     * @return \DateTime
+     */
+    public function getCreatedat()
+    {
+        return $this->createdat;
+    }
+
+    /**
+     * Get modifiedat
+     *
+     * @return \DateTime
+     */
+    public function getModifiedat()
+    {
+        return $this->modifiedat;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCellphone()
+    {
+        return $this->cellphone;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getCcode()
+    {
+        return $this->ccode;
+    }
+
+    /**
+     * @return ArrayCollection|Dependent[]
+     */
+    public function getDependents()
+    {
+        return $this->dependents;
+    }
+
+    /************************************** Setters *********************************************/
 
     public function setRoles(array $roles){
         $this->roles = $roles;
         return $this;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     *
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return User
+     */
+    public function setPassword($password)
+    {
+
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Set isactive
+     *
+     * @param boolean $isactive
+     *
+     * @return User
+     */
+    public function setIsactive($isactive)
+    {
+        $this->isactive = $isactive;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+
+        $this->plainPassword = $plainPassword;
+    }
+
+    /**
+     * @param mixed $fullname
+     */
+    public function setFullname($fullname)
+    {
+        $this->fullname = $fullname;
+    }
+
+    /**
+     * @param mixed $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
+
+    /**
+     * @param mixed $birthday
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+    }
+
+    /**
+     * @param int $cellphone
+     */
+    public function setCellphone($cellphone)
+    {
+        $this->cellphone = $cellphone;
+    }
+
+
+    /**
+     * @param mixed $ccode
+     */
+    public function setCcode($ccode)
+    {
+        $this->ccode = $ccode;
+    }
+
+    /**
+     * Set createdat
+     *
+     * @param \DateTime $createdat
+     *
+     * @return User
+     */
+    public function setCreatedat($createdat)
+    {
+        $this->createdat = $createdat;
+        return $this;
+    }
+
+    /**
+     * Set modifiedat
+     *
+     * @param \DateTime $modifiedat
+     *
+     * @return User
+     */
+    public function setModifiedat($modifiedat)
+    {
+        $this->modifiedat = $modifiedat;
+        return $this;
+    }
+
+    /**
+     * @param mixed $confirmationToken
+     */
+    public function setConfirmationToken($confirmationToken)
+    {
+        $this->confirmationToken = $confirmationToken;
+    }
+
+    /***************************************** Others ***************************************************/
+
+
+    /**
+     * Add dependent
+     *
+     * @param \AppBundle\Entity\Dependent $dependent
+     *
+     * @return User
+     */
+    public function addDependent(\AppBundle\Entity\Dependent $dependent)
+    {
+        $this->dependents[] = $dependent;
+
+        return $this;
+    }
+
+    /**
+     * Remove dependent
+     *
+     * @param \AppBundle\Entity\Dependent $dependent
+     */
+    public function removeDependent(\AppBundle\Entity\Dependent $dependent)
+    {
+        $this->dependents->removeElement($dependent);
     }
 
     public function eraseCredentials()
@@ -167,6 +422,7 @@ class User implements AdvancedUserInterface, \Serializable
 
     public function isAccountNonExpired()
     {
+
         return true;
     }
 
@@ -208,247 +464,5 @@ class User implements AdvancedUserInterface, \Serializable
             ) = unserialize($serialized);
     }
 
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     *
-     * @return User
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return User
-     */
-    public function setPassword($password)
-    {
-
-            $this->password = $password;
-
-
-        return $this;
-    }
-
-    /**
-     * Set isactive
-     *
-     * @param boolean $isactive
-     *
-     * @return User
-     */
-    public function setIsactive($isactive)
-    {
-        $this->isactive = $isactive;
-
-        return $this;
-    }
-
-    /**
-     * Get isactive
-     *
-     * @return boolean
-     */
-    public function getIsactive()
-    {
-        return $this->isactive;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPlainPassword()
-    {
-
-        return $this->plainPassword;
-    }
-
-    /**
-     * @param mixed $plainPassword
-     */
-    public function setPlainPassword($plainPassword)
-    {
-
-        $this->plainPassword = $plainPassword;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFullname()
-    {
-        return $this->fullname;
-    }
-
-    /**
-     * @param mixed $fullname
-     */
-    public function setFullname($fullname)
-    {
-        $this->fullname = $fullname;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getGender()
-    {
-        return $this->gender;
-    }
-
-    /**
-     * @param mixed $gender
-     */
-    public function setGender($gender)
-    {
-        $this->gender = $gender;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBirthday()
-    {
-        return $this->birthday;
-    }
-
-    /**
-     * @param mixed $birthday
-     */
-    public function setBirthday($birthday)
-    {
-        $this->birthday = $birthday;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCellphone()
-    {
-        return $this->cellphone;
-    }
-
-    /**
-     * @param int $cellphone
-     */
-    public function setCellphone($cellphone)
-    {
-        $this->cellphone = $cellphone;
-    }
-
-    /**
-     * @return ArrayCollection|Dependent[]
-     */
-    public function getDependents()
-    {
-        return $this->dependents;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCcode()
-    {
-        return $this->ccode;
-    }
-
-    /**
-     * @param mixed $ccode
-     */
-    public function setCcode($ccode)
-    {
-        $this->ccode = $ccode;
-    }
-
-
-
-
-    /**
-     * Add dependent
-     *
-     * @param \AppBundle\Entity\Dependent $dependent
-     *
-     * @return User
-     */
-    public function addDependent(\AppBundle\Entity\Dependent $dependent)
-    {
-        $this->dependents[] = $dependent;
-
-        return $this;
-    }
-
-    /**
-     * Remove dependent
-     *
-     * @param \AppBundle\Entity\Dependent $dependent
-     */
-    public function removeDependent(\AppBundle\Entity\Dependent $dependent)
-    {
-        $this->dependents->removeElement($dependent);
-    }
-
-
-
-    /**
-     * Set createdat
-     *
-     * @param \DateTime $createdat
-     *
-     * @return User
-     */
-    public function setCreatedat($createdat)
-    {
-        $this->createdat = $createdat;
-        return $this;
-    }
-    /**
-     * Get createdat
-     *
-     * @return \DateTime
-     */
-    public function getCreatedat()
-    {
-        return $this->createdat;
-    }
-    /**
-     * Set modifiedat
-     *
-     * @param \DateTime $modifiedat
-     *
-     * @return User
-     */
-    public function setModifiedat($modifiedat)
-    {
-        $this->modifiedat = $modifiedat;
-        return $this;
-    }
-    /**
-     * Get modifiedat
-     *
-     * @return \DateTime
-     */
-    public function getModifiedat()
-    {
-        return $this->modifiedat;
-    }
 
 }

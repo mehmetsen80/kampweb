@@ -20,6 +20,7 @@ class ResetPasswordCheckType extends AbstractType
         $builder
             ->add('username', EmailType::class, array(
                 'required'=>true,
+                'mapped'=>false
 
             ));
     }
@@ -29,6 +30,11 @@ class ResetPasswordCheckType extends AbstractType
         $resolver->setDefaults(array(
 
         ));
+    }
+
+    public function getName()
+    {
+        return 'forgot_password';
     }
 
 }

@@ -15,6 +15,7 @@ class UserRepository extends EntityRepository implements UserLoaderInterface
     public function loadUserByUsername($username)
     {
         return $this->createQueryBuilder('u')
+            ->select('u')
             ->where('u.username = :username')
             ->setParameter('username', $username)
             ->getQuery()
