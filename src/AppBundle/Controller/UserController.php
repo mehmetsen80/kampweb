@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Form\ChangeInfoType;
 use AppBundle\Form\ChangePasswordType;
+use AppBundle\Form\EditUserType;
 use AppBundle\Form\NewUserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -213,8 +214,67 @@ class UserController extends Controller
         return $this->render(':security:changepassword.html.twig',array('passwordform' => $passwordform->createView()));
     }
 
+    /**
+     * @Route("/edit-user/{userid}", name="edit-user")
+     */
+    public function editUserAction(Request $request ,$userid){
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->find(['id'=>$userid]);
+        $editform = $this->createForm(EditUserType::class);
+        $editform->handleRequest($request);
+        if ($editform->isSubmitted() && $editform->isValid()) {
+            $ccode = $editform->get('ccode')->getData();
+            $newfullname = $editform->get('fullname')->getData();
+            $newusername = $editform->get('username')->getData();
+            $cellphone = $editform->get('cellphone')->getData();
+            $birthdate = $editform->get('birthday')->getData();
+            $gender = $editform->get('gender')->getData();
+            $plainPassword = $editform->get('newpassword')->getData();
+            if (!empty($newfullname)) {
+                $user->setFullname($newfullname);
+            }
+            else{
+                $user->setFullname($user->getFullname());
+            }
+            if (!empty($newusername)) {
+                $user->setUsername($newusername);
+            }
+            else{
+                $user->setUsername($user->getUsername());
+            }
+            if (!empty($cellphone)) {
+                $cellphone =  preg_replace("/[^0-9A-Za-z]/", "", $cellphone);
+                $user->setCellphone($cellphone);
+            }
+            else{
+                $user->setCellphone($user->getCellphone());
+            }
+            if(!empty($ccode)){
+                $ccode = preg_replace("/[^0-9A-Za-z]/", "", $ccode);
+                $user->setCcode($ccode);
+            }
 
-
+            if (!empty($birthdate)) {
+                $user->setBirthday($birthdate);
+            }
+            else{
+                $user->setBirthday($user->getBirthday());
+            }
+            if (!empty($gender)) {
+                $user->setGender($gender);
+            }
+            else {
+                $user->setGender($user->getGender());
+            }
+            if(!empty($plainPassword)){
+                $hashedPassword = md5($plainPassword);
+                $user->setPassword($hashedPassword);
+            }
+            $em->persist($user);
+            $em->flush();
+        }
+        return $this->render(':user:edit-user.html.twig', array('user'=>$user, 'editform' => $editform->createView()));
+    }
 
 
 

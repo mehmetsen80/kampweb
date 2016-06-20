@@ -72,7 +72,7 @@
                             <tbody>
                             {%  for user in users %}
                                 <tr>
-                                    <td> <a href="{{ path('showusers', {'userid': user.id}) }}">{{ user.fullname }}</a></td>
+                                    <td><a href="{{ path('edit-user', {'userid': user.id}) }}"><span class="fa fa-edit"></span></a>  <a href="{{ path('showusers', {'userid': user.id}) }}">{{ user.fullname }}</a></td>
                                     <td>{{ user.username }}</td>
                                     <td>{{ user.modifiedat|date('Y-m-d') }}</td>
                                     <td>

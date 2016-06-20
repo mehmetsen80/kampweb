@@ -124,7 +124,6 @@ class SecurityController extends Controller
     }
 
 
-
     /**
      * @param Request $request
      * @return Response
