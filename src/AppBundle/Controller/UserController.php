@@ -272,6 +272,16 @@ class UserController extends Controller
             }
             $em->persist($user);
             $em->flush();
+            $this->addFlash(
+                'updatesuccess',
+                'Your update was successful!'
+            );
+        }
+        if ($editform->isSubmitted() && ($editform->isValid() == False)) {
+            $this->addFlash(
+                'updateerror',
+                'Oops! There was a problem with your update!'
+            );
         }
         return $this->render(':user:edit-user.html.twig', array('user'=>$user, 'editform' => $editform->createView()));
     }

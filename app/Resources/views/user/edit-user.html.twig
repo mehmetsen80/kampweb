@@ -41,6 +41,20 @@
                 </ol>
             </div>
         </header>
+        {% for flash_message in app.session.flashBag.get('updatesuccess') %}
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-trophy pr10"></i>
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+        {% for flash_message in app.session.flashBag.get('updateerror') %}
+            <div class="alert alert-error alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-trophy pr10"></i>
+                {{ flash_message }}
+            </div>
+        {% endfor %}
         <!-- Begin: Content -->
         <section id="content" class="table-layout animated fadeIn">
             <!-- begin: .tray-center -->
