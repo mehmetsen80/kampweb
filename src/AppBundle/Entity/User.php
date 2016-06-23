@@ -45,6 +45,7 @@ class User implements AdvancedUserInterface, \Serializable
      * @Assert\NotBlank()
      */
     protected $fullname;
+
     /**
      * @var array
      * @ORM\Column(name="roles", type="json_array")

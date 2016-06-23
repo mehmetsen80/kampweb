@@ -253,6 +253,9 @@ class UserController extends Controller
                 $ccode = preg_replace("/[^0-9A-Za-z]/", "", $ccode);
                 $user->setCcode($ccode);
             }
+            else{
+                $user->setCcode($user->getCcode());
+            }
 
             if (!empty($birthdate)) {
                 $user->setBirthday($birthdate);

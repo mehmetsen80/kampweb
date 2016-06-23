@@ -177,7 +177,6 @@
                                     <div class="col-md-6">
                                         {{ form_widget(addform.ccode,{'id':'phone', 'attr': {}}) }}
                                         <label for="maskedPhone" class="field prepend-icon">
-
                                             {% if app.user.cellphone is empty %}
                                                 {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",  'type':'tel', 'placeholder':"Cellphone"}}) }}
                                             {% else %}

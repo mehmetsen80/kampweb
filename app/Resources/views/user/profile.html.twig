@@ -107,14 +107,14 @@
                                                     <span class="fa fa-database text-primary-lighter"></span>
                                                 </td>
                                                 <td>Register Date</td>
-                                                <td>{{ user.createdat|date('U') }}</td>
+                                                <td>{{ user.createdat|date('Y-m-d') }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <span class="fa fa-edit text-info-lighter"></span>
                                                 </td>
                                                 <td>Last Modifed Date</td>
-                                                <td>{{ user.modifiedat|date() }}</td>
+                                                <td>{{ user.modifiedat|date('Y-m-d') }}</td>
                                             </tr>
                                             </tbody>
                                         </table>

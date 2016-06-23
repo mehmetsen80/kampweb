@@ -5,6 +5,7 @@
     <link rel='stylesheet' type='text/css' href='{{ asset('assets/fonts/font-awesome/css/font-awesome.css') }}'>
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/intlTelInput.css') }}">
     <!-- Admin Forms CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
@@ -17,6 +18,9 @@
 
     <!-- Select2 Plugin CSS  -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/select2/css/core.css') }}">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
 
 {% endblock %}
 {% block body %}
@@ -133,13 +137,13 @@
 
                                 <div class="section row">
                                     <div class="col-md-6">
-                                        {{ form_widget(form1.ccode,{'id':'phone'}) }}
+                                        {{ form_widget(form1.ccode,{'id':'phone', 'attr': {}}) }}
                                         <label for="maskedPhone" class="field prepend-icon">
-
                                             {% if app.user.cellphone is empty %}
-                                                {{ form_widget(form1.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",  'type':'tel', 'placeholder':"Cellphone" }}) }}
+                                                {{ form_widget(form1.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",  'type':'tel', 'placeholder':"Cellphone"}}) }}
                                             {% else %}
-                                                {{ form_widget(form1.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'type':'tel','placeholder':"Cellphone" }}) }}
+                                                {{ form_widget(form1.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'type':'tel','placeholder':"Cellphone", 'style':"margin-top:-1.62em; padding-left: 80px;" }}) }}
+
                                             {% endif %}
                                             <label for="mobile_phone" class="field-icon">
 
@@ -365,7 +369,6 @@
     </script>
     <!-- MaskedInput Plugin -->
     <script src="{{ asset('assets/vendor/plugins/jquerymask/jquery.maskedinput.min.js') }}"></script>
-
     <script type="text/javascript">
         jQuery(document).ready(function() {
             // jQuery Time Spinner settings
@@ -392,14 +395,14 @@
                 }
             });
 
+            // Init jQuery Time Spinner
             $("#spinner4").timespinner();
             $("#phone").intlTelInput();
+            $('.phone').mask('?(999)-999-9999');
 
-            $('.phone').mask('(999) 999-9999');
 
 
         });
     </script>
-
     <!-- END: PAGE SCRIPTS -->
 {% endblock %}
