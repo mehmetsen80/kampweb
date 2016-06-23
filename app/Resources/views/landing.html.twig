@@ -1,632 +1,261 @@
+
 <!DOCTYPE html>
-<html lang="en">
-
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <head>
-    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
-    <title>KampWeB - Kamp Management Software</title>
-    <meta name="keywords" content="Camping, camp. kamp. kamp management software" />
-    <meta name="description" content="NAU - Kamp Management Software">
-    <meta name="author" content="mburakergenc">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>North American University</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Bootstrap Core CSS -->
+    {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.css') }}">
-
-    <!-- Custom CSS -->
-    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700'>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/flexslider.min.css') }}">
+    <link href="{{ asset('assets/css/line-icons.min.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('assets/css/elegant-icons.min.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('assets/css/lightbox.min.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <!--[if gte IE 9]-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/ie9.css') }}" />
     <![endif]-->
-
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+    <script src="{{ asset('assets/js/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
+    {% endblock %}
 </head>
-
-<body id="page-top" class="index">
-
-
-<!-- Navigation -->
-<nav class="navbar navbar-default">
-
-    <div class="container" style="max-width: 1050px;">
-
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="#page-top">KampWeb</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active hidden">
-                    <a href="#page-top">Home</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#services">Modules</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#features-flat">Features</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#footer">Contact</a>
-                </li>
-                {% if app.user %}
-                    <li>
-                        <a class="page-scroll" href="{{ path('dashboard') }}">Dashboard</a>
-                    </li>
-                {% else %}
-                <li>
-                    <a class="page-scroll" href="{{ path('register') }}">Sign Up</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+<body>
+<div class="loader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
     </div>
-    <!-- /.container-fluid -->
-</nav>
+</div>
 
-<!-- Hero Content -->
-<header id="hero">
-    <div class="container">
-        <div class="intro-text">
-            <div class="intro-heading">We provide you <b>beautiful</b> and increadibly <b>easy</b> camping solution.</div>
-            <a href="#services" class="page-scroll btn btn-xl mr30 btn-primary">Learn More</a>
-            <a href="#contact" class="page-scroll btn btn-xl btn-wire">Contact Us</a>
-        </div>
-    </div>
-</header>
+<div class="nav-container">
+    <nav class="top-bar overlay-bar">
+        <div class="container">
 
-<!-- Services Section -->
-<section id="services">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2 class="section-heading">Modules</h2>
-                <h3 class="section-subheading text-muted">Check out useful modules.</h3>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-xs-6 col-sm-4 mb50">
-                    <span class="fa-stack fa-4x hidden">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                <div class="service-icon"> <img src="{{ asset('assets/img/icons/1-lg.png') }}" title="service icon"> </div>
-                <h4 class="service-heading">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-xs-6 col-sm-4 mb50">
-                <div class="service-icon"> <img src="{{ asset('assets/img/icons/2-lg.png') }}" title="service icon"> </div>
-                    <span class="fa-stack fa-4x hidden">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                <h4 class="service-heading">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-xs-6 col-sm-4 mb50">
-                <div class="service-icon"> <img src="{{ asset('assets/img/icons/3-lg.png') }}" title="service icon"> </div>
-                    <span class="fa-stack fa-4x hidden">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                <h4 class="service-heading">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
+            <div class="row utility-menu">
+                <div class="col-sm-12">
+                    <div class="utility-inner clearfix">
+                        <span class="alt-font"><i class="icon icon_pin"></i> 300 Collins St Melbourne</span>
+                        <span class="alt-font"><i class="icon icon_mail"></i> hello@pivot.net</span>
 
-            <div class="col-xs-6 col-sm-4 mb50">
-                    <span class="fa-stack fa-4x hidden">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                <div class="service-icon"> <img src="{{ asset('assets/img/icons/4-lg.png') }}" title="service icon"> </div>
-                <h4 class="service-heading">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-xs-6 col-sm-4 mb50">
-                <div class="service-icon"> <img src="{{ asset('assets/img/icons/5-lg.png') }}" title="service icon"> </div>
-                    <span class="fa-stack fa-4x hidden">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                <h4 class="service-heading">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-xs-6 col-sm-4 mb50">
-                <div class="service-icon"> <img src="{{ asset('assets/img/icons/6-lg.png') }}" title="service icon"> </div>
-                    <span class="fa-stack fa-4x hidden">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                <h4 class="service-heading">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Flat Features Section -->
-<section id="features-flat" class="bg-light">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-sm-12 col-md-6 text-center">
-                <h2 class="section-heading mt70">World Class Developers</h2>
-                <h3 class="section-subheading text-muted mb30">This is basically like more advanced lorem ipsum.</h3>
-                <p class="text-muted mb50">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                <a href="#services" class="page-scroll btn btn-xl mr30 btn-primary pv15">Learn More</a>
-                <a href="#contact" class="page-scroll btn btn-xl btn-danger pv15">Contact Us</a>
-
-            </div>
-            <div class="hidden-sm hidden-xs col-md-6">
-                <img src="{{ asset('assets/img/features/flat_feature1.png') }}" title="iMac Image" class="img-responsive pull-right">
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Flat Features Section -->
-<section id="features-flat">
-    <div class="container">
-
-        <div class="row">
-            <div class="hidden-sm hidden-xs col-md-6">
-                <img src="{{ asset('assets/img/features/flat_feature2.png') }}" title="iMac Image" class="img-responsive pull-left">
-            </div>
-            <div class="col-sm-12 col-md-6 text-center">
-                <h2 class="section-heading mt70">Mobile First Solutions</h2>
-                <h3 class="section-subheading text-muted mb30">This is basically like more advanced lorem ipsum.</h3>
-                <p class="text-muted mb50">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                <a href="#services" class="page-scroll btn btn-xl mr30 btn-primary pv15">Learn More</a>
-                <a href="#contact" class="page-scroll btn btn-xl btn-danger pv15">Contact Us</a>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Features Section -->
-<section id="features">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading hidden">We're great at the little things</h2>
-                <h2 class="section-heading">We're here to help you succeed</h2>
-                <h3 class="section-subheading text-muted mbn">Our in house team can build the features and solutions you need.</h3>
-
-
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6">
-            </div>
-            <div class="col-md-12 hidden">
-                <!-- <img src="img/features/1.png" title="iMac Image" class="img-responsive pull-right mtn30"> -->
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Get your free trial and explore the possibilities!</h2>
-            </div>
-        </div>
-        <form name="sentMessage" id="contactForm" class="mw800 center-block clearfix" novalidate>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
-                <p class="help-block text-danger"></p>
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
-                <p class="help-block text-danger"></p>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-xl btn-block btn-wire">Subscribe</button>
-            </div>
-        </form>
-        <p> By subscribing you agree to our terms and conditions. </p>
-
-    </div>
-</section>
-
-<!-- Footer -->
-<footer id="footer">
-    <div class="container mw850">
-        <div class="row">
-            <div class="col-md-6 text-left">
-                <span class="copyright text-muted">Copyright &copy; <b>KampWeb</b> 2016</span>
-            </div>
-            <div class="col-md-6 text-right">
-                <ul class="list-inline social-buttons">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-4 hidden">
-                <ul class="list-inline quicklinks">
-                    <li><a href="#">Privacy Policy</a>
-                    </li>
-                    <li><a href="#">Terms of Use</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-<!-- About Section (timeline/hidden) -->
-<section id="about" class="hidden">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">About</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image">
-                            <img class="img-responsive img-circle" src="{{ asset('assets/img/about/1.jpg') }}" alt="">
+                        <div class="pull-right">
+                            <a href="{{ path('login') }}" class="btn btn-primary btn-white btn-xs">Login</a>
+                            <a href="{{ path('register') }}" class="btn btn-primary btn-filled btn-xs">Signup</a>
+                            <a href="#" class="language"><img alt="English" src="{{ asset('assets/img/english.png') }}"></a>
+                            <a href="#" class="language"><img alt="English" src="{{ asset('assets/img/denmark.png') }}"></a>
                         </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <img class="img-responsive img-circle" src="{{ asset('assets/img/about/2.jpg') }}" alt="">
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image">
-                            <img class="img-responsive img-circle" src="{{ asset('assets/img/about/3.jpg') }}" alt="">
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>December 2012</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="{{ asset('assets/img/about/4.jpg') }}" alt="">
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>July 2014</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>Be Part
-                                <br>Of Our
-                                <br>Story!</h4>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Team Section (hidden) -->
-<section id="team" class="bg-light hidden">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">The Team You Need</h2>
-                <h3 class="section-subheading text-muted">Lorem amet ipsum dolor sit consectetur.</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="{{ asset('assets/img/team/1.jpg') }}" class="img-responsive" alt="">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                    <h4>Kay Garland</h4>
-                    <p class="text-muted">Lead Designer</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="{{ asset('assets/img/team/2.jpg') }}" class="img-responsive" alt="">
-                    <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Marketer</p>
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+
+
+            <div class="row nav-menu">
+                <div class="col-md-2 col-sm-3 columns">
+                    <img class="logo logo-light" alt="Logo" src="{{ asset('assets/img/logo-light.png') }}">
+                    <img class="logo logo-dark" alt="Logo" src="{{ asset('assets/img/logo-dark.png') }}">
+                </div>
+
+                <div class="col-md-10 col-sm-9 columns">
+                    <ul class="menu">
+                        <li><a href="#">Single Link</a></li>
+                        <li class="has-dropdown"><a href="#">Dropdown</a>
+                            <ul class="subnav">
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                            </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li class="has-dropdown"><a href="#">Half Width</a>
+                            <div class="subnav subnav-halfwidth">
+                                <div class="col-md-6">
+                                    <h6 class="alt-font">Subnav Title</h6>
+                                    <ul class="subnav">
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h6 class="alt-font">Subnav Title</h6>
+                                    <ul class="subnav">
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li class="has-dropdown"><a href="#">Fullwidth</a>
+                            <div class="subnav subnav-fullwidth">
+                                <div class="col-md-3">
+                                    <h6 class="alt-font">Subnav Title</h6>
+                                    <ul class="subnav">
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h6 class="alt-font">Subnav Title</h6>
+                                    <ul class="subnav">
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h6 class="alt-font">Subnav Title</h6>
+                                    <ul class="subnav">
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h6 class="alt-font">Subnav Title</h6>
+                                    <ul class="subnav">
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                        <li><a href="#">Example</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="social-icons text-right">
+                        <li>
+                            <a href="#">
+                                <i class="icon social_twitter"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="icon social_facebook"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="icon social_instagram"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="{{ asset('assets/img/team/3.jpg') }}" class="img-responsive" alt="">
-                    <h4>Diana Pertersen</h4>
-                    <p class="text-muted">Lead Developer</p>
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!--Call to Action Section (hidden) -->
-<section id="call-to-action" class="hidden">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Portfolio</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <div class="mobile-toggle">
+                <i class="icon icon_menu"></i>
             </div>
-        </div>
-    </div>
-</section>
 
-
-<!-- Portfolio Modals -->
-<!-- Use the modals below to showcase details about your portfolio projects! -->
-
-<!-- Portfolio Modal 1 -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive" src="{{ asset('assets/img/portfolio/roundicons-free.png') }}" alt="">
-                        <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                        <p>
-                            <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="#">exampleDomain.com</a>, or you can purchase the 1500 icon set <a href="#">here</a>.</p>
-                        <ul class="list-inline">
-                            <li>Date: July 2014</li>
-                            <li>Client: Round Icons</li>
-                            <li>Category: Graphic Design</li>
-                        </ul>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </nav>
+
 </div>
 
-<!-- Portfolio Modal 2 -->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
+<div class="main-container">
+    <header class="signup">
+        <div class="background-image-holder parallax-background">
+            <img class="background-image" alt="Background Image" src="{{ asset('assets/img/hero9.jpg') }}">
         </div>
+
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Project Heading</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="{{ asset('assets/img/portfolio/startup-framework-preview.png') }}" alt="">
-                        <p><a href="#">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
-                        <p>You can preview Startup Framework <a href="#">here</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
+                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+                    <h1 class="text-white">We're getting ready to launch<br>Subscribe now to stay informed</h1>
                 </div>
             </div>
+
+            <div class="row text-center">
+
+                <div class="col-sm-12 text-center">
+                    <div class="photo-form-wrapper clearfix">
+                        <form class="mail-list-signup">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-4 col-md-offset-3 col-sm-offset-2">
+                                    <input class="signup-name-field validate-required" type="text" placeholder="Your Name">
+                                </div>
+
+                                <div class="col-md-3 col-sm-4">
+                                    <input class="signup-email-field validate-required validate-email" type="text" placeholder="Your Email Address">
+                                </div>
+
+                                <div class="col-md-12 col-md-offset-0 col-sm-4 col-sm-offset-4 text-center">
+                                    <input type="submit" class="btn btn-primary btn-filled" value="Subscribe">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <span class="text-white">We <strong>never</strong> share emails with third parties</span>
+                </div>
+
+            </div>
+            <iframe class="mail-list-form" srcdoc="">
+            </iframe>
+
         </div>
-    </div>
+    </header>
 </div>
 
-<!-- Portfolio Modal 3 -->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
+<div class="footer-container">
+
+
+
+    <footer class="bg-primary short-2">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="{{ asset('assets/img/portfolio/treehouse-preview.png') }}" alt="">
-                        <p>Treehouse is a free PSD web template built by <a href="#">Example Person</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="#">exampleDomain.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
+                <div class="col-sm-12">
+                    <span class="text-white">© 2014 Pivot Inc.</span>
+                    <span class="text-white"><a href="#">hello@pivot.net</a></span>
+                    <span class="text-white">+614 3827 492</span>
+                    <span class="text-white">300 Collins St. Melbourne 3000</span>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="contact-action">
+            <div class="align-vertical">
+                <i class="icon text-white icon_mail"></i>
+                <a href="contact.html" class="text-white"><span class="text-white">Get in touch with us <i class="icon arrow_right"></i></span></a>
+            </div>
+        </div>
+    </footer>
 </div>
-
-<!-- Portfolio Modal 4 -->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="{{ asset('assets/img/portfolio/golden-preview.png') }}" alt="">
-                        <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="#">Example Person</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="#">exampleDomain.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Portfolio Modal 5 -->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="{{ asset('assets/img/portfolio/escape-preview.png') }}" alt="">
-                        <p>Escape is a free PSD web template built by <a href="#">Example Person</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="#">exampleDomain.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Portfolio Modal 6 -->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="{{ asset('assets/img/portfolio/dreams-preview.png') }}" alt="">
-                        <p>Dreams is a free PSD web template built by <a href="#">Example Person</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="#">SampleDomain.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- jQuery -->
-<!-- <script src="js/vendor/jquery.js"></script> -- Local Version -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<!-- <script src="js/vendor/bootstrap.min.js"></script> -- Local Version -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<!-- Contact Form JavaScript -->
-<script src="{{ asset('assets/js/vendor/jqBootstrapValidation.js') }}"></script>
-<script src="{{ asset('assets/js/contact_me.js') }}"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="{{ asset('assets/js/main.js') }}"></script>
-
+{% block javascripts %}
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.plugin.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.flexslider-min.js') }}"></script>
+<script src="{{ asset('assets/js/smooth-scroll.min.js') }}"></script>
+<script src="{{ asset('assets/js/skrollr.min.js') }}"></script>
+<script src="{{ asset('assets/js/spectragram.min.js') }}"></script>
+<script src="{{ asset('assets/js/scrollReveal.min.js') }}"></script>
+<script src="{{ asset('assets/js/isotope.min.js') }}"></script>
+<script src="{{ asset('assets/js/twitterFetcher_v10_min.js') }}"></script>
+<script src="{{ asset('assets/js/lightbox.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
+<script src={{ asset('assets/js/scripts.js') }}></script>
+{% endblock %}
 </body>
-
 </html>
+				

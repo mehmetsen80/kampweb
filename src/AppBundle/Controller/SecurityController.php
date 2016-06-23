@@ -39,6 +39,7 @@ class SecurityController extends Controller
 
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
+
         $this->addFlash(
             'welcome',
             'Welcome back!'

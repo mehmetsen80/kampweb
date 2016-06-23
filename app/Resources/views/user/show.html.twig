@@ -35,7 +35,7 @@
                     <div class="media-body va-m">
                         <h2 class="media-heading">{{ user.fullname }}
                             {% if is_granted('ROLE_ADMIN') %}
-                                <small><a href="{{ path('edit-user', {'userid': user.id}) }}"> - Edit Profile </a></small>
+                                <small><a style="text-decoration: blink" href="{{ path('edit-user', {'userid': user.id}) }}"> - Edit Profile </a></small>
                             {% endif %}
                         </h2>
                     </div>

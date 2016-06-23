@@ -466,14 +466,14 @@
             var form = this.telInput.prop("form");
             if (form) {
                 $(form).on("submit" + this.ns, function() {
-                    that._removeEmptyDialCode();
+                    // that._removeEmptyDialCode();
                 });
             }
-            this.telInput.on("blur" + this.ns, function() {
-                that._removeEmptyDialCode();
-            });
+            // this.telInput.on("blur" + this.ns, function() {
+            //     that._removeEmptyDialCode();
+            // });
         },
-        //_removeEmptyDialCode: function() {
+        // _removeEmptyDialCode: function() {
         //    var value = this.telInput.val(), startsPlus = value.charAt(0) == "+";
         //    if (startsPlus) {
         //        var numeric = this._getNumeric(value);
@@ -484,7 +484,7 @@
         //    }
         //    // remove the keypress listener we added on focus
         //    this.telInput.off("keypress.plus" + this.ns);
-        //},
+        // },
         // extract the numeric digits from the given string
         _getNumeric: function(s) {
             return s.replace(/\D/g, "");

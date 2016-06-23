@@ -1,61 +1,61 @@
 {% extends '::default.html.twig' %}
 
 {% block body %}
-<body class="profile-page">
-<!-- Start: Content-Wrapper -->
-<section id="content_wrapper">
+    <body class="profile-page">
+    <!-- Start: Content-Wrapper -->
+    <section id="content_wrapper">
 
-    <!-- Start: Topbar -->
-    <header id="topbar">
-        <div class="topbar-left">
-            <ol class="breadcrumb">
-                <li class="crumb-active">
-                    <a href="{{ path('dashboard') }}">Dashboard</a>
-                </li>
-                <li class="crumb-icon">
-                    <a href="{{ path('dashboard') }}">
-                        <span class="glyphicon glyphicon-home"></span>
-                    </a>
-                </li>
-                <li class="crumb-link">
-                    <a href="{{ path('profile', {'userid': app.user.id}) }}">My Profile</a>
-                </li>
-            </ol>
-        </div>
-    </header>
-    <!-- End: Topbar -->
+        <!-- Start: Topbar -->
+        <header id="topbar">
+            <div class="topbar-left">
+                <ol class="breadcrumb">
+                    <li class="crumb-active">
+                        <a href="{{ path('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="crumb-icon">
+                        <a href="{{ path('dashboard') }}">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                    </li>
+                    <li class="crumb-link">
+                        <a href="{{ path('profile', {'userid': app.user.id}) }}">My Profile</a>
+                    </li>
+                </ol>
+            </div>
+        </header>
+        <!-- End: Topbar -->
 
-    <!-- Begin: Content -->
-    <section id="content" class="animated fadeIn">
+        <!-- Begin: Content -->
+        <section id="content" class="animated fadeIn">
 
-        <!-- Begin .page-heading -->
-        <div class="page-heading">
-            <div class="media clearfix">
-                <div class="media-body va-m">
-                    <h2 class="media-heading">{{ user.fullname }}
-                        <small> - Profile</small>
-                    </h2>
+            <!-- Begin .page-heading -->
+            <div class="page-heading">
+                <div class="media clearfix">
+                    <div class="media-body va-m">
+                        <h2 class="media-heading">{{ user.fullname }}
+                            <small> - Profile</small>
+                        </h2>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
 
-                <div class="tab-block">
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a href="#tab1" data-toggle="tab">Events</a>
-                        </li>
-                        <li>
-                            <a href="#tab2" data-toggle="tab">About</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content p30">
-                        <div id="tab1" class="tab-pane active"></div>
-                        <div id="tab2" class="tab-pane">
-                            <div class="panel">
-                                <div class="panel-body pn">
+                    <div class="tab-block">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab1" data-toggle="tab">Events</a>
+                            </li>
+                            <li>
+                                <a href="#tab2" data-toggle="tab">About</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content p30">
+                            <div id="tab1" class="tab-pane active"></div>
+                            <div id="tab2" class="tab-pane">
+                                <div class="panel">
+                                    <div class="panel-body pn">
 
                                         <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
                                             <thead>
@@ -107,29 +107,29 @@
                                                     <span class="fa fa-database text-primary-lighter"></span>
                                                 </td>
                                                 <td>Register Date</td>
-                                                <td>{{ user.createdat|date('Y-m-d') }}</td>
+                                                <td>{{ user.createdat|date('U') }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <span class="fa fa-edit text-info-lighter"></span>
                                                 </td>
                                                 <td>Last Modifed Date</td>
-                                                <td>{{ user.modifiedat|date('Y-m-d') }}</td>
+                                                <td>{{ user.modifiedat|date() }}</td>
                                             </tr>
                                             </tbody>
                                         </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+        </section>
+        <!-- End: Content -->
 
     </section>
-    <!-- End: Content -->
-
-</section>
-</body>
+    </body>
 
 {% endblock %}

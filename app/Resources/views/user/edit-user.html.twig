@@ -44,14 +44,14 @@
         {% for flash_message in app.session.flashBag.get('updatesuccess') %}
             <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="fa fa-trophy pr10"></i>
+                <i class="fa fa-check pr10"></i>
                 {{ flash_message }}
             </div>
         {% endfor %}
         {% for flash_message in app.session.flashBag.get('updateerror') %}
-            <div class="alert alert-error alert-dismissable">
+            <div class="alert alert-warning alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="fa fa-trophy pr10"></i>
+                <i class="fa fa-remove pr10"></i>
                 {{ flash_message }}
             </div>
         {% endfor %}

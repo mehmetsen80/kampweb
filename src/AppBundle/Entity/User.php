@@ -93,12 +93,12 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @var \DateTime
-     * @ORM\Column(name="createdat", type="datetime", nullable=true)
+     * @ORM\Column(name="createdat", type="bigint", nullable=true)
      */
     protected $createdat;
     /**
      * @var \DateTime
-     * @ORM\Column(name="modifiedat", type="datetime", nullable=true)
+     * @ORM\Column(name="modifiedat", type="bigint", nullable=true)
      */
     protected  $modifiedat;
     /**
@@ -122,10 +122,14 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function updatedTimestamps()
     {
-        $this->setModifiedat(new \DateTime(date('Y-m-d H:i:s')));
+        $date = date_create();
+        $unixDate = $date->getTimestamp();
+        $this->setModifiedat($unixDate);
         if($this->getCreatedat() == null)
         {
-            $this->setCreatedat(new \DateTime(date('Y-m-d H:i:s')));
+            $date = date_create();
+            $unixDate = $date->getTimestamp();
+            $this->setCreatedat($unixDate);
         }
     }
 
