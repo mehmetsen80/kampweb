@@ -176,7 +176,7 @@
                             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                         {% endif %}
                         <div class="photo-form-wrapper clearfix">
-                            <form method="post" action="{{ path('login') }}" id="contact">
+                            <form method="post" action="{{ path('register') }}" id="contact">
                                 {{ form_widget(form.fullname, {'attr': {'class': 'form-name validate-required', 'placeholder':'Fullname...', 'type':'text', 'id':"firstname" }}) }}
                                 {{ form_widget(form.username, {'attr': {'class': 'form-email validate-required', 'placeholder':'Email address', 'type':'email', 'id':'email', 'name':'_username'}}) }}
                                 {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-password validate-required', 'placeholder':'Create a password', 'type':'password', 'id':'password'}}) }}
