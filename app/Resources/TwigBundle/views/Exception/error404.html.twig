@@ -19,8 +19,8 @@
                         <span class="alt-font"><i class="icon icon_mail"></i> hello@pivot.net</span>
 
                         <div class="pull-right">
-                            <a href="login.html" class="btn btn-primary login-button btn-xs">Login</a>
-                            <a href="#" class="btn btn-primary btn-filled btn-xs">Signup</a>
+                            <a href="{{ path('login') }}" class="btn btn-primary login-button btn-xs">Login</a>
+                            <a href="{{ path('register') }}" class="btn btn-primary btn-filled btn-xs">Signup</a>
                             <a href="#" class="language"><img alt="English" src="{{ asset('assets/img/english.png') }}"></a>
                             <a href="#" class="language"><img alt="English" src="{{ asset('assets/img/denmark.png') }}"></a>
                         </div>
@@ -166,7 +166,7 @@
                     <i class="icon icon-compass"></i>
                     <h1 class="jumbo">404</h1>
                     <h1><strong>Oh dear, we seem to have led you astray!</strong><br>Let's get back on track...</h1>
-                    <a href="chooser.html" class="btn btn-primary btn-white" target="default">Take Me Home</a>
+                    <a href="{{ path('homepage') }}" class="btn btn-primary btn-white" target="default">Take Me Home</a>
                     <a href="#" class="btn btn-primary btn-white btn-text-only">Report This</a>
                 </div>
             </div><!--end of row-->
