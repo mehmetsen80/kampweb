@@ -24,6 +24,9 @@ class DefaultController extends Controller
         return $this->render('::landing.html.twig');
     }
 
+    /**
+     * @Route("/parallax")
+     */
     public  function phpMyAdmin(){
 
         return $this->render('parallax/index.html.twig', [

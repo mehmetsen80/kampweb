@@ -5,6 +5,8 @@
     <link rel='stylesheet' type='text/css' href='{{ asset('assets/fonts/font-awesome/css/font-awesome.css') }}'>
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/intlTelInput.css') }}">
     <!-- Admin Forms CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 
@@ -21,175 +23,22 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
 
 {% endblock %}
+
 {% block body %}
-<body>
-    <!-- Start: Content-Wrapper -->
-    <section id="content_wrapper">
-        <!-- Start: TOPBAR -->
-        <header id="topbar">
-            <div class="topbar-left">
-                <ol class="breadcrumb">
-                    <li class="crumb-active">
-                        <a href="{{ path('dashboard') }}">Dashboard</a>
-                    </li>
-                    <li class="crumb-icon">
-                        <a href="{{ path('dashboard') }}">
-                            <span class="glyphicon glyphicon-home"></span>
-                        </a>
-                    </li>
-                    <li class="crumb-link">
-                        <a href="{{ path('update') }}">Edit Profile</a>
-                    </li>
-                </ol>
-            </div>
-        </header>
-        <!-- End: TOPBAR -->
-        {% for flash_message in app.session.flashBag.get('success') %}
-            <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="fa fa-check pr10"></i>
-                <strong>Well done!</strong> You successfully signed up.
-                <a href="#" class="alert-link">{{ flash_message }}</a>
-            </div>
-        {% endfor %}
-        {% for flash_message in app.session.flashBag.get('updatesuccess') %}
-            <div class="alert alert-primary alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="fa fa-trophy pr10"></i>
-                {{ flash_message }}
-            </div>
-        {% endfor %}
-        {% for flash_message in app.session.flashBag.get('updateerror') %}
-            <div class="alert alert-danger alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="fa fa-remove pr10"></i>
-                <strong>{{ flash_message }}</strong>
+    <div class="col-md-6">
+        {{ form_widget(testform.ccode,{'id':'phone'}) }}
+        <label for="maskedPhone" class="field prepend-icon">
+            {% if app.user.cellphone is empty %}
+                {{ form_widget(testform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",   'placeholder':"Cellphone"}}) }}
+            {% else %}
+                {{ form_widget(testform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'placeholder':"Cellphone", 'style':"margin-top:-1.85em; padding-left: 80px;" }}) }}
 
-            </div>
-        {% endfor %}
-        <!-- Begin: Content -->
-        <section id="content" class="table-layout animated fadeIn">
-            <!-- begin: .tray-center -->
-            <div class="tray tray-center">
+            {% endif %}
+            <label for="mobile_phone" class="field-icon">
 
-                <!-- Begin: Content Header -->
-                <div class="content-header">
-                    <h2> Fill in the fields that you'd like to change then press update buton.</h2>
-                </div>
-
-                <!-- Validation Example -->
-                <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
-
-                    <div class="panel heading-border">
-
-                        <form method="post" action="{{ path('update') }}" id="admin-form">
-
-                            <div class="panel-body bg-light">
-
-                                <div class="section-divider mt20 mb40">
-                                    <span> Update Your Information - You must fill out all your information </span>
-                                </div>
-                                <div class="section">
-                                    <label for="firstname" class="field prepend-icon">
-                                        {{ form_widget(updateme.fullname, {'attr': {'class': 'gui-input', 'type':'text', 'id':"firstname" }}) }}
-                                        <label for="firstname" class="field-icon">
-                                            <i class="fa fa-user"></i>
-                                        </label>
-                                    </label>
-                                </div>
-
-
-                                <!-- end .section row section -->
-
-                                <div class="section">
-                                    <label for="useremail" class="field prepend-icon">
-                                        {{ form_widget(updateme.username, {'attr': {'class': 'gui-input', 'type':'email', 'id':"useremail" }}) }}
-                                        <label for="useremail" class="field-icon">
-                                            <i class="fa fa-envelope"></i>
-                                        </label>
-                                    </label>
-                                </div>
-                                <!-- end section -->
-
-                                <div class="section row">
-                                    <div class="col-md-3">
-                                        <label class="field select">
-                                            {{ form_widget(updateme.ccode) }}
-                                            <i class="arrow double"></i>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="maskedPhone" class="field prepend-icon">
-                                            {% if app.user.cellphone is empty %}
-                                                {{ form_widget(updateme.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",   'placeholder':"Cellphone"}}) }}
-                                            {% else %}
-                                                {{ form_widget(updateme.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'placeholder':"Cellphone", 'style':'margin-left'}}) }}
-
-                                            {% endif %}
-                                            <label for="mobile_phone" class="field-icon">
-
-                                            </label>
-                                        </label>
-                                    </div>
-                                    <!-- end section -->
-
-                                    <div class="col-md-6">
-                                        <label class="field select">
-                                            {{ form_widget(updateme.gender) }}
-                                            <i class="arrow double"></i>
-                                        </label>
-                                    </div>
-                                    <!-- end section -->
-                                </div>
-                                <div class="section">
-                                    <label for="datepicker1" class="field prepend-icon">
-                                        {% if app.user.birthday is empty %}
-                                            {{ form_widget(updateme.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}
-                                        {% else %}
-                                            {{ form_widget(updateme.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text'}})}}
-                                        {% endif %}
-                                        <label class="field-icon">
-                                            <i class="fa fa-calendar-o"></i>
-                                        </label>
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- end .form-body section -->
-                            <div class="panel-footer text-right">
-                                <button type="submit" class="button btn-primary" > Update </button>
-                            </div>
-                            <!-- end .form-footer section -->
-                            {{ form_row(updateme._token) }}
-                        </form>
-
-                    </div>
-
-                </div>
-                <!-- end: .admin-form -->
-
-            </div>
-            <!-- end: .tray-center -->
-
-        </section>
-        <!-- End: Content -->
-
-    </section>
-
-    <style>
-        /* demo page styles */
-        body { min-height: 2300px; }
-
-        .content-header b,
-        .admin-form .panel.heading-border:before,
-        .admin-form .panel .heading-border:before {
-            transition: all 0.7s ease;
-        }
-        /* responsive demo styles */
-        @media (max-width: 800px) {
-            .admin-form .panel-body { padding: 18px 12px; }
-        }
-    </style>
-</body>
+            </label>
+        </label>
+    </div>
 {% endblock %}
 {% block javascripts %}
     <!-- jQuery -->
@@ -204,6 +53,7 @@
 
     <!-- jQuery Validate Addon -->
     <script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
+    <script src="{{ asset('assets/js/intlTelInput.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             "use strict";
@@ -376,6 +226,7 @@
 
             // Init jQuery Time Spinner
             $("#spinner4").timespinner();
+            $("#phone").intlTelInput();
             $('.phone').mask('?(999)-999-9999');
 
 

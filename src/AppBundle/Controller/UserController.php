@@ -80,39 +80,28 @@ class UserController extends Controller
             if (!empty($newfullname)) {
                 $user->setFullname($newfullname);
             }
-            else{
-                $user->setFullname($user->getFullname());
-            }
+
             if (!empty($newusername)) {
                 $user->setUsername($newusername);
             }
-            else{
-                $user->setUsername($user->getUsername());
-            }
+
             if (!empty($cellphone)) {
                 $cellphone =  preg_replace("/[^0-9A-Za-z]/", "", $cellphone);
                 $user->setCellphone($cellphone);
             }
-            else{
-                $user->setCellphone($user->getCellphone());
-            }
+
             if(!empty($ccode)){
-                $ccode = preg_replace("/[^0-9A-Za-z]/", "", $ccode);
                 $user->setCcode($ccode);
             }
 
             if (!empty($birthdate)) {
                 $user->setBirthDay($birthdate);
             }
-            else{
-                $user->setBirthDay($user->getBirthday());
-            }
+
             if (!empty($gender)) {
                 $user->setGender($gender);
             }
-            else {
-                $user->setGender($user->getGender());
-            }
+
             $em->persist($user);
             $em->flush();
             $this->addFlash(
@@ -132,7 +121,7 @@ class UserController extends Controller
             return $this->redirect($this->generateUrl('changepassword'));
         }
 
-            return $this->render('user/update.html.twig', array('form1' => $updateform->createView()));
+            return $this->render('user/update.html.twig', array('updateme' => $updateform->createView()));
         }
 
     /**
@@ -150,7 +139,6 @@ class UserController extends Controller
             $cellphone = $addform->get('cellphone')->getData();
             $ccode = $addform->get('ccode')->getData();
             $cellphone =  preg_replace("/[^0-9A-Za-z]/", "", $cellphone);
-            $ccode =  preg_replace("/[^0-9A-Za-z]/", "", $ccode);
             $user->setCcode($ccode);
             $user->setCellphone($cellphone);
             $user->setPlainPassword(1234);
@@ -220,7 +208,7 @@ class UserController extends Controller
     public function editUserAction(Request $request ,$userid){
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('AppBundle:User')->find(['id'=>$userid]);
-        $editform = $this->createForm(EditUserType::class);
+        $editform = $this->createForm(EditUserType::class, $user);
         $editform->handleRequest($request);
         if ($editform->isSubmitted() && $editform->isValid()) {
             $ccode = $editform->get('ccode')->getData();
@@ -250,7 +238,7 @@ class UserController extends Controller
                 $user->setCellphone($user->getCellphone());
             }
             if(!empty($ccode)){
-                $ccode = preg_replace("/[^0-9A-Za-z]/", "", $ccode);
+
                 $user->setCcode($ccode);
             }
             else{
@@ -288,8 +276,5 @@ class UserController extends Controller
         }
         return $this->render(':user:edit-user.html.twig', array('user'=>$user, 'editform' => $editform->createView()));
     }
-
-
-
 
 }

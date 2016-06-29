@@ -5,8 +5,6 @@
     <link rel='stylesheet' type='text/css' href='{{ asset('assets/fonts/font-awesome/css/font-awesome.css') }}'>
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/intlTelInput.css') }}">
     <!-- Admin Forms CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 
@@ -174,23 +172,28 @@
                                 <!-- end section -->
 
                                 <div class="section row">
-                                    <div class="col-md-6">
-                                        {{ form_widget(addform.ccode,{'id':'phone', 'attr': {}}) }}
+                                    <div class="col-md-2">
+                                        <label class="field select">
+                                            {{ form_widget(addform.ccode,{'id':'phone'}) }}
+                                            <i class="arrow double"></i>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-5">
                                         <label for="maskedPhone" class="field prepend-icon">
                                             {% if app.user.cellphone is empty %}
-                                                {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",  'type':'tel', 'placeholder':"Cellphone"}}) }}
+                                                {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",   'placeholder':"Cellphone"}}) }}
                                             {% else %}
-                                                {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'type':'tel','placeholder':"Cellphone", 'style':"margin-top:-1.62em; padding-left: 80px;" }}) }}
+                                                {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'placeholder':"Cellphone"}}) }}
 
                                             {% endif %}
                                             <label for="mobile_phone" class="field-icon">
-
+                                                <i class="fa fa-phone"></i>
                                             </label>
                                         </label>
                                     </div>
                                     <!-- end section -->
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                         <label class="field select">
                                             {{ form_widget(addform.gender) }}
                                             <i class="arrow double"></i>
@@ -284,7 +287,6 @@
 
     <!-- jQuery Validate Addon -->
     <script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
-    <script src="{{ asset('assets/js/intlTelInput.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             "use strict";
@@ -457,7 +459,6 @@
 
             // Init jQuery Time Spinner
             $("#spinner4").timespinner();
-            $("#phone").intlTelInput();
             $('.phone').mask('?(999)-999-9999');
 
 

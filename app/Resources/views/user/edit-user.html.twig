@@ -116,17 +116,28 @@
                                 <!-- end section -->
 
                                 <div class="section row">
-                                    <div class="col-md-6">
-                                        {{ form_widget(editform.ccode,{'id':'phone'}) }}
+                                    <div class="col-md-2">
+                                        <label class="field select">
+                                            {{ form_widget(editform.ccode,{'id':'phone'}) }}
+                                            <i class="arrow double"></i>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-5">
                                         <label for="maskedPhone" class="field prepend-icon">
-                                                {{ form_widget(editform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'type':'tel','placeholder':"New Cellphone Number" }}) }}
+                                            {% if app.user.cellphone is empty %}
+                                                {{ form_widget(editform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",   'placeholder':"Cellphone"}}) }}
+                                            {% else %}
+                                                {{ form_widget(editform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off", 'placeholder':"Cellphone"}}) }}
+
+                                            {% endif %}
                                             <label for="mobile_phone" class="field-icon">
+                                                <i class="fa fa-phone"></i>
                                             </label>
                                         </label>
                                     </div>
                                     <!-- end section -->
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                         <label class="field select">
                                             {{ form_widget(editform.gender) }}
                                             <i class="arrow double"></i>

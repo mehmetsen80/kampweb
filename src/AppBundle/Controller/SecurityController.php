@@ -13,6 +13,7 @@ use AppBundle\Form\ResetPasswordCheckType;
 use AppBundle\Form\ResetPasswordType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Form\UserType;
@@ -27,6 +28,7 @@ class SecurityController extends Controller
      */
     public function loginAction(Request $request)
     {
+
         //Check if the user is already authenticated
         if($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             return $this->redirect($this->generateUrl('homepage'));
@@ -34,7 +36,7 @@ class SecurityController extends Controller
 
        $authenticationUtils = $this->get('security.authentication_utils');
 
-        // get the login error if there is one
+        // get the  error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
 
         // last username entered by the user

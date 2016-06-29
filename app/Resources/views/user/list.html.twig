@@ -34,7 +34,7 @@
        </header>
        <!-- End: TOPBAR -->
 
-        <!-- Begin: CONTENT -->
+       <!-- Begin: CONTENT -->
         <section id="content" >
             <div class="col-md-12">
                 <div class="text-right" style="margin-bottom: 1em;">
@@ -57,7 +57,7 @@
                             <tr>
                                 <th>User</th>
                                 <th>Email</th>
-                                <th>Cellphone</th>
+                                <th>Gender</th>
                                 <th>Birthday</th>
                                 <th></th>
                             </tr>
@@ -66,7 +66,7 @@
                             <tr>
                                 <th>User</th>
                                 <th>Email</th>
-                                <th>Cellphone</th>
+                                <th>Gender</th>
                                 <th>Birthday</th>
                                 <th></th>
                             </tr>
@@ -76,7 +76,7 @@
                                 <tr>
                                     <td> <a href="{{ path('showusers', {'userid': user.id}) }}">{{ user.fullname }}</a></td>
                                     <td>{{ user.username }}</td>
-                                    <td>{{ user.cellphone }}</td>
+                                    <td>{{ user.gender }}</td>
                                     <td>{{ user.birthday|date('Y-m-d') }}</td>
                                     <td><a href="{{ path('edit-user', {'userid': user.id}) }}"><span class="fa fa-pencil-square-o fa-2x"></span> </a></td>
                                 </tr>
@@ -169,7 +169,5 @@
             });
         });
     </script>
-    <!-- END: PAGE SCRIPTS -->
-
     <!-- END: PAGE SCRIPTS -->
 {% endblock %}
