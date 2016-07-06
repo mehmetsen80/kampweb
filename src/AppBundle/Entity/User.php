@@ -259,6 +259,9 @@ class User implements AdvancedUserInterface, \Serializable
         return $this->dependents;
     }
 
+
+
+
     /************************************** Setters *********************************************/
 
     public function setRoles(array $roles){
@@ -393,6 +396,10 @@ class User implements AdvancedUserInterface, \Serializable
     {
         $this->confirmationToken = $confirmationToken;
     }
+
+
+
+
 
     /***************************************** Others ***************************************************/
 

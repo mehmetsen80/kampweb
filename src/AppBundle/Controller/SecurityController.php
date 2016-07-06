@@ -13,7 +13,6 @@ use AppBundle\Form\ResetPasswordCheckType;
 use AppBundle\Form\ResetPasswordType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Form\UserType;
@@ -24,14 +23,14 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 class SecurityController extends Controller
 {
     /**
-     * @Route("/login", name="login")
+     * @Route("/", name="login")
      */
     public function loginAction(Request $request)
     {
 
         //Check if the user is already authenticated
         if($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
-            return $this->redirect($this->generateUrl('homepage'));
+            return $this->redirect($this->generateUrl('dashboard'));
         }
 
        $authenticationUtils = $this->get('security.authentication_utils');
@@ -48,7 +47,7 @@ class SecurityController extends Controller
         );
 
         return $this->render(
-            'security/login.html.twig',
+            '::landing.html.twig',
             array(
                 // last username entered by the user
                 'last_username' => $lastUsername,
@@ -58,13 +57,13 @@ class SecurityController extends Controller
     }
 
     /**
-     * @Route("/register", name="register")
+     * @Route("/register",name="register")
      */
     public function registerAction(Request $request)
     {
         //Check authentication
         if($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
-            return $this->redirect($this->generateUrl('homepage'));
+            return $this->redirect($this->generateUrl('dashboard'));
         }
         // get the authentication utils
         $authenticationUtils = $this->get('security.authentication_utils');
@@ -75,7 +74,6 @@ class SecurityController extends Controller
         // build the form
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
-        try {
             // handle the submit (will only happen on POST)
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
@@ -110,12 +108,7 @@ class SecurityController extends Controller
                 $this->get('mailer')->send($message);
 
                 return $this->redirectToRoute('update');
-            } 
-        }
-        catch (\Exception $e){
-
-           echo $e->getCode() . ' ' . $e->getMessage();
-        }
+            }
 
         return $this->render(
             ':security:register.html.twig',
@@ -125,7 +118,6 @@ class SecurityController extends Controller
                 )
         );
     }
-
 
     /**
      * @param Request $request

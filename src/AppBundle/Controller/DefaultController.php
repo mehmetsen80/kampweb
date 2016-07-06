@@ -10,19 +10,19 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
 
-    /**
-     * @Route("/", name="homepage")
-     */
-    public function indexAction(Request $request)
-    {
-
-        if($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            return $this->redirect($this->generateUrl('dashboard'));
-        }
-        //echo "hello world";
-        // replace this example code with whatever you need
-        return $this->render('::landing.html.twig');
-    }
+//    /**
+//     * @Route("/", name="homepage")
+//     */
+//    public function indexAction(Request $request)
+//    {
+//
+//        if($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+//            return $this->redirect($this->generateUrl('dashboard'));
+//        }
+//        //echo "hello world";
+//        // replace this example code with whatever you need
+//        return $this->render('::landing.html.twig');
+//    }
 
     /**
      * @Route("/parallax")

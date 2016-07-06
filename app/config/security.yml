@@ -22,8 +22,8 @@ security:
         main:
             anonymous: ~
             form_login:
-                login_path: login
-                check_path: login
+                login_path: /
+                check_path: /
                 csrf_parameter: _csrf_security_token
                 csrf_token_id: a_private_string
             pattern:    ^/
@@ -38,12 +38,12 @@ security:
                 path: /
     access_control:
             # require ROLE_ADMIN for /admin*
-            - { path: ^/admin, roles: ROLE_ADMIN }
+            - { path: ^/admin, roles: ROLE_ADMIN}
             - { path: ^/users, roles: ROLE_ADMIN}
             - { path: ^/event, roles: ROLE_ADMIN}
             - { path: ^/dashboard, roles: ROLE_USER }
 
-    access_denied_url: /login
+    access_denied_url: /
     role_hierarchy:
         ROLE_ADMIN:         [ROLE_ORGANIZER, ROLE_USER]
         ROLE_SUPER_ADMIN:   [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]

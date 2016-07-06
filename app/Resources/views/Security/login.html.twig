@@ -1,206 +1,375 @@
-{% extends '::securityview.html.twig' %}
-{% block body %}
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Level-up | Responsive coming soon template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="/parallax/apple-touch-icon.png" >
+    <link rel="shortcut icon" href="/parallax/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/parallax/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/parallax/fonts/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="/parallax/fonts/fonts.css">
+    <link rel="stylesheet" href="/parallax/css/main.css">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
+    <!-- Admin Forms CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
+    <script src="{{ asset('parallax/js/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
+</head>
 <body>
-<div class="loader">
-    <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<header class="lavel-up-header lavel-up-header-bg-img" data-stellar-background-ratio="0.5">
+    <div class="lavel-up-color-overlay">
+        <div class="container text-center">
+
+            <!-- Logo start -->
+
+            <!-- Logo End -->
+            <!-- Main title end -->
+            <!-- Start: Main -->
+            <!-- Start: Content-Wrapper -->
+            <section id="content_wrapper">
+
+                <!-- Begin: Content -->
+                <section id="content">
+                    <div style="width:100%;   padding-top: 0em; ">
+
+                        <div class="admin-form theme-info mw400" id="login" style="position: relative;  top: 10em; left: -5em;">
+                            <button type="submit" class="button btn-primary mr10 pull-right">Sign Up</button>
+                        </div>
+                        <div class="admin-form theme-info mw400" id="login" style="position: relative; left: 37em; bottom: 19em;  ">
+
+                            <!-- Login Logo -->
+                            <div class="row table-layout">
+                                <a href="dashboard.html" title="Return to Dashboard"></a>
+                            </div>
+
+                            <form method="post" action="{{ path('login') }}" id="admin-form">
+
+                                <div class="panel-body bg-light p25 pb15" style="background-color: rgba(255,255,255,0.3) !important;">
+                                    <div style="font-size:22px; margin-bottom:17px; text-align: left; color: #f7f8e6;">Sign In
+                                        {% if error %}
+                                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="section">
+                                        <label for="username" class="field prepend-icon">
+                                            <input type="email" class="gui-input"  placeholder="Enter Username" id="username" name="_username" value="" required="required" />
+                                            <label for="username" class="field-icon">
+                                                <i class="fa fa-user"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <div class="section">
+                                        <label for="password" class="field prepend-icon">
+                                            <input class="gui-input" placeholder="Enter Password" type="password" id="password" name="_password" required="required" />
+                                            <label for="password" class="field-icon">
+                                                <i class="fa fa-lock"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <input type="hidden" name="_csrf_token"
+                                           value="{{ csrf_token('authenticate') }}">
+                                    <!-- end .section row section -->
+                                </div>
+
+                                <div class="panel-footer clearfix" style="background-color: rgba(255, 255, 255, 0.5) !important;">
+                                    <label class="switch ib switch-primary mt10 pull-left">
+                                        <input type="checkbox" name="_remember_me" id="remember" checked>
+                                        <label for="remember" data-on="YES" data-off="NO"></label>
+                                        <span style="color: #fff;">Remember me</span><br>
+                                        <a href="{{ path('resetpasswordrequest') }}" class="active" title="Sign In">Forgot Password?</a>
+                                    </label>
+                                    <button type="submit" class="button btn-primary mr10 pull-right">Sign In</button>
+
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Registration Links -->
+                        <div class="login-links" style="margin-left: 0em; position: relative; bottom: 9em;">
+                            <p class="">
+
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+            </section>
+        </div>
+        <!-- end: .admin-form -->
+
     </div>
-</div>
-<div class="nav-container">
-    <nav class="top-bar overlay-bar">
+
+</header>
+
+<!-- What's new coming section -->
+<!-- <section class="lu-what-new">
+    <div class="container text-center">
+        <h1 class="lu-section-title">What's new coming...</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="lu-new-feature">
+                    <div class="lu-new-feature-icon">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <h3>Coded with Love</h3>
+                    <div class="lu-new-feature-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="lu-new-feature">
+                    <div class="lu-new-feature-icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3>East to use</h3>
+                    <div class="lu-new-feature-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="lu-new-feature">
+                    <div class="lu-new-feature-icon">
+                        <i class="fa fa-fire"></i>
+                    </div>
+                    <h3>Parallax Background</h3>
+                    <div class="lu-new-feature-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="lu-new-feature">
+                    <div class="lu-new-feature-icon">
+                        <i class="fa fa-film"></i>
+                    </div>
+                    <h3>Video Background</h3>
+                    <div class="lu-new-feature-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="lu-new-feature">
+                    <div class="lu-new-feature-icon">
+                        <i class="fa fa-cubes"></i>
+                    </div>
+                    <h3>Slider Background</h3>
+                    <div class="lu-new-feature-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="lu-new-feature">
+                    <div class="lu-new-feature-icon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <h3>Mailchimp Support</h3>
+                    <div class="lu-new-feature-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+<!-- What's new coming section end -->
+
+<!-- Contact form section -->
+<!--
+<section class="lu-contact" data-stellar-background-ratio="0.5">
+    <div class="lu-overlay">
         <div class="container">
+            <h1 class="lu-section-title text-center">Leave a message</h1>
 
-            <div class="row utility-menu">
-                <div class="col-sm-12">
-                    <div class="utility-inner clearfix">
-                        <span class="alt-font"><i class="icon icon_pin"></i> 300 Collins St Melbourne</span>
-                        <span class="alt-font"><i class="icon icon_mail"></i> hello@pivot.net</span>
-
-                        <div class="pull-right">
-                            <a href="{{ path('login') }}" class="btn btn-primary btn-white btn-xs">Login</a>
-                            <a href="{{ path('register') }}" class="btn btn-primary btn-filled btn-xs">Signup</a>
-                            <a href="#" class="language"><img alt="English" src="{{ asset('assets/img/english.png') }}"></a>
-                            <a href="#" class="language"><img alt="English" src="{{ asset('assets/img/denmark.png') }}"></a>
+            <form role="form" class="lu-contact-form" method="post" action="/parallax/contact.php">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <input type="text" class="form-control" placeholder="Name" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="controls">
+                            <input type="email" class="form-control email" placeholder="Email" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="controls">
+                            <input type="text" class="form-control requiredField" placeholder="Subject" name="subject">
                         </div>
                     </div>
                 </div>
-            </div>
 
-
-            <div class="row nav-menu">
-                <div class="col-md-2 col-sm-3 columns">
-                    <a href="{{ path('homepage') }}">
-                        <img class="logo logo-light" alt="Logo" src="{{ asset('assets/img/logo-light.png') }}">
-                        <img class="logo logo-dark" alt="Logo" src="{{ asset('assets/img/logo-dark.png') }}">
-                    </a>
-                </div>
-
-                <div class="col-md-10 col-sm-9 columns">
-                    <ul class="menu">
-                        <li><a href="#">Single Link</a></li>
-                        <li class="has-dropdown"><a href="#">Dropdown</a>
-                            <ul class="subnav">
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-dropdown"><a href="#">Half Width</a>
-                            <div class="subnav subnav-halfwidth">
-                                <div class="col-md-6">
-                                    <h6 class="alt-font">Subnav Title</h6>
-                                    <ul class="subnav">
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <h6 class="alt-font">Subnav Title</h6>
-                                    <ul class="subnav">
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="has-dropdown"><a href="#">Fullwidth</a>
-                            <div class="subnav subnav-fullwidth">
-                                <div class="col-md-3">
-                                    <h6 class="alt-font">Subnav Title</h6>
-                                    <ul class="subnav">
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <h6 class="alt-font">Subnav Title</h6>
-                                    <ul class="subnav">
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <h6 class="alt-font">Subnav Title</h6>
-                                    <ul class="subnav">
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <h6 class="alt-font">Subnav Title</h6>
-                                    <ul class="subnav">
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                        <li><a href="#">Example</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <ul class="social-icons text-right">
-                        <li>
-                            <a href="#">
-                                <i class="icon social_twitter"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="icon social_facebook"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="icon social_instagram"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="mobile-toggle">
-                <i class="icon icon_menu"></i>
-            </div>
-
-        </div>
-    </nav>
-
-</div>
-
-<div class="main-container">
-    <section class="no-pad login-page fullscreen-element">
-
-        <div class="background-image-holder">
-            <img class="background-image" alt="Poster Image For Mobiles" src="{{ asset('assets/img/hero7.jpg') }}">
-        </div>
-
-        <div class="container align-vertical">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 text-center">
-                    <h1 class="text-white">Login to continue</h1>
-                    {% if error %}
-                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
-                    <div class="photo-form-wrapper clearfix">
-                        <form method="post" action="{{ path('login') }}" id="contact">
-                            <input type="text" class="form-email"  placeholder="Username" name="_username" value="{{ last_username }}" />
-                            <input class="form-password" placeholder="Password" type="password" name="_password" />
-                            <input type="hidden" name="_csrf_token"
-                                   value="{{ csrf_token('authenticate') }}">
-                            <input class="login-btn btn-filled" type="submit" value="Login">
-                        </form>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <textarea rows="7" class="form-control" placeholder="Message" name="message"></textarea>
+                        </div>
                     </div>
-                    <a href="#" class="text-white">Create an account ➞</a><br>
-                    <a href="#" class="text-white">I've forgotten my password</a>
+                    <button type="submit" id="submit" class="btn btn-default">Send</button><div id="success" style="color:#fff;"></div>
                 </div>
-            </div>
-        </div>
-    </section>
-</div>
+            </form>
 
-<div class="footer-container">
-    <footer class="bg-primary short-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <span class="text-white">© 2014 Pivot Inc.</span>
-                    <span class="text-white"><a href="#">hello@pivot.net</a></span>
-                    <span class="text-white">+614 3827 492</span>
-                    <span class="text-white">300 Collins St. Melbourne 3000</span>
-                </div>
-            </div>
         </div>
+    </div>
+</section>
+-->
+<!-- Contact form section end -->
 
-        <div class="contact-action">
-            <div class="align-vertical">
-                <i class="icon text-white icon_mail"></i>
-                <a href="contact.html" class="text-white"><span class="text-white">Get in touch with us <i class="icon arrow_right"></i></span></a>
-            </div>
-        </div>
-    </footer>
-</div>
+<footer class="lu-footer">
+    <div class="container text-center">
+        &copy; 2015 Level Up, All Rights Reserved by WPBean.
+    </div>
+</footer>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/parallax/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="/parallax/js/jquery.stellar.min.js"></script>
+<script src="/parallax/js/smoothscroll.js"></script>
+<script src="/parallax/js/jquery.countdown.min.js"></script>
+<script src="/parallax/js/retina.min.js"></script>
+<script src="/parallax/js/main.js"></script>
+<!-- jQuery -->
+<script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+<!-- Theme Javascript -->
+<script src="{{ asset('assets/js/utility/utility.js') }}"></script>
+<script src="{{ asset('assets/js/demo/demo.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
+<!-- jQuery Validate Plugin-->
+<script src="{{ asset('assets/admin-tools/admin-forms/js/jquery.validate.min.js') }}"></script>
+
+<!-- jQuery Validate Addon -->
+<script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        "use strict";
+
+        // Init Demo JS
+        Demo.init();
+
+
+        // Init Theme Core
+        Core.init();
+        /* @custom validation method (smartCaptcha)
+         ------------------------------------------------------------------ */
+
+        $.validator.methods.smartCaptcha = function(value, element, param) {
+            return value == param;
+        };
+
+        $("#admin-form").validate({
+
+            /* @validation states + elements
+             ------------------------------------------- */
+
+            errorClass: "state-error",
+            validClass: "state-success",
+            errorElement: "em",
+
+            /* @validation rules
+             ------------------------------------------ */
+
+            rules: {
+                firstname: {
+                    required: false,
+                    minlength: 1
+
+                },
+                lastname: {
+                    required: false,
+                    minlength: 1
+                },
+                useremail: {
+                    required: false,
+                    email: true,
+                    minlength: 1
+                },
+                mobile_phone: {
+                    require_from_group: [1, ".phone-group"]
+                },
+                password: {
+                    required: false,
+                    minlength: 6,
+                    maxlength: 16
+                },
+                repeatPassword: {
+                    required: false,
+                    minlength: 6,
+                    maxlength: 16,
+                    equalTo: '#password'
+                },
+
+            },
+
+            /* @validation highlighting + error placement
+             ---------------------------------------------------- */
+
+            highlight: function(element, errorClass, validClass) {
+                $(element).closest('.field').addClass(errorClass).removeClass(validClass);
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).closest('.field').removeClass(errorClass).addClass(validClass);
+            },
+            errorPlacement: function(error, element) {
+                if (element.is(":radio") || element.is(":checkbox")) {
+                    element.closest('.option-group').after(error);
+                } else {
+                    error.insertAfter(element.parent());
+                }
+            }
+
+        });
+
+
+
+
+
+        setTimeout(function() {
+            adminForm.addClass('theme-primary');
+            Panel.addClass('panel-primary');
+            pageHeader.addClass('text-primary');
+
+            $(options).each(function(i, e) {
+                if ($(e).hasClass('block')) {
+                    $(e).removeClass().addClass('block mt15 option option-primary');
+                } else {
+                    $(e).removeClass().addClass('option option-primary');
+                }
+            });
+
+            // var sliders = $('.ui-timepicker-div', adminForm).find('.ui-slider');
+            $('body').find('.ui-slider').each(function(i, e) {
+                $(e).addClass('slider-primary');
+            });
+
+            $(switches).each(function(i, ele) {
+                if ($(ele).hasClass('switch-round')) {
+                    if ($(ele).hasClass('block')) {
+                        $(ele).removeClass().addClass('block mt15 switch switch-round switch-primary');
+                    } else {
+                        $(ele).removeClass().addClass('switch switch-round switch-primary');
+                    }
+                } else {
+                    if ($(ele).hasClass('block')) {
+                        $(ele).removeClass().addClass('block mt15 switch switch-primary');
+                    } else {
+                        $(ele).removeClass().addClass('switch switch-primary');
+                    }
+                }
+            });
+            buttons.removeClass().addClass('button btn-primary');
+        }, 800);
+
+
+    });
+</script>
+
+<!-- END: PAGE SCRIPTS -->
 </body>
-{% endblock %}
-
-
-
-
+</html>
