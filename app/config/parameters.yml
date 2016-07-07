@@ -10,3 +10,5 @@ parameters:
     mailer_user: server13304
     mailer_password: Ze93Jpr7TMb4i2B6Wqk8
     secret: ThisTokenIsNotSoSecretChangeIt
+    port: 465
+    encryption: ssl
