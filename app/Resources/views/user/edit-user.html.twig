@@ -368,7 +368,6 @@
     </script>
     <!-- MaskedInput Plugin -->
     <script src="{{ asset('assets/vendor/plugins/jquerymask/jquery.maskedinput.min.js') }}"></script>
-
     <script type="text/javascript">
         jQuery(document).ready(function() {
             // jQuery Time Spinner settings
@@ -395,14 +394,13 @@
                 }
             });
 
+            // Init jQuery Time Spinner
             $("#spinner4").timespinner();
-            $("#phone").intlTelInput();
+            $('.phone').mask('?(999)-999-9999');
 
-            $('.phone').mask('(999) 999-9999');
 
 
         });
     </script>
-
     <!-- END: PAGE SCRIPTS -->
 {% endblock %}
