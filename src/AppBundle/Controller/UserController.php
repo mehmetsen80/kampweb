@@ -156,7 +156,7 @@ class UserController extends Controller
                     'addusererror',
                     'Oops! There was an error!'
                 );
-            return $this->redirect($this->generateUrl('adduser'));
+            return $this->redirect($this->generateUrl('showusers'));
             }
         return $this->render(':user:adduser.html.twig', array('addform'=>$addform->createView()));
         }

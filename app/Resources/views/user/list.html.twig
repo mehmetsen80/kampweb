@@ -58,7 +58,7 @@
                                 <th>User</th>
                                 <th>Email</th>
                                 <th>Gender</th>
-                                <th>Birthday</th>
+                                <th>Registered</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -67,7 +67,7 @@
                                 <th>User</th>
                                 <th>Email</th>
                                 <th>Gender</th>
-                                <th>Birthday</th>
+                                <th>Registered</th>
                                 <th></th>
                             </tr>
                             </tfoot>
@@ -77,7 +77,7 @@
                                     <td> <a href="{{ path('showusers', {'userid': user.id}) }}">{{ user.fullname }}</a></td>
                                     <td>{{ user.username }}</td>
                                     <td>{{ user.gender }}</td>
-                                    <td>{{ user.birthday|date('Y-m-d') }}</td>
+                                    <td>{{ user.createdat|date('Y-m-d') }}</td>
                                     <td><a href="{{ path('edit-user', {'userid': user.id}) }}"><span class="fa fa-pencil-square-o"></span> </a></td>
                                 </tr>
                             {% endfor %}
