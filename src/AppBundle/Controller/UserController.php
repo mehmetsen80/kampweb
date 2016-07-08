@@ -146,18 +146,22 @@ class UserController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
             $this->addFlash(
                 'addeduser',
                 'You successfully added a user to the database'
             );
+            return $this->redirect($this->generateUrl('users'));
+
         }
+
         elseif($addform->isSubmitted() && !$addform->isValid()){
                 $this->addFlash(
                     'addusererror',
                     'Oops! There was an error!'
                 );
-            return $this->redirect($this->generateUrl('showusers'));
             }
+
         return $this->render(':user:adduser.html.twig', array('addform'=>$addform->createView()));
         }
 
