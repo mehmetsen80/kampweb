@@ -40,12 +40,7 @@ class SecurityController extends Controller
 
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-
-        $this->addFlash(
-            'welcome',
-            'Welcome back!'
-        );
-
+        
         return $this->render(
             '::landing.html.twig',
             array(
@@ -54,6 +49,7 @@ class SecurityController extends Controller
                 'error'         => $error,
             )
         );
+
     }
 
     /**

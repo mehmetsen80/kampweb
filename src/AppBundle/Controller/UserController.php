@@ -196,7 +196,7 @@ class UserController extends Controller
         if($currentpassword == md5(1234)){
             $this->addFlash(
                 'passwordchange',
-                'Please change it now to keep your information protected.'
+                'Please give a stronger password.'
             );
         }
         return $this->render(':security:changepassword.html.twig',array('passwordform' => $passwordform->createView()));
