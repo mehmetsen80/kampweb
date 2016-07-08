@@ -78,7 +78,7 @@
                                     <td>{{ user.username }}</td>
                                     <td>{{ user.gender }}</td>
                                     <td>{{ user.birthday|date('Y-m-d') }}</td>
-                                    <td><a href="{{ path('edit-user', {'userid': user.id}) }}"><span class="fa fa-pencil-square-o fa-2x"></span> </a></td>
+                                    <td><a href="{{ path('edit-user', {'userid': user.id}) }}"><span class="fa fa-pencil-square-o"></span> </a></td>
                                 </tr>
                             {% endfor %}
                             </tbody>
