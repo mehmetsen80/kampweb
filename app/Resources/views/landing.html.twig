@@ -43,9 +43,9 @@
         </div>
         <div class="logo-bottom">
             <section class="sky-form">
-                <label class="radio"><input type="radio" name="radio" checked="checked"><i></i>Ut mattis mattis bibendum</label>
-                <label class="radio"><input type="radio" name="radio"><i></i>Nullam rutrum sagittis interdum</label>
-                <label class="radio"><input type="radio" name="radio"><i></i>Nam cursus eros sed elit</label>
+                <label class="radio"><input type="radio" name="radio" checked="checked"><i></i>Manage camp payment system</label>
+                <label class="radio"><input type="radio" name="radio"><i></i>Invite and follow attendees</label>
+                <label class="radio"><input type="radio" name="radio"><i></i>Track camp activities</label><br>
                 <label class="radio " style="padding-left: 15%;">Don't have an account?</label>
                 <a href="{{ path('register') }}"> <button type="submit" class="btn btn-primary" style="margin-left: 4%; padding:6px 99px">Sign Up</button></a>
 
@@ -123,7 +123,7 @@
 </div>
 <div class="account">
     <ul>
-        <li><p>Forgot <a href="#">password?</a></p></li>
+        <li><p>Forgot <a href="{{ path('resetpasswordrequest') }}">password?</a></p></li>
         <div class="clear"></div>
     </ul>
 </div>
