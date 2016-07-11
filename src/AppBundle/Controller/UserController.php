@@ -108,7 +108,7 @@ class UserController extends Controller
                 'updatesuccess',
                 'You have successfully updated your profile!'
             );
-            return $this->redirect($this->generateUrl('update'));
+            return $this->redirect($this->generateUrl('users'));
         }
         elseif($updateform->isSubmitted() && !$updateform->isValid()){
                 $this->addFlash(
@@ -151,18 +151,19 @@ class UserController extends Controller
                 'addeduser',
                 'You successfully added a user to the database'
             );
-            $message = \Swift_Message::newInstance()
-                ->setSubject('You have successfully signed up!')
-                ->setFrom('no-reply@kampweb.com')
-                ->setTo($user->getUsername())
-                ->setBody($this->renderView(
-                    ':emails:addeduser.html.twig'),'text/html');
-            $this->get('mailer')->send($message);
+
+            $emailMessage = \Swift_Message::newInstance()
+                ->setSubject('You have successfully signed up')
+                ->setFrom('info@kampapp.com')
+                ->setTo('mergenc@na.edu')
+                ->setBody($this->renderView(':emails:addeduser.html.twig'));
+            $this->get('mailer')->send($emailMessage);
+
             return $this->redirect($this->generateUrl('users'));
 
         }
 
-        elseif($addform->isSubmitted() && !$addform->isValid()){
+        elseif($addform->isSubmitted() && $addform->isValid()){
                 $this->addFlash(
                     'addusererror',
                     'Oops! There was an error!'

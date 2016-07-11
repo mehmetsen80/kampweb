@@ -102,7 +102,7 @@ class SecurityController extends Controller
                     ->setBody($this->renderView(
                         ':emails:registration.html.twig'),'text/html');
                 $this->get('mailer')->send($message);
-
+                
                 return $this->redirectToRoute('update');
             }
 
