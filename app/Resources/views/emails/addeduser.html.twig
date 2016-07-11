@@ -1,0 +1,10 @@
+{# app/Resources/views/Emails/registration.html.twig #}
+<h3>You did it! You registered!</h3>
+
+{# example, assuming you have a route named "login" #}
+Please visit <a href="{{ url('dashboard') }}">your dashboard</a> to complete your profile.
+
+Thanks!
+
+{# Makes an absolute URL to the /images/logo.png file #}
+<img src="{{ absolute_url(asset('img/logo.png')) }}">

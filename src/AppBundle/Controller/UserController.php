@@ -151,6 +151,13 @@ class UserController extends Controller
                 'addeduser',
                 'You successfully added a user to the database'
             );
+            $message = \Swift_Message::newInstance()
+                ->setSubject('You have successfully signed up!')
+                ->setFrom('no-reply@kampweb.com')
+                ->setTo($user->getUsername())
+                ->setBody($this->renderView(
+                    ':emails:addeduser.html.twig'),'text/html');
+            $this->get('mailer')->send($message);
             return $this->redirect($this->generateUrl('users'));
 
         }
