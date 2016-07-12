@@ -1,0 +1,135 @@
+{% extends ':default:front-end.html.twig' %}
+{% block content %}
+    <div class="head">
+        <div class="logo">
+            <div class="logo-top">
+                <h1>Camping Management System</h1>
+            </div>
+            <div class="logo-bottom">
+                <section class="sky-form">
+                    <ul class="list-group" id="contact-list">
+                        <li class="list-group-item">
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="text-muted" style="color: #fff;"><i class="fa fa-2x fa-map-marker"></i>&nbsp;&nbsp;1929 W Airport Blvd, Stafford, TX 77477</div>
+                                <div class="text-muted" style="color: #fff;"><i class="fa fa-2x fa-phone"></i>&nbsp;&nbsp;(832) 230-5555</div>
+                                <div class="text-muted" style="color: #fff;"><i class="fa fa-2x fa-envelope"></i>&nbsp;&nbsp;kampapp@na.edu</div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <div class="login">
+            <div class="sap_tabs">
+                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                    <ul class="resp-tabs-list">
+                        <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Contact Us</span></li>
+                        <div class="clearfix">
+
+                        </div>
+                    </ul>
+
+                    <div class="resp-tabs-container">
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                            <div class="login-top">
+                                {% if not contactform.email.vars.valid %}
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                                        </button>
+                                        <i class="fa fa-remove pr10"></i>
+
+                                        <strong>{{ form_errors(contactform.email) }}</strong>
+                                    </div>
+                                {% endif %}
+                                {% if not contactform.subject.vars.valid %}
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                                        </button>
+                                        <i class="fa fa-remove pr10"></i>
+                                        <strong> {{ form_errors(contactform.subject) }}</strong>
+                                    </div>
+                                {% endif %}
+                                {% if not contactform.message.vars.valid %}
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                                        </button>
+                                        <i class="fa fa-remove pr10"></i>
+                                        <strong> {{ form_errors(contactform.message) }}</strong>
+                                    </div>
+                                {% endif %}
+                                <div class="admin-form theme-info mw400" id="login">
+                                    <form action="{{ path('contact') }}" method="post" class="admin-form">
+                                        <div class="section">
+                                            <label for="useremail" class="field prepend-icon">
+                                                {{ form_widget(contactform.email, {'attr': {'class': 'gui-input', 'placeholder':'Email address', 'type':'email', 'id':"useremail" }}) }}
+                                                <label for="useremail" class="field-icon">
+                                                    <i class="fa fa-envelope"></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                        <div class="section">
+                                            <label for="useremail" class="field prepend-icon">
+                                                {{ form_widget(contactform.subject, {'attr': {'class': 'gui-input', 'placeholder':'Subject', 'type':'text', 'id':"useremail" }}) }}
+                                                <label for="useremail" class="field-icon">
+                                                    <i class="fa fa-location-arrow "></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                        <div class="section" id="spy3">
+                                            <label for="comment" class="field prepend-icon">
+                                                {{ form_widget(contactform.message, {'attr': {'class': 'gui-textarea', 'placeholder':'Your message', 'name':'comment', 'type':'text', 'id':"comment" }}) }}
+                                                <label for="comment" class="field-icon">
+                                                    <i class="fa fa-comments"></i>
+                                                </label>
+                                                <span class="input-footer">
+                                                    {% for flash_message in app.session.flashBag.get('contactsuccess') %}
+                                                        <div class="alert alert-success alert-dismissable">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                            {{ flash_message }}
+                                                        </div>
+                                                    {% endfor %}
+                                                </span>
+                                            </label>
+                                        </div>
+                                        {{ form_row(contactform._token) }}
+                                        <!-- end .section row section -->
+                                        <div class="login-bottom login-bottom1">
+                                            <div class="submit">
+                                                <button type="submit" class="btn btn-primary btn-md">Submit</button>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="account">
+            <ul>
+                <li><p>Forgot <a href="{{ path('resetpasswordrequest') }}">password?</a></p></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+    </div>
+    <style>
+        .list-group-item{
+            background: transparent;
+            border:none;
+            padding: 0;
+            margin-bottom:0;
+        }
+        .text-muted{
+            margin-bottom: 0.8em;
+        }
+        .logo-bottom{
+            margin-top: 2.5%;
+        }
+
+    </style>
+{% endblock %}

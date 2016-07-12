@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Form\ChangeInfoType;
 use AppBundle\Form\ChangePasswordType;
+use AppBundle\Form\ContactType;
 use AppBundle\Form\EditUserType;
 use AppBundle\Form\NewUserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -155,7 +156,7 @@ class UserController extends Controller
             $emailMessage = \Swift_Message::newInstance()
                 ->setSubject('You have successfully signed up')
                 ->setFrom('info@kampapp.com')
-                ->setTo('mergenc@na.edu')
+                ->setTo($user->getUsername())
                 ->setBody($this->renderView(':emails:addeduser.html.twig'));
             $this->get('mailer')->send($emailMessage);
 
@@ -287,6 +288,30 @@ class UserController extends Controller
             );
         }
         return $this->render(':user:edit-user.html.twig', array('user'=>$user, 'editform' => $editform->createView()));
+    }
+
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contactAction(Request $request){
+        $contactform = $this->createForm(ContactType::class);
+        $contactform->handleRequest($request);
+        if ($contactform->isSubmitted() && $contactform->isValid()) {
+            $email = $contactform->get('email')->getData();
+            $subject = $contactform->get('subject')->getData();
+            $message = $contactform->get('message')->getData();
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject($subject)
+                ->setFrom($email)
+                ->setTo('mergenc@na.edu')
+                ->setBody($message);
+            $this->get('mailer')->send($message);
+
+            $this->addFlash('contactsuccess', "Your email has been sent!");
+            return $this->redirectToRoute('contact');
+        }
+        return $this->render(':user:contact.html.twig', array('contactform' => $contactform->createView()));
     }
 
 }
