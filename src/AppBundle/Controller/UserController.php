@@ -313,5 +313,11 @@ class UserController extends Controller
         }
         return $this->render(':user:contact.html.twig', array('contactform' => $contactform->createView()));
     }
+    /**
+     * @Route("/testingevent", name="event")
+     */
+    public function testAc(){
+        return $this->render('::evendashboard.html.twig');
+    }
 
 }

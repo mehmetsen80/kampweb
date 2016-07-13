@@ -140,19 +140,25 @@
                             <a class="accordion-toggle" href="#">
                                 <span class="fa fa-calendar"></span>
                                 <span class="sidebar-title">Events</span>
+                                <span class="caret"></span>
                             </a>
                             {% endif %}
-                        {% endif %}
+
                         <ul class="nav sub-nav">
                             <li>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-book"></span> Event List </a>
+                                <a href="{{ path('listevents') }}">
+                                    <span class="glyphicon glyphicon-tags"></span> Events List </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('addevent') }}">
+                                    <span class="fa fa-users"></span> Attendees </a>
                             </li>
                             <li>
                                 <a href="{{ path('addevent') }}">
                                     <span class="glyphicon glyphicon-share-alt"></span> Add an event </a>
                             </li>
                         </ul>
+                        {% endif %}
                     </li>
                 </ul>
                 <!-- End: Sidebar Menu -->
