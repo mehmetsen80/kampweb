@@ -516,6 +516,17 @@ h2.resp-accordion {
     transition: all 0.3s ease-out;
 }
 /*--meadia-quiries-start-here--*/
+@media(max-width:1920px){
+	.logo {
+		padding: 7.1% 0;
+	}
+	.account ul span {
+		margin-left: 22px;
+	}
+	.account ul {
+		width: 19%;
+	}
+}
 @media(max-width:1440px){
 .logo {
     padding: 7.1% 0;
@@ -526,6 +537,7 @@ h2.resp-accordion {
 .account ul {
     width: 19%;
 }
+
 }
 @media(max-width:1366px){
 .logo-top h1 {

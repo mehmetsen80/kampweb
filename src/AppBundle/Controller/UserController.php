@@ -305,7 +305,7 @@ class UserController extends Controller
                 ->setSubject($subject)
                 ->setFrom($email)
                 ->setTo('mergenc@na.edu')
-                ->setBody($message);
+                ->setBody($this->renderView(':emails:contact.html.twig', array('email' =>$email, 'message' => $message)));
             $this->get('mailer')->send($message);
 
             $this->addFlash('contactsuccess', "Your email has been sent!");
