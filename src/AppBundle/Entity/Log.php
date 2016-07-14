@@ -11,7 +11,6 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * Class Log
  * @package AppBundle\Entity
@@ -37,6 +36,11 @@ class Log
      * @ORM\Column(name="context", type="text", nullable=true)
      */
     private $context;
+    /**
+     * @var string
+     * @ORM\Column(name="route", type="string", length=50, nullable=true)
+     */
+    private $route;
     /**
      * @ORM\Column(name="extra", type="text", nullable=true)
      */
@@ -144,48 +148,6 @@ class Log
         return $this->level;
     }
     /**
-     * Set createdtime
-     *
-     * @param integer $createdtime
-     *
-     * @return Log
-     */
-    public function setCreatedtime($createdtime)
-    {
-        $this->createdtime = $createdtime;
-        return $this;
-    }
-    /**
-     * Get createdtime
-     *
-     * @return integer
-     */
-    public function getCreatedtime()
-    {
-        return $this->createdtime;
-    }
-    /**
-     * Set modifiedtime
-     *
-     * @param integer $modifiedtime
-     *
-     * @return Log
-     */
-    public function setModifiedtime($modifiedtime)
-    {
-        $this->modifiedtime = $modifiedtime;
-        return $this;
-    }
-    /**
-     * Get modifiedtime
-     *
-     * @return integer
-     */
-    public function getModifiedtime()
-    {
-        return $this->modifiedtime;
-    }
-    /**
      * Set channel
      *
      * @param string $channel
@@ -291,10 +253,73 @@ class Log
         return $this->levelname;
     }
     /**
+     * Set route
+     *
+     * @param string $route
+     *
+     * @return Log
+     */
+    public function setRoute($route)
+    {
+        $this->route = $route;
+        return $this;
+    }
+    /**
+     * Get route
+     *
+     * @return string
+     */
+    public function getRoute()
+    {
+        return $this->route;
+    }
+    /**
+     * Set createdtime
+     *
+     * @param \DateTime $createdtime
+     *
+     * @return Log
+     */
+    public function setCreatedtime($createdtime)
+    {
+        $this->createdtime = $createdtime;
+        return $this;
+    }
+    /**
+     * Get createdtime
+     *
+     * @return \DateTime
+     */
+    public function getCreatedtime()
+    {
+        return $this->createdtime;
+    }
+    /**
+     * Set modifiedat
+     *
+     * @param \DateTime $modifiedtime
+     *
+     * @return Log
+     */
+    public function setModifiedtime($modifiedtime)
+    {
+        $this->modifiedtime = $modifiedtime;
+        return $this;
+    }
+    /**
+     * Get modifiedtime
+     *
+     * @return \DateTime
+     */
+    public function getModifiedtime()
+    {
+        return $this->modifiedtime;
+    }
+    /**
      * @return string
      */
     function __toString()
     {
-        return "id: ". $this->id ."  message: ". $this->message . " context: ".$this->context ." extra: " . $this->extra ." formatted: ".$this->formatted."  level: ". $this->level . " createdtime: ". date('Y-m-d H:i:s', $this->createdtime) ."  modifiedtime: ". date('Y-m-d H:i:s', $this->modifiedtime);
+        return "id: ". $this->id ."  message: ". $this->message . " context: ".$this->context . " extra: " . $this->extra ." formatted: ".$this->formatted."  level: ". $this->level . " createdtime: ". date('Y-m-d H:i:s', $this->createdtime) ."  modifiedtime: ". date('Y-m-d H:i:s', $this->modifiedtime);
     }
 }
