@@ -38,3 +38,4 @@ node_modules/
 var/sessions/
 web/assets/css/less/
 web/assets/js/bootstrap/
+/var/
