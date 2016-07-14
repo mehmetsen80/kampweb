@@ -41,6 +41,6 @@ class LogService extends AbstractProcessingHandler
 
         $em=$this->container->get('doctrine.orm.entity_manager');
         $em->persist($log);
-       // $em->flush();
+        $em->flush();
     }
 }
