@@ -10,6 +10,8 @@ namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+
+
 /**
  * Class Log
  * @package AppBundle\Entity
@@ -28,14 +30,31 @@ class Log
      */
     protected $id;
     /**
-     * @ORM\Column(name="message", type="text", nullable=false)
+     * @ORM\Column(name="message", type="text", nullable=true)
      */
     private $message;
     /**
-     * @var string
-     * @ORM\Column(name="level", type="string", length=255, nullable=true)
+     * @ORM\Column(name="context", type="text", nullable=true)
+     */
+    private $context;
+    /**
+     * @ORM\Column(name="extra", type="text", nullable=true)
+     */
+    private $extra;
+    /**
+     * @ORM\Column(name="formatted", type="text", nullable=true)
+     */
+    private $formatted;
+    /**
+     * @var integer
+     * @ORM\Column(name="level", type="integer", length=255, nullable=true)
      */
     private $level;
+    /**
+     * @var string
+     * @ORM\Column(name="levelname", type="string", length=255, nullable=true)
+     */
+    private $levelname;
     /**
      * @var string
      * @ORM\Column(name="channel", type="string", length=255, nullable=true)
@@ -188,10 +207,94 @@ class Log
         return $this->channel;
     }
     /**
+     * Set context
+     *
+     * @param string $context
+     *
+     * @return Log
+     */
+    public function setContext($context)
+    {
+        $this->context = $context;
+        return $this;
+    }
+    /**
+     * Get context
+     *
+     * @return string
+     */
+    public function getContext()
+    {
+        return $this->context;
+    }
+    /**
+     * Set extra
+     *
+     * @param string $extra
+     *
+     * @return Log
+     */
+    public function setExtra($extra)
+    {
+        $this->extra = $extra;
+        return $this;
+    }
+    /**
+     * Get extra
+     *
+     * @return string
+     */
+    public function getExtra()
+    {
+        return $this->extra;
+    }
+    /**
+     * Set formatted
+     *
+     * @param string $formatted
+     *
+     * @return Log
+     */
+    public function setFormatted($formatted)
+    {
+        $this->formatted = $formatted;
+        return $this;
+    }
+    /**
+     * Get formatted
+     *
+     * @return string
+     */
+    public function getFormatted()
+    {
+        return $this->formatted;
+    }
+    /**
+     * Set levelname
+     *
+     * @param string $levelname
+     *
+     * @return Log
+     */
+    public function setLevelname($levelname)
+    {
+        $this->levelname = $levelname;
+        return $this;
+    }
+    /**
+     * Get levelname
+     *
+     * @return string
+     */
+    public function getLevelname()
+    {
+        return $this->levelname;
+    }
+    /**
      * @return string
      */
     function __toString()
     {
-        return "id: ". $this->id ."  message: ". $this->message . "  level: ". $this->level . " createdtime: ". date('Y-m-d H:i:s', $this->createdtime) ."  modifiedtime: ". date('Y-m-d H:i:s', $this->modifiedtime);
+        return "id: ". $this->id ."  message: ". $this->message . " context: ".$this->context ." extra: " . $this->extra ." formatted: ".$this->formatted."  level: ". $this->level . " createdtime: ". date('Y-m-d H:i:s', $this->createdtime) ."  modifiedtime: ". date('Y-m-d H:i:s', $this->modifiedtime);
     }
 }

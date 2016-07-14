@@ -15,7 +15,20 @@ services:
     md5encoderservice:
         class:  AppBundle\Services\Md5PasswordEncoderService
 
-# logger service
+    # logger service
     myloggerservice:
         class:  AppBundle\Services\LogService
         arguments: [ "@service_container" ]
+
+    # session log has line formatter
+    monolog.formatter.session_request:
+          class: Monolog\Formatter\LineFormatter
+          arguments:
+              - "[%%datetime%%] [%%extra.token%%] %%channel%%.%%level_name%%: %%message%% %%context%% %%extra%%\n"
+
+    # session log record is processed in SessionRequestProcessor class
+    monolog.processor.session_request:
+          class: AppBundle\Processor\SessionRequestProcessor
+          arguments:  ['@session']
+          tags:
+              - { name: monolog.processor, method: processRecord }

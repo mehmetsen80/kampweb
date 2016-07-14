@@ -30,14 +30,17 @@ class LogService extends AbstractProcessingHandler
      * @return void
      */
     protected function write(array $record)
-    {
-        $log = new Log();
+    {$log = new Log();
         $log->setChannel($record['channel']);
         $log->setLevel($record['level']);
-        $log->setMessage($record['formatted']);
-//        $logitem->setCreatedAt($record['datetime']);
-//        $em=$this->container->get('doctrine.orm.entity_manager');
-//        $em->persist($log);
-//        $em->flush();
+        $log->setLevelname($record['level_name']);
+        $log->setMessage($record['message']);
+        $log->setContext(json_encode($record['context']));
+        $log->setExtra(json_encode($record['extra']));
+        $log->setFormatted($record['formatted']);
+
+        $em=$this->container->get('doctrine.orm.entity_manager');
+        $em->persist($log);
+        $em->flush();
     }
 }

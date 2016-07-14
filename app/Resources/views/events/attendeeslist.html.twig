@@ -30,16 +30,93 @@
             <!-- begin: .tray-center -->
             <div class="tray tray-center">
 
-                <!-- recent events table -->
+                <!-- create new order panel -->
+                <div class="panel mb25 mt5">
+                    <div class="panel-heading">
+                        <span class="panel-title hidden-xs"> Add New Attendees</span>
+                    </div>
+                    <div class="panel-body p20 pb10">
+                        <div class="tab-content pn br-n admin-form">
+                            <div id="tab1_1" class="tab-pane active">
+
+                                <div class="section row mbn">
+                                    <div class="col-md-9 pl15">
+                                        <div class="section row mb15">
+                                            <div class="col-xs-6">
+                                                <label for="name1" class="field prepend-icon">
+                                                    <input type="text" name="name1" id="name1" class="event-name gui-input br-light light" placeholder="First Name">
+                                                    <label for="name1" class="field-icon">
+                                                        <i class="fa fa-user"></i>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="name2" class="field prepend-icon">
+                                                    <input type="text" name="name2" id="name2" class="event-name gui-input br-light light" placeholder="Last Name">
+                                                    <label for="name2" class="field-icon">
+                                                        <i class="fa fa-user"></i>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="section row mb15">
+                                            <div class="col-xs-6">
+                                                <label for="password" class="field prepend-icon">
+                                                    <input type="password" name="password" id="password" class="event-name gui-input br-light light" placeholder="Password">
+                                                    <label for="name2" class="field-icon">
+                                                        <i class="fa fa-lock"></i>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="password2" class="field prepend-icon">
+                                                    <input type="password2" name="password2" id="password2" class="event-name gui-input br-light light" placeholder="Confirm Password">
+                                                    <label for="password2" class="field-icon">
+                                                        <i class="fa fa-unlock"></i>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="section mb15">
+                                            <label for="email" class="field prepend-icon">
+                                                <input type="text" name="email" id="email" class="event-name gui-input br-light bg-light" placeholder="Customer Email Address">
+                                                <label for="email" class="field-icon">
+                                                    <i class="fa fa-envelope-o"></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                        <button class="btn btn-primary" type="button">Save Attendee</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="fileupload fileupload-new admin-form" data-provides="fileupload">
+                                            <div class="fileupload-preview thumbnail mb15">
+                                                <img data-src="holder.js/100%x147" alt="holder">
+                                            </div>
+                                            <span class="button btn-system btn-file btn-block ph5">
+                                                <span class="fileupload-new">Add</span>
+                                                <span class="fileupload-exists">Change</span>
+                                                <input type="file">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- end section row -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- recent events table -->
                 <div class="panel">
                     <div class="panel-body pn">
 
-                        <table class="table table-striped table-hover" id="datatable1" cellspacing="0" width="100%">
+                        <table class="table table-striped table-hover" id="datatablea" cellspacing="0" width="100%">
                             <thead>
                             <tr class="bg-light">
                                 <th class="text-center">Select</th>
-                                <th class="">Register Date</th>
-                                <th class="">Gender</th>
+                                <th class="">Attendee Date</th>
+                                <th class="">Attendee ID</th>
                                 <th class="">Event Name</th>
                             </tr>
                             </thead>
@@ -56,13 +133,6 @@
                                 </td>
                                 <td class="">#50362061</td>
                                 <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                <td class="text-center">
-                                    <div class="btn-group text-center">
-                                        <button type="button" class="btn btn-success br2 btn-xs fs12"> Active
-                                            <span class="caret ml5"></span>
-                                        </button>
-                                    </div>
-                                </td>
                             </tr>
                             <tr>
                                 <td class="">
@@ -76,13 +146,6 @@
                                 </td>
                                 <td class="">#50362061</td>
                                 <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                <td class="text-center">
-                                    <div class="btn-group text-center">
-                                        <button type="button" class="btn btn-success br2 btn-xs fs12"> Active
-                                            <span class="caret ml5"></span>
-                                        </button>
-                                    </div>
-                                </td>
                             </tr>
                             <tr>
                                 <td class="">
@@ -96,13 +159,6 @@
                                 </td>
                                 <td class="">#50362061</td>
                                 <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                <td class="text-center">
-                                    <div class="btn-group text-center">
-                                        <button type="button" class="btn btn-danger br2 btn-xs fs12"> Disabled
-                                            <span class="caret ml5"></span>
-                                        </button>
-                                    </div>
-                                </td>
                             </tr>
                             <tr>
                                 <td class="">
@@ -116,13 +172,6 @@
                                 </td>
                                 <td class="">#50362061</td>
                                 <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                <td class="text-center">
-                                    <div class="btn-group text-center">
-                                        <button type="button" class="btn btn-success br2 btn-xs fs12"> Active
-                                            <span class="caret ml5"></span>
-                                        </button>
-                                    </div>
-                                </td>
                             </tr>
                             <tr>
                                 <td class="">
@@ -136,13 +185,6 @@
                                 </td>
                                 <td class="">#50362061</td>
                                 <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                <td class="text-center">
-                                    <div class="btn-group text-center">
-                                        <button type="button" class="btn btn-info br2 btn-xs fs12"> Pending
-                                            <span class="caret ml5"></span>
-                                        </button>
-                                    </div>
-                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -275,6 +317,10 @@
     <!-- Datatables Bootstrap Modifications  -->
     <script src="{{ asset('assets/vendor/plugins/datatables/media/js/dataTables.bootstrap.js') }}"></script>
 
+    <!-- FileUpload JS -->
+    <script src="{{ asset('assets/vendor/plugins/fileupload/fileupload.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/holder/holder.min.js') }}"></script>
+
     <!-- Theme Javascript -->
     <script src="{{ asset('assets/js/utility/utility.js') }}"></script>
     <script src="{{ asset('assets/js/demo/demo.js') }}"></script>
@@ -321,9 +367,9 @@
 
         });
         jQuery(document).ready(function() {
-            $('#datatable1').dataTable({
+            $('#datatablea').dataTable({
                 "paging":   true,
-                "order": [[4,"desc"]],
+                "order": [[2,"desc"]],
                 "info":     true,
                 "iDisplayLength": 10,
                 "aLengthMenu": [

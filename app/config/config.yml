@@ -84,6 +84,7 @@ monolog:
           type: rotating_file
           path: %kernel.logs_dir%/%kernel.environment%.log
           level: debug
+          formatter: monolog.formatter.session_request
         database:
           type: service
           id: myloggerservice
