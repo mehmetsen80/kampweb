@@ -72,3 +72,19 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+
+# monolog Configuration
+monolog:
+    handlers:
+        applog:
+          type: stream
+          path: %kernel.logs_dir%/error.log
+          level: error
+        main:
+          type: rotating_file
+          path: %kernel.logs_dir%/%kernel.environment%.log
+          level: debug
+        database:
+          type: service
+          id: myloggerservice
+          level: info

@@ -13,12 +13,12 @@ use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 /**
  * Class Event
  * @package AppBundle\Entity
- * @ORM\Table(name="event")
+ * @ORM\Table(name="attendee")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
  *
  */
-class Event
+class Attendee
 {
     /** @var double
      *  @ORM\Column(type="bigint", nullable=false)
@@ -32,16 +32,6 @@ class Event
      * @Assert\Length(min=3)
      */
     private $name;
-    /**
-     * @Assert\Date()
-     * @ORM\Column(name="startdate", type="datetime", nullable=true)
-     */
-    private $startDate;
-    /**
-     * @Assert\Date()
-     * @ORM\Column(name="enddate", type="datetime", nullable=true)
-     */
-    private $endDate;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="events")

@@ -14,3 +14,8 @@ services:
 
     md5encoderservice:
         class:  AppBundle\Services\Md5PasswordEncoderService
+
+# logger service
+    myloggerservice:
+        class:  AppBundle\Services\LogService
+        arguments: [ "@service_container" ]

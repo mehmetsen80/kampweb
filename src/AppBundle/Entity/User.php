@@ -86,6 +86,10 @@ class User implements AdvancedUserInterface, \Serializable
      */
     protected $dependents;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="createdBy")
+     */
+    protected $events;
 
     /**
      * @ORM\Column(type="boolean")
@@ -258,6 +262,16 @@ class User implements AdvancedUserInterface, \Serializable
     {
         return $this->dependents;
     }
+
+    /**
+     * @return ArrayCollection|Event[]
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+
 
 
 

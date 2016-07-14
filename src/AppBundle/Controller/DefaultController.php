@@ -55,6 +55,10 @@ class DefaultController extends Controller
      * @Route("/dashboard", name="dashboard")
      */
     public function showDashboardAction(){
+
+        $logger = $this->get('logger');
+        $logger->debug('I am the debug');
+
         $user = $this->getUser();
         $currentpassword = $user->getPassword();
         if($currentpassword == md5(1234)){
