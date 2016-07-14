@@ -57,7 +57,7 @@ class DefaultController extends Controller
     public function showDashboardAction(){
 
         $logger = $this->get('logger');
-        $logger->debug('I am the debug');
+        $logger->debug('I am the debug', array('route' => 'dashboard'));
 
         $user = $this->getUser();
         $currentpassword = $user->getPassword();
