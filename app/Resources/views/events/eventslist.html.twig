@@ -1,6 +1,6 @@
 {% extends '::default.html.twig' %}
 {% block body %}
-    <body class="ecommerce-page">
+    <body class="ecommerce-page" xmlns="http://www.w3.org/1999/html">
     <!-- Start: Content-Wrapper -->
     <section id="content_wrapper">
         <!-- Start: Topbar -->
@@ -11,7 +11,7 @@
                         <a href="{{ path('listevents') }}">Events</a>
                     </li>
                     <li>
-                        <a href="{{ path('attendees') }}">Attendees</a>
+                        <a href="#">Attendees</a>
                     </li>
                 </ul>
             </div>
@@ -29,80 +29,85 @@
 
             <!-- begin: .tray-center -->
             <div class="tray tray-center">
-
+                {% for flash_message in app.session.flashBag.get('eventsuccess') %}
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <i class="fa fa-check pr10"></i>
+                        {{ flash_message }}
+                    </div>
+                {% endfor %}
                 <!-- create new order panel -->
                 <div class="panel mb25 mt5">
                     <div class="panel-heading">
-                        <span class="panel-title hidden-xs"> Add New Attendees</span>
+                        <span class="panel-title hidden-xs"> Add an Event</span>
                     </div>
                     <div class="panel-body p20 pb10">
                         <div class="tab-content pn br-n admin-form">
                             <div id="tab1_1" class="tab-pane active">
 
                                 <div class="section row mbn">
-                                    <div class="col-md-9 pl15">
+                                    <div class="col-md-12 pl15">
                                         <div class="section row mb15">
-                                            <div class="col-xs-6">
+                                            <div class="col-xs-12">
+                                                <form method="post" action="{{ path('listevents') }}">
                                                 <label for="name1" class="field prepend-icon">
-                                                    <input type="text" name="name1" id="name1" class="event-name gui-input br-light light" placeholder="First Name">
+                                                    {{ form_widget(eventform.name, {'id':'name1', 'attr': {'class': 'event-name gui-input br-light light', 'name':'name1', 'placeholder':"Event Name"}}) }}
                                                     <label for="name1" class="field-icon">
                                                         <i class="fa fa-user"></i>
                                                     </label>
                                                 </label>
                                             </div>
-                                            <div class="col-xs-6">
-                                                <label for="name2" class="field prepend-icon">
-                                                    <input type="text" name="name2" id="name2" class="event-name gui-input br-light light" placeholder="Last Name">
-                                                    <label for="name2" class="field-icon">
-                                                        <i class="fa fa-user"></i>
-                                                    </label>
-                                                </label>
-                                            </div>
                                         </div>
                                         <div class="section row mb15">
                                             <div class="col-xs-6">
-                                                <label for="password" class="field prepend-icon">
-                                                    <input type="password" name="password" id="password" class="event-name gui-input br-light light" placeholder="Password">
-                                                    <label for="name2" class="field-icon">
-                                                        <i class="fa fa-lock"></i>
+                                                    <label for="datepicker1" class="field prepend-icon">
+                                                        {{ form_widget(eventform.startDate, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'name':'datepicker1', 'type':'text', 'placeholder':"Start Date"}}) }}
+                                                        <label class="field-icon">
+                                                            <i class="fa fa-calendar-o"></i>
+                                                        </label>
                                                     </label>
-                                                </label>
                                             </div>
                                             <div class="col-xs-6">
-                                                <label for="password2" class="field prepend-icon">
-                                                    <input type="password2" name="password2" id="password2" class="event-name gui-input br-light light" placeholder="Confirm Password">
-                                                    <label for="password2" class="field-icon">
-                                                        <i class="fa fa-unlock"></i>
+                                                <label for="datepicker1" class="field prepend-icon">
+                                                    {{ form_widget(eventform.endDate, {'id':'datepicker2', 'attr': {'class': 'gui-input', 'name':'datepicker2', 'type':'text', 'placeholder':"End Date"}}) }}
+                                                    <label class="field-icon">
+                                                        <i class="fa fa-calendar-o"></i>
                                                     </label>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="section mb15">
-                                            <label for="email" class="field prepend-icon">
-                                                <input type="text" name="email" id="email" class="event-name gui-input br-light bg-light" placeholder="Customer Email Address">
-                                                <label for="email" class="field-icon">
-                                                    <i class="fa fa-envelope-o"></i>
+                                            <label class="field prepend-icon">
+                                                {{ form_widget(eventform.description, {'id':'comment', 'attr': {'class': 'gui-textarea', 'name':'comment', 'placeholder':"Description..."}}) }}
+
+                                                <label for="comment" class="field-icon">
+                                                    <i class="fa fa-comments"></i>
                                                 </label>
+                                                <span class="input-footer">
+                                                    <strong>Hint:</strong>Don't be negative or off topic! just be awesome...
+                                                </span>
                                             </label>
                                         </div>
-                                        <button class="btn btn-primary" type="button">Save Attendee</button>
+                                        <button class="btn btn-primary" type="submit">Save Event</button>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="fileupload fileupload-new admin-form" data-provides="fileupload">
-                                            <div class="fileupload-preview thumbnail mb15">
-                                                <img data-src="holder.js/100%x147" alt="holder">
-                                            </div>
-                                            <span class="button btn-system btn-file btn-block ph5">
-                                                <span class="fileupload-new">Add</span>
-                                                <span class="fileupload-exists">Change</span>
-                                                <input type="file">
-                                            </span>
-                                        </div>
-                                    </div>
+                                    {#<div class="col-md-3">#}
+                                        {#<div class="fileupload fileupload-new admin-form" data-provides="fileupload">#}
+                                            {#<div class="fileupload-preview thumbnail mb15">#}
+                                                {#<img data-src="holder.js/100%x147" alt="holder">#}
+                                            {#</div>#}
+                                            {#<span class="button btn-system btn-file btn-block ph5">#}
+                                                {#<span class="fileupload-new">Add</span>#}
+                                                {#<span class="fileupload-exists">Change</span>#}
+                                                {#<input type="file">#}
+                                            {#</span>#}
+                                        {#</div>#}
+                                    {#</div>#}
 
                                 </div>
                                 <!-- end section row -->
                             </div>
+                            {{ form_row(eventform._token) }}
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -114,114 +119,61 @@
                             <table class="table table-striped table-hover" id="datatable1" cellspacing="0" width="100%">
                                 <thead>
                                 <tr class="bg-light">
-                                    <th class="text-center">Select</th>
-                                    <th class="">Event Date</th>
-                                    <th class="">Event ID</th>
+                                    <th class="">Operations</th>
                                     <th class="">Event Name</th>
+                                    <th class="">Start Date</th>
+                                    <th class="">End Date</th>
                                     <th class="text-center">Event Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td class="">
-                                        <label class="option block mn">
-                                            <input type="checkbox" name="mobileos" value="FR">
-                                            <span class="checkbox mn"></span>
-                                        </label>
-                                    </td>
-                                    <td class="">
-                                        01/11/2015
-                                    </td>
-                                    <td class="">#50362061</td>
-                                    <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                    <td class="text-center">
-                                        <div class="btn-group text-center">
-                                            <button type="button" class="btn btn-success br2 btn-xs fs12"> Active
-                                                <span class="caret ml5"></span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="">
-                                        <label class="option block mn">
-                                            <input type="checkbox" name="mobileos" value="FR">
-                                            <span class="checkbox mn"></span>
-                                        </label>
-                                    </td>
-                                    <td class="">
-                                        01/11/2015
-                                    </td>
-                                    <td class="">#50362061</td>
-                                    <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                    <td class="text-center">
-                                        <div class="btn-group text-center">
-                                            <button type="button" class="btn btn-success br2 btn-xs fs12"> Active
-                                                <span class="caret ml5"></span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="">
-                                        <label class="option block mn">
-                                            <input type="checkbox" name="mobileos" value="FR">
-                                            <span class="checkbox mn"></span>
-                                        </label>
-                                    </td>
-                                    <td class="">
-                                        01/11/2015
-                                    </td>
-                                    <td class="">#50362061</td>
-                                    <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                    <td class="text-center">
-                                        <div class="btn-group text-center">
-                                            <button type="button" class="btn btn-danger br2 btn-xs fs12"> Disabled
-                                                <span class="caret ml5"></span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="">
-                                        <label class="option block mn">
-                                            <input type="checkbox" name="mobileos" value="FR">
-                                            <span class="checkbox mn"></span>
-                                        </label>
-                                    </td>
-                                    <td class="">
-                                        01/11/2015
-                                    </td>
-                                    <td class="">#50362061</td>
-                                    <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                    <td class="text-center">
-                                        <div class="btn-group text-center">
-                                            <button type="button" class="btn btn-success br2 btn-xs fs12"> Active
-                                                <span class="caret ml5"></span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="">
-                                        <label class="option block mn">
-                                            <input type="checkbox" name="mobileos" value="FR">
-                                            <span class="checkbox mn"></span>
-                                        </label>
-                                    </td>
-                                    <td class="">
-                                        01/11/2015
-                                    </td>
-                                    <td class="">#50362061</td>
-                                    <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                    <td class="text-center">
-                                        <div class="btn-group text-center">
-                                            <button type="button" class="btn btn-info br2 btn-xs fs12"> Pending
-                                                <span class="caret ml5"></span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                    {%  for event in events %}
+                                        <tr>
+                                            <td class="">
+                                                <label class="option block mn">
+                                                    <a href="{{ path('edit-event', {'eventid': event.id}) }}">
+                                                        <button type="button" class="btn btn-info br2 btn-xs fs12"> Edit
+                                                        </button>
+                                                    </a>
+                                                    <a href="{{ path('deleteevent', {'id': event.id}) }}">
+                                                        <button type="button" class="btn btn-danger br2 btn-xs fs12"> Delete
+                                                        </button>
+                                                    </a>
+                                                </label>
+                                            </td>
+                                            <td class="">
+                                                <a href="{{ path('showevents', {'eventid': event.id}) }}">
+                                                    {{ event.name }}
+                                                </a>
+                                            </td>
+                                            <td class="">
+                                                {{ event.startDate|date('Y-m-d') }}
+                                            </td>
+                                            <td class="">
+                                                {{ event.endDate|date('Y-m-d') }}
+                                            </td>
+                                            <td class="text-center">
+                                                {% if 'now'|date('Y-m-d') < event.startDate|date('Y-m-d') %}
+                                                <div class="btn-group text-center">
+                                                    <button type="button" class="btn btn-info br2 btn-xs fs12"> Upcoming
+                                                    </button>
+                                                </div>
+
+                                                {% elseif 'now'|date('Y-m-d') >= event.startDate|date('Y-m-d') and 'now'|date('Y-m-d') <= event.endDate|date('Y-m-d') %}
+                                                    <div class="btn-group text-center">
+                                                        <button type="button" class="btn btn-success br2 btn-xs fs12"> Active
+                                                        </button>
+                                                    </div>
+
+                                                {% elseif 'now'|date('Y-m-d') > event.endDate|date('Y-m-d') %}
+                                                    <div class="btn-group text-center">
+                                                        <button type="button" class="btn btn-danger br2 btn-xs fs12"> Expired
+                                                        </button>
+                                                    </div>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                     </div>
@@ -337,10 +289,7 @@
     <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
 
-    <!-- Admin Forms JS -->
-    <script src="assets/admin-tools/admin-forms/js/{{ asset('assets/admin-tools/admin-forms/js/jquery-ui-datepicker.min.js') }}"></script>
-
-
+    <script src="{{ asset('assets/admin-tools/admin-forms/js/jquery-ui-datepicker.min.js') }}"></script>
     <!-- Datatables -->
     <script src="{{ asset('assets/vendor/plugins/datatables/media/js/jquery.dataTables.js') }}"></script>
 
@@ -353,44 +302,164 @@
     <!-- Datatables Bootstrap Modifications  -->
     <script src="{{ asset('assets/vendor/plugins/datatables/media/js/dataTables.bootstrap.js') }}"></script>
 
-    <!-- FileUpload JS -->
-    <script src="{{ asset('assets/vendor/plugins/fileupload/fileupload.js') }}"></script>
-    <script src="{{ asset('assets/vendor/plugins/holder/holder.min.js') }}"></script>
+    {#<!-- FileUpload JS -->#}
+    {#<script src="{{ asset('assets/vendor/plugins/fileupload/fileupload.js') }}"></script>#}
+    {#<script src="{{ asset('assets/vendor/plugins/holder/holder.min.js') }}"></script>#}
 
     <!-- Theme Javascript -->
     <script src="{{ asset('assets/js/utility/utility.js') }}"></script>
     <script src="{{ asset('assets/js/demo/demo.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <!-- jQuery Validate Plugin-->
+    <script src="{{ asset('assets/admin-tools/admin-forms/js/jquery.validate.min.js') }}"></script>
+
+    <!-- jQuery Validate Addon -->
+    <script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
-
             "use strict";
-
-            // Init Theme Core
-            Core.init();
 
             // Init Demo JS
             Demo.init();
 
-            // select dropdowns - placeholder like creation
-            var selectList = $('.admin-form select');
-            selectList.each(function(i, e) {
-                $(e).on('change', function() {
-                    if ($(e).val() == "0") $(e).addClass("empty");
-                    else $(e).removeClass("empty")
-                });
-            });
-            selectList.each(function(i, e) {
-                $(e).change();
+
+            // Init Theme Core
+            Core.init();
+            /* @custom validation method (smartCaptcha)
+             ------------------------------------------------------------------ */
+
+            $.validator.methods.smartCaptcha = function(value, element, param) {
+                return value == param;
+            };
+
+            $("#admin-form").validate({
+
+                /* @validation states + elements
+                 ------------------------------------------- */
+
+                errorClass: "state-error",
+                validClass: "state-success",
+                errorElement: "em",
+
+                /* @validation rules
+                 ------------------------------------------ */
+
+                rules: {
+                    firstname: {
+                        required: false,
+                        minlength: 1
+
+                    },
+                    lastname: {
+                        required: false,
+                        minlength: 1
+                    },
+                    useremail: {
+                        required: false,
+                        email: true,
+                        minlength: 1
+                    },
+                    mobile_phone: {
+                        require_from_group: [1, ".phone-group"]
+                    },
+                    password: {
+                        required: false,
+                        minlength: 6,
+                        maxlength: 16
+                    },
+                    repeatPassword: {
+                        required: false,
+                        minlength: 6,
+                        maxlength: 16,
+                        equalTo: '#password'
+                    },
+
+                },
+
+                /* @validation highlighting + error placement
+                 ---------------------------------------------------- */
+
+                highlight: function(element, errorClass, validClass) {
+                    $(element).closest('.field').addClass(errorClass).removeClass(validClass);
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).closest('.field').removeClass(errorClass).addClass(validClass);
+                },
+                errorPlacement: function(error, element) {
+                    if (element.is(":radio") || element.is(":checkbox")) {
+                        element.closest('.option-group').after(error);
+                    } else {
+                        error.insertAfter(element.parent());
+                    }
+                }
+
             });
 
-            // Init datepicker widget
-            $('#filter-datepicker').datepicker({
-                numberOfMonths: 1,
-                showOn: 'both',
-                buttonText: '<i class="fa fa-calendar-o"></i>',
+
+            // Cache several DOM elements
+            var pageHeader = $('.content-header').find('b');
+            var adminForm = $('.admin-form');
+            var options = adminForm.find('.option');
+            var switches = adminForm.find('.switch');
+            var buttons = adminForm.find('.button');
+            var Panel = adminForm.find('.panel');
+
+
+            setTimeout(function() {
+                adminForm.addClass('theme-primary');
+                Panel.addClass('panel-primary');
+                pageHeader.addClass('text-primary');
+
+                $(options).each(function(i, e) {
+                    if ($(e).hasClass('block')) {
+                        $(e).removeClass().addClass('block mt15 option option-primary');
+                    } else {
+                        $(e).removeClass().addClass('option option-primary');
+                    }
+                });
+
+                // var sliders = $('.ui-timepicker-div', adminForm).find('.ui-slider');
+                $('body').find('.ui-slider').each(function(i, e) {
+                    $(e).addClass('slider-primary');
+                });
+
+                $(switches).each(function(i, ele) {
+                    if ($(ele).hasClass('switch-round')) {
+                        if ($(ele).hasClass('block')) {
+                            $(ele).removeClass().addClass('block mt15 switch switch-round switch-primary');
+                        } else {
+                            $(ele).removeClass().addClass('switch switch-round switch-primary');
+                        }
+                    } else {
+                        if ($(ele).hasClass('block')) {
+                            $(ele).removeClass().addClass('block mt15 switch switch-primary');
+                        } else {
+                            $(ele).removeClass().addClass('switch switch-primary');
+                        }
+                    }
+                });
+                buttons.removeClass().addClass('button btn-primary');
+            }, 800);
+
+            $("#datepicker1").datepicker({
                 prevText: '<i class="fa fa-chevron-left"></i>',
                 nextText: '<i class="fa fa-chevron-right"></i>',
+                showButtonPanel: false,
+                beforeShow: function(input, inst) {
+                    var newclass = 'admin-form';
+                    var themeClass = $(this).parents('.admin-form').attr('class');
+                    var smartpikr = inst.dpDiv.parent();
+                    if (!smartpikr.hasClass(themeClass)) {
+                        inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');
+                    }
+                }
+            });
+
+            $("#datepicker2").datepicker({
+                prevText: '<i class="fa fa-chevron-left"></i>',
+                nextText: '<i class="fa fa-chevron-right"></i>',
+                showButtonPanel: false,
                 beforeShow: function(input, inst) {
                     var newclass = 'admin-form';
                     var themeClass = $(this).parents('.admin-form').attr('class');
@@ -402,22 +471,56 @@
             });
 
         });
+    </script>
+    <script type="text/javascript">
         jQuery(document).ready(function() {
-            $('#datatable1').dataTable({
-                "paging":   true,
-                "order": [[4,"desc"]],
-                "info":     true,
-                "iDisplayLength": 10,
-                "aLengthMenu": [
-                    [5, 10, 25, 50, -1],
-                    [5, 10, 25, 50, "All"]
-                ],
-                "sDom": '<"dt-panelmenu clearfix"lfr>t<"dt-panelmenu clearfix"T>Rt<"dt-panelfooter clearfix"ip>',
-                "oTableTools": {
-                    "sSwfPath": "{{ asset('assets/vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf') }}"
+            // jQuery Time Spinner settings
+            $.widget("ui.timespinner", $.ui.spinner, {
+                options: {
+                    // seconds
+                    step: 60 * 1000,
+                    // hours
+                    page: 60
+                },
+                _parse: function(value) {
+                    if (typeof value === "string") {
+                        // already a timestamp
+                        if (Number(value) == value) {
+                            return Number(value);
+                        }
+                        return +Globalize.parseDate(value);
+                    }
+                    return value;
+                },
+
+                _format: function(value) {
+                    return Globalize.format(new Date(value), "t");
                 }
             });
+
+            // Init jQuery Time Spinner
+            $("#spinner4").timespinner();
+
+
+
         });
+
+                jQuery(document).ready(function() {
+                    $('#datatable1').dataTable({
+                        "paging":   true,
+                        "order": [[2,"desc"]],
+                        "info":     true,
+                        "iDisplayLength": 10,
+                        "aLengthMenu": [
+                            [5, 10, 25, 50, -1],
+                            [5, 10, 25, 50, "All"]
+                        ],
+                        "sDom": '<"dt-panelmenu clearfix"lfr>t<"dt-panelmenu clearfix"T>Rt<"dt-panelfooter clearfix"ip>',
+                        "oTableTools": {
+                            "sSwfPath": "{{ asset('assets/vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf') }}"
+                        }
+                    });
+                });
     </script>
     <!-- END: PAGE SCRIPTS -->
     </body>

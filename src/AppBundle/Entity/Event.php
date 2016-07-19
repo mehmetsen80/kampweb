@@ -44,6 +44,12 @@ class Event
     private $endDate;
 
     /**
+     * @var
+     * @ORM\Column(name="description" , type="text", nullable=true)
+     */
+    protected $description;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="events")
      * @ORM\JoinColumn(name="createdby", referencedColumnName="id")
      */
@@ -171,5 +177,73 @@ class Event
     {
         $this->createdBy = $createdBy;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsactive()
+    {
+        return $this->isactive;
+    }
+
+    /**
+     * @param mixed $isactive
+     */
+    public function setIsactive($isactive)
+    {
+        $this->isactive = $isactive;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedat()
+    {
+        return $this->createdat;
+    }
+
+    /**
+     * @param \DateTime $createdat
+     */
+    public function setCreatedat($createdat)
+    {
+        $this->createdat = $createdat;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getModifiedat()
+    {
+        return $this->modifiedat;
+    }
+
+    /**
+     * @param \DateTime $modifiedat
+     */
+    public function setModifiedat($modifiedat)
+    {
+        $this->modifiedat = $modifiedat;
+    }
+
+
+
+
 
 }

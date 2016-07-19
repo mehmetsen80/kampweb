@@ -240,7 +240,7 @@
  Form Textarea
 ===================================================================*/
 .admin-form .gui-textarea {
-  resize: none;
+  /*resize: none;*/
   line-height: 19px;
   overflow: auto;
   max-width: 100%;

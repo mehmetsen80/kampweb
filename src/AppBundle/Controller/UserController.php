@@ -24,7 +24,6 @@ class UserController extends Controller
 
     /**
      * @Route("/users/{userid}", name="showusers")
-     *
      */
     public function showUsersAction($userid){
         $em = $this->getDoctrine()->getManager();

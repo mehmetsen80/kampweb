@@ -1,0 +1,141 @@
+
+{% block content %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Variant HTML Builder by Medium Rare</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="{{ asset('assets/css/flexslider.min.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('assets/css/line-icons.min.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('assets/css/elegant-icons.min.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('assets/css/lightbox.min.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('parallax/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <!--[if gte IE 9]>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/ie9.css') }}" />
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+    <script src="{{ asset('assets/js/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
+</head>
+<body>
+<div class="loader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+
+
+    <nav class="simple-bar top-bar">
+        <div class="container">
+
+
+            <div class="row nav-menu">
+                <div class="col-md-3 col-sm-3 columns">
+                    KampApp
+                </div>
+
+                <div class="col-md-9 col-sm-9 columns text-right">
+                    <ul class="menu">
+                        <li><a href="{{ path('login') }}">Home</a></li>
+                        <li><a href="{{ path('contact') }}">Contact</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mobile-toggle">
+                <i class="icon icon_menu"></i>
+            </div>
+
+        </div>
+    </nav>
+
+
+<div class="main-container">
+    <header class="page-header">
+        <div class="background-image-holder parallax-background">
+            <img class="background-image" alt="Background Image" src="http://kampapp.com/parallax/img/kampappimage.png">
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1 class="text-white">{{ event.name }}</h1>
+
+                    <a href="#" class="btn btn-primary btn-filled space-bottom-medium">Join Now</a>
+                    <h4 class="text-white space-bottom-small">Date: {{ event.startDate|date("m-d-Y")}} | {{ event.endDate|date("m-d-Y") }}</h4>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="pure-text-centered">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
+                    <span class="sub alt-font">Event Description</span>
+                    <p class="lead">
+                        {{ event.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map">
+        <div class="map-holder">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25198.35985697838!2d144.979258257672!3d-37.86508725777717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6686626d1c9bf%3A0x24b207169447a3a5!2sClyde+St%2C+St+Kilda+VIC+3182!5e0!3m2!1sen!2sau!4v1405983906843"></iframe>
+        </div>
+    </section>
+</div>
+
+<div class="footer-container">
+
+    <footer class="bg-primary short-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="text-white">© 2014 Pivot Inc.</span>
+                    <span class="text-white"><a href="#">hello@pivot.net</a></span>
+                    <span class="text-white">+614 3827 492</span>
+                    <span class="text-white">300 Collins St. Melbourne 3000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-action">
+            <div class="align-vertical">
+                <i class="icon text-white icon_mail"></i>
+                <a href="contact.html" class="text-white"><span class="text-white">Get in touch with us <i class="icon arrow_right"></i></span></a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.plugin.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.flexslider-min.js') }}"></script>
+<script src="{{ asset('assets/js/smooth-scroll.min.js') }}"></script>
+<script src="{{ asset('assets/js/skrollr.min.js') }}"></script>
+<script src="{{ asset('assets/js/spectragram.min.js') }}"></script>
+<script src="{{ asset('assets/js/scrollReveal.min.js') }}"></script>
+<script src="{{ asset('assets/js/isotope.min.js') }}"></script>
+<script src="{{ asset('assets/js/twitterFetcher_v10_min.js') }}"></script>
+<script src="{{ asset('assets/js/lightbox.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts.js') }}"></script>
+</body>
+</html>
+{% endblock %}
+				

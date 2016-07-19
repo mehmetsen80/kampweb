@@ -32,19 +32,23 @@ class Log
      * @ORM\Column(name="message", type="text", nullable=true)
      */
     private $message;
+
     /**
      * @ORM\Column(name="context", type="text", nullable=true)
      */
     private $context;
+
     /**
      * @var string
      * @ORM\Column(name="route", type="string", length=50, nullable=true)
      */
     private $route;
+
     /**
      * @ORM\Column(name="extra", type="text", nullable=true)
      */
     private $extra;
+
     /**
      * @ORM\Column(name="formatted", type="text", nullable=true)
      */
