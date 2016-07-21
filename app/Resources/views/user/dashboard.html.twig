@@ -9,13 +9,7 @@
             <div class="topbar-left">
                 <ul class="nav nav-list nav-list-topbar pull-left">
                     <li class="active">
-                        <a href="ecommerce_dashboard.html">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_products.html">Events</a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_orders.html">Attendees</a>
+                        <a href="{{ path('dashboard') }}">Dashboard</a>
                     </li>
                 </ul>
             </div>
@@ -41,7 +35,7 @@
                     <div class="col-sm-4 col-xl-3">
                         <div class="panel panel-tile text-center br-a br-grey">
                             <div class="panel-body">
-                                <h1 class="fs30 mt5 mbn">1,426</h1>
+                                <h1 class="fs30 mt5 mbn">{{ events|length }}</h1>
                                 <h6 class="text-system">Events</h6>
                             </div>
 
@@ -66,20 +60,63 @@
                     <div class="col-sm-3 col-xl-3 visible-xl">
                         <div class="panel panel-tile text-center br-a br-grey">
                             <div class="panel-body">
-                                <h1 class="fs30 mt5 mbn">6,718</h1>
-                                <h6 class="text-danger">UNIQUE VISITS</h6>
+                                <h1 class="fs30 mt5 mbn">{{ users|length }}</h1>
+                                <h6 class="text-danger">Users</h6>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- dashboard metric chart -->
-                <div class="panel">
-                    <div class="panel-heading">
-                        <span class="panel-title"> Attendies</span>
+
+                <!-- Pie and Circle Stats  -->
+                <div class="row" id="pchart5">
+                    <div class="col-md-5">
+                        <!-- Pie Chart -->
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <span class="panel-title fw600 text-info">Pie Chart</span>
+                            </div>
+                            <div class="panel-body pn">
+                                <div id="high-pie" style="width: 100%; height: 364px; margin: 0 auto"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body pn">
-                        <div id="ecommerce_chart1" style="height: 300px;"></div>
+                    <div class="col-md-7">
+                        <!-- Circle Stats -->
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <span class="panel-title fw600 text-info">Circulars</span>
+                                <div class="widget-menu pull-right mr10 hidden">
+                    <span class="fs11 text-muted">
+                      <i class="fa fa-circle text-warning fs12 pr5"></i> Adult </span>
+                                    <span class="fs11 text-muted ml10">
+                      <i class="fa fa-circle text-info fs12 pr5"></i> University Student </span>
+                                    <span class="fs11 text-muted ml10">
+                      <i class="fa fa-circle text-primary fs12 pr5"></i> Youth </span>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="mb20 text-right">
+                    <span class="fs11 text-muted">
+                      <i class="fa fa-circle text-warning fs12 pr5"></i> Youth</span>
+                                    <span class="fs11 text-muted ml10">
+                      <i class="fa fa-circle text-info fs12 pr5"></i> University Student</span>
+                                    <span class="fs11 text-muted ml10">
+                      <i class="fa fa-circle text-primary fs12 pr5"></i> Adult </span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 text-center">
+                                        <div class="info-circle" id="c1" title="Adult" value="60" data-circle-color="primary"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="info-circle" id="c2" title="University Student" value="30" data-circle-color="info"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="info-circle" id="c3" title="Youth" value="10" data-circle-color="warning"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -259,17 +296,27 @@
         <!-- End: Content -->
 
     </section>
+    <!-- END: PAGE SCRIPTS -->
+    </body>
+    <!-- End: Content -->
+{% endblock %}
+{% block javascripts %}
     <!-- jQuery -->
     <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
 
+    <!-- Sparkline Local -->
+    <script src="{{ asset('assets/vendor/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
+
     <!-- HighCharts Plugin -->
     <script src="{{ asset('assets/vendor/plugins/highcharts/highcharts.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/circles/circles.js') }}"></script>
 
     <!-- Theme Javascript -->
     <script src="{{ asset('assets/js/utility/utility.js') }}"></script>
     <script src="{{ asset('assets/js/demo/demo.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/demo/charts/highcharts.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
 
@@ -281,83 +328,10 @@
             // Init Demo JS
             Demo.init();
 
-            var highColors = [bgSystem, bgSuccess, bgWarning, bgPrimary];
-
-            // Chart data
-            var seriesData = [{
-                name: 'Male',
-                data: [5.0, 9, 17, 22, 19, 11.5, 5.2, 9.5, 11.3, 15.3, 19.9, 24.6]
-            }, {
-                name: 'Female',
-                data: [2.9, 3.2, 4.7, 5.5, 8.9, 12.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-            }, {
-                name: 'Youth',
-                data: [15, 19, 22.7, 29.3, 22.0, 17.0, 23.8, 19.1, 22.1, 14.1, 11.6, 7.5]
-            }, {
-                name: 'Adult',
-                data: [11, 6, 5, 15, 17.0, 22.0, 30.8, 24.1, 14.1, 11.1, 9.6, 6.5]
-            }];
-
-            var ecomChart = $('#ecommerce_chart1');
-
-            if (ecomChart.length) {
-                ecomChart.highcharts({
-                    credits: false,
-                    colors: highColors,
-                    chart: {
-                        backgroundColor: 'transparent',
-                        className: 'br-r',
-                        type: 'line',
-                        zoomType: 'x',
-                        panning: true,
-                        panKey: 'shift',
-                        marginTop: 45,
-                        marginRight: 1,
-                    },
-                    title: {
-                        text: null
-                    },
-                    xAxis: {
-                        gridLineColor: '#EEE',
-                        lineColor: '#EEE',
-                        tickColor: '#EEE',
-                        categories: ['Jan', 'Feb', 'Mar', 'Apr',
-                            'May', 'Jun', 'Jul', 'Aug',
-                            'Sep', 'Oct', 'Nov', 'Dec'
-                        ]
-                    },
-                    yAxis: {
-                        min: 0,
-                        tickInterval: 5,
-                        gridLineColor: '#EEE',
-                        title: {
-                            text: null,
-                        }
-                    },
-                    plotOptions: {
-                        spline: {
-                            lineWidth: 3,
-                        },
-                        area: {
-                            fillOpacity: 0.2
-                        }
-                    },
-                    legend: {
-                        enabled: true,
-                        floating: false,
-                        align: 'right',
-                        verticalAlign: 'top',
-                    },
-                    series: seriesData
-                });
-            }
-
+            // This page contains more Initilization Javascript than normal.
+            // As a result it has its own js page. See charts.js for more info
+            demoHighCharts.init();
 
         });
     </script>
-    <!-- END: PAGE SCRIPTS -->
-    </body>
-    <!-- End: Content -->
-{% endblock %}
-{% block javascripts %}
 {% endblock %}

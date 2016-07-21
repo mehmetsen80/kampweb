@@ -17,7 +17,7 @@ framework:
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    validation:      { enabled: true, enable_annotations: true }
     #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
@@ -87,5 +87,5 @@ monolog:
           formatter: monolog.formatter.session_request
         database:
           type: service
-          id: myloggerservice
+          id: myloggerhandler
           level: info

@@ -20,7 +20,7 @@
                     </a>
                 </li>
                 <li class="crumb-link">
-                    <a href="{{ path('addevent') }}">Add Event</a>
+                    <a href="{{ path('listevents') }}">Add Event</a>
                 </li>
             </ol>
         </div>
@@ -184,7 +184,7 @@
                 savable: false,
                 onChange: function(e) {
                     var content = e.parseContent(),
-                            content_length = (content.match(/\n/g) || []).length + content.length
+                            content_length = (content.match(/\n/g) || []).length + content.length;
                     if (content == '') {
                         $('#md-footer').hide()
                     } else {
@@ -352,7 +352,7 @@
                     }
                 });
 
-            };
+            }
             XEdit();
 
         });

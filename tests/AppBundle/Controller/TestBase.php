@@ -9,14 +9,21 @@
 namespace tests\AppBundle\Controller;
 
 
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\DependencyInjection\Container;
-use Doctrine\Common\Annotations\AnnotationRegistry;
+
+use AppKernel;
 
 AnnotationRegistry::registerFile("../../../vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php");
 
-class TestBase extends \PHPUnit_Framework_TestCase
+require_once __DIR__ . "/../../../vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/AnnotationDriver.php";
+
+
+//define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
+abstract class TestBase extends \PHPUnit_Framework_TestCase
 {
+
     /**
      * @var Application
      */
@@ -33,18 +40,25 @@ class TestBase extends \PHPUnit_Framework_TestCase
      * @var Container
      */
     protected $container;
+
+
+
     protected function setUp()
     {
-        $this->kernel = new \AppKernel("test", true);
+        $this->kernel = new AppKernel("dev", true);
         $this->kernel->boot();
         $this->application = new Application($this->kernel);
         $this->application->setAutoExit(false);
+
+
         // Store the container and the entity manager in test case properties
         $this->container = $this->kernel->getContainer();
         $this->entityManager = $this->container->get("doctrine")->getManager();
+
         if(is_null($this->entityManager)){
             print("upssss entitiy manager is null :(");
         }
+
         parent::setUp();
     }
     public function tearDown()

@@ -65,7 +65,12 @@ class DefaultController extends Controller
 
             return $this->redirect($this->generateUrl('changepassword'));
         }
-        return $this->render(':user:dashboard.html.twig');
+
+        $eventService = $this->get('eventservice');
+        $events = $eventService->getAllEvents();
+        $users = $eventService->getAllUsers();
+
+        return $this->render(":user:dashboard.html.twig", array('events'=>$events, 'users'=>$users));
 
     }
 

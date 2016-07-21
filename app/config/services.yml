@@ -15,9 +15,14 @@ services:
     md5encoderservice:
         class:  AppBundle\Services\Md5PasswordEncoderService
 
+    # event service
+    eventservice:
+            class:  AppBundle\Services\EventService
+            arguments: [ "@doctrine.orm.entity_manager" ]
+
     # logger service
-    myloggerservice:
-        class:  AppBundle\Services\LogService
+    myloggerhandler:
+        class:  AppBundle\Handler\LogHandler
         arguments: [ "@service_container" ]
 
     # session log has line formatter

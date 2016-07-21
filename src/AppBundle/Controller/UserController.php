@@ -65,7 +65,7 @@ class UserController extends Controller
     public function updateAction(Request $request)
     {
 //        throw new \Exception('Something went wrong!');
-//        throw new AccessDeniedHttpException;
+//        throw new accessdeniedhttpexception;
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $updateform = $this->createForm(ChangeInfoType::class, $user);
@@ -312,11 +312,6 @@ class UserController extends Controller
         }
         return $this->render(':user:contact.html.twig', array('contactform' => $contactform->createView()));
     }
-    /**
-     * @Route("/testingevent", name="event")
-     */
-    public function testAc(){
-        return $this->render('::evendashboard.html.twig');
-    }
+
 
 }

@@ -87,7 +87,7 @@ class User implements AdvancedUserInterface, \Serializable
     protected $dependents;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="createdBy")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="createdby")
      */
     protected $events;
 

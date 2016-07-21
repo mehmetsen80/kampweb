@@ -7,14 +7,15 @@
  */
 
 namespace AppBundle\Entity;
-use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 /**
  * Class Event
  * @package AppBundle\Entity
  * @ORM\Table(name="event")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\EventRepository")
  * @ORM\HasLifecycleCallbacks()
  *
  */
@@ -29,22 +30,21 @@ class Event
 
     /**
      * @ORM\Column(type="string", nullable=false)
-     * @Assert\Length(min=3)
+     * @Assert\NotBlank()
      */
-    private $name;
-    /**
-     * @Assert\Date()
-     * @ORM\Column(name="startdate", type="datetime", nullable=true)
-     */
-    private $startDate;
-    /**
-     * @Assert\Date()
-     * @ORM\Column(name="enddate", type="datetime", nullable=true)
-     */
-    private $endDate;
+    protected $name;
 
     /**
-     * @var
+     * @ORM\Column(name="startdate", type="datetime", nullable=true)
+     */
+    protected $startDate;
+
+    /**
+     * @ORM\Column(name="enddate", type="datetime", nullable=true)
+     */
+    protected $endDate;
+
+    /**
      * @ORM\Column(name="description" , type="text", nullable=true)
      */
     protected $description;
@@ -53,7 +53,7 @@ class Event
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="events")
      * @ORM\JoinColumn(name="createdby", referencedColumnName="id")
      */
-    private $createdBy;
+    protected $createdby;
 
     /**
      * @ORM\Column(type="boolean")
@@ -62,22 +62,23 @@ class Event
 
     /**
      * @var \DateTime
-     * @ORM\Column(name="createdat", type="bigint", nullable=true)
+     * @ORM\Column(name="createdtime", type="bigint", nullable=true)
      */
-    protected $createdat;
+    protected $createdtime;
+
     /**
      * @var \DateTime
-     * @ORM\Column(name="modifiedat", type="bigint", nullable=true)
+     * @ORM\Column(name="modifiedtime", type="bigint", nullable=true)
      */
-    protected  $modifiedat;
+    protected  $modifiedtime;
 
     public function __construct()
     {
         $this->isactive = true;
         $this->updatedTimestamps();
-        // may not be needed, see section on salt below
-        //$this->salt = md5(uniqid(null, true));
     }
+
+
 
     /**
      * Now we tell doctrine that before we persist or update we call the updatedTimestamps() function.
@@ -87,19 +88,23 @@ class Event
      */
     public function updatedTimestamps()
     {
-        $date = date_create();
-        $unixDate = $date->getTimestamp();
-        $this->setModifiedat($unixDate);
-        if($this->getCreatedat() == null)
-        {
-            $date = date_create();
-            $unixDate = $date->getTimestamp();
-            $this->setCreatedat($unixDate);
-        }
+//        $date = date_create();
+//        $unixDate = $date->getTimestamp();
+//        $this->setModifiedat($unixDate);
+//        if($this->getCreatedat() == null)
+//        {
+//            $date = date_create();
+//            $unixDate = $date->getTimestamp();
+//            $this->setCreatedat($unixDate);
+//        }
     }
 
+
+
     /**
-     * @return float
+     * Get id
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -107,15 +112,23 @@ class Event
     }
 
     /**
-     * @param float $id
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Event
      */
-    public function setId($id)
+    public function setName($name)
     {
-        $this->id = $id;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get name
+     *
+     * @return string
      */
     public function getName()
     {
@@ -123,15 +136,23 @@ class Event
     }
 
     /**
-     * @param mixed $name
+     * Set startDate
+     *
+     * @param \DateTime $startDate
+     *
+     * @return Event
      */
-    public function setName($name)
+    public function setStartDate($startDate)
     {
-        $this->name = $name;
+        $this->startDate = $startDate;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get startDate
+     *
+     * @return \DateTime
      */
     public function getStartDate()
     {
@@ -139,15 +160,23 @@ class Event
     }
 
     /**
-     * @param mixed $startDate
+     * Set endDate
+     *
+     * @param \DateTime $endDate
+     *
+     * @return Event
      */
-    public function setStartDate($startDate)
+    public function setEndDate($endDate)
     {
-        $this->startDate = $startDate;
+        $this->endDate = $endDate;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get endDate
+     *
+     * @return \DateTime
      */
     public function getEndDate()
     {
@@ -155,31 +184,23 @@ class Event
     }
 
     /**
-     * @param mixed $endDate
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Event
      */
-    public function setEndDate($endDate)
+    public function setDescription($description)
     {
-        $this->endDate = $endDate;
+        $this->description = $description;
+
+        return $this;
     }
 
     /**
-     * @return mixed
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy;
-    }
-
-    /**
-     * @param mixed $createdBy
-     */
-    public function setCreatedBy($createdBy)
-    {
-        $this->createdBy = $createdBy;
-    }
-
-    /**
-     * @return mixed
+     * Get description
+     *
+     * @return string
      */
     public function getDescription()
     {
@@ -187,15 +208,23 @@ class Event
     }
 
     /**
-     * @param mixed $description
+     * Set isactive
+     *
+     * @param boolean $isactive
+     *
+     * @return Event
      */
-    public function setDescription($description)
+    public function setIsactive($isactive)
     {
-        $this->description = $description;
+        $this->isactive = $isactive;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get isactive
+     *
+     * @return boolean
      */
     public function getIsactive()
     {
@@ -203,47 +232,81 @@ class Event
     }
 
     /**
-     * @param mixed $isactive
+     * Set createdtime
+     *
+     * @param integer $createdtime
+     *
+     * @return Event
      */
-    public function setIsactive($isactive)
+    public function setCreatedtime($createdtime)
     {
-        $this->isactive = $isactive;
+        $this->createdtime = $createdtime;
+
+        return $this;
     }
 
     /**
-     * @return \DateTime
+     * Get createdtime
+     *
+     * @return integer
      */
-    public function getCreatedat()
+    public function getCreatedtime()
     {
-        return $this->createdat;
+        return $this->createdtime;
     }
 
     /**
-     * @param \DateTime $createdat
+     * Set modifiedtime
+     *
+     * @param integer $modifiedtime
+     *
+     * @return Event
      */
-    public function setCreatedat($createdat)
+    public function setModifiedtime($modifiedtime)
     {
-        $this->createdat = $createdat;
+        $this->modifiedtime = $modifiedtime;
+
+        return $this;
     }
 
     /**
-     * @return \DateTime
+     * Get modifiedtime
+     *
+     * @return integer
      */
-    public function getModifiedat()
+    public function getModifiedtime()
     {
-        return $this->modifiedat;
+        return $this->modifiedtime;
     }
 
     /**
-     * @param \DateTime $modifiedat
+     * Set createdby
+     *
+     * @param \AppBundle\Entity\User $createdby
+     *
+     * @return Event
      */
-    public function setModifiedat($modifiedat)
+    public function setCreatedby(\AppBundle\Entity\User $createdby = null)
     {
-        $this->modifiedat = $modifiedat;
+        $this->createdby = $createdby;
+
+        return $this;
+    }
+
+    /**
+     * Get createdby
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getCreatedby()
+    {
+        return $this->createdby;
     }
 
 
-
-
-
+    function __toString()
+    {
+        return "Event { id: ". $this->id ."  name: ". $this->name . "  startdate: ". $this->startDate->format('Y-m-d H:i:s') . "  enddate: ". $this->endDate->format('Y-m-d H:i:s') .
+        "  description: ". $this->description ."  isactive: ". $this->isactive . "  createdtime: ". date('Y-m-d H:i:s', $this->createdtime) ."  modifiedtime: ". date('Y-m-d H:i:s', $this->modifiedtime) . " }";
+    }
 }
