@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Services\EventService as eventService;
+use AppBundle\Entity\User;
 
 class EventController extends Controller
 {
@@ -29,14 +30,12 @@ class EventController extends Controller
         return $this->redirect($this->generateUrl('listevents'));
     }
 
-
     /**
-     * @Route("/events", name="listevents")
+     * @Route("/events/add-event", name="addevent")
      */
-    public function listEventsAction(Request $request){
-
+    public function addEventAction(Request $request){
         //get event service
-        $eventservice = $this->container->get('eventservice');
+        $eventService = $this->container->get('eventservice');
         //get user
         $user = $this->getUser();
         //create form
@@ -55,7 +54,7 @@ class EventController extends Controller
             //new event
             $event = EntityBuilder::newEvent($name, $startDate, $endDate, $description, $user);
             //save event
-            $event = $eventservice->saveEntity($event);
+            $event = $eventService->saveEntity($event);
 
             //if event saved succcessfully show flash message
             if(!is_null($event)){
@@ -66,10 +65,22 @@ class EventController extends Controller
             }
             return $this->redirect($this->generateUrl('listevents'));
         }
-        //get all events by default
-        $events = $eventservice->findAll();
+        return $this->render(':events:addanevent.html.twig', array('eventform' => $eventform->createView()));
+    }
 
-        return $this->render(':events:eventslist.html.twig', array('eventform' => $eventform->createView(), 'events'=>$events));
+
+    /**
+     * @Route("/events", name="listevents")
+     */
+    public function listEventsAction(Request $request){
+
+        //get event service
+        $eventService = $this->container->get('eventservice');
+
+        //get all events by default
+        $events = $eventService->findAll();
+
+        return $this->render(':events:eventslist.html.twig', array('events'=>$events));
     }
 
 
@@ -77,11 +88,20 @@ class EventController extends Controller
      * @Route("/events/{eventid}", name="showevents")
      */
     public function showEventsAction($eventid){
-        $event = $this->container->get('eventservice')->findOneById(['id'=>$eventid]);
-        return $this->render(':events:show.html.twig', ['event'=>$event]);
+
+        //get event service
+        $eventService = $this->container->get('eventservice');
+
+        $userService = $this->container->get('userservice');
+
+        //get event
+        $event = $eventService->findOneById(['id'=>$eventid]);
+
+        $users = $userService->findAll();
+
+        return $this->render(':events:show.html.twig', ['event'=>$event, 'users'=>$users]);
 
     }
-
 
     /**
      * @Route("/edit-event/{eventid}", name="edit-event")
@@ -90,21 +110,25 @@ class EventController extends Controller
 
         //get event service
         $eventservice = $this->container->get('eventservice');
-        $event = $eventservice->findOneById(['id'=>$eventid]);
-        $editform = $this->createForm(EditEventType::class, $event);
-        $editform->handleRequest($request);
 
+        //get event
+        $event = $eventservice->findOneById(['id'=>$eventid]);
+
+        //get event form to edit
+        $editform = $this->createForm(EditEventType::class, $event);
+        $editform->handleRequest($request);// handle form request
+
+        //when form is submitted and valied
         if ($editform->isSubmitted() && $editform->isValid()) {
+
+            //get form parameters
             $name = $editform->get('name')->getData();
             $startDate = $editform->get('startDate')->getData();
             $endDate = $editform->get('endDate')->getData();
             $description = $editform->get('description')->getData();
 
             //set properties
-            $event->setName($name);
-            $event->setStartDate($startDate);
-            $event->setEndDate($endDate);
-            $event->setDescription($description);
+            $event = EntityBuilder::newEvent($name, $startDate, $endDate, $description, $event->getCreatedby());
 
             //save event
             $event = $eventservice->saveEntity($event);

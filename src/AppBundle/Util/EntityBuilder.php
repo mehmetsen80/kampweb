@@ -63,5 +63,15 @@ class EntityBuilder
 
     }
 
+    public static function newUser($ccode, $cellphone, $plainPassword, $password){
+        $user = new User();
+        $user->setCcode($ccode);
+        $user->setCellphone($cellphone);
+        $user->setPlainPassword($plainPassword);
+        $user->setPassword(md5($password));
+
+        return $user;
+    }
+
 
 }

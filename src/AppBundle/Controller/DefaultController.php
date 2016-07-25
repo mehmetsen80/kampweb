@@ -10,20 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
 
-//    /**
-//     * @Route("/", name="homepage")
-//     */
-//    public function indexAction(Request $request)
-//    {
-//
-//        if($this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-//            return $this->redirect($this->generateUrl('dashboard'));
-//        }
-//        //echo "hello world";
-//        // replace this example code with whatever you need
-//        return $this->render('::landing.html.twig');
-//    }
-
     /**
      * @Route("/parallax")
      */
@@ -34,22 +20,6 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/testswiftmailer", name="testemail")
-     */
-    public function testswiftmailer(){
-
-        $message = \Swift_Message::newInstance()
-            ->setSubject('Sample Subject')
-            ->setFrom('mergenc@na.edu')
-            ->setTo('send@example.com')
-            ->setBody('Hello World', 'text/plain');
-        $this->get('mailer')->send($message);
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
-    }
 
     /**
      * @Route("/dashboard", name="dashboard")
@@ -67,10 +37,16 @@ class DefaultController extends Controller
         }
 
         $eventService = $this->get('eventservice');
-        $events = $eventService->getAllEvents();
-        $users = $eventService->getAllUsers();
+        $userService = $this->get('userservice');
+        $events = $eventService->findAll();
+        $users = $userService->findAll();
+        $male = $this->getDoctrine()->getRepository('AppBundle:User')->loadByMaleGender();
+        $female = $this->getDoctrine()->getRepository('AppBundle:User')->loadByFemaleGender();
+        $adult = $this->getDoctrine()->getRepository('AppBundle:User')->loadByAdultAge();
+        $youth = $this->getDoctrine()->getRepository('AppBundle:User')->loadByYouthAge();
+        $student = $this->getDoctrine()->getRepository('AppBundle:User')->loadByStudent();
 
-        return $this->render(":user:dashboard.html.twig", array('events'=>$events, 'users'=>$users));
+        return $this->render(":user:dashboard.html.twig", array('events'=>$events, 'users'=>$users, 'male' => $male, 'female' => $female, 'adult' => $adult, 'youth' => $youth, 'student'=>$student));
 
     }
 

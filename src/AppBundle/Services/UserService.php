@@ -14,7 +14,7 @@ class UserService extends AbstractService
 {
 
     public  function __construct(EntityManager $entityManager){
-        parent::__construct($entityManager, 'AppBundle:Event');
+        parent::__construct($entityManager, 'AppBundle:User');
     }
 
 

@@ -20,6 +20,11 @@ services:
             class:  AppBundle\Services\EventService
             arguments: [ "@doctrine.orm.entity_manager" ]
 
+    # user service
+    userservice:
+            class: AppBundle\Services\UserService
+            arguments: [ "@doctrine.orm.entity_manager" ]
+
     # logger service
     myloggerhandler:
         class:  AppBundle\Handler\LogHandler

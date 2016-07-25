@@ -65,7 +65,7 @@ var demoHighCharts = function () {
                                 highlightLineColor: bgWarningLr
                             });
                         });
-                }
+                };
 
                 // Refresh Sparklines on Resize
                 var refreshSparklines;
@@ -121,7 +121,7 @@ var demoHighCharts = function () {
                         text: function(value) {
                             var title = $(e).attr('title');
                             if (title) {
-                                return '<h2 class="circle-text-value">' + value + '</h2><p>' + title + '</p>' 
+                                return '<h2 class="circle-text-value">' + '%' + value + '</h2><p>' + title + '</p>'
                             } 
                             else {
                                 return '<h2 class="circle-text-value mb5">' + value + '</h2>'
@@ -142,13 +142,13 @@ var demoHighCharts = function () {
                         // Add responsive font sizing functionality
                         $('.info-circle').find('.circle-text-value').fitText(0.4);
                     },50);
-                } 
+                };
                 var lazyLayout = _.debounce(rescale, 300);
                 $(window).resize(lazyLayout);
               
             }
 
-        } // End Circle Graphs Demo
+        }; // End Circle Graphs Demo
 
 
 
@@ -407,7 +407,7 @@ var demoHighCharts = function () {
                 }
 
 
-            } // End High Columns
+            }; // End High Columns
 
             var demoHighBars = function() {
 
@@ -440,7 +440,7 @@ var demoHighCharts = function () {
                             lineColor: '#EEE',
                             tickColor: '#EEE',
                             offset: 1,
-                            categories: ['TV', 'Radio'],
+                            categories: ['Adult', 'Student', 'Youth'],
                             title: {
                                 text: null
                             },
@@ -460,27 +460,33 @@ var demoHighCharts = function () {
                             }
                         },
                         tooltip: {
-                            valueSuffix: ' millions'
+                            valueSuffix: ' %'
                         },
                         plotOptions: {
                             bar: {}
                         },
                         series: [{
                             id: 0,
-                            name: 'Viewers',
+                            name: 'Total %',
                             data: [100, 100]
                         }, {
                             id: 1,
-                            name: 'Women',
+                            name: 'Adult',
                             data: [36, 55]
                         }, {
                             id: 2,
-                            name: 'Men',
+                            name: 'Student',
                             data: [65, 45]
-                        }]
+                        },{
+                            id: 3,
+                            name: 'Youth',
+                            data: [65, 45]
+                        }
+
+                        ]
                     });
                 }
-            }
+            };
 
             var demoHighLines = function() {
 
@@ -716,13 +722,13 @@ var demoHighCharts = function () {
 
                 }
 
-            } // End High Line Charts Demo
+            }; // End High Line Charts Demo
 
             // Pie Charts
-            var demoHighPies = function() { 
+            var demoHighPies = function() {
 
                 var pie1 = $('#high-pie');
-                 
+
                 if (pie1.length) {
 
                     // Pie Chart1
@@ -760,21 +766,15 @@ var demoHighCharts = function () {
                         },
                         series: [{
                             type: 'pie',
-                            name: 'Browser share',
+                            name: 'Gender Comparison',
                             data: [
-                                ['Firefox', 35.0],
-                                ['IE', 36.8], {
-                                    name: 'Chrome',
-                                    y: 15.8,
-                                    sliced: true,
-                                    selected: true
-                                },
-                                ['Safari', 18.5],
+                                ['Male', 55],
+                                ['Female', 45],
                             ]
                         }]
                     });
                 }
-            } // End High Pie Charts Demo
+            }; // End High Pie Charts Demo
 
             // Demo High Area Charts
             var demoHighAreas = function() {
@@ -846,7 +846,7 @@ var demoHighCharts = function () {
                         }]
                     });
                 }
-            }
+            };
 
             // Init Chart Types
             demoHighColumns();
@@ -855,7 +855,7 @@ var demoHighCharts = function () {
             demoHighPies();
             demoHighAreas();
 
-        } // End Demo HighCharts
+        }; // End Demo HighCharts
 
 
         // High Charts Demo
@@ -947,7 +947,7 @@ var demoHighCharts = function () {
                 });
             }
 
-        } // End Demo HighChart Menus
+        }; // End Demo HighChart Menus
 
 
         // Advanced HighChart Demo
@@ -1356,7 +1356,7 @@ var demoHighCharts = function () {
             // create master and in its callback, create the detail chart
             createMaster();
 
-        } // end HighChartsAdvanced   
+        }; // end HighChartsAdvanced
 
 	return {
         init: function () {
@@ -1373,7 +1373,7 @@ var demoHighCharts = function () {
 
         }
 	} 
-}();
+}();;
 
 
 

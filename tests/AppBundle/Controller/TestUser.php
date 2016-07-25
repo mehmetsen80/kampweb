@@ -28,12 +28,27 @@ class TestUser extends TestBase
     }
 
 
-    public function testSaveUser(){
+    public function ignore_testSaveUser(){
         $user = EntityBuilder::newUser("Ibrahim Suslu", "isuslu@na.edu", "male", "1982-12-1");
         $this->entityManager->persist($user);
         $this->entityManager->flush($user);
         echo $user, EOL, EOL;
 
+    }
+
+    public function testFindAll(){
+        $userService = $this->container->get('userservice');
+        $users = $userService->findAll();
+        $this->listUsers($users);
+
+    }
+
+    public function listUsers($users){
+        echo EOL, EOL;
+        foreach($users as $user){
+            echo $user, EOL;
+        }
+        echo EOL, EOL;
     }
 
 }

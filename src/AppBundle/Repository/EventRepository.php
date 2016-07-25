@@ -23,4 +23,6 @@ class EventRepository extends AbstractRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
+
+
 }

@@ -17,15 +17,4 @@ class EventService extends AbstractService
         parent::__construct($entityManager, 'AppBundle:Event');
     }
 
-    /**
-     * @return \AppBundle\Entity\Event[]|array
-     */
-    public function findSpesificEvent($id){
-
-        $event = $this->entityManager->getRepository('AppBundle:Event')->find(['id'=>$eventid]);
-
-        return $event;
-
-    }
-
 }

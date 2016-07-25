@@ -13,6 +13,7 @@ use AppBundle\Form\ChangePasswordType;
 use AppBundle\Form\ContactType;
 use AppBundle\Form\EditUserType;
 use AppBundle\Form\NewUserType;
+use AppBundle\Util\EntityBuilder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,8 +27,8 @@ class UserController extends Controller
      * @Route("/users/{userid}", name="showusers")
      */
     public function showUsersAction($userid){
-        $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('AppBundle:User')->find(['id'=>$userid]);
+        $userService = $this->container->get('userservice');
+        $user = $userService->findOneById(['id'=>$userid]);
         return $this->render('/user/show.html.twig',[
             'user'=>$user,
 
@@ -51,8 +52,10 @@ class UserController extends Controller
      * @Route("/users",name="users")
      */
     public function listUsers(){
-        $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('AppBundle:User')->findAll();
+        $userService = $this->container->get('userservice');
+        $users = $userService->findAll();
+//        $em = $this->getDoctrine()->getManager();
+//        $users = $em->getRepository('AppBundle:User')->findAll();
         return $this->render('user/list.html.twig', [
             'users' => $users,
         ]);
@@ -64,9 +67,7 @@ class UserController extends Controller
      */
     public function updateAction(Request $request)
     {
-//        throw new \Exception('Something went wrong!');
-//        throw new accessdeniedhttpexception;
-        $em = $this->getDoctrine()->getManager();
+        $userService = $this->container->get('userservice');
         $user = $this->getUser();
         $updateform = $this->createForm(ChangeInfoType::class, $user);
         $updateform->handleRequest($request);
@@ -77,46 +78,35 @@ class UserController extends Controller
             $cellphone = $updateform->get('cellphone')->getData();
             $birthdate = $updateform->get('birthday')->getData();
             $gender = $updateform->get('gender')->getData();
-            if (!empty($newfullname)) {
+
                 $user->setFullname($newfullname);
-            }
-
-            if (!empty($newusername)) {
                 $user->setUsername($newusername);
-            }
-
-            if (!empty($cellphone)) {
                 $cellphone =  preg_replace("/[^0-9A-Za-z]/", "", $cellphone);
                 $user->setCellphone($cellphone);
-            }
-
-            if(!empty($ccode)){
                 $user->setCcode($ccode);
-            }
-
-            if (!empty($birthdate)) {
                 $user->setBirthDay($birthdate);
-            }
-
-            if (!empty($gender)) {
                 $user->setGender($gender);
-            }
 
-            $em->persist($user);
-            $em->flush();
-            $this->addFlash(
-                'updatesuccess',
-                'You have successfully updated your profile!'
-            );
-            return $this->redirect($this->generateUrl('users'));
-        }
-        elseif($updateform->isSubmitted() && !$updateform->isValid()){
+            $user = $userService->saveEntity($user);
+            //if event saved succcessfully show flash message
+            if(!is_null($user)){
+                $this->addFlash(
+                    'updatesuccess',
+                    'You successfully updated your account.'
+                );
+                return $this->redirect($this->generateUrl('update'));
+            }
+            else{
                 $this->addFlash(
                     'updateerror',
                     'Oops! There was an error with your update!'
                 );
             }
+
+        }
+
         $currentpassword = $user->getPassword();
+
         if($currentpassword == md5(1234)){
             return $this->redirect($this->generateUrl('changepassword'));
         }
@@ -128,7 +118,9 @@ class UserController extends Controller
      * @Route("/add-user", name="adduser")
      */
     public function addUserAction(Request $request){
+        $userService = $this->container->get('userservice');
         $user = new User();
+
         $addform = $this->createForm(NewUserType::class,$user);
         $addform->handleRequest($request);
         if ($addform->isSubmitted() && $addform->isValid()) {
@@ -139,31 +131,27 @@ class UserController extends Controller
             $cellphone = $addform->get('cellphone')->getData();
             $ccode = $addform->get('ccode')->getData();
             $cellphone =  preg_replace("/[^0-9A-Za-z]/", "", $cellphone);
-            $user->setCcode($ccode);
-            $user->setCellphone($cellphone);
-            $user->setPlainPassword(1234);
-            $user->setPassword(md5(1234));
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
 
-            $this->addFlash(
-                'addeduser',
-                'You successfully added a user to the database'
-            );
+            $user = EntityBuilder::newUser($ccode, $cellphone, 1234, 1234);
+            $user = $userService->saveEntity($user);
 
-            $emailMessage = \Swift_Message::newInstance()
-                ->setSubject('You have successfully signed up')
-                ->setFrom('info@kampapp.com')
-                ->setTo($user->getUsername())
-                ->setBody($this->renderView(':emails:addeduser.html.twig'));
-            $this->get('mailer')->send($emailMessage);
+            if(!is_null($user)) {
+                $emailMessage = \Swift_Message::newInstance()
+                    ->setSubject('You have successfully signed up')
+                    ->setFrom('info@kampapp.com')
+                    ->setTo($user->getUsername())
+                    ->setBody($this->renderView(':emails:addeduser.html.twig'));
+                $this->get('mailer')->send($emailMessage);
+
+                $this->addFlash(
+                    'addeduser',
+                    'You successfully added a user to the database'
+                );
+            }
 
             return $this->redirect($this->generateUrl('users'));
 
-        }
-
-        elseif($addform->isSubmitted() && $addform->isValid()){
+        } else{
                 $this->addFlash(
                     'addusererror',
                     'Oops! There was an error!'
@@ -177,7 +165,7 @@ class UserController extends Controller
      * @Route("/change-password", name="changepassword")
      */
     public function changePasswordAction(Request $request){
-        $em = $this->getDoctrine()->getManager();
+        $userService = $this->container->get('userservice');
         $user = $this->getUser();
         $passwordform = $this->createForm(ChangePasswordType::class);
         $passwordform->handleRequest($request);
@@ -187,14 +175,13 @@ class UserController extends Controller
         if ($passwordform->isSubmitted() && $passwordform->isValid()) {
             if(!empty($newpassword) and $oldpassword == $oldrepeat) {
                 $user->setPassword(md5($newpassword));
+                $userService->saveEntity($user);
                 $this->addFlash(
                     'updatesuccess',
                     'You have successfully updated your password!'
                 );
             }
 
-            $em->persist($user);
-            $em->flush();
         if($oldpassword != $oldrepeat){
                 $this->addFlash(
                     'updateerror',
@@ -205,6 +192,7 @@ class UserController extends Controller
         }
 
         $currentpassword = $user->getPassword();
+
         if($currentpassword == md5(1234)){
             $this->addFlash(
                 'passwordchange',
@@ -218,8 +206,9 @@ class UserController extends Controller
      * @Route("/edit-user/{userid}", name="edit-user")
      */
     public function editUserAction(Request $request ,$userid){
-        $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('AppBundle:User')->find(['id'=>$userid]);
+        $userService = $this->container->get('userservice');
+        $user = $userService->findOneById(['id'=>$userid]);
+
         $editform = $this->createForm(EditUserType::class, $user);
         $editform->handleRequest($request);
         if ($editform->isSubmitted() && $editform->isValid()) {
@@ -230,61 +219,30 @@ class UserController extends Controller
             $birthdate = $editform->get('birthday')->getData();
             $gender = $editform->get('gender')->getData();
             $plainPassword = $editform->get('newpassword')->getData();
-            if (!empty($newfullname)) {
+
                 $user->setFullname($newfullname);
-            }
-            else{
-                $user->setFullname($user->getFullname());
-            }
-            if (!empty($newusername)) {
                 $user->setUsername($newusername);
-            }
-            else{
-                $user->setUsername($user->getUsername());
-            }
-            if (!empty($cellphone)) {
                 $cellphone =  preg_replace("/[^0-9A-Za-z]/", "", $cellphone);
                 $user->setCellphone($cellphone);
-            }
-            else{
-                $user->setCellphone($user->getCellphone());
-            }
-            if(!empty($ccode)){
-
                 $user->setCcode($ccode);
-            }
-            else{
-                $user->setCcode($user->getCcode());
-            }
-
-            if (!empty($birthdate)) {
                 $user->setBirthday($birthdate);
-            }
-            else{
-                $user->setBirthday($user->getBirthday());
-            }
-            if (!empty($gender)) {
                 $user->setGender($gender);
-            }
-            else {
-                $user->setGender($user->getGender());
-            }
-            if(!empty($plainPassword)){
                 $hashedPassword = md5($plainPassword);
                 $user->setPassword($hashedPassword);
+
+            $user = $userService->saveEntity($user);
+            if(!is_null($user)) {
+                $this->addFlash(
+                    'updatesuccess',
+                    'Your update was successful!'
+                );
             }
-            $em->persist($user);
-            $em->flush();
-            $this->addFlash(
-                'updatesuccess',
-                'Your update was successful!'
-            );
-        }
-        if ($editform->isSubmitted() && ($editform->isValid() == False)) {
-            $this->addFlash(
-                'updateerror',
-                'Oops! There was a problem with your update!'
-            );
+            else{
+                $this->addFlash(
+                    'updateerror',
+                    'Oops! There was a problem with your update!'
+                );
+            }
         }
         return $this->render(':user:edit-user.html.twig', array('user'=>$user, 'editform' => $editform->createView()));
     }

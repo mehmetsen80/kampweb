@@ -490,5 +490,11 @@ class User implements AdvancedUserInterface, \Serializable
             ) = unserialize($serialized);
     }
 
+    function __toString()
+    {
+        return "id: ". $this->id ."  email: ". $this->username . "  fullname: ". $this->fullname . "  isactive: ". $this->isactive .
+        "  createdat: ". date('Y-m-d H:i:s', $this->createdat) ."  updatedat: ". date('Y-m-d H:i:s', $this->modifiedat);
+    }
+
 
 }

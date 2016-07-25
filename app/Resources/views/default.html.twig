@@ -32,15 +32,9 @@
     {% block header %}
         <header class="navbar navbar-fixed-top bg-dark">
             <div class="navbar-branding">
-                {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
-                    <a class="navbar-brand" href="{{ path('update') }}">
-                        <b>Kamp</b>Web
-                    </a>
-                {% else %}
-                    <a class="navbar-brand" href="{{ path('dashboard') }}">
-                        <b>Kamp</b>Web
-                    </a>
-                {% endif %}
+                <a class="navbar-brand" href="{{ path('dashboard') }}">
+                    <b>Kamp</b>App
+                </a>
                 <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
             </div>
             <ul class="nav navbar-nav navbar-right">
@@ -50,28 +44,17 @@
                     </a>
                     <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
                         <li class="list-group-item">
-                            {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
-                                <a href="{{ path('update') }}" class="animated animated-short fadeInUp">
-                                    <span class="fa fa-user"></span> My Profile  </a>
-                                </a>
-                            {% else %}
-                                <a href="{{ path('profile', {'userid': app.user.id}) }}" class="animated animated-short fadeInUp">
-                                    <span class="fa fa-user"></span> My Profile  </a>
-                                </a>
-                            {% endif %}
+                            <a href="{{ path('profile', {'userid': app.user.id}) }}" class="animated animated-short fadeInUp">
+                                <span class="fa fa-user"></span> My Profile  </a>
+                            </a>
                         </li>
                         <li class="list-group-item">
                             <a href="{{ path('update') }}" class="animated animated-short fadeInUp">
                                 <span class="fa fa-gear"></span> Edit Profile </a>
                         </li>
                         <li class="list-group-item">
-                            {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
-                                <a href="{{ path('update') }}" class="animated animated-short fadeInUp">
-                                    <span class="fa fa-shield"></span> Change Password  </a>
-                            {% else %}
-                                <a href="{{ path('changepassword') }}" class="animated animated-short fadeInUp">
-                                    <span class="fa fa-shield"></span> Change Password  </a>
-                            {% endif %}
+                            <a href="{{ path('changepassword') }}" class="animated animated-short fadeInUp">
+                                <span class="fa fa-shield"></span> Change Password  </a>
                         </li>
                         <li class="dropdown-footer">
                             <a href="{{ path('logout') }}" class="">
@@ -101,63 +84,38 @@
                 <!-- Start: Sidebar Left Menu -->
                 <ul class="nav sidebar-menu">
                     <li class="sidebar-label pt20">Menu</li>
-                    <li>
-                        {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
-                        <a href="{{ path('update') }}">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <span class="sidebar-title">Dashboard</span>
-                        </a>
-                        {% else %}
+                    <li class="{{ route == 'dashboard' ? 'active' : '' }}"  >
                         <a href="{{ path('dashboard') }}">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <span class="sidebar-title">Dashboard</span>
+                            <span class="fa fa-home"></span> Dashboard
                         </a>
-                        {% endif %}
                     </li>
-                    <li>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
-                            <a href="{{ path('update') }}">
-                                    <span class="fa fa-users"></span>
-                                    <span class="sidebar-title">Users</span>
-                            </a>
-                            {% else %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="{{ route == 'users' ? 'active' : '' }}"  >
                             <a href="{{ path('users') }}">
-                                <span class="fa fa-users"></span>
-                                <span class="sidebar-title">Users</span>
+                                <span class="fa fa-user"></span> Users
                             </a>
-                            {% endif %}
-                        {% endif %}
-                    </li>
-                    <li>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
-                            <a href="{{ path('update') }}">
-                                <span class="fa fa-calendar"></span>
-                                <span class="sidebar-title">Events</span>
-                            </a>
-                            {% else %}
-                            <a class="accordion-toggle" href="#">
-                                <span class="fa fa-calendar"></span>
-                                <span class="sidebar-title">Events</span>
-                                <span class="caret"></span>
-                            </a>
-                            {% endif %}
-
-                        <ul class="nav sub-nav">
-                            <li>
-                                <a href="{{ path('listevents') }}">
-                                    <span class="glyphicon glyphicon-tags"></span> Events </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-users"></span> Attendees </a>
-                            </li>
-                        </ul>
-                        {% endif %}
-                    </li>
+                        </li>
+                    {% endif %}
                 </ul>
                 <!-- End: Sidebar Menu -->
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <ul class="nav sidebar-menu">
+                        <li class="sidebar-label pt20">Events</li>
+                        <li class="{{ route == 'addevent' ? 'active' : '' }}"  >
+                            <a href="{{ path('addevent') }}">
+                                <span class="fa fa-plus"></span> Add an Event </a>
+                        </li>
+                        <li class="{{ route == 'listevents' ? 'active' : '' }}"  >
+                            <a href="{{ path('listevents') }}">
+                                <span class="fa fa-calendar"></span> Events List
+                            </a>
+                        </li>
+                    </ul>
+                {% endif %}
+
+
+
 
                 <!-- Start: Sidebar Collapse Button -->
                 <div class="sidebar-toggle-mini">
@@ -175,18 +133,15 @@
         <!------------------------------------------------------------ End: SIDEBAR LEFT CONTENT -------------------------------------------------------------->
     {% endblock %}
     {% block topbar %}
-        <!-- Start: Content-Wrapper -->
-        <section id="content_wrapper">
-            {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
+
+        {% if(app.user.birthday is empty or app.user.cellphone is empty or app.user.gender is empty  ) %}
             <div class="alert alert-danger alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <i class="fa fa-exclamation-triangle pr10"></i>
                 <strong>You profile is incomplete!</strong>
                 <a href="{{ path('update') }}" class="alert-link">Complete your profile here!</a>
             </div>
-            {% endif %}
-        </section>
-        <!-- End: Content-Wrapper -->
+        {% endif %}
     {% endblock %}
     {% block body %}{% endblock %}
     <!-- BEGIN: PAGE SCRIPTS -->

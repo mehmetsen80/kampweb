@@ -40,6 +40,7 @@ security:
             # require ROLE_ADMIN for /admin*
             - { path: ^/admin, roles: ROLE_ADMIN}
             - { path: ^/users, roles: ROLE_ADMIN}
+            - { path: ^/events/, roles: ROLE_USER}
             - { path: ^/event, roles: ROLE_ADMIN}
             - { path: ^/dashboard, roles: ROLE_USER }
 
