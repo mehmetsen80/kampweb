@@ -92,6 +92,11 @@ class User implements AdvancedUserInterface, \Serializable
     protected $events;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Attendee", mappedBy="createdBy")
+     */
+    protected $attendees;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     protected $isactive;
@@ -497,4 +502,96 @@ class User implements AdvancedUserInterface, \Serializable
     }
 
 
+
+    /**
+     * Add event
+     *
+     * @param \AppBundle\Entity\Event $event
+     *
+     * @return User
+     */
+    public function addEvent(\AppBundle\Entity\Event $event)
+    {
+        $this->events[] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Remove event
+     *
+     * @param \AppBundle\Entity\Event $event
+     */
+    public function removeEvent(\AppBundle\Entity\Event $event)
+    {
+        $this->events->removeElement($event);
+    }
+
+    /**
+     * Add attendee
+     *
+     * @param \AppBundle\Entity\Attendee $attendee
+     *
+     * @return User
+     */
+    public function addAttendee(\AppBundle\Entity\Attendee $attendee)
+    {
+        $this->attendees[] = $attendee;
+
+        return $this;
+    }
+
+    /**
+     * Remove attendee
+     *
+     * @param \AppBundle\Entity\Attendee $attendee
+     */
+    public function removeAttendee(\AppBundle\Entity\Attendee $attendee)
+    {
+        $this->attendees->removeElement($attendee);
+    }
+
+    /**
+     * Get attendees
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAttendees()
+    {
+        return $this->attendees;
+    }
+
+    /**
+     * Add attendeeusername
+     *
+     * @param \AppBundle\Entity\Attendee $attendeeusername
+     *
+     * @return User
+     */
+    public function addAttendeeusername(\AppBundle\Entity\Attendee $attendeeusername)
+    {
+        $this->attendeeusername[] = $attendeeusername;
+
+        return $this;
+    }
+
+    /**
+     * Remove attendeeusername
+     *
+     * @param \AppBundle\Entity\Attendee $attendeeusername
+     */
+    public function removeAttendeeusername(\AppBundle\Entity\Attendee $attendeeusername)
+    {
+        $this->attendeeusername->removeElement($attendeeusername);
+    }
+
+    /**
+     * Get attendeeusername
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAttendeeusername()
+    {
+        return $this->attendeeusername;
+    }
 }

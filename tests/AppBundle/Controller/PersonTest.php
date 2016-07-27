@@ -35,6 +35,7 @@ class PersonTest extends TestBase
     }
 
     public function ignore_testSavePeron(){
+
         $person = EntityBuilder::newPerson("Ibrahim Suslu", "isuslu@example.com", "male", "1972-01-01", "123123123");
         $this->entityManager->persist($person);
         $this->entityManager->flush($person);

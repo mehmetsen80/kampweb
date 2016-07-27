@@ -9,6 +9,7 @@
 namespace AppBundle\Util;
 
 
+use AppBundle\Entity\Attendee;
 use AppBundle\Entity\Dependent;
 use AppBundle\Entity\Event;
 use AppBundle\Entity\Person;
@@ -64,13 +65,28 @@ class EntityBuilder
     }
 
     public static function newUser($ccode, $cellphone, $plainPassword, $password){
+
         $user = new User();
+
         $user->setCcode($ccode);
         $user->setCellphone($cellphone);
         $user->setPlainPassword($plainPassword);
         $user->setPassword(md5($password));
 
         return $user;
+    }
+
+
+    public static function newAttendee($name, $createdBy, $username, $eventid){
+
+        $attendee = new Attendee();
+
+        $attendee->setUsername($username);
+        $attendee->setName($name);
+        $attendee->setCreatedBy($createdBy);
+        $attendee->setEvent($eventid);
+
+        return $attendee;
     }
 
 

@@ -25,6 +25,11 @@ services:
             class: AppBundle\Services\UserService
             arguments: [ "@doctrine.orm.entity_manager" ]
 
+    # attendee service
+    attendeeservice:
+            class: AppBundle\Services\AttendeeService
+            arguments: [ "@doctrine.orm.entity_manager" ]
+
     # logger service
     myloggerhandler:
         class:  AppBundle\Handler\LogHandler

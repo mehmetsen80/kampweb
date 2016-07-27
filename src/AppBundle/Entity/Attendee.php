@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
  * @ORM\HasLifecycleCallbacks()
  *
  */
-class Attendee
+class Attendee extends User
 {
     /** @var double
      *  @ORM\Column(type="bigint", nullable=false)
@@ -34,15 +34,28 @@ class Attendee
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="attendees")
      * @ORM\JoinColumn(name="createdby", referencedColumnName="id")
      */
     private $createdBy;
 
     /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank(message="Please enter a valid username")
+     * @Assert\Email()
+     */
+    protected  $username;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     protected $isactive;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Event", inversedBy="attentees")
+     * @ORM\JoinColumn(name="event_id", referencedColumnName="id")
+     */
+    private $event;
 
     /**
      * @var \DateTime
@@ -161,5 +174,137 @@ class Attendee
     {
         $this->createdBy = $createdBy;
     }
+
+
+    /**
+     * Set isactive
+     *
+     * @param boolean $isactive
+     *
+     * @return Attendee
+     */
+    public function setIsactive($isactive)
+    {
+        $this->isactive = $isactive;
+
+        return $this;
+    }
+
+    /**
+     * Get isactive
+     *
+     * @return boolean
+     */
+    public function getIsactive()
+    {
+        return $this->isactive;
+    }
+
+    /**
+     * Set createdat
+     *
+     * @param integer $createdat
+     *
+     * @return Attendee
+     */
+    public function setCreatedat($createdat)
+    {
+        $this->createdat = $createdat;
+
+        return $this;
+    }
+
+    /**
+     * Get createdat
+     *
+     * @return integer
+     */
+    public function getCreatedat()
+    {
+        return $this->createdat;
+    }
+
+    /**
+     * Set modifiedat
+     *
+     * @param integer $modifiedat
+     *
+     * @return Attendee
+     */
+    public function setModifiedat($modifiedat)
+    {
+        $this->modifiedat = $modifiedat;
+
+        return $this;
+    }
+
+    /**
+     * Get modifiedat
+     *
+     * @return integer
+     */
+    public function getModifiedat()
+    {
+        return $this->modifiedat;
+    }
+
+    /**
+     * Add event
+     *
+     * @param \AppBundle\Entity\Event $event
+     *
+     * @return Attendee
+     */
+    public function addEvent(\AppBundle\Entity\Event $event)
+    {
+        $this->events[] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Remove event
+     *
+     * @param \AppBundle\Entity\Event $event
+     */
+    public function removeEvent(\AppBundle\Entity\Event $event)
+    {
+        $this->events->removeElement($event);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+    /**
+     * Set event
+     *
+     * @param \AppBundle\Entity\Event $event
+     *
+     * @return Attendee
+     */
+    public function setEvent(\AppBundle\Entity\Event $event = null)
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    /**
+     * Get event
+     *
+     * @return \AppBundle\Entity\Event
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+
 
 }

@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
@@ -56,6 +57,11 @@ class Event
     protected $createdby;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Attendee", mappedBy="event")
+     */
+    protected $attentees;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     protected $isactive;
@@ -75,6 +81,7 @@ class Event
     public function __construct()
     {
         $this->isactive = true;
+        $this->attentees = new ArrayCollection();
         $this->updatedTimestamps();
     }
 
@@ -308,5 +315,63 @@ class Event
     {
         return "Event { id: ". $this->id ."  name: ". $this->name . "  startdate: ". $this->startDate->format('Y-m-d H:i:s') . "  enddate: ". $this->endDate->format('Y-m-d H:i:s') .
         "  description: ". $this->description ."  isactive: ". $this->isactive . "  createdtime: ". date('Y-m-d H:i:s', $this->createdtime) ."  modifiedtime: ". date('Y-m-d H:i:s', $this->modifiedtime) . " }";
+    }
+
+    /**
+     * Set attendeeid
+     *
+     * @param \AppBundle\Entity\Attendee $attendeeid
+     *
+     * @return Event
+     */
+    public function setAttendeeid(\AppBundle\Entity\Attendee $attendeeid = null)
+    {
+        $this->attendeeid = $attendeeid;
+
+        return $this;
+    }
+
+    /**
+     * Get attendeeid
+     *
+     * @return \AppBundle\Entity\Attendee
+     */
+    public function getAttendeeid()
+    {
+        return $this->attendeeid;
+    }
+
+    /**
+     * Add attentee
+     *
+     * @param \AppBundle\Entity\Attendee $attentee
+     *
+     * @return Event
+     */
+    public function addAttentee(\AppBundle\Entity\Attendee $attentee)
+    {
+        $this->attentees[] = $attentee;
+
+        return $this;
+    }
+
+    /**
+     * Remove attentee
+     *
+     * @param \AppBundle\Entity\Attendee $attentee
+     */
+    public function removeAttentee(\AppBundle\Entity\Attendee $attentee)
+    {
+        $this->attentees->removeElement($attentee);
+    }
+
+    /**
+     * Get attentees
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAttentees()
+    {
+        return $this->attentees;
     }
 }
