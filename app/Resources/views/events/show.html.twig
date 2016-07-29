@@ -72,15 +72,12 @@
                                                         <th class="text-center">Email</th>
                                                         <th class="text-center">Gender</th>
                                                         <th class="text-center"></th>
-                                                        {#<th class="text-center">Birthday</th>#}
-                                                        {#<th class="text-center">Register Date</th>#}
-                                                        {#<th style="display: none;"></th>#}
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     {%  for user in users %}
                                                         <tr>
-                                                            <td> <a href="{{ path('showusers', {'userid': user.id}) }}">{{ user.fullname }}</a></td>
+                                                            <td> <a href="{{ path('showusers', {'userid': user.id}) }}" target="_blank">{{ user.fullname }}</a></td>
                                                             <td><a href="mailto:{{ user.username }}?Subject=Hello" target="_top">{{ user.username }}</a> </td>
                                                             <td>{{ user.gender }}</td>
                                                             <td class="text-right">
@@ -89,9 +86,6 @@
                                                                     </button>
                                                                 </div>
                                                             </td>
-                                                            {#<td>{{ user.birthday|date('Y-m-d') }}</td>#}
-                                                            {#<td>{{ user.createdat|date('Y-m-d h:i:s') }}</td>#}
-                                                            {#<td><a href="{{ path('edit-user', {'userid': user.id}) }}"><span class="fa fa-pencil-square-o"></span> </a></td>#}
                                                         </tr>
                                                     {% endfor %}
                                                     </tbody>

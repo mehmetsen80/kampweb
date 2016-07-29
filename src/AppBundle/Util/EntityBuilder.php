@@ -77,17 +77,17 @@ class EntityBuilder
     }
 
 
-    public static function newAttendee($name, $createdBy, $username, $eventid){
-
-        $attendee = new Attendee();
-
-        $attendee->setUsername($username);
-        $attendee->setName($name);
-        $attendee->setCreatedBy($createdBy);
-        $attendee->setEvent($eventid);
-
-        return $attendee;
-    }
+//    public static function newAttendee($name, $createdBy, $username, $eventid){
+//
+//        $attendee = new Attendee();
+//
+//        $attendee->setUsername($username);
+//        $attendee->setName($name);
+//        $attendee->setCreatedBy($createdBy);
+//        $attendee->setEvent($eventid);
+//
+//        return $attendee;
+//    }
 
 
 }

@@ -7,6 +7,7 @@
  */
 
 namespace tests\AppBundle\Controller;
+use AppBundle\Entity\Attendee;
 use AppBundle\Entity\Event;
 use AppBundle\Entity\User;
 use AppBundle\Util\EntityBuilder;
@@ -18,30 +19,32 @@ class AttendeeTest extends TestBase
 {
 
 
-    public function testSaveAttendee(){
+    public function testSaveAttendee($userid, $eventid){
 
+        $em = $this->get('doctrine')->getManager();
+        $createdBy = $this->getUser();
         //get user service
         $userService = $this->container->get('userservice');
+
+        //get user
+        $user = $userService->findOneById(['id'=>$userid]);
 
         //get event service
         $eventservice = $this->container->get('eventservice');
 
-        $createdBy = $userService->findOneById(4);
-
-        //get user
-        $user = $userService->findOneById(6);
-
         //get event
-        $eventid = $eventservice->findOneById(8);
+        $event = $eventservice->findOneById(['id'=>$eventid]);
 
-        $name = $user->getFullname();
-        $username = $user->getUsername();
-        $attendee = EntityBuilder::newAttendee($name, $createdBy, $username, $eventid);
 
-        $this->entityManager = $this->refreshEntityManager($this->entityManager);
+        $attendee = new Attendee();
 
-        $this->entityManager->persist($attendee);
-        $this->entityManager->flush($attendee);
+        $attendee->setUsername($user->getUsername());
+        $attendee->setName($user->getFullname());
+        $attendee->setCreatedBy($createdBy);
+        $attendee->setEvent($event);
+
+        $em->persist($attendee);
+        $em->flush();
         echo $attendee, EOL, EOL;
 
     }

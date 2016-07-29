@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
  * @ORM\HasLifecycleCallbacks()
  *
  */
-class Attendee extends User
+class Attendee
 {
     /** @var double
      *  @ORM\Column(type="bigint", nullable=false)
@@ -306,5 +306,27 @@ class Attendee extends User
         return $this->event;
     }
 
+    /**
+     * Set username
+     *
+     * @param string $username
+     *
+     * @return Attendee
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
 
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
 }
