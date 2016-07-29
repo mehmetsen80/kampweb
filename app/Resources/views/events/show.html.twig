@@ -11,10 +11,11 @@
     <link href="{{ asset('assets/css/lightbox.min.css') }}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css" media="all"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700'
+          rel='stylesheet' type='text/css'>
     <script src="{{ asset('assets/js/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
     <script type='text/javascript'>
-        $(function() {
+        $(function () {
             $('iframe').responsiveIframe({xdomain: '*'});
         });
     </script>
@@ -22,12 +23,11 @@
 {% block body %}
     <body class="blank-page sb-l-o sb-r-c onload-check" style="min-height: 686px;">
     <section id="content_wrapper">
-
         <header class="page-header">
             <div class="background-image-holder parallax-background">
-                <img class="background-image" alt="Background Image" src="http://kampapp.com/parallax/img/kampappimage.png">
+                <img class="background-image" alt="Background Image"
+                     src="http://kampapp.com/parallax/img/kampappimage.png">
             </div>
-
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">
@@ -36,7 +36,8 @@
                         {% endif %}
                         <h1 class="text-white">{{ event.name }}</h1>
                         <a href="#" class="btn btn-primary btn-filled space-bottom-medium">Join Now</a>
-                        <h3 class="text-white space-bottom-small">{{ event.startDate|date("m-d-Y")}} | {{ event.endDate|date("m-d-Y") }}</h3>
+                        <h3 class="text-white space-bottom-small">{{ event.startDate|date("m-d-Y") }}
+                            | {{ event.endDate|date("m-d-Y") }}</h3>
                         <p style="color: #fff;">{{ event.description }}</p>
                     </div>
                 </div>
@@ -54,19 +55,36 @@
                                 {#<input style=""  type="text" class="form-control typeahead" id="typeahead-field" placeholder="Search user">#}
                                 {#</div>#}
 
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Start Checkin</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target=".bs-example-modal-lg">Search Users
+                                </button>
 
-                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                                     aria-labelledby="myLargeModalLabel" aria-hidden="true" id="attendeeTable">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel">Check in Attendee</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Select an Attendee</h4>
+                                                {% for flash_message in app.session.flashBag.get('attendeesuccess') %}
+                                                    <div class="col-md-4 center-block alert alert-success alert-dismissable">
+                                                        <button type="button" class="close" data-dismiss="alert"
+                                                                aria-hidden="true">×
+                                                        </button>
+                                                        <i class="fa fa-check pr10"></i>
+                                                        <strong>{{ flash_message }}</strong>
+                                                    </div>
+                                                {% endfor %}
                                             </div>
                                             <div class="modal-body">
-                                                <table class="table table-striped table-hover" id="datatable1" cellspacing="0" width="100%">
+                                                <table class="table table-striped table-hover" id="datatable1"
+                                                       cellspacing="0" width="100%">
                                                     <thead>
-                                                    <tr><th colspan="9"><h4></h4></th></tr>
+                                                    <tr>
+                                                        <th colspan="9"><h4></h4></th>
+                                                    </tr>
                                                     <tr>
                                                         <th class="text-center">User</th>
                                                         <th class="text-center">Email</th>
@@ -75,15 +93,18 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    {%  for user in users %}
+                                                    {% for user in users %}
                                                         <tr>
-                                                            <td> <a href="{{ path('showusers', {'userid': user.id}) }}" target="_blank">{{ user.fullname }}</a></td>
-                                                            <td><a href="mailto:{{ user.username }}?Subject=Hello" target="_top">{{ user.username }}</a> </td>
+                                                            <td><a href="{{ path('showusers', {'userid': user.id}) }}"
+                                                                   target="_blank">{{ user.fullname }}</a></td>
+                                                            <td><a href="mailto:{{ user.username }}?Subject=Hello"
+                                                                   target="_top">{{ user.username }}</a></td>
                                                             <td>{{ user.gender }}</td>
                                                             <td class="text-right">
                                                                 <div class="btn-group text-right">
-                                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="dropdown" aria-expanded="false"> Check in
-                                                                    </button>
+                                                                    <a href="{{ path('addattendees', {'eventid': event.id, 'userid': user.id}) }}">
+                                                                        Select
+                                                                    </a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -92,10 +113,10 @@
                                                 </table>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-default">Save changes</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +132,7 @@
     {% block javascripts %}
         {% set userlist %}
             {% for user in users %}
-                "{{user.fullname|raw}}"{{ ',' }}
+                "{{ user.fullname|raw }}"{{ ',' }}
             {% endfor %}
         {% endset %}
         <!-- jQuery -->
@@ -143,7 +164,7 @@
         <!-- Typeahead Plugin -->
         <script src="{{ asset('assets/vendor/plugins/typeahead/typeahead.bundle.min.js') }}"></script>
         <script type="text/javascript">
-            jQuery(document).ready(function() {
+            jQuery(document).ready(function () {
 
                 "use strict";
 
@@ -172,24 +193,24 @@
                     draggable: true,
                     preserveGrid: true,
                     // mobile: true,
-                    onStart: function() {
+                    onStart: function () {
                         // Do something before AdminPanels runs
                     },
-                    onSave: function() {
+                    onSave: function () {
                         $(window).trigger('resize');
                     }
                 });
             });
         </script>
         <script>
-            $(".phone").text(function(i, text) {
+            $(".phone").text(function (i, text) {
                 text = text.replace(/(\d{1})(\d{3})(\d{3})(\d{4})/, '$1-($2)-$3-$4');
                 return text;
             });
         </script>
         <script>
             // Init Twitter Typeahead.js
-            var substringMatcher = function(strs) {
+            var substringMatcher = function (strs) {
                 return function findMatches(q, cb) {
                     var matches, substrRegex;
 
@@ -201,7 +222,7 @@
 
                     // iterate through the pool of strings and for any string that
                     // contains the substring `q`, add it to the `matches` array
-                    $.each(strs, function(i, str) {
+                    $.each(strs, function (i, str) {
                         if (substrRegex.test(str)) {
                             // the typeahead jQuery plugin expects suggestions to a
                             // JavaScript object, refer to typeahead docs for more info
@@ -216,7 +237,7 @@
             };
 
             // Define List
-            var usernames = [ {{userlist}} ];
+            var usernames = [ {{ userlist }} ];
 
             // Init Typeahead
             $('.typeahead').typeahead({
@@ -230,11 +251,11 @@
             });
         </script>
         <script type="text/javascript">
-            jQuery(document).ready(function() {
+            jQuery(document).ready(function () {
                 $('#datatable1').dataTable({
-                    "paging":   true,
-                    "order": [[0,"asc"]],
-                    "info":     false,
+                    "paging": true,
+                    "order": [[0, "asc"]],
+                    "info": false,
                     "iDisplayLength": 10,
                     "aLengthMenu": [
                         [5, 10, 25, 50, -1],
@@ -244,6 +265,15 @@
                         "sSwfPath": "{{ asset('assets/vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf') }}"
                     }
                 });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+
+                if (window.location.href.indexOf('#attendeeTable') != -1) {
+                    $('#attendeeTable').modal('show');
+                }
+
             });
         </script>
         <!-- END: PAGE SCRIPTS -->

@@ -40,11 +40,9 @@ class Attendee
     private $createdBy;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
-     * @Assert\NotBlank(message="Please enter a valid username")
-     * @Assert\Email()
+     * @ORM\Column(type="bigint", name="userid")
      */
-    protected  $username;
+    protected $userid;
 
     /**
      * @ORM\Column(type="boolean")
@@ -53,7 +51,7 @@ class Attendee
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Event", inversedBy="attentees")
-     * @ORM\JoinColumn(name="event_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="eventid", referencedColumnName="id")
      */
     private $event;
 
@@ -306,27 +304,29 @@ class Attendee
         return $this->event;
     }
 
+
+
     /**
-     * Set username
+     * Set userid
      *
-     * @param string $username
+     * @param integer $userid
      *
      * @return Attendee
      */
-    public function setUsername($username)
+    public function setUserid($userid)
     {
-        $this->username = $username;
+        $this->userid = $userid;
 
         return $this;
     }
 
     /**
-     * Get username
+     * Get userid
      *
-     * @return string
+     * @return integer
      */
-    public function getUsername()
+    public function getUserid()
     {
-        return $this->username;
+        return $this->userid;
     }
 }

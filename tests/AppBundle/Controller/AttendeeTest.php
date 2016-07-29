@@ -38,7 +38,7 @@ class AttendeeTest extends TestBase
 
         $attendee = new Attendee();
 
-        $attendee->setUsername($user->getUsername());
+        $attendee->setUserid($user->getId());
         $attendee->setName($user->getFullname());
         $attendee->setCreatedBy($createdBy);
         $attendee->setEvent($event);
