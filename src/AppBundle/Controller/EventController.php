@@ -10,13 +10,11 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Attendee;
 use AppBundle\Form\Events\AddEventType;
-use AppBundle\Form\Events\EditEventType;
 use AppBundle\Util\EntityBuilder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Services\EventService as eventService;
-use AppBundle\Entity\User;
 
 class EventController extends Controller
 {
