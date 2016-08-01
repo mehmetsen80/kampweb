@@ -59,7 +59,6 @@ class Dependent
      */
     private $user;
 
-
     /**
      * @var datetime $createdat
      *

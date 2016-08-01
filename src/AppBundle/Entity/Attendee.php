@@ -66,6 +66,18 @@ class Attendee
      */
     protected  $modifiedat;
 
+    /**
+     * @Assert\Date()
+     * @ORM\Column(name="checkin", type="date", nullable=true)
+     */
+    private $checkin;
+
+    /**
+     * @Assert\Date()
+     * @ORM\Column(name="checkout", type="date", nullable=true)
+     */
+    private $checkout;
+
     public function __construct()
     {
         $this->isactive = true;
@@ -328,5 +340,53 @@ class Attendee
     public function getUserid()
     {
         return $this->userid;
+    }
+
+    /**
+     * Set checkin
+     *
+     * @param \DateTime $checkin
+     *
+     * @return Attendee
+     */
+    public function setCheckin($checkin)
+    {
+        $this->checkin = $checkin;
+
+        return $this;
+    }
+
+    /**
+     * Get checkin
+     *
+     * @return \DateTime
+     */
+    public function getCheckin()
+    {
+        return $this->checkin;
+    }
+
+    /**
+     * Set checkout
+     *
+     * @param \DateTime $checkout
+     *
+     * @return Attendee
+     */
+    public function setCheckout($checkout)
+    {
+        $this->checkout = $checkout;
+
+        return $this;
+    }
+
+    /**
+     * Get checkout
+     *
+     * @return \DateTime
+     */
+    public function getCheckout()
+    {
+        return $this->checkout;
     }
 }

@@ -61,6 +61,7 @@ class Event
      */
     protected $attentees;
 
+
     /**
      * @ORM\Column(type="boolean")
      */
