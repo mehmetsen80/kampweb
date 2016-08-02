@@ -81,10 +81,6 @@ class User implements AdvancedUserInterface, \Serializable
      */
     protected $cellphone;
 
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Dependent", mappedBy="user")
-     */
-    protected $dependents;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="createdby")

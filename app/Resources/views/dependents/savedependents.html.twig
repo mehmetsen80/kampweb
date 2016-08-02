@@ -1,0 +1,870 @@
+{#{% extends '::default.html.twig' %}#}
+{#{% block stylesheets %}#}
+    {#<!-- Font CSS (Via CDN) -->#}
+    {#<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>#}
+    {#<link rel='stylesheet' type='text/css' href='{{ asset('assets/fonts/font-awesome/css/font-awesome.css') }}'>#}
+    {#<!-- Theme CSS -->#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">#}
+    {#<!-- Admin Forms CSS -->#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">#}
+
+    {#<!-- Required Plugin CSS -->#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/tagmanager/tagmanager.css') }}">#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/daterange/daterangepicker.css') }}">#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/datepicker/css/bootstrap-datetimepicker.css') }}">#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/colorpicker/css/bootstrap-colorpicker.min.css') }}">#}
+
+    {#<!-- Select2 Plugin CSS  -->#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/select2/css/core.css') }}">#}
+
+    {#<!-- Theme CSS -->#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">#}
+{#{% endblock %}#}
+{#{% block body %}#}
+    {#<body>#}
+    {#<!-- Start: Content-Wrapper -->#}
+    {#<section id="content_wrapper">#}
+        {#<!-- Start: TOPBAR -->#}
+        {#<header id="topbar">#}
+            {#<div class="topbar-left">#}
+                {#<ol class="breadcrumb">#}
+                    {#<li class="crumb-active">#}
+                        {#<a href="{{ path('dashboard') }}">Dashboard</a>#}
+                    {#</li>#}
+                    {#<li class="crumb-icon">#}
+                        {#<a href="{{ path('dashboard') }}">#}
+                            {#<span class="glyphicon glyphicon-home"></span>#}
+                        {#</a>#}
+                    {#</li>#}
+                    {#<li class="crumb-link">#}
+                        {#<a href="#">New Dependent</a>#}
+                    {#</li>#}
+                {#</ol>#}
+            {#</div>#}
+        {#</header>#}
+        {#<!-- End: TOPBAR -->#}
+        {#{% for flash_message in app.session.flashBag.get('savedependenterror') %}#}
+            {#<div class="alert alert-danger alert-dismissable">#}
+                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                {#<i class="fa fa-remove pr10"></i>#}
+                {#<strong>{{ flash_message }}</strong>#}
+
+            {#</div>#}
+        {#{% endfor %}#}
+        {#<!-- Begin: Content -->#}
+        {#<section id="content" class="table-layout animated fadeIn">#}
+            {#<!-- begin: .tray-center -->#}
+            {#<div class="tray tray-center">#}
+
+                {#<!-- Begin: Content Header -->#}
+                {#<div class="content-header">#}
+                    {#<h2> Fill in the fields.</h2>#}
+                {#</div>#}
+
+                {#<!-- Validation Example -->#}
+                {#<div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">#}
+
+                    {#<div class="panel heading-border">#}
+
+                        {#<form method="post" action="{{ path('savedependent', {'attendeeId': attendee.id}) }}" id="admin-form">#}
+
+                            {#<div class="panel-body bg-light">#}
+
+                                {#<div class="section-divider mt20 mb40">#}
+                                    {#<span> Add new dependent - You must fill out all of the fields. </span>#}
+                                {#</div>#}
+                                {#{% if not addform.email.vars.valid %}#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
+
+                                {#<strong>{{ form_errors(addform.email) }}</strong>#}
+                                {#</div>#}
+                                {#{% endif %}#}
+                                {#{% if not addform.name.vars.valid %}#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
+
+                                {#<strong>{{ form_errors(addform.name) }}</strong>#}
+                                {#</div>#}
+                                {#{% endif %}#}
+                                {#{% if not addform.gender.vars.valid %}#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
+
+                                {#<strong>{{ form_errors(addform.gender) }}</strong>#}
+                                {#</div>#}
+                                {#{% endif %}#}
+                                {#{% if not addform.birthday.vars.valid %}#}
+                                {#<div class="alert alert-danger alert-dismissable">#}
+                                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                                {#<i class="fa fa-remove pr10"></i>#}
+
+                                {#<strong>{{ form_errors(addform.birthday) }}</strong>#}
+                                {#</div>#}
+                                {#{% endif %}#}
+
+                                {#<div class="section">#}
+                                    {#<label for="firstname" class="field prepend-icon">#}
+                                        {#{{ form_widget(addform.name, {'attr': {'class': 'gui-input', 'type':'text', 'id':"firstname",'placeholder':"Full Name" }}) }}#}
+                                        {#<label for="firstname" class="field-icon">#}
+                                            {#<i class="fa fa-user"></i>#}
+                                        {#</label>#}
+                                    {#</label>#}
+                                {#</div>#}
+                                {#<!-- end .section row section -->#}
+                                {#<div class="section">#}
+                                    {#<label for="useremail" class="field prepend-icon">#}
+                                        {#{{ form_widget(addform.email, {'attr': {'class': 'gui-input', 'type':'email', 'id':"useremail",'placeholder':"Email Address" }}) }}#}
+                                        {#<label for="useremail" class="field-icon">#}
+                                            {#<i class="fa fa-envelope"></i>#}
+                                        {#</label>#}
+                                    {#</label>#}
+                                {#</div>#}
+                                {#<!-- end section -->#}
+
+                                {#<div class="section row">#}
+                                    {#<div class="col-md-2">#}
+                                        {#<label class="field select">#}
+                                            {#{{ form_widget(addform.ccode,{'id':'phone'}) }}#}
+                                            {#<i class="arrow double"></i>#}
+                                        {#</label>#}
+                                    {#</div>#}
+
+                                    {#<div class="col-md-5">#}
+                                        {#<label for="maskedPhone" class="field prepend-icon">#}
+                                            {#{{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",   'placeholder':"Cellphone"}}) }}#}
+                                            {#<label for="mobile_phone" class="field-icon">#}
+                                                {#<i class="fa fa-phone"></i>#}
+                                            {#</label>#}
+                                        {#</label>#}
+                                    {#</div>#}
+                                    {#<!-- end section -->#}
+
+                                    {#<div class="col-md-5">#}
+                                        {#<label class="field select">#}
+                                            {#{{ form_widget(addform.gender) }}#}
+                                            {#<i class="arrow double"></i>#}
+                                        {#</label>#}
+                                    {#</div>#}
+                                    {#<!-- end section -->#}
+                                {#</div>#}
+                                {#<div class="section">#}
+                                    {#<label for="datepicker1" class="field prepend-icon">#}
+                                        {#{{ form_widget(addform.birthday, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'type':'text','placeholder':'Your birthdate in M-D-Y format'}})}}#}
+                                        {#<label class="field-icon">#}
+                                            {#<i class="fa fa-calendar-o"></i>#}
+                                        {#</label>#}
+                                    {#</label>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<!-- end .form-body section -->#}
+                            {#<div class="panel-footer text-right">#}
+                                {#<button type="submit" class="button btn-primary" > Save </button>#}
+                            {#</div>#}
+                            {#<!-- end .form-footer section -->#}
+                            {#{{ form_row(addform._token) }}#}
+                        {#</form>#}
+
+                    {#</div>#}
+
+                {#</div>#}
+                {#<!-- end: .admin-form -->#}
+
+            {#</div>#}
+            {#<!-- end: .tray-center -->#}
+
+        {#</section>#}
+        {#<!-- End: Content -->#}
+
+    {#</section>#}
+
+
+    {#<style>#}
+        {#/* demo page styles */#}
+        {#body { min-height: 2300px; }#}
+
+        {#.content-header b,#}
+        {#.admin-form .panel.heading-border:before,#}
+        {#.admin-form .panel .heading-border:before {#}
+            {#transition: all 0.7s ease;#}
+        {#}#}
+        {#/* responsive demo styles */#}
+        {#@media (max-width: 800px) {#}
+            {#.admin-form .panel-body { padding: 18px 12px; }#}
+        {#}#}
+    {#</style>#}
+    {#</body>#}
+{#{% endblock %}#}
+{#{% block javascripts %}#}
+    {#<!-- jQuery -->#}
+    {#<script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>#}
+    {#<script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>#}
+    {#<!-- Theme Javascript -->#}
+    {#<script src="{{ asset('assets/js/utility/utility.js') }}"></script>#}
+    {#<script src="{{ asset('assets/js/demo/demo.js') }}"></script>#}
+    {#<script src="{{ asset('assets/js/main.js') }}"></script>#}
+    {#<!-- jQuery Validate Plugin-->#}
+    {#<script src="{{ asset('assets/admin-tools/admin-forms/js/jquery.validate.min.js') }}"></script>#}
+
+    {#<!-- jQuery Validate Addon -->#}
+    {#<script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>#}
+    {#<script type="text/javascript">#}
+        {#jQuery(document).ready(function() {#}
+            {#"use strict";#}
+
+            {#// Init Demo JS#}
+            {#Demo.init();#}
+
+
+            {#// Init Theme Core#}
+            {#Core.init();#}
+            {#/* @custom validation method (smartCaptcha)#}
+             {#------------------------------------------------------------------ */#}
+
+            {#$.validator.methods.smartCaptcha = function(value, element, param) {#}
+                {#return value == param;#}
+            {#};#}
+
+            {#$("#admin-form").validate({#}
+
+                {#/* @validation states + elements#}
+                 {#------------------------------------------- */#}
+
+                {#errorClass: "state-error",#}
+                {#validClass: "state-success",#}
+                {#errorElement: "em",#}
+
+                {#/* @validation rules#}
+                 {#------------------------------------------ */#}
+
+                {#rules: {#}
+                    {#firstname: {#}
+                        {#required: false,#}
+                        {#minlength: 1#}
+
+                    {#},#}
+                    {#lastname: {#}
+                        {#required: false,#}
+                        {#minlength: 1#}
+                    {#},#}
+                    {#useremail: {#}
+                        {#required: false,#}
+                        {#email: true,#}
+                        {#minlength: 1#}
+                    {#},#}
+                    {#mobile_phone: {#}
+                        {#require_from_group: [1, ".phone-group"]#}
+                    {#},#}
+                    {#password: {#}
+                        {#required: false,#}
+                        {#minlength: 6,#}
+                        {#maxlength: 16#}
+                    {#},#}
+                    {#repeatPassword: {#}
+                        {#required: false,#}
+                        {#minlength: 6,#}
+                        {#maxlength: 16,#}
+                        {#equalTo: '#password'#}
+                    {#},#}
+
+                {#},#}
+
+                {#/* @validation highlighting + error placement#}
+                 {#---------------------------------------------------- */#}
+
+                {#highlight: function(element, errorClass, validClass) {#}
+                    {#$(element).closest('.field').addClass(errorClass).removeClass(validClass);#}
+                {#},#}
+                {#unhighlight: function(element, errorClass, validClass) {#}
+                    {#$(element).closest('.field').removeClass(errorClass).addClass(validClass);#}
+                {#},#}
+                {#errorPlacement: function(error, element) {#}
+                    {#if (element.is(":radio") || element.is(":checkbox")) {#}
+                        {#element.closest('.option-group').after(error);#}
+                    {#} else {#}
+                        {#error.insertAfter(element.parent());#}
+                    {#}#}
+                {#}#}
+
+            {#});#}
+
+
+            {#// Cache several DOM elements#}
+            {#var pageHeader = $('.content-header').find('b');#}
+            {#var adminForm = $('.admin-form');#}
+            {#var options = adminForm.find('.option');#}
+            {#var switches = adminForm.find('.switch');#}
+            {#var buttons = adminForm.find('.button');#}
+            {#var Panel = adminForm.find('.panel');#}
+
+
+            {#setTimeout(function() {#}
+                {#adminForm.addClass('theme-primary');#}
+                {#Panel.addClass('panel-primary');#}
+                {#pageHeader.addClass('text-primary');#}
+
+                {#$(options).each(function(i, e) {#}
+                    {#if ($(e).hasClass('block')) {#}
+                        {#$(e).removeClass().addClass('block mt15 option option-primary');#}
+                    {#} else {#}
+                        {#$(e).removeClass().addClass('option option-primary');#}
+                    {#}#}
+                {#});#}
+
+                {#// var sliders = $('.ui-timepicker-div', adminForm).find('.ui-slider');#}
+                {#$('body').find('.ui-slider').each(function(i, e) {#}
+                    {#$(e).addClass('slider-primary');#}
+                {#});#}
+
+                {#$(switches).each(function(i, ele) {#}
+                    {#if ($(ele).hasClass('switch-round')) {#}
+                        {#if ($(ele).hasClass('block')) {#}
+                            {#$(ele).removeClass().addClass('block mt15 switch switch-round switch-primary');#}
+                        {#} else {#}
+                            {#$(ele).removeClass().addClass('switch switch-round switch-primary');#}
+                        {#}#}
+                    {#} else {#}
+                        {#if ($(ele).hasClass('block')) {#}
+                            {#$(ele).removeClass().addClass('block mt15 switch switch-primary');#}
+                        {#} else {#}
+                            {#$(ele).removeClass().addClass('switch switch-primary');#}
+                        {#}#}
+                    {#}#}
+                {#});#}
+                {#buttons.removeClass().addClass('button btn-primary');#}
+            {#}, 800);#}
+
+            {#$("#datepicker1").datepicker({#}
+                {#prevText: '<i class="fa fa-chevron-left"></i>',#}
+                {#nextText: '<i class="fa fa-chevron-right"></i>',#}
+                {#showButtonPanel: false,#}
+                {#beforeShow: function(input, inst) {#}
+                    {#var newclass = 'admin-form';#}
+                    {#var themeClass = $(this).parents('.admin-form').attr('class');#}
+                    {#var smartpikr = inst.dpDiv.parent();#}
+                    {#if (!smartpikr.hasClass(themeClass)) {#}
+                        {#inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');#}
+                    {#}#}
+                {#}#}
+            {#});#}
+
+        {#});#}
+    {#</script>#}
+    {#<!-- MaskedInput Plugin -->#}
+    {#<script src="{{ asset('assets/vendor/plugins/jquerymask/jquery.maskedinput.min.js') }}"></script>#}
+    {#<script type="text/javascript">#}
+        {#jQuery(document).ready(function() {#}
+            {#// jQuery Time Spinner settings#}
+            {#$.widget("ui.timespinner", $.ui.spinner, {#}
+                {#options: {#}
+                    {#// seconds#}
+                    {#step: 60 * 1000,#}
+                    {#// hours#}
+                    {#page: 60#}
+                {#},#}
+                {#_parse: function(value) {#}
+                    {#if (typeof value === "string") {#}
+                        {#// already a timestamp#}
+                        {#if (Number(value) == value) {#}
+                            {#return Number(value);#}
+                        {#}#}
+                        {#return +Globalize.parseDate(value);#}
+                    {#}#}
+                    {#return value;#}
+                {#},#}
+
+                {#_format: function(value) {#}
+                    {#return Globalize.format(new Date(value), "t");#}
+                {#}#}
+            {#});#}
+
+            {#// Init jQuery Time Spinner#}
+            {#$("#spinner4").timespinner();#}
+            {#$('.phone').mask('?(999)-999-9999');#}
+
+
+
+        {#});#}
+    {#</script>#}
+
+    {#<!-- END: PAGE SCRIPTS -->#}
+{#{% endblock %}#}
+
+
+
+
+
+
+
+
+
+{% extends '::default.html.twig' %}
+{% block body %}
+    <body class="ecommerce-page" xmlns="http://www.w3.org/1999/html">
+    <!-- Start: Content-Wrapper -->
+    <section id="content_wrapper">
+        <!-- Start: TOPBAR -->
+        <header id="topbar">
+            <div class="topbar-left">
+                <ol class="breadcrumb">
+                    <li class="crumb-active">
+                        <a href="{{ path('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="crumb-link">
+                        <a href="{{ path('listevents') }}">Events</a>
+                    </li>
+                    <li class="crumb-link">
+                        <a href="#">Save Dependent</a>
+                    </li>
+                </ol>
+            </div>
+        </header>
+        <!-- End: TOPBAR -->
+
+        <!-- Begin: Content -->
+        <section id="content" class="table-layout animated fadeIn">
+
+            <!-- begin: .tray-center -->
+            <div class="tray tray-center">
+
+                {% for flash_message in app.session.flashBag.get('attendeesuccess') %}
+                    <div class="col-md-4 center-block alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-hidden="true">×
+                        </button>
+                        <i class="fa fa-check pr10"></i>
+                        <strong>{{ flash_message }}</strong>
+                    </div>
+                {% endfor %}
+                <!-- create new order panel -->
+                <div class="panel mb25 mt5">
+                    <div class="panel-heading">
+                        <span class="panel-title hidden-xs">Dependent 1</span>
+                    </div>
+                    <div class="panel-body p20 pb10">
+                        <div class="tab-content pn br-n admin-form">
+                            <form method="post" action="{{ path('savedependent', {'attendeeId': attendee.id}) }}">
+                                <div id="tab1_1" class="tab-pane active">
+
+                                    <div class="section row mbn">
+                                        <div class="col-md-12 pl15">
+
+                                            <div class="section row mb15">
+                                                <div class="col-xs-12">
+                                                    <label for="name1" class="field prepend-icon">
+                                                        {{ form_widget(addform.name, {'attr': {'class': ' gui-input br-light light', 'type':'text', 'id':"firstname",'placeholder':"Full Name" }}) }}
+                                                        <label for="name1" class="field-icon">
+                                                            <i class="fa fa-user"></i>
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="section row mb15">
+                                                <div class="col-xs-12">
+                                                    <label for="name1" class="field prepend-icon">
+                                                        {{ form_widget(addform.email, {'attr': {'class': ' gui-input br-light light', 'type':'email', 'id':"email",'placeholder':"Email" }}) }}
+                                                        <label for="name1" class="field-icon">
+                                                            <i class="fa fa-user"></i>
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="section row mb15">
+                                                <div class="col-xs-2">
+                                                    <label for="" class="field prepend-icon">
+                                                        {{ form_widget(addform.ccode,{'id':'phone', 'attr': {'class': 'gui-input form-control'}}) }}
+                                                        <label class="field-icon">
+
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <label for="" class="field prepend-icon">
+                                                        {{ form_widget(addform.cellphone, {'id':'phonetype', 'attr': {'class': 'phonetype gui-input form-control phone ',  'autocomplete':"off",   'placeholder':"Cellphone"}}) }}
+                                                        <label class="field-icon">
+                                                            <i class="fa fa-phone"></i>
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <label for="" class="field prepend-icon">
+                                                        {{ form_widget(addform.gender, {'attr': {'class': 'gui-input form-control'}}) }}
+                                                        <label class="field-icon">
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                                <div class="col-xs-2">
+                                                    <label for="" class="field prepend-icon">
+                                                        {{ form_widget(addform.age, {'attr': {'class': 'gui-input form-control', 'placeholder':'Age' }}) }}
+                                                        <label class="field-icon">
+                                                        </label>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                    </div>
+                                    <!-- end section row -->
+                                </div>
+                                {{ form_row(addform._token) }}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- end: .tray-center -->
+
+            <!-- begin: .tray-right -->
+            <aside class="tray tray-right tray290">
+                {#<!-- menu quick links -->#}
+                {#<div class="admin-form">#}
+
+                <h4> Create and Manage Events </h4>
+
+                {#<hr class="short">#}
+
+                {#<div class="section mb15">#}
+                {#<label for="order-id" class="field prepend-icon">#}
+                {#<input type="text" name="order-id" id="order-id" class="gui-input" placeholder="Event ID #">#}
+                {#<label for="order-id" class="field-icon">#}
+                {#<i class="fa fa-tag"></i>#}
+                {#</label>#}
+                {#</label>#}
+                {#</div>#}
+
+                {#<h5><small>Revenue Range($)</small></h5>#}
+                {#<div class="section row mb15">#}
+                {#<div class="col-md-6">#}
+                {#<label for="price1" class="field prepend-icon">#}
+                {#<input type="text" name="price1" id="price1" class="gui-input" placeholder="0">#}
+                {#<label for="price1" class="field-icon">#}
+                {#<i class="fa fa-usd"></i>#}
+                {#</label>#}
+                {#</label>#}
+                {#</div>#}
+                {#<div class="col-md-6">#}
+                {#<label for="price2" class="field prepend-icon">#}
+                {#<input type="text" name="price2" id="price2" class="gui-input" placeholder="1000">#}
+                {#<label for="price2" class="field-icon">#}
+                {#<i class="fa fa-usd"></i>#}
+                {#</label>#}
+                {#</label>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<h5><small>Start Date - End Date</small></h5>#}
+                {#<div class="section row">#}
+                {#<div class="col-md-6">#}
+                {#<label for="date1" class="field prepend-icon">#}
+                {#<input type="text" name="date1" id="date1" class="gui-input" placeholder="01/01/15">#}
+                {#<label for="date1" class="field-icon">#}
+                {#<i class="fa fa-calendar"></i>#}
+                {#</label>#}
+                {#</label>#}
+                {#</div>#}
+                {#<div class="col-md-6">#}
+                {#<label for="date2" class="field prepend-icon">#}
+                {#<input type="text" name="date2" id="date2" class="gui-input" placeholder="01/31/15">#}
+                {#<label for="date2" class="field-icon">#}
+                {#<i class="fa fa-calendar"></i>#}
+                {#</label>#}
+                {#</label>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<h5><small>Search Categories</small></h5>#}
+                {#<div class="section mb15">#}
+                {#<label class="field select">#}
+                {#<select id="filter-categories" name="filter-categories">#}
+                {#<option value="0" selected="selected">Filter by Categories</option>#}
+                {#<option value="1">Summer</option>#}
+                {#<option value="2">Winter</option>#}
+                {#<option value="2">Spring</option>#}
+                {#<option value="2">Fall</option>#}
+                {#</select>#}
+                {#<i class="arrow double"></i>#}
+                {#</label>#}
+                {#</div>#}
+
+                {#<h5><small>Search Attendee</small></h5>#}
+                {#<div class="section">#}
+                {#<label class="field select">#}
+                {#<select id="filter-customers" name="filter-customers">#}
+                {#<option value="0" selected="selected">Filter by Attendee</option>#}
+                {#<option value="1">Michael</option>#}
+                {#<option value="2">David</option>#}
+                {#<option value="3">Sara</option>#}
+                {#<option value="4">Tasha</option>#}
+                {#</select>#}
+                {#<i class="arrow double"></i>#}
+                {#</label>#}
+                {#</div>#}
+
+                {#<hr class="short">#}
+
+                {#<div class="section">#}
+                {#<button class="btn btn-default btn-sm ph25" type="button">Search</button>#}
+                {#<label class="field option ml15">#}
+                {#<input type="checkbox" name="info">#}
+                {#<span class="checkbox"></span>#}
+                {#<span class="text-muted">Save Search</span>#}
+                {#</label>#}
+                {#</div>#}
+                {#</div>#}
+            </aside>
+            <!-- end: .tray-right -->
+        </section>
+        <!-- End: Content -->
+    </section>
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendor/jquery/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+
+    <script src="{{ asset('assets/admin-tools/admin-forms/js/jquery-ui-datepicker.min.js') }}"></script>
+    <!-- Datatables -->
+    <script src="{{ asset('assets/vendor/plugins/datatables/media/js/jquery.dataTables.js') }}"></script>
+
+    <!-- Datatables Tabletools addon -->
+    <script src="{{ asset('assets/vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.js') }}"></script>
+
+    <!-- Datatables ColReorder addon -->
+    <script src="{{ asset('assets/vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js') }}"></script>
+
+    <!-- Datatables Bootstrap Modifications  -->
+    <script src="{{ asset('assets/vendor/plugins/datatables/media/js/dataTables.bootstrap.js') }}"></script>
+
+    {#<!-- FileUpload JS -->#}
+    {#<script src="{{ asset('assets/vendor/plugins/fileupload/fileupload.js') }}"></script>#}
+    {#<script src="{{ asset('assets/vendor/plugins/holder/holder.min.js') }}"></script>#}
+
+    <!-- Theme Javascript -->
+    <script src="{{ asset('assets/js/utility/utility.js') }}"></script>
+    <script src="{{ asset('assets/js/demo/demo.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <!-- jQuery Validate Plugin-->
+    <script src="{{ asset('assets/admin-tools/admin-forms/js/jquery.validate.min.js') }}"></script>
+
+    <!-- jQuery Validate Addon -->
+    <script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/jquerymask/jquery.maskedinput.min.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            "use strict";
+
+            // Init Demo JS
+            Demo.init();
+
+
+            // Init Theme Core
+            Core.init();
+            /* @custom validation method (smartCaptcha)
+             ------------------------------------------------------------------ */
+
+            $.validator.methods.smartCaptcha = function(value, element, param) {
+                return value == param;
+            };
+
+            $("#admin-form").validate({
+
+                /* @validation states + elements
+                 ------------------------------------------- */
+
+                errorClass: "state-error",
+                validClass: "state-success",
+                errorElement: "em",
+
+                /* @validation rules
+                 ------------------------------------------ */
+
+                rules: {
+                    firstname: {
+                        required: false,
+                        minlength: 1
+
+                    },
+                    lastname: {
+                        required: false,
+                        minlength: 1
+                    },
+                    useremail: {
+                        required: false,
+                        email: true,
+                        minlength: 1
+                    },
+                    mobile_phone: {
+                        require_from_group: [1, ".phone-group"]
+                    },
+                    password: {
+                        required: false,
+                        minlength: 6,
+                        maxlength: 16
+                    },
+                    repeatPassword: {
+                        required: false,
+                        minlength: 6,
+                        maxlength: 16,
+                        equalTo: '#password'
+                    },
+
+                },
+
+                /* @validation highlighting + error placement
+                 ---------------------------------------------------- */
+
+                highlight: function(element, errorClass, validClass) {
+                    $(element).closest('.field').addClass(errorClass).removeClass(validClass);
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).closest('.field').removeClass(errorClass).addClass(validClass);
+                },
+                errorPlacement: function(error, element) {
+                    if (element.is(":radio") || element.is(":checkbox")) {
+                        element.closest('.option-group').after(error);
+                    } else {
+                        error.insertAfter(element.parent());
+                    }
+                }
+
+            });
+
+
+            // Cache several DOM elements
+            var pageHeader = $('.content-header').find('b');
+            var adminForm = $('.admin-form');
+            var options = adminForm.find('.option');
+            var switches = adminForm.find('.switch');
+            var buttons = adminForm.find('.button');
+            var Panel = adminForm.find('.panel');
+
+
+            setTimeout(function() {
+                adminForm.addClass('theme-primary');
+                Panel.addClass('panel-primary');
+                pageHeader.addClass('text-primary');
+
+                $(options).each(function(i, e) {
+                    if ($(e).hasClass('block')) {
+                        $(e).removeClass().addClass('block mt15 option option-primary');
+                    } else {
+                        $(e).removeClass().addClass('option option-primary');
+                    }
+                });
+
+                // var sliders = $('.ui-timepicker-div', adminForm).find('.ui-slider');
+                $('body').find('.ui-slider').each(function(i, e) {
+                    $(e).addClass('slider-primary');
+                });
+
+                $(switches).each(function(i, ele) {
+                    if ($(ele).hasClass('switch-round')) {
+                        if ($(ele).hasClass('block')) {
+                            $(ele).removeClass().addClass('block mt15 switch switch-round switch-primary');
+                        } else {
+                            $(ele).removeClass().addClass('switch switch-round switch-primary');
+                        }
+                    } else {
+                        if ($(ele).hasClass('block')) {
+                            $(ele).removeClass().addClass('block mt15 switch switch-primary');
+                        } else {
+                            $(ele).removeClass().addClass('switch switch-primary');
+                        }
+                    }
+                });
+                buttons.removeClass().addClass('button btn-primary');
+            }, 800);
+
+            $("#datepicker1").datepicker({
+                prevText: '<i class="fa fa-chevron-left"></i>',
+                nextText: '<i class="fa fa-chevron-right"></i>',
+                showButtonPanel: false,
+                beforeShow: function(input, inst) {
+                    var newclass = 'admin-form';
+                    var themeClass = $(this).parents('.admin-form').attr('class');
+                    var smartpikr = inst.dpDiv.parent();
+                    if (!smartpikr.hasClass(themeClass)) {
+                        inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');
+                    }
+                }
+            });
+
+            $("#datepicker2").datepicker({
+                prevText: '<i class="fa fa-chevron-left"></i>',
+                nextText: '<i class="fa fa-chevron-right"></i>',
+                showButtonPanel: false,
+                beforeShow: function(input, inst) {
+                    var newclass = 'admin-form';
+                    var themeClass = $(this).parents('.admin-form').attr('class');
+                    var smartpikr = inst.dpDiv.parent();
+                    if (!smartpikr.hasClass(themeClass)) {
+                        inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');
+                    }
+                }
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            // jQuery Time Spinner settings
+            $.widget("ui.timespinner", $.ui.spinner, {
+                options: {
+                    // seconds
+                    step: 60 * 1000,
+                    // hours
+                    page: 60
+                },
+                _parse: function(value) {
+                    if (typeof value === "string") {
+                        // already a timestamp
+                        if (Number(value) == value) {
+                            return Number(value);
+                        }
+                        return +Globalize.parseDate(value);
+                    }
+                    return value;
+                },
+
+                _format: function(value) {
+                    return Globalize.format(new Date(value), "t");
+                }
+            });
+
+            // Init jQuery Time Spinner
+            $("#spinner4").timespinner();
+
+
+
+        });
+
+        jQuery(document).ready(function() {
+            $('#datatable1').dataTable({
+                "paging":   true,
+                "order": [[2,"desc"]],
+                "info":     true,
+                "iDisplayLength": 10,
+                "aLengthMenu": [
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "All"]
+                ],
+                "sDom": '<"dt-panelmenu clearfix"lfr>t<"dt-panelmenu clearfix"T>Rt<"dt-panelfooter clearfix"ip>',
+                "oTableTools": {
+                    "sSwfPath": "{{ asset('assets/vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf') }}"
+                }
+            });
+        });
+
+        $('.phone').mask('?(999)-999-9999');
+    </script>
+    <!-- END: PAGE SCRIPTS -->
+    </body>
+    <!-- End: Content -->
+{% endblock %}
+{% block javascripts %}
+{% endblock %}

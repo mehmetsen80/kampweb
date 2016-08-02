@@ -60,6 +60,7 @@ class Attendee
      * @ORM\Column(name="createdat", type="bigint", nullable=true)
      */
     protected $createdat;
+
     /**
      * @var \DateTime
      * @ORM\Column(name="modifiedat", type="bigint", nullable=true)
@@ -77,6 +78,11 @@ class Attendee
      * @ORM\Column(name="checkout", type="date", nullable=true)
      */
     private $checkout;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Dependent", mappedBy="attendee")
+     */
+    protected $dependents;
 
     public function __construct()
     {
@@ -388,5 +394,39 @@ class Attendee
     public function getCheckout()
     {
         return $this->checkout;
+    }
+
+    /**
+     * Add dependent
+     *
+     * @param \AppBundle\Entity\Dependent $dependent
+     *
+     * @return Attendee
+     */
+    public function addDependent(\AppBundle\Entity\Dependent $dependent)
+    {
+        $this->dependents[] = $dependent;
+
+        return $this;
+    }
+
+    /**
+     * Remove dependent
+     *
+     * @param \AppBundle\Entity\Dependent $dependent
+     */
+    public function removeDependent(\AppBundle\Entity\Dependent $dependent)
+    {
+        $this->dependents->removeElement($dependent);
+    }
+
+    /**
+     * Get dependents
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDependents()
+    {
+        return $this->dependents;
     }
 }

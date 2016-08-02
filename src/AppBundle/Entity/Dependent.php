@@ -19,7 +19,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Dependent
 {
-
     /**
      * @var double
      * @ORM\Column(type="bigint", nullable=false)
@@ -30,7 +29,7 @@ class Dependent
 
     /**
      * @var string
-     * @ORM\Column(type="string", type="string", length=100)
+     * @ORM\Column(type="string", type="string", length=100, nullable=true)
      */
     private $name;
 
@@ -40,24 +39,33 @@ class Dependent
      */
     private $gender;
 
-
     /**
-     * @Assert\Date()
-     * @ORM\Column(name="birthday", nullable=false)
+     * @ORM\Column(name="age", type="string", nullable=true)
      */
-    private $birthday;
+    private $age;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=6, nullable=false)
+     * @ORM\Column(type="string", length=6, nullable=true)
      */
     private $email;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="dependents")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\Column(name="ccode", type="string", nullable=true)
      */
-    private $user;
+    protected $ccode;
+
+    /**
+     * @var integer
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $cellphone;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Attendee", inversedBy="dependents")
+     * @ORM\JoinColumn(name="attendeeid", referencedColumnName="id")
+     */
+    private $attendee;
 
     /**
      * @var datetime $createdat
@@ -72,7 +80,6 @@ class Dependent
      * @ORM\Column(type="datetime")
      */
     private $modifiedat;
-
 
     public function __construct() {
         $this->updatedTimestamps();
@@ -92,7 +99,6 @@ class Dependent
             $this->setCreatedat(new \DateTime(date('Y-m-d H:i:s')));
         }
     }
-
 
     /**
      * Get id
@@ -172,22 +178,6 @@ class Dependent
     /**
      * @return mixed
      */
-    public function getBirthday()
-    {
-        return $this->birthday;
-    }
-
-    /**
-     * @param mixed $birthday
-     */
-    public function setBirthday($birthday)
-    {
-        $this->birthday = $birthday;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getEmail()
     {
         return $this->email;
@@ -200,8 +190,6 @@ class Dependent
     {
         $this->email = $email;
     }
-
-
 
     /**
      * @return DateTime
@@ -249,4 +237,99 @@ class Dependent
     }
 
 
+    /**
+     * Set attendee
+     *
+     * @param \AppBundle\Entity\Attendee $attendee
+     *
+     * @return Attendee
+     */
+    public function setAttendee(\AppBundle\Entity\Attendee $attendee = null)
+    {
+        $this->attendee = $attendee;
+
+        return $this;
+    }
+
+    /**
+     * Get attendee
+     *
+     * @return \AppBundle\Entity\Attendee
+     */
+    public function getAttendee()
+    {
+        return $this->attendee;
+    }
+
+    /**
+     * Set ccode
+     *
+     * @param string $ccode
+     *
+     * @return Dependent
+     */
+    public function setCcode($ccode)
+    {
+        $this->ccode = $ccode;
+
+        return $this;
+    }
+
+    /**
+     * Get ccode
+     *
+     * @return string
+     */
+    public function getCcode()
+    {
+        return $this->ccode;
+    }
+
+    /**
+     * Set cellphone
+     *
+     * @param string $cellphone
+     *
+     * @return Dependent
+     */
+    public function setCellphone($cellphone)
+    {
+        $this->cellphone = $cellphone;
+
+        return $this;
+    }
+
+    /**
+     * Get cellphone
+     *
+     * @return string
+     */
+    public function getCellphone()
+    {
+        return $this->cellphone;
+    }
+
+    /**
+     * Set age
+     *
+     * @param string $age
+     *
+     * @return Dependent
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * Get age
+     *
+     * @return string
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
 }

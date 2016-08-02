@@ -11,8 +11,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Attendee;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AttendeeController extends Controller
@@ -21,8 +21,6 @@ class AttendeeController extends Controller
      * @Route("/attendee/{userid}/event/{eventid}", name="addattendees")
      */
     public function saveAttendee(Request $request, $userid, $eventid){
-
-        $response = new Response();
 
         $createdBy = $this->getUser();
         //get user service
@@ -54,10 +52,7 @@ class AttendeeController extends Controller
             'Attendee added successfully'
         );
 
-        $referer = $this->get('request_stack')->getCurrentRequest()
-            ->headers
-            ->get('referer');
-        return $this->redirect($referer.'#attendeeTable');
+        return new RedirectResponse($this->generateUrl('savedependent', array('attendeeId'=>$attendee->getId())));
     }
 
 }
