@@ -86,7 +86,7 @@
                                     </td>
                                     {% if is_granted('ROLE_SUPER_ADMIN') %}
                                     <td>
-                                        <a class="text-danger" href="{{ path('deleteevent', {'id': event.id}) }}">
+                                        <a class="text-danger" href="{{ path('deleteevent', {'id': event.id}) }}" onclick="return confirm('are you sure?')">
                                             Delete
                                         </a>
                                     </td>
@@ -436,6 +436,19 @@
                     "sSwfPath": "{{ asset('assets/vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf') }}"
                 }
             });
+        });
+
+        $("#delete").click(function(e) {
+            //this prevents that the form is submitted
+            e.preventDefault();
+
+            if(confirm('are you sure ?')) {
+                alert('clicked ok');
+                //do what you want here
+            } else {
+                alert('clicked cancel');
+                //do what you want here
+            }
         });
     </script>
     <!-- END: PAGE SCRIPTS -->

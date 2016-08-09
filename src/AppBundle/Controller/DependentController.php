@@ -23,15 +23,15 @@ class DependentController extends Controller
      */
     public function saveDependent(Request $request, Attendee $attendeeId){
 
-        $addform = $this->createForm(DependentType::class);
-        $addform->handleRequest($request);
-
         //get attendee service
         $attendeeService = $this->container->get('attendeeservice');
 
         //get attendee
         $attendee = $attendeeService->findOneById(['id'=>$attendeeId]);
 
+        $addform = $this->createForm(DependentType::class);
+
+        $addform->handleRequest($request);
         if ($addform->isSubmitted() && $addform->isValid()) {
 
             // create new dependent
@@ -61,9 +61,10 @@ class DependentController extends Controller
                 'Dependent added successfully'
             );
 
+            return $this->redirect($this->generateUrl('listevents'));
+
         }
 
-//
 //        $referer = $this->get('request_stack')->getCurrentRequest()
 //            ->headers
 //            ->get('referer');

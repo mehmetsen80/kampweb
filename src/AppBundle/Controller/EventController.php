@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Attendee;
 use AppBundle\Form\Events\AddEventType;
+use AppBundle\Form\Events\EditEventType;
 use AppBundle\Util\EntityBuilder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -110,29 +111,39 @@ class EventController extends Controller
      */
     public function editEventAction(Request $request ,$eventid){
 
-        //get user service
-        $userService = $this->container->get('userservice');
-
         //get event service
         $eventservice = $this->container->get('eventservice');
-
-        $createdBy = $userService->findOneById(4);
-
-        //get user
-        $user = $userService->findOneById(6);
-
         //get event
-        $event = $eventservice->findOneById(8);
-
-        $attendee = new Attendee();
-        $attendee->setUsername($user->getUsername());
-        $attendee->setEvent($event);
-        $attendee->setName($user->getFullname());
-        $attendee->setCreatedBy($createdBy);
-
-        $this->entityManager->persist($attendee);
-        $this->entityManager->flush($attendee);
+        $event = $eventservice->findOneById(['id'=>$eventid]);
+        //get event form to edit
+        $editform = $this->createForm(EditEventType::class, $event);
+        $editform->handleRequest($request);// handle form request
+        //when form is submitted and valied
+        if ($editform->isSubmitted() && $editform->isValid()) {
+            //get form parameters
+            $name = $editform->get('name')->getData();
+            $startDate = $editform->get('startDate')->getData();
+            $endDate = $editform->get('endDate')->getData();
+            $description = $editform->get('description')->getData();
+            //set properties
+            $event = EntityBuilder::newEvent($name, $startDate, $endDate, $description, $event->getCreatedby());
+            //save event
+            $event = $eventservice->saveEntity($event);
+            //if event saved succcessfully show flash message
+            if(!is_null($event)){
+                $this->addFlash(
+                    'eventupdatesuccess',
+                    'Update was successful'
+                );
+            }
+            else{
+                $this->addFlash(
+                    'eventupdateerror',
+                    'Oops! There was a problem with your update!'
+                );
+            }
+        }
+        return $this->render(':events:editevent.html.twig', array('event'=>$event, 'editform' => $editform->createView()));
     }
-
 
 }
