@@ -38,15 +38,17 @@ class DefaultController extends Controller
 
         $eventService = $this->get('eventservice');
         $userService = $this->get('userservice');
+        $attendeeService = $this->get('attendeeservice');
         $events = $eventService->findAll();
         $users = $userService->findAll();
+        $attendees = $attendeeService->findAll();
         $male = $this->getDoctrine()->getRepository('AppBundle:User')->loadByMaleGender();
         $female = $this->getDoctrine()->getRepository('AppBundle:User')->loadByFemaleGender();
         $adult = $this->getDoctrine()->getRepository('AppBundle:User')->loadByAdultAge();
         $youth = $this->getDoctrine()->getRepository('AppBundle:User')->loadByYouthAge();
         $student = $this->getDoctrine()->getRepository('AppBundle:User')->loadByStudent();
 
-        return $this->render(":user:dashboard.html.twig", array('events'=>$events, 'users'=>$users, 'male' => $male, 'female' => $female, 'adult' => $adult, 'youth' => $youth, 'student'=>$student));
+        return $this->render(":user:dashboard.html.twig", array('events'=>$events, 'users'=>$users, 'male' => $male, 'female' => $female, 'adult' => $adult, 'youth' => $youth, 'student'=>$student, 'attendees'=>$attendees));
 
     }
 

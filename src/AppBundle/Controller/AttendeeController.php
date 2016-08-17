@@ -45,14 +45,14 @@ class AttendeeController extends Controller
         $attendee->setCreatedBy($createdBy);
         $attendee->setEvent($event);
 
-        $attendeeService->saveEntity($attendee);
+            $attendeeService->saveEntity($attendee);
+            $this->addFlash(
+                'attendeesuccess',
+                'Attendee added successfully'
+            );
+            return new RedirectResponse($this->generateUrl('savedependent', array('attendeeId'=>$attendee->getId(), 'eventid'=>$eventid)));
 
-        $this->addFlash(
-            'attendeesuccess',
-            'Attendee added successfully'
-        );
 
-        return new RedirectResponse($this->generateUrl('savedependent', array('attendeeId'=>$attendee->getId())));
     }
 
 }

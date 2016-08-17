@@ -30,6 +30,7 @@
                         {{ flash_message }}
                     </div>
                 {% endfor %}
+
                 <!-- recent events table -->
                 <div class="panel">
                     <div class="panel-body pn">
@@ -86,7 +87,7 @@
                                     </td>
                                     {% if is_granted('ROLE_SUPER_ADMIN') %}
                                     <td>
-                                        <a class="text-danger" href="{{ path('deleteevent', {'id': event.id}) }}" onclick="return confirm('are you sure?')">
+                                        <a class="text-danger" href="{{ path('deleteevent', {'id': event.id, 'attendeeId': event.attentees}) }}" onclick="return confirm('All the attendees and the dependents linked to this event will be deleted. Are you sure to delete this event?')">
                                             Delete
                                         </a>
                                     </td>
@@ -312,7 +313,6 @@
 
             });
 
-
             // Cache several DOM elements
             var pageHeader = $('.content-header').find('b');
             var adminForm = $('.admin-form');
@@ -438,18 +438,6 @@
             });
         });
 
-        $("#delete").click(function(e) {
-            //this prevents that the form is submitted
-            e.preventDefault();
-
-            if(confirm('are you sure ?')) {
-                alert('clicked ok');
-                //do what you want here
-            } else {
-                alert('clicked cancel');
-                //do what you want here
-            }
-        });
     </script>
     <!-- END: PAGE SCRIPTS -->
     </body>

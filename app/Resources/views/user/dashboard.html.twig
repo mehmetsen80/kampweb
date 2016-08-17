@@ -36,7 +36,7 @@
                     <div class="col-sm-4 col-xl-3">
                         <div class="panel panel-tile text-center br-a br-grey">
                             <div class="panel-body">
-                                <h1 class="fs30 mt5 mbn">153</h1>
+                                <h1 class="fs30 mt5 mbn">{{ attendees|length }}</h1>
                                 <h6 class="text-success">Attendees</h6>
                             </div>
                         </div>
@@ -101,88 +101,38 @@
                                 <tr class="bg-light">
                                     <th class="">Attendee</th>
                                     <th class="">Event</th>
-                                    <th class="">Balance</th>
-                                    <th class="">Total Attendees</th>
+                                    <th class="">Revenue</th>
                                     <th class="">Event Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                {% for attendee in attendees|slice(0,5) %}
                                 <tr>
-                                    <td class="">Summer Camp</td>
-                                    <td class="">21362</td>
+                                    <td class="">{{ attendee.name }}</td>
+                                    <td class="">{{ attendee.event.name }}</td>
                                     <td class="">$215</td>
-                                    <td class="">1,400</td>
                                     <td class="">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Active
+                                        {% if 'now'|date('Y-m-d') < attendee.event.startDate|date('Y-m-d') %}
+                                            <div class="btn-group text-center">
+                                                <span class="text-primary">Upcoming</span>
 
-                                            </button>
-                                        </div>
+                                            </div>
+
+                                        {% elseif 'now'|date('Y-m-d') >= attendee.event.startDate|date('Y-m-d') and 'now'|date('Y-m-d') <= attendee.event.endDate|date('Y-m-d') %}
+                                            <div class="btn-group text-center">
+                                                <span class="text-success"> Active </span>
+
+                                            </div>
+
+                                        {% elseif 'now'|date('Y-m-d') > attendee.event.endDate|date('Y-m-d') %}
+                                            <div class="btn-group text-center">
+                                                <span class="text-danger"> Expired </span>
+
+                                            </div>
+                                        {% endif %}
                                     </td>
                                 </tr>
-                                <tr>
-
-                                    <td class="">Winter Camp</td>
-                                    <td class="">1262</td>
-                                    <td class="">$4555</td>
-                                    <td class="">100</td>
-                                    <td class="">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Active
-
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-
-                                    <td class="">Thanks Giving Camp</td>
-                                    <td class="">66362</td>
-                                    <td class="">$1699</td>
-                                    <td class="">100</td>
-                                    <td class="">
-                                        <div class="btn-group ">
-                                            <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Active
-
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-
-                                    <td class="">Spring Camp</td>
-                                    <td class="">51362</td>
-                                    <td class="">$1299</td>
-                                    <td class="">5,200</td>
-                                    <td class="">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Active
-
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li>
-                                                    <a href="#">Edit</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Delete</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Archive</a>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li>
-                                                    <a href="#">Complete</a>
-                                                </li>
-                                                <li class="active">
-                                                    <a href="#">Pending</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Canceled</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
+                                {% endfor %}
                                 </tbody>
                             </table>
                         </div>

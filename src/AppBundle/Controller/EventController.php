@@ -25,6 +25,7 @@ class EventController extends Controller
     public function deleteEventAction($id){
 
         $eventservice = $this->container->get('eventservice');
+
         $eventservice->removeById($id);
 
         return $this->redirect($this->generateUrl('listevents'));

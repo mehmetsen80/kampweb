@@ -14,6 +14,6 @@ use Doctrine\ORM\EntityManager;
 class DependentService extends AbstractService
 {
     public  function __construct(EntityManager $entityManager){
-        parent::__construct($entityManager, 'AppBundle:Attendee');
+        parent::__construct($entityManager, 'AppBundle:Dependent');
     }
 }

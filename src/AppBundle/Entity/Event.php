@@ -375,4 +375,5 @@ class Event
     {
         return $this->attentees;
     }
+
 }

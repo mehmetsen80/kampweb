@@ -63,7 +63,7 @@ class Dependent
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Attendee", inversedBy="dependents")
-     * @ORM\JoinColumn(name="attendeeid", referencedColumnName="id")
+     * @ORM\JoinColumn(name="attendeeid", referencedColumnName="id", onDelete="CASCADE")
      */
     private $attendee;
 

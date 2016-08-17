@@ -39,13 +39,15 @@ class EntityBuilder
         return $person;
     }
 
-    public static function newDependent($name, $email, $gender, $birthday){
+    public static function newDependent($attendee,$name, $email, $gender, $age, $ccode, $cellphone){
         $dependent = new Dependent();
+        $dependent->setAttendee($attendee);
         $dependent->setName($name);
-        $dependent->setEmail($email);
         $dependent->setGender($gender);
-        $dependent->setBirthday($birthday);
-
+        $dependent->setEmail($email);
+        $dependent->setAge($age);
+        $dependent->setCcode($ccode);
+        $dependent->setCellphone($cellphone);
         return $dependent;
     }
 
@@ -75,6 +77,7 @@ class EntityBuilder
 
         return $user;
     }
+
 
 
 //    public static function newAttendee($name, $createdBy, $username, $eventid){

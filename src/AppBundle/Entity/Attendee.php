@@ -51,7 +51,7 @@ class Attendee
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Event", inversedBy="attentees")
-     * @ORM\JoinColumn(name="eventid", referencedColumnName="id")
+     * @ORM\JoinColumn(name="eventid", referencedColumnName="id", onDelete="CASCADE")
      */
     private $event;
 
@@ -264,39 +264,9 @@ class Attendee
         return $this->modifiedat;
     }
 
-    /**
-     * Add event
-     *
-     * @param \AppBundle\Entity\Event $event
-     *
-     * @return Attendee
-     */
-    public function addEvent(\AppBundle\Entity\Event $event)
-    {
-        $this->events[] = $event;
 
-        return $this;
-    }
 
-    /**
-     * Remove event
-     *
-     * @param \AppBundle\Entity\Event $event
-     */
-    public function removeEvent(\AppBundle\Entity\Event $event)
-    {
-        $this->events->removeElement($event);
-    }
 
-    /**
-     * Get events
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEvents()
-    {
-        return $this->events;
-    }
 
     /**
      * Set event
