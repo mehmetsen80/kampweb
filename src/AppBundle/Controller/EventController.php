@@ -131,8 +131,8 @@ class EventController extends Controller
             $description = $editform->get('description')->getData();
             //set properties
             $event->setName($name);
-            $event->startDate($startDate);
-            $event->endDate($endDate);
+            $event->setstartDate($startDate);
+            $event->setendDate($endDate);
             $event->setDescription($description);
             $event->setCreatedBy($event->getCreatedby());
             //save event
