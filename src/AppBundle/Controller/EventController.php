@@ -130,7 +130,11 @@ class EventController extends Controller
             $endDate = $editform->get('endDate')->getData();
             $description = $editform->get('description')->getData();
             //set properties
-            $event = EntityBuilder::newEvent($name, $startDate, $endDate, $description, $event->getCreatedby());
+            $event->setName($name);
+            $event->startDate($startDate);
+            $event->endDate($endDate);
+            $event->setDescription($description);
+            $event->setCreatedBy($event->getCreatedby());
             //save event
             $event = $eventservice->saveEntity($event);
             //if event saved succcessfully show flash message
