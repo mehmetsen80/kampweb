@@ -271,5 +271,12 @@ class UserController extends Controller
         return $this->render(':user:contact.html.twig', array('contactform' => $contactform->createView()));
     }
 
+    /**
+     * @Route("/redirect")
+     */
+    public function redirectActioun(){
+        return $this->redirect('http://yahoo.com');
+    }
+
 
 }
