@@ -40,14 +40,17 @@
                     <div class="alert alert-success alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                         <i class="fa fa-check pr10"></i>
-                        {{ flash_message }} Add more dependents or <a href="{{ path('showevents', {'eventid': event.id}) }}">click here to go back to the event page.</a>
+                        {{ flash_message }} Add more dependents or <a
+                                href="{{ path('showevents', {'eventid': event.id}) }}">click here to go back to the
+                            event page.</a>
                     </div>
                 {% endfor %}
                 {% for flash_message in app.session.flashBag.get('dependentdelete') %}
                     <div class="alert alert-success alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                         <i class="fa fa-check pr10"></i>
-                        {{ flash_message }} <a href="{{ path('showevents', {'eventid': event.id}) }}">Click here to go back to the event page.</a>
+                        {{ flash_message }} <a href="{{ path('showevents', {'eventid': event.id}) }}">Click here to go
+                            back to the event page.</a>
                     </div>
                 {% endfor %}
                 <!-- create new order panel -->
@@ -57,7 +60,8 @@
                     </div>
                     <div class="panel-body p20 pb10">
                         <div class="tab-content pn br-n admin-form">
-                            <form method="post" action="{{ path('savedependent', {'eventid': event.id, 'attendeeId': attendee.id}) }}">
+                            <form method="post"
+                                  action="{{ path('savedependent', {'eventid': event.id, 'attendeeId': attendee.id}) }}">
                                 <div id="tab1_1" class="tab-pane active">
                                     <div class="section row mbn">
                                         <div class="col-md-12 pl15">
@@ -114,7 +118,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button style="margin-left: 1.5%;" class="btn btn-primary" type="submit">Add Dependent</button>
+                                        <button style="margin-left: 1.5%;" class="btn btn-primary" type="submit">Add
+                                            Dependent
+                                        </button>
                                     </div>
                                     <!-- end section row -->
                                 </div>
@@ -124,41 +130,50 @@
                     </div>
                 </div>
                 <div class="panel-body pn">
-                    <table class="table table-striped" id="datatable">
+                    <table class="table table-striped" id="datatable1">
                         <thead>
                         <tr>
                             <th>Name</th>
                             <th>Gender</th>
                             <th>Age</th>
-                            <th></th>
+                            <th>Creation Date</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for dependent in dependents %}
-                        <tr>
-                            <td>{{ dependent.name}}</td>
-                            <td>{{ dependent.gender}}</td>
-                            <td>{{ dependent.age}}</td>
-                            <td><a class="text-danger" href="{{ path('deletedependent', {'id': dependent.id}) }}">Delete</a> </td>
-                            <td>{{ dependent.createdat|date('Y-m-d') }}</td>
-                        </tr>
+                            <tr>
+                                <td>{{ dependent.name }}</td>
+                                <td>{{ dependent.gender }}</td>
+                                <td>{{ dependent.age }}</td>
+                                <td>{{ dependent.createdat|date('Y-m-d h:i:s') }}</td>
+                                <td><a class="text-danger" href="{{ path('deletedependent', {'id': dependent.id}) }}" onclick="return confirm(' Are you sure to delete this dependent?')">Delete</a>
+                                </td>
+                            </tr>
                         {% endfor %}
                         </tbody>
                     </table>
                 </div>
+                <a href="{{ path('showevents', {'eventid': event.id}) }}">
+                    <button style="margin-left: 50%;" class="btn btn-primary ">Continue</button>
+                </a>
             </div>
-
             <!-- begin: .tray-right -->
             <aside class="tray tray-right tray290">
-                <h4> Current Attendee </h4>
                 <div class="col-md-12">
-                <dl class="">
-                    <dt>Attendee Name </dt>
-                    <dd>{{ attendee.name }}</dd>
-                    <dt>Event </dt>
-                    <dd>{{ attendee.event.name }}</dd>
-                </dl>
+                    <dl class="">
+                        <dt>
+                        <h3>Attendee Name </h3> </dt>
+                        <dd><h5>{{ attendee.name }}</h5></dd>
+                        <dt>
+                        <h3>Event</h3> </dt>
+                        <dd><h5><a href="{{ path('showevents', {'eventid': event.id}) }}">{{ attendee.event.name }}</a></h5></dd>
+                        <dd><h5>Start Date: {{ attendee.event.startDate|date('Y-m-d') }}</h5></dd>
+                        <dd><h5>End Date: {{ attendee.event.endDate|date('Y-m-d') }}</h5></dd>
+                    </dl>
+                    <a href="{{ path('showevents', {'eventid': event.id}) }}">
+                        <button style="margin-left: 1.5%;" class="btn btn-primary">Continue</button>
+                    </a>
                 </div>
             </aside>
             <!-- end: .tray-right -->
@@ -198,7 +213,7 @@
     <script src="{{ asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/plugins/jquerymask/jquery.maskedinput.min.js') }}"></script>
     <script type="text/javascript">
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             "use strict";
 
             // Init Demo JS
@@ -210,7 +225,7 @@
             /* @custom validation method (smartCaptcha)
              ------------------------------------------------------------------ */
 
-            $.validator.methods.smartCaptcha = function(value, element, param) {
+            $.validator.methods.smartCaptcha = function (value, element, param) {
                 return value == param;
             };
 
@@ -261,13 +276,13 @@
                 /* @validation highlighting + error placement
                  ---------------------------------------------------- */
 
-                highlight: function(element, errorClass, validClass) {
+                highlight: function (element, errorClass, validClass) {
                     $(element).closest('.field').addClass(errorClass).removeClass(validClass);
                 },
-                unhighlight: function(element, errorClass, validClass) {
+                unhighlight: function (element, errorClass, validClass) {
                     $(element).closest('.field').removeClass(errorClass).addClass(validClass);
                 },
-                errorPlacement: function(error, element) {
+                errorPlacement: function (error, element) {
                     if (element.is(":radio") || element.is(":checkbox")) {
                         element.closest('.option-group').after(error);
                     } else {
@@ -287,12 +302,12 @@
             var Panel = adminForm.find('.panel');
 
 
-            setTimeout(function() {
+            setTimeout(function () {
                 adminForm.addClass('theme-primary');
                 Panel.addClass('panel-primary');
                 pageHeader.addClass('text-primary');
 
-                $(options).each(function(i, e) {
+                $(options).each(function (i, e) {
                     if ($(e).hasClass('block')) {
                         $(e).removeClass().addClass('block mt15 option option-primary');
                     } else {
@@ -301,11 +316,11 @@
                 });
 
                 // var sliders = $('.ui-timepicker-div', adminForm).find('.ui-slider');
-                $('body').find('.ui-slider').each(function(i, e) {
+                $('body').find('.ui-slider').each(function (i, e) {
                     $(e).addClass('slider-primary');
                 });
 
-                $(switches).each(function(i, ele) {
+                $(switches).each(function (i, ele) {
                     if ($(ele).hasClass('switch-round')) {
                         if ($(ele).hasClass('block')) {
                             $(ele).removeClass().addClass('block mt15 switch switch-round switch-primary');
@@ -327,7 +342,7 @@
                 prevText: '<i class="fa fa-chevron-left"></i>',
                 nextText: '<i class="fa fa-chevron-right"></i>',
                 showButtonPanel: false,
-                beforeShow: function(input, inst) {
+                beforeShow: function (input, inst) {
                     var newclass = 'admin-form';
                     var themeClass = $(this).parents('.admin-form').attr('class');
                     var smartpikr = inst.dpDiv.parent();
@@ -341,7 +356,7 @@
                 prevText: '<i class="fa fa-chevron-left"></i>',
                 nextText: '<i class="fa fa-chevron-right"></i>',
                 showButtonPanel: false,
-                beforeShow: function(input, inst) {
+                beforeShow: function (input, inst) {
                     var newclass = 'admin-form';
                     var themeClass = $(this).parents('.admin-form').attr('class');
                     var smartpikr = inst.dpDiv.parent();
@@ -354,7 +369,7 @@
         });
     </script>
     <script type="text/javascript">
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             // jQuery Time Spinner settings
             $.widget("ui.timespinner", $.ui.spinner, {
                 options: {
@@ -363,7 +378,7 @@
                     // hours
                     page: 60
                 },
-                _parse: function(value) {
+                _parse: function (value) {
                     if (typeof value === "string") {
                         // already a timestamp
                         if (Number(value) == value) {
@@ -374,7 +389,7 @@
                     return value;
                 },
 
-                _format: function(value) {
+                _format: function (value) {
                     return Globalize.format(new Date(value), "t");
                 }
             });
@@ -384,11 +399,11 @@
 
         });
 
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             $('#datatable1').dataTable({
-                "paging":   true,
-                "order": [[3,"desc"]],
-                "info":     true,
+                "paging": true,
+                "order": [[4, "ascending"]],
+                "info": true,
                 "iDisplayLength": 10,
                 "aLengthMenu": [
                     [5, 10, 25, 50, -1],

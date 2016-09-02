@@ -9,7 +9,6 @@
 namespace tests\AppBundle\Controller;
 
 
-
 use AppBundle\Util\EntityBuilder;
 
 
@@ -49,6 +48,11 @@ class TestUser extends TestBase
             echo $user, EOL;
         }
         echo EOL, EOL;
+    }
+
+    public function listAttendedUsers(){
+        $userService = $this->container->get('userservice');
+        $users = $userService->loadUsersByAttendees();
     }
 
 }

@@ -75,4 +75,17 @@ class UserRepository extends AbstractRepository implements UserLoaderInterface
 
     }
 
+    public function loadUsersByAttendees($id){
+
+//        return $this->createQueryBuilder('u')
+//            ->select('u')˚
+//            ->where('IDENTITY(u.attendees) = ?')
+//            //->andWhere('a.active = 1')
+//            ->setParameter(1, $id)
+//            ->getQuery();
+//            ->getResult()
+          $em = $this->getEntityManager();
+          //return $em->createQuery("SELECT u FROM User Minus ")
+          return $em->createQuery("SELECT u FROM User MINUS SELECT a FROM Attendee WHERE a.id ? u.id");
+    }
 }

@@ -103,7 +103,10 @@ class EventController extends Controller
         //get userid
         $userid = $userService->findOneById(['id']);
 
-        return $this->render(':events:show.html.twig', ['event'=>$event, 'users'=>$users, 'userid'=>$userid]);
+        //get attendees
+        $attendees = $event->getAttentees();
+
+        return $this->render(':events:show.html.twig', ['event'=>$event, 'attendees'=>$attendees, 'users'=>$users, 'userid'=>$userid]);
 
     }
 

@@ -20,14 +20,15 @@ class AttendeeController extends Controller
     /**
      * @Route("/attendee/{userid}/event/{eventid}", name="addattendees")
      */
-    public function saveAttendee(Request $request, $userid, $eventid){
+    public function saveAttendee(Request $request, $userid, $eventid)
+    {
 
         $createdBy = $this->getUser();
         //get user service
         $userService = $this->container->get('userservice');
 
         //get user
-        $user = $userService->findOneById(['id'=>$userid]);
+        $user = $userService->findOneById(['id' => $userid]);
 
         //get event service
         $eventservice = $this->container->get('eventservice');
@@ -36,7 +37,7 @@ class AttendeeController extends Controller
         $attendeeService = $this->container->get('attendeeservice');
 
         //get event
-        $event = $eventservice->findOneById(['id'=>$eventid]);
+        $event = $eventservice->findOneById(['id' => $eventid]);
 
         $attendee = new Attendee();
 
@@ -45,13 +46,28 @@ class AttendeeController extends Controller
         $attendee->setCreatedBy($createdBy);
         $attendee->setEvent($event);
 
+        $currentAttendee = $user = $this->getDoctrine()
+            ->getRepository('AppBundle:Attendee')
+            ->findOneBy(array('userid' => $userid));
+
+        if(!$currentAttendee) {
             $attendeeService->saveEntity($attendee);
             $this->addFlash(
                 'attendeesuccess',
-                'Attendee added successfully'
-            );
-            return new RedirectResponse($this->generateUrl('savedependent', array('attendeeId'=>$attendee->getId(), 'eventid'=>$eventid)));
+                'Attendee added successfully');
 
+            return new RedirectResponse($this->generateUrl('savedependent', array('attendeeId' => $attendee->getId(), 'eventid' => $eventid)));
+        }
+        else{
+            $this->addFlash(
+                'attendeefail',
+                'Attendee already exists');
+
+            $referer = $this->get('request_stack')->getCurrentRequest()
+                ->headers
+                ->get('referer');
+            return $this->redirect($referer.'#attendeeTable');
+        }
 
     }
 
