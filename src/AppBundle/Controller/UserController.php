@@ -272,10 +272,10 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/redirect")
+     * @Route("/proquest")
      */
     public function redirectActioun(){
-        return $this->redirect('http://yahoo.com');
+        return $this->redirect('http://search.proquest.com/ebrary?accountid=149763');
     }
 
 
