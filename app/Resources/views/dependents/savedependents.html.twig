@@ -154,27 +154,35 @@
                         </tbody>
                     </table>
                 </div>
+                </br>
                 <a href="{{ path('showevents', {'eventid': event.id}) }}">
                     <button style="margin-left: 50%;" class="btn btn-primary ">Continue</button>
                 </a>
             </div>
             <!-- begin: .tray-right -->
             <aside class="tray tray-right tray290">
-                <div class="col-md-12">
-                    <dl class="">
-                        <dt>
-                        <h3>Attendee Name </h3> </dt>
-                        <dd><h5>{{ attendee.name }}</h5></dd>
-                        <dt>
-                        <h3>Event</h3> </dt>
-                        <dd><h5><a href="{{ path('showevents', {'eventid': event.id}) }}">{{ attendee.event.name }}</a></h5></dd>
-                        <dd><h5>Start Date: {{ attendee.event.startDate|date('Y-m-d') }}</h5></dd>
-                        <dd><h5>End Date: {{ attendee.event.endDate|date('Y-m-d') }}</h5></dd>
-                    </dl>
-                    <a href="{{ path('showevents', {'eventid': event.id}) }}">
-                        <button style="margin-left: 1.5%;" class="btn btn-primary">Continue</button>
-                    </a>
-                </div>
+
+                <!-- right menu quick links -->
+                <div class="admin-form">
+                    <h3><small>Attendee Name</small></h3>
+                    <hr class="short">
+                    <h4><a href="">{{ attendee.name }}</a> </h4>
+
+                    <br><br>
+
+                    <h3><small>Event Name</small></h3>
+                    <hr class="short">
+                    <h4><a href="{{ path('showevents', {'eventid': event.id}) }}">{{ attendee.event.name }}</a></h4>
+
+                    <br><br>
+
+                    <h3><small>Event Dates</small></h3>
+                    <hr class="short">
+                    <h4 class="text-danger">Start Date: {{ attendee.event.startDate|date('Y-m-d') }}</h4>
+                    <h4 class="text-danger">End Date: {{ attendee.event.endDate|date('Y-m-d') }}</h4>
+
+                </div><!-- right menu quick links -->
+
             </aside>
             <!-- end: .tray-right -->
         </section>

@@ -69,13 +69,13 @@ class Attendee
 
     /**
      * @Assert\Date()
-     * @ORM\Column(name="checkin", type="date", nullable=true)
+     * @ORM\Column(name="checkin", type="string", nullable=true)
      */
     private $checkin;
 
     /**
      * @Assert\Date()
-     * @ORM\Column(name="checkout", type="date", nullable=true)
+     * @ORM\Column(name="checkout", type="string", nullable=true)
      */
     private $checkout;
 

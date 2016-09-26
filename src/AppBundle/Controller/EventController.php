@@ -8,8 +8,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Attendee;
 use AppBundle\Form\Events\AddEventType;
+use AppBundle\Form\Events\CheckinCheckoutType;
 use AppBundle\Form\Events\EditEventType;
 use AppBundle\Util\EntityBuilder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -69,7 +69,6 @@ class EventController extends Controller
         return $this->render(':events:addanevent.html.twig', array('eventform' => $eventform->createView()));
     }
 
-
     /**
      * @Route("/events", name="listevents")
      */
@@ -83,7 +82,6 @@ class EventController extends Controller
 
         return $this->render(':events:eventslist.html.twig', array('events'=>$events));
     }
-
 
     /**
      * @Route("/events/{eventid}", name="showevents")
@@ -152,6 +150,40 @@ class EventController extends Controller
             }
         }
         return $this->render(':events:editevent.html.twig', array('event'=>$event, 'editform' => $editform->createView()));
+    }
+
+    /**
+     * @Route("/attendee/{attendeeId}/checkin-checkout", name="checkincheckout")
+     */
+    public function checkInCheckOutAction(Request $request, $attendeeId){
+
+        $attendeeService = $this->container->get('attendeeservice');
+
+        //get attendee
+        $attendee = $attendeeService->findOneById(['id' => $attendeeId]);
+
+
+        //get event form to edit
+        $form = $this->createForm(CheckinCheckoutType::class, $attendee);
+        $form->handleRequest($request);// handle form request
+        //when form is submitted and valied
+        if ($form->isSubmitted()) {
+            $checkin = $form->get('checkin')->getData();
+            $checkout = $form->get('checkout')->getData();
+
+            $attendee->setCheckin($checkin);
+            $attendee->setCheckout($checkout);
+
+            $attendeeService->saveEntity($attendee);
+
+            $referer = $this->get('request_stack')->getCurrentRequest()
+                ->headers
+                ->get('referer');
+            return $this->redirect($referer);
+
+        }
+
+        return $this->render(':events:checkincheckout.html.twig', array('attendee'=>$attendee, 'form' => $form->createView()));
     }
 
 }

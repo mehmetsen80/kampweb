@@ -271,12 +271,4 @@ class UserController extends Controller
         return $this->render(':user:contact.html.twig', array('contactform' => $contactform->createView()));
     }
 
-    /**
-     * @Route("/proquest")
-     */
-    public function redirectActioun(){
-        return $this->redirect('http://search.proquest.com/ebrary?accountid=149763');
-    }
-
-
 }

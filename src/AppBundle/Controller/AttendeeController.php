@@ -17,6 +17,23 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AttendeeController extends Controller
 {
+
+    /**
+     * @Route("/delete-attendee/{id}", name="deleteattendee")
+     */
+    public function deleteAttendeeAction($id){
+
+        $attendeeService = $this->container->get('attendeeservice');
+
+        $attendeeService->removeById($id);
+
+        $referer = $this->get('request_stack')->getCurrentRequest()
+            ->headers
+            ->get('referer');
+        return $this->redirect($referer);
+    }
+
+
     /**
      * @Route("/attendee/{userid}/event/{eventid}", name="addattendees")
      */
