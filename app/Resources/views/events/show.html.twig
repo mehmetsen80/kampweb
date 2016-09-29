@@ -1,6 +1,7 @@
 {% extends '::default.html.twig' %}
 
 {% block stylesheets %}
+
     <!-- Datatables ColReorder Addon CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css') }}">
     <!-- Datatables CSS -->
@@ -381,7 +382,7 @@
                     "sNext": ""
                 }
             },
-            "iDisplayLength": 5,
+            "iDisplayLength": 10,
             "aLengthMenu": [
                 [5, 10, 25, 50, -1],
                 [5, 10, 25, 50, "All"]
