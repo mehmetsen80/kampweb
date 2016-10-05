@@ -1,5 +1,4 @@
 {% extends '::default.html.twig' %}
-
 {% block stylesheets %}
 
     <!-- Font CSS (Via CDN) -->
@@ -9,6 +8,8 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/skin/default_skin/css/theme.css') }}">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
+
     <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" type="text/css" media="all"/>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/daterange/daterangepicker.css') }}">
@@ -17,9 +18,7 @@
 {% endblock %}
 
 {% block body %}
-
-    <body class="blank-page sb-sl-o sb-r-c onload-check" style="min-height: 686px;">
-
+    <body class="ecommerce-page" xmlns="http://www.w3.org/1999/html">
     <!-- Start: Content-Wrapper -->
     <section id="content_wrapper">
         <!-- Start: TOPBAR -->
@@ -40,90 +39,93 @@
                 </ol>
             </div>
         </header>
-
+        <!-- End: TOPBAR -->
+        <!-- Start Contet -->
         <!-- Begin: Content -->
-        <section id="content" class="animated fadeIn">
-            <div class="panel mb25 mt5">
-                <div class="panel-heading">
-                    <span class="panel-title hidden-xs"> Check in or Check out a User</span>
-                </div>
-                <div class="panel-body p20 pb10">
-                    <div class="tab-content pn br-n admin-form">
-                        <div id="tab1_1" class="tab-pane active">
 
-                            <div class="section row mbn">
-                                <div class="col-md-12 pl15">
-                                    <div class="section row mb15">
-                                        <div class="col-xs-12">
-                                            <form method="post"
-                                                  action="{{ path('checkincheckout', {'attendeeId': attendee.id}) }}"
-                                                  id="admin-form">
-
-                                                <div class="section row mb15">
-                                                    <div class="col-xs-6">
-                                                        <label for="datepicker1" class="field prepend-icon">
-                                                            {{ form_widget(form.checkin, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'name':'datepicker1', 'type':'text', 'placeholder':"Start Date"}}) }}
-                                                            <label class="field-icon">
-                                                                <i class="fa fa-calendar-o"></i>
-                                                            </label>
+        <section id="content" class="table-layout animated fadeIn">
+            <!-- begin: .tray-center -->
+            <div class="tray tray-center">
+                <!-- create new order panel -->
+                <div class="panel mb25 mt5">
+                    <div class="panel-heading">
+                        <span class="panel-title hidden-xs"> Check in & Check out </span>
+                    </div>
+                    <div class="panel-body p20 pb10">
+                        <div class="tab-content pn br-n admin-form">
+                            <form method="post" action="{{ path('checkincheckout', {'attendeeId': attendee.id, 'eventid':attendee.event.id}) }}" id="admin-form">
+                                <div id="tab1_1" class="tab-pane active">
+                                    <div class="section row mbn">
+                                        <div class="col-md-12 pl15">
+                                            <div class="section row mb15">
+                                                <div class="col-xs-12">
+                                                    <label for="name1" class="field prepend-icon">
+                                                        {{ form_widget(form.checkin, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'name':'datepicker1', 'type':'text', 'placeholder':"Start Date"}}) }}
+                                                        <label for="name1" class="field-icon">
+                                                            <i class="fa fa-user"></i>
                                                         </label>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <label for="datepicker1" class="field prepend-icon">
-                                                            {{ form_widget(form.checkout, {'id':'datepicker2', 'attr': {'class': 'gui-input', 'name':'datepicker2', 'type':'text', 'placeholder':"End Date"}}) }}
-                                                            <label class="field-icon">
-                                                                <i class="fa fa-calendar-o"></i>
-                                                            </label>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="section row mb15">
+                                                <div class="col-xs-12">
+                                                    <label for="name1" class="field prepend-icon">
+                                                        {{ form_widget(form.checkout, {'id':'datepicker2', 'attr': {'class': 'gui-input', 'name':'datepicker2', 'type':'text', 'placeholder':"End Date"}}) }}
+                                                        <label for="name1" class="field-icon">
+                                                            <i class="fa fa-user"></i>
                                                         </label>
-                                                    </div>
+                                                    </label>
                                                 </div>
-
-                                                <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">×</button>
-                                                        <h3>Dialog</h3>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <iframe src="{{ path('checkincheckout', {'attendeeId': attendee.id}) }}" style="zoom:0.60" width="99.6%" height="250" frameborder="0"></iframe>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button class="btn" data-dismiss="modal">OK</button>
-                                                    </div>
-                                                </div>
-
-                                                <button class="btn btn-primary" type="submit">Save</button>
-                                            </form>
+                                            </div>
                                         </div>
+
+                                        <button style="margin-left: 1.5%;" class="btn btn-primary" type="submit">Submit</button>
+
+                                        <a href="{{ path('showevents', {'eventid': attendee.event.id}) }}">
+                                            <button style="margin-left: 1.5%;" class="btn btn-danger ">Cancel</button>
+                                        </a>
+
                                     </div>
+                                    <!-- end section row -->
                                 </div>
-
-                                {#<div class="col-md-3">#}
-                                {#<div class="fileupload fileupload-new admin-form" data-provides="fileupload">#}
-                                {#<div class="fileupload-preview thumbnail mb15">#}
-                                {#<img data-src="holder.js/100%x147" alt="holder">#}
-                                {#</div>#}
-                                {#<span class="button btn-system btn-file btn-block ph5">#}
-                                {#<span class="fileupload-new">Add</span>#}
-                                {#<span class="fileupload-exists">Change</span>#}
-                                {#<input type="file">#}
-                                {#</span>#}
-                                {#</div>#}
-                                {#</div>#}
-
-                            </div>
-                            <!-- end section row -->
+                                {{ form_row(form._token) }}
+                            </form>
                         </div>
-                        {{ form_row(form._token) }}
-                        </form>
                     </div>
                 </div>
             </div>
+            <!-- begin: .tray-right -->
+            <aside class="tray tray-right tray290">
+
+                <!-- right menu quick links -->
+                <div class="admin-form">
+                    <h3><small>Attendee Name</small></h3>
+                    <hr class="short">
+                    <h4><a href="">{{ attendee.name }}</a> </h4>
+
+                    <br><br>
+
+                    <h3><small>Event Name</small></h3>
+                    <hr class="short">
+                    <h4><a href="#">{{ attendee.event.name }}</a></h4>
+
+                    <br><br>
+
+                    <h3><small>Event Dates</small></h3>
+                    <hr class="short">
+                    <h4 class="text-danger">Start Date: {{ attendee.event.startdate|date('m-d-Y') }}</h4>
+                    <h4 class="text-danger">End Date: {{ attendee.event.enddate|date('m-d-Y') }}</h4>
+
+                </div><!-- right menu quick links -->
+
+            </aside>
+            <!-- end: .tray-right -->
         </section>
         <!-- End: Content -->
-
-
     </section>
+    <!-- END: PAGE SCRIPTS -->
     </body>
+    <!-- End: Content -->
 {% endblock %}
 {% block javascripts %}
     <!-- jQuery -->
@@ -133,7 +135,6 @@
     <script src="{{ asset('assets/js/utility/utility.js') }}"></script>
     <script src="{{ asset('assets/js/demo/demo.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
-
     <script src="{{ asset('assets/admin-tools/admin-forms/js/jquery-ui-datepicker.min.js') }}"></script>
 
     <script type="text/javascript">
@@ -148,21 +149,12 @@
             Core.init();
             /* @custom validation method (smartCaptcha)
              ------------------------------------------------------------------ */
+
         });
+    </script>
+
+    <script>
         $("#datepicker1").datepicker({
-            prevText: '<i class="fa fa-chevron-left"></i>',
-            nextText: '<i class="fa fa-chevron-right"></i>',
-            showButtonPanel: false,
-            beforeShow: function(input, inst) {
-                var newclass = 'admin-form';
-                var themeClass = $(this).parents('.admin-form').attr('class');
-                var smartpikr = inst.dpDiv.parent();
-                if (!smartpikr.hasClass(themeClass)) {
-                    inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');
-                }
-            }
-        });
-        $("#datepicker2").datepicker({
             prevText: '<i class="fa fa-chevron-left"></i>',
             nextText: '<i class="fa fa-chevron-right"></i>',
             showButtonPanel: false,
@@ -177,4 +169,21 @@
         });
     </script>
 
+    <script>
+        $("#datepicker2").datepicker({
+            prevText: '<i class="fa fa-chevron-left"></i>',
+            nextText: '<i class="fa fa-chevron-right"></i>',
+            showButtonPanel: false,
+            beforeShow: function(input, inst) {
+                var newclass = 'admin-form';
+                var themeClass = $(this).parents('.admin-form').attr('class');
+                var smartpikr = inst.dpDiv.parent();
+                if (!smartpikr.hasClass(themeClass)) {
+                    inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');
+                }
+            }
+        });
+    </script>
 {% endblock %}
+
+

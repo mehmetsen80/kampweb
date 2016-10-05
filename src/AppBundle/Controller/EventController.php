@@ -153,15 +153,14 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/attendee/{attendeeId}/checkin-checkout", name="checkincheckout")
+     * @Route("/attendee/{attendeeId}/event/{eventid}/checkin-checkout", name="checkincheckout")
      */
-    public function checkInCheckOutAction(Request $request, $attendeeId){
+    public function checkInCheckOutAction(Request $request, $attendeeId, $eventid){
 
         $attendeeService = $this->container->get('attendeeservice');
 
         //get attendee
         $attendee = $attendeeService->findOneById(['id' => $attendeeId]);
-
 
         //get event form to edit
         $form = $this->createForm(CheckinCheckoutType::class, $attendee);
@@ -176,10 +175,7 @@ class EventController extends Controller
 
             $attendeeService->saveEntity($attendee);
 
-            $referer = $this->get('request_stack')->getCurrentRequest()
-                ->headers
-                ->get('referer');
-            return $this->redirect($referer);
+            return $this->redirectToRoute('showevents', array('eventid' => $attendee->getEvent()->getId()));
 
         }
 
