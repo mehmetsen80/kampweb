@@ -39,6 +39,8 @@ class DefaultController extends Controller
         $eventService = $this->get('eventservice');
         $userService = $this->get('userservice');
         $attendeeService = $this->get('attendeeservice');
+        $dependentService = $this->get('dependentservice');
+        $dependents = $dependentService->findAll();
         $events = $eventService->findAll();
         $users = $userService->findAll();
         $attendees = $attendeeService->findAll();
@@ -48,7 +50,7 @@ class DefaultController extends Controller
         $youth = $this->getDoctrine()->getRepository('AppBundle:User')->loadByYouthAge();
         $student = $this->getDoctrine()->getRepository('AppBundle:User')->loadByStudent();
 
-        return $this->render(":user:dashboard.html.twig", array('events'=>$events, 'users'=>$users, 'male' => $male, 'female' => $female, 'adult' => $adult, 'youth' => $youth, 'student'=>$student, 'attendees'=>$attendees));
+        return $this->render(":user:dashboard.html.twig", array('events'=>$events, 'users'=>$users, 'male' => $male, 'female' => $female, 'adult' => $adult, 'youth' => $youth, 'student'=>$student, 'attendees'=>$attendees, 'dependents'=>$dependents));
 
     }
 

@@ -12,8 +12,10 @@
 
     <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" type="text/css" media="all"/>
 
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('assets/vendor/plugins/datepicker/css/bootstrap-datetimepicker.css') }}">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/daterange/daterangepicker.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/plugins/datepicker/css/bootstrap-datetimepicker.css') }}">
 
 {% endblock %}
 
@@ -28,11 +30,9 @@
                     <li class="crumb-active">
                         <a href="{{ path('dashboard') }}">Dashboard</a>
                     </li>
-
                     <li class="crumb-link">
                         <a href="{{ path('listevents') }}">Event List</a>
                     </li>
-
                     <li class="crumb-link">
                         <a href="#">Event</a>
                     </li>
@@ -53,7 +53,9 @@
                     </div>
                     <div class="panel-body p20 pb10">
                         <div class="tab-content pn br-n admin-form">
-                            <form method="post" action="{{ path('checkincheckout', {'attendeeId': attendee.id, 'eventid':attendee.event.id}) }}" id="admin-form">
+                            <form method="post"
+                                  action="{{ path('checkincheckout', {'attendeeId': attendee.id, 'eventid':attendee.event.id}) }}"
+                                  id="admin-form">
                                 <div id="tab1_1" class="tab-pane active">
                                     <div class="section row mbn">
                                         <div class="col-md-12 pl15">
@@ -79,7 +81,9 @@
                                             </div>
                                         </div>
 
-                                        <button style="margin-left: 1.5%;" class="btn btn-primary" type="submit">Submit</button>
+                                        <button style="margin-left: 1.5%;" class="btn btn-primary" type="submit">
+                                            Submit
+                                        </button>
 
                                         <a href="{{ path('showevents', {'eventid': attendee.event.id}) }}">
                                             <button style="margin-left: 1.5%;" class="btn btn-danger ">Cancel</button>
@@ -99,19 +103,25 @@
 
                 <!-- right menu quick links -->
                 <div class="admin-form">
-                    <h3><small>Attendee Name</small></h3>
+                    <h3>
+                        <small>Attendee Name</small>
+                    </h3>
                     <hr class="short">
-                    <h4><a href="">{{ attendee.name }}</a> </h4>
+                    <h4><a href="">{{ attendee.name }}</a></h4>
 
                     <br><br>
 
-                    <h3><small>Event Name</small></h3>
+                    <h3>
+                        <small>Event Name</small>
+                    </h3>
                     <hr class="short">
                     <h4><a href="#">{{ attendee.event.name }}</a></h4>
 
                     <br><br>
 
-                    <h3><small>Event Dates</small></h3>
+                    <h3>
+                        <small>Event Dates</small>
+                    </h3>
                     <hr class="short">
                     <h4 class="text-danger">Start Date: {{ attendee.event.startdate|date('m-d-Y') }}</h4>
                     <h4 class="text-danger">End Date: {{ attendee.event.enddate|date('m-d-Y') }}</h4>
@@ -138,7 +148,7 @@
     <script src="{{ asset('assets/admin-tools/admin-forms/js/jquery-ui-datepicker.min.js') }}"></script>
 
     <script type="text/javascript">
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             "use strict";
 
             // Init Demo JS
@@ -158,7 +168,7 @@
             prevText: '<i class="fa fa-chevron-left"></i>',
             nextText: '<i class="fa fa-chevron-right"></i>',
             showButtonPanel: false,
-            beforeShow: function(input, inst) {
+            beforeShow: function (input, inst) {
                 var newclass = 'admin-form';
                 var themeClass = $(this).parents('.admin-form').attr('class');
                 var smartpikr = inst.dpDiv.parent();
@@ -174,7 +184,7 @@
             prevText: '<i class="fa fa-chevron-left"></i>',
             nextText: '<i class="fa fa-chevron-right"></i>',
             showButtonPanel: false,
-            beforeShow: function(input, inst) {
+            beforeShow: function (input, inst) {
                 var newclass = 'admin-form';
                 var themeClass = $(this).parents('.admin-form').attr('class');
                 var smartpikr = inst.dpDiv.parent();

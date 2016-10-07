@@ -44,8 +44,8 @@
                     <div class="col-sm-4 col-xl-3">
                         <div class="panel panel-tile text-center br-a br-grey">
                             <div class="panel-body">
-                                <h1 class="fs30 mt5 mbn">$58000</h1>
-                                <h6 class="text-warning">Revenue</h6>
+                                <h1 class="fs30 mt5 mbn">{{ dependents|length }}</h1>
+                                <h6 class="text-warning">Dependents</h6>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,6 @@
                                 <tr class="bg-light">
                                     <th class="">Attendee</th>
                                     <th class="">Event</th>
-                                    <th class="">Revenue</th>
                                     <th class="">Event Status</th>
                                 </tr>
                                 </thead>
@@ -110,7 +109,6 @@
                                 <tr>
                                     <td class="">{{ attendee.name }}</td>
                                     <td class="">{{ attendee.event.name }}</td>
-                                    <td class="">$215</td>
                                     <td class="">
                                         {% if 'now'|date('Y-m-d') < attendee.event.startDate|date('Y-m-d') %}
                                             <div class="btn-group text-center">
@@ -139,71 +137,71 @@
                     </div>
                 </div>
 
-                <!-- info traffic panels -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <span class="panel-title">Top Locations</span>
-                            </div>
-                            <div class="panel-body pn">
-                                <table class="table mbn tc-med-1 tc-bold-last">
-                                    <thead>
-                                    <tr class="">
-                                        <th>State</th>
-                                        <th>Male</th>
-                                        <th>Female</th>
-                                        <th>Youth</th>
-                                        <th>Adult</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <span class="flag-xs flag-us mr5 va-b"></span>Texas</td>
-                                        <td>28%</td>
-                                        <td>2%</td>
-                                        <td>12%</td>
-                                        <td>8%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="flag-xs flag-de mr5 va-b"></span>California</td>
-                                        <td>12%</td>
-                                        <td>5%</td>
-                                        <td>2%</td>
-                                        <td>19%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="flag-xs flag-fr mr5 va-b"></span>Florida</td>
-                                        <td>14%</td>
-                                        <td>15%</td>
-                                        <td>12%</td>
-                                        <td>29%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="flag-xs flag-tr mr5 va-b"></span>New Jersey</td>
-                                        <td>22%</td>
-                                        <td>11%</td>
-                                        <td>21%</td>
-                                        <td>19%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="flag-xs flag-es mr5 va-b"></span>Istanbul</td>
-                                        <td>33%</td>
-                                        <td>23%</td>
-                                        <td>18%</td>
-                                        <td>12%</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {#<!-- info traffic panels -->#}
+                {#<div class="row">#}
+                    {#<div class="col-md-12">#}
+                        {#<div class="panel">#}
+                            {#<div class="panel-heading">#}
+                                {#<span class="panel-title">Top Locations</span>#}
+                            {#</div>#}
+                            {#<div class="panel-body pn">#}
+                                {#<table class="table mbn tc-med-1 tc-bold-last">#}
+                                    {#<thead>#}
+                                    {#<tr class="">#}
+                                        {#<th>State</th>#}
+                                        {#<th>Male</th>#}
+                                        {#<th>Female</th>#}
+                                        {#<th>Youth</th>#}
+                                        {#<th>Adult</th>#}
+                                    {#</tr>#}
+                                    {#</thead>#}
+                                    {#<tbody>#}
+                                    {#<tr>#}
+                                        {#<td>#}
+                                            {#<span class="flag-xs flag-us mr5 va-b"></span>Texas</td>#}
+                                        {#<td>28%</td>#}
+                                        {#<td>2%</td>#}
+                                        {#<td>12%</td>#}
+                                        {#<td>8%</td>#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#<td>#}
+                                            {#<span class="flag-xs flag-de mr5 va-b"></span>California</td>#}
+                                        {#<td>12%</td>#}
+                                        {#<td>5%</td>#}
+                                        {#<td>2%</td>#}
+                                        {#<td>19%</td>#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#<td>#}
+                                            {#<span class="flag-xs flag-fr mr5 va-b"></span>Florida</td>#}
+                                        {#<td>14%</td>#}
+                                        {#<td>15%</td>#}
+                                        {#<td>12%</td>#}
+                                        {#<td>29%</td>#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#<td>#}
+                                            {#<span class="flag-xs flag-tr mr5 va-b"></span>New Jersey</td>#}
+                                        {#<td>22%</td>#}
+                                        {#<td>11%</td>#}
+                                        {#<td>21%</td>#}
+                                        {#<td>19%</td>#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#<td>#}
+                                            {#<span class="flag-xs flag-es mr5 va-b"></span>Istanbul</td>#}
+                                        {#<td>33%</td>#}
+                                        {#<td>23%</td>#}
+                                        {#<td>18%</td>#}
+                                        {#<td>12%</td>#}
+                                    {#</tr>#}
+                                    {#</tbody>#}
+                                {#</table>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
 
             </div>
             <!-- end: .tray-center -->
