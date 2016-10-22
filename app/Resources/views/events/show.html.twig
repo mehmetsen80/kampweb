@@ -1,5 +1,4 @@
 {% extends '::default.html.twig' %}
-
 {% block stylesheets %}
 
     <!-- Datatables ColReorder Addon CSS -->
@@ -86,9 +85,10 @@
 
             {% if is_granted('ROLE_ADMIN') %}
                 <span style="margin: 3%; " class="text-center sub alt-font"><h3>Search Users</h3></span>
-                <button style="margin-bottom: 20px;" type="button" class="center-block btn btn-primary"
+                <a href="#attendeeTable"><button style="margin-bottom: 20px;" type="button" class="center-block btn btn-primary"
                         data-toggle="modal" data-target=".bs-example-modal-lg">Search
                 </button>
+                </a>
 
                 <div id="attendeeTable" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
                      aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -161,11 +161,14 @@
                                 <th>Dependents</th>
                                 <th>Check in Date</th>
                                 <th>Check out Date</th>
-                                <th>Price</th>
+                                <th>Cost</th>
+                                <th class=""></th>
                                 <th class=""></th>
                             </tr>
                             </thead>
                             <tbody>
+
+
                             {% for attendee in attendees %}
                                 <tr>
                                     <td>
@@ -192,7 +195,116 @@
                                             ><b>{{ attendee.checkout }}</b></a>
                                         {% endif %}
                                     </td>
-                                    <td>$100</td>
+                                    <td>
+                                        {% if attendee.dependents|length > 0 %}
+                                        {%  set dependents = attendee.dependents %}
+                                        {% for dependent in dependents %}
+
+                                            {% set difference1 = date(dependent.attendee.checkin).diff(date(dependent.attendee.checkout)) %}
+
+                                            {%  if dependent.status == "1" %}
+                                                {% set value = 75 %}
+                                            {% elseif dependent.status == "2" %}
+                                                {% set value = 100 %}
+                                            {% elseif dependent.status == "3" %}
+                                                {% set value = 150 %}
+                                            {% elseif dependent.status == "4" %}
+                                                {% set value = 300 %}
+                                            {% elseif dependent.status == "5" %}
+                                                {% set value = 450 %}
+                                            {% elseif dependent.status == "8" %}
+                                                {% set value = 0 %}
+                                            {% elseif dependent.status == "6" %}
+                                                {% set value = 60 * difference1.days %}
+                                            {% elseif dependent.status == "7" %}
+                                                {% set value = 30 * difference1.days %}
+                                            {% else %}
+                                                {% set value = 0 %}
+                                            {% endif %}
+
+
+
+                                        {% set difference = date(attendee.checkin).diff(date(attendee.checkout)) %}
+
+                                        {%  if attendee.status == "1" %}
+                                            ${{ 75 + value }}
+                                        {% elseif attendee.status == "2" %}
+                                            ${{ 100 + value }}
+                                        {% elseif attendee.status == "3" %}
+                                            ${{ 150 + value }}
+                                        {% elseif attendee.status == "4" %}
+                                            ${{ 300 + value }}
+                                        {% elseif attendee.status == "5" %}
+                                            ${{ 450 + value }}
+                                        {% elseif attendee.status == "8" %}
+                                            ${{ 0 + value }}
+                                        {% elseif attendee.status == "6" %}
+                                            ${{ (60 * difference.days) + value }}
+                                        {% elseif attendee.status == "7" %}
+                                            ${{ (60 * difference.days) + value }}
+                                        {% endif %}
+                                        {% endfor %}
+                                            {% else %}
+                                                {% set difference = date(attendee.checkin).diff(date(attendee.checkout)) %}
+
+                                                {%  if attendee.status == "1" %}
+                                                    ${{ 75 }}
+                                                {% elseif attendee.status == "2" %}
+                                                    ${{ 100 }}
+                                                {% elseif attendee.status == "3" %}
+                                                    ${{ 150 }}
+                                                {% elseif attendee.status == "4" %}
+                                                    ${{ 300  }}
+                                                {% elseif attendee.status == "5" %}
+                                                    ${{ 450  }}
+                                                {% elseif attendee.status == "6" %}
+                                                    ${{ 60 * difference.days }}
+                                                {% elseif attendee.status == "7" %}
+                                                    ${{ 60 * difference.days }}
+                                                {% endif %}
+                                        {% endif %}
+                                        {#{% switch attendee.status %}#}
+
+                                            {#{% case "1" %}#}
+
+                                                {#$75#}
+
+                                            {#{% case "2" %}#}
+
+                                                {#$100#}
+
+                                            {#{% case "3" %}#}
+
+                                                {#$150#}
+
+                                            {#{% case "4" %}#}
+
+                                                {#$300#}
+
+                                            {#{% case "5" %}#}
+
+                                                {#$450#}
+
+                                            {#{% case "6" %}#}
+
+                                                {#{{ difference * 60 }}#}
+
+                                            {#{% case "7" %}#}
+
+                                            {#{{ difference * 30 }}#}
+
+                                            {#{% default %}#}
+
+                                               {#N/A#}
+
+                                        {#{% endswitch %}#}
+
+                                    </td>
+
+                                    <td>
+                                        <b> <a href="{{ path('checkincheckout', {'attendeeId': attendee.id, 'eventid':event.id}) }}#edit"
+                                            >Edit</a></b>
+                                    </td>
 
                                     <td><a href="{{ path('deleteattendee', {'id': attendee.id}) }}"
                                            class="text-danger"
@@ -201,7 +313,6 @@
                                         </a>
                                     </td>
                                 </tr>
-
                             {% endfor %}
                             </tbody>
                         </table>
@@ -332,7 +443,7 @@
 
         $('#datatable').dataTable({
             "aoColumnDefs": [{
-                'bSortable': false,
+                'bSortable': true,
                 'aTargets': [-1]
             }],
             "oLanguage": {
@@ -356,7 +467,7 @@
     <script type="text/javascript">
         $('#datatable1').dataTable({
             "aoColumnDefs": [{
-                'bSortable': false,
+                'bSortable': true,
                 'aTargets': [-1]
             }],
             "oLanguage": {

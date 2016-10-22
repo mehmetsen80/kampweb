@@ -38,6 +38,21 @@ class ChangeInfoType extends AbstractType
                 'placeholder'=>'Select your gender...',
                 'required'=>true,
             ))
+
+            ->add('category', ChoiceType::class, array(
+                'choices' => array(
+                    'Elementary' => 'Elementary',
+                    'Middle School' => 'Middle School',
+                    'High School' => 'High School',
+                    'University' => 'University',
+                    'Adult' => 'Adult',
+                    'Both Parents' => 'Both Parents',
+                    'Kids(Under age 6) Free' => '8',
+                ),
+                'placeholder'=>'Select a category..',
+                'required'=>true,
+            ))
+
             ->add('cellphone', TextType::class, array(
                 'required'=>true,
             ))

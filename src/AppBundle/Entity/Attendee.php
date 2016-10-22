@@ -80,6 +80,12 @@ class Attendee
     private $checkout;
 
     /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $status;
+
+    /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Dependent", mappedBy="attendee")
      */
     protected $dependents;
@@ -398,5 +404,31 @@ class Attendee
     public function getDependents()
     {
         return $this->dependents;
+    }
+
+
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Attendee
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

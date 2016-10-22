@@ -32,8 +32,23 @@ class DependentType extends AbstractType
                 ),
                 'required' => True,
                 ))
+
+            ->add('status', ChoiceType::class, array(
+                'choices' => array(
+                    'Primary School $75' => '1',
+                    'Middle School $100' => '2',
+                    'High School $150' => '3',
+                    'University Student $300' => '4',
+                    'Adult Complete $450' => '5',
+                    'Adult Daily $60' => '6',
+                    'Parents $30' => '7',
+                    'Kids(Under age 6) Free' => '8',
+                ),
+                'placeholder'=>'Select a category..',
+                'required'=>true,
+            ))
             ->add('age', TextType::class, array(
-                'required' => True
+                'required' => False
             ))
             ->add('email', EmailType::class, array(
                 'required'=> False

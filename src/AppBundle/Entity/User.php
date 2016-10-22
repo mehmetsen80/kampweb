@@ -70,6 +70,12 @@ class User implements AdvancedUserInterface, \Serializable
     protected $gender;
 
     /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $category;
+
+    /**
      * @Assert\Date()
      * @ORM\Column(name="birthday", type="datetime", nullable=true)
      */
@@ -86,6 +92,7 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="createdby")
      */
     protected $events;
+
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Attendee", mappedBy="createdBy")
@@ -589,5 +596,47 @@ class User implements AdvancedUserInterface, \Serializable
     public function getAttendeeusername()
     {
         return $this->attendeeusername;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param string $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+
+
+    /**
+     * Set status
+     *
+     * @param \AppBundle\Entity\Formula $status
+     *
+     * @return User
+     */
+    public function setStatus(\AppBundle\Entity\Formula $status = null)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return \AppBundle\Entity\Formula
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

@@ -12,6 +12,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Attendee;
 use AppBundle\Entity\Dependent;
 use AppBundle\Entity\Event;
+use AppBundle\Form\AttendeeType;
 use AppBundle\Form\DependentType;
 use AppBundle\Util\EntityBuilder;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -49,12 +50,13 @@ class DependentController extends Controller
 
             $name = $addform->get('name')->getData();
             $gender = $addform->get('gender')->getData();
+            $status = $addform->get('status')->getData();
             $email = $addform->get('email')->getData();
             $age = $addform->get('age')->getData();
             $ccode = $addform->get('ccode')->getData();
             $cellphone = $addform->get('cellphone')->getData();
 
-            $dependent = EntityBuilder::newDependent($attendee, $name, $email, $gender, $age, $ccode, $cellphone);
+            $dependent = EntityBuilder::newDependent($attendee, $name, $email, $gender, $status, $age, $ccode, $cellphone);
 
             $dependentService->saveEntity($dependent);
 
@@ -67,6 +69,8 @@ class DependentController extends Controller
             return $this->redirect($referer);
 
         }
+
+        $this->get('twig')->addGlobal('dependents', $dependents);
 
             return $this->render(':dependents:savedependents.html.twig', array('attendee'=>$attendee, 'event'=>$eventid, 'dependents'=>$dependents, 'addform'=>$addform->createView()));
     }

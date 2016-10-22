@@ -42,7 +42,6 @@
         <!-- End: TOPBAR -->
         <!-- Start Contet -->
         <!-- Begin: Content -->
-
         <section id="content" class="table-layout animated fadeIn">
             <!-- begin: .tray-center -->
             <div class="tray tray-center">
@@ -53,18 +52,25 @@
                     </div>
                     <div class="panel-body p20 pb10">
                         <div class="tab-content pn br-n admin-form">
-                            <form method="post"
+                            <form method="post""
                                   action="{{ path('checkincheckout', {'attendeeId': attendee.id, 'eventid':attendee.event.id}) }}"
                                   id="admin-form">
                                 <div id="tab1_1" class="tab-pane active">
                                     <div class="section row mbn">
-                                        <div class="col-md-12 pl15">
+                                        <div class="col-md-12 mb15">
+                                            <div class="section row mb15">
+                                                <div class="col-xs-12">
+                                                    <label for="name1" class="field prepend-icon">
+                                                        {{ form_widget(form.status, {'attr': {'class': 'gui-input', 'name':'datepicker1', 'type':'text', 'placeholder':"Select a Category"}}) }}
+                                                    </label>
+                                                </div>
+                                            </div>
                                             <div class="section row mb15">
                                                 <div class="col-xs-12">
                                                     <label for="name1" class="field prepend-icon">
                                                         {{ form_widget(form.checkin, {'id':'datepicker1', 'attr': {'class': 'gui-input', 'name':'datepicker1', 'type':'text', 'placeholder':"Start Date"}}) }}
                                                         <label for="name1" class="field-icon">
-                                                            <i class="fa fa-user"></i>
+                                                            <i class="fa fa-calendar"></i>
                                                         </label>
                                                     </label>
                                                 </div>
@@ -74,19 +80,20 @@
                                                     <label for="name1" class="field prepend-icon">
                                                         {{ form_widget(form.checkout, {'id':'datepicker2', 'attr': {'class': 'gui-input', 'name':'datepicker2', 'type':'text', 'placeholder':"End Date"}}) }}
                                                         <label for="name1" class="field-icon">
-                                                            <i class="fa fa-user"></i>
+                                                            <i class="fa fa-calendar"></i>
                                                         </label>
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <button style="margin-left: 1.5%;" class="btn btn-primary" type="submit">
-                                            Submit
-                                        </button>
+                                                <button style="margin-left: 1.5%;" class="btn btn-primary" type="submit">
+                                                    Continue
+                                                </button>
+
 
                                         <a href="{{ path('showevents', {'eventid': attendee.event.id}) }}">
-                                            <button style="margin-left: 1.5%;" class="btn btn-danger ">Cancel</button>
+                                            <button style="margin-left: 1.5%;" type="button" class="btn btn-danger ">Cancel</button>
                                         </a>
 
                                     </div>
@@ -123,8 +130,8 @@
                         <small>Event Dates</small>
                     </h3>
                     <hr class="short">
-                    <h4 class="text-danger">Start Date: {{ attendee.event.startdate|date('m-d-Y') }}</h4>
-                    <h4 class="text-danger">End Date: {{ attendee.event.enddate|date('m-d-Y') }}</h4>
+                    <h4 ><a href="#">Start Date: {{ attendee.event.startdate|date('m-d-Y') }}</a></h4>
+                    <h4 ><a href="#">End Date: {{ attendee.event.enddate|date('m-d-Y') }}</a></h4>
 
                 </div><!-- right menu quick links -->
 
@@ -195,5 +202,3 @@
         });
     </script>
 {% endblock %}
-
-

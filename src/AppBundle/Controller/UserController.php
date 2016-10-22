@@ -78,6 +78,7 @@ class UserController extends Controller
             $cellphone = $updateform->get('cellphone')->getData();
             $birthdate = $updateform->get('birthday')->getData();
             $gender = $updateform->get('gender')->getData();
+            $category= $updateform->get('category')->getData();
 
                 $user->setFullname($newfullname);
                 $user->setUsername($newusername);
@@ -86,7 +87,7 @@ class UserController extends Controller
                 $user->setCcode($ccode);
                 $user->setBirthDay($birthdate);
                 $user->setGender($gender);
-
+                $user->setCategory($category);
             $user = $userService->saveEntity($user);
             //if event saved succcessfully show flash message
             if(!is_null($user)){

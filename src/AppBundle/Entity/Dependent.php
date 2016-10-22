@@ -25,30 +25,36 @@ class Dependent
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      * @ORM\Column(type="string", type="string", length=100, nullable=true)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      * @ORM\Column(type="string", length=6, nullable=true)
      */
-    private $gender;
+    protected $gender;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $status;
 
     /**
      * @ORM\Column(name="age", type="string", nullable=true)
      */
-    private $age;
+    protected $age;
 
     /**
      * @var string
      * @ORM\Column(type="string", length=6, nullable=true)
      */
-    private $email;
+    protected $email;
 
     /**
      * @ORM\Column(name="ccode", type="string", nullable=true)
@@ -65,21 +71,27 @@ class Dependent
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Attendee", inversedBy="dependents")
      * @ORM\JoinColumn(name="attendeeid", referencedColumnName="id", onDelete="CASCADE")
      */
-    private $attendee;
+    protected $attendee;
+
+//    /**
+//     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Formula", inversedBy="status")
+//     * @ORM\JoinColumn(name="status", referencedColumnName="id", onDelete="CASCADE")
+//     */
+//    protected $formula;
 
     /**
      * @var datetime $createdat
      *
      * @ORM\Column(type="datetime")
      */
-    private $createdat;
+    protected $createdat;
 
     /**
      * @var datetime $modifiedat
      *
      * @ORM\Column(type="datetime")
      */
-    private $modifiedat;
+    protected $modifiedat;
 
     public function __construct() {
         $this->updatedTimestamps();
@@ -331,5 +343,45 @@ class Dependent
     public function getAge()
     {
         return $this->age;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+
+
+
+    /**
+     * Set status
+     * @return Dependent
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return \AppBundle\Entity\Formula
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

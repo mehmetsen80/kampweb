@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Attendee;
+use AppBundle\Form\AttendeeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,7 +38,7 @@ class AttendeeController extends Controller
     /**
      * @Route("/attendee/{userid}/event/{eventid}", name="addattendees")
      */
-    public function saveAttendee(Request $request, $userid, $eventid)
+    public function saveAttendee($userid, $eventid)
     {
 
         $createdBy = $this->getUser();
@@ -73,7 +74,7 @@ class AttendeeController extends Controller
                 'attendeesuccess',
                 'Attendee added successfully');
 
-            return new RedirectResponse($this->generateUrl('savedependent', array('attendeeId' => $attendee->getId(), 'eventid' => $eventid)));
+            return new RedirectResponse($this->generateUrl('checkincheckout', array('attendeeId' => $attendee->getId(), 'eventid' => $eventid)));
         }
         else{
             $this->addFlash(
@@ -87,5 +88,6 @@ class AttendeeController extends Controller
         }
 
     }
+
 
 }

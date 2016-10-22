@@ -9,10 +9,8 @@
 namespace AppBundle\Util;
 
 
-use AppBundle\Entity\Attendee;
 use AppBundle\Entity\Dependent;
 use AppBundle\Entity\Event;
-use AppBundle\Entity\Person;
 use AppBundle\Entity\User;
 use Doctrine\ORM\EntityManager;
 
@@ -28,22 +26,23 @@ class EntityBuilder
         $this->entityManager = $entityManager;
     }
 
-    public static function newPerson($fullname, $email, $gender, $birthday, $cellphone){
-        $person = new Person();
-        $person->setFullname($fullname);
-        $person->setEmail($email);
-        $person->setGender($gender);
-        $person->setBirthday($birthday);
-        $person->setCellphone($cellphone);
+//    public static function newPerson($fullname, $email, $gender, $birthday, $cellphone){
+//        $person = new Person();
+//        $person->setFullname($fullname);
+//        $person->setEmail($email);
+//        $person->setGender($gender);
+//        $person->setBirthday($birthday);
+//        $person->setCellphone($cellphone);
+//
+//        return $person;
+//    }
 
-        return $person;
-    }
-
-    public static function newDependent($attendee,$name, $email, $gender, $age, $ccode, $cellphone){
+    public static function newDependent($attendee,$name, $email, $gender, $status, $age, $ccode, $cellphone){
         $dependent = new Dependent();
         $dependent->setAttendee($attendee);
         $dependent->setName($name);
         $dependent->setGender($gender);
+        $dependent->setStatus($status);
         $dependent->setEmail($email);
         $dependent->setAge($age);
         $dependent->setCcode($ccode);
@@ -77,7 +76,6 @@ class EntityBuilder
 
         return $user;
     }
-
 
 
 //    public static function newAttendee($name, $createdBy, $username, $eventid){

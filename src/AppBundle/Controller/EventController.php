@@ -167,6 +167,7 @@ class EventController extends Controller
         $form->handleRequest($request);// handle form request
         //when form is submitted and valied
         if ($form->isSubmitted()) {
+
             $checkin = $form->get('checkin')->getData();
             $checkout = $form->get('checkout')->getData();
 
@@ -175,11 +176,61 @@ class EventController extends Controller
 
             $attendeeService->saveEntity($attendee);
 
-            return $this->redirectToRoute('showevents', array('eventid' => $attendee->getEvent()->getId()));
+            return $this->redirectToRoute('savedependent', array('attendeeId' => $attendee->getId(), 'eventid' => $eventid));
 
         }
 
         return $this->render(':events:checkincheckout.html.twig', array('attendee'=>$attendee, 'form' => $form->createView()));
+
     }
+
+//    /**
+//     * @Route("/attendee/{attendeeId}/event/{eventid}/checkin-checkout", name="checkincheckout")
+//     */
+//    public function calculateCost($attendeeId, $eventId, $dependentId){
+//        $daily = 0;
+//        $total = 0;
+//        $attendeeService = $this->container->get('attendeeservice');
+//
+//        $dependentService = $this->container->get('dependentservice');
+//
+//        $eventService = $this->container->get('eventservice');
+//
+//        //get attendee
+//        $attendee = $attendeeService->findOneById(['id' => $attendeeId]);
+//
+//        $dependentId = $dependentService->findOneById(['id'=>$dependentId]);
+//
+//        $numOfDays = $attendee->getCheckin() - $attendee->getCheckout();
+//
+//        switch ($attendeeId->getStatus()) {
+//            case "1":
+//                $total = 75;
+//                break;
+//            case "2":
+//                $total = 100;
+//                break;
+//            case "3":
+//                $total = 150;
+//                break;
+//            case "4":
+//                $total = 300;
+//                break;
+//            case "5":
+//                $total = 450;
+//                break;
+//            case "6":
+//                $daily = 60;
+//                $total = $daily * $numOfDays;
+//                break;
+//            case "7":
+//                $daily = 30;
+//                $total = $daily * $numOfDays;
+//                break;
+//        }
+//
+//    }
+
+
 
 }
